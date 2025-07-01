@@ -56,48 +56,17 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
-    // Reset current text buffer
-    [self.currentText setString:@""];
+    
 
-    // Create a new dictionary for the current element
-    NSMutableDictionary *elementDict = [NSMutableDictionary dictionary];
-    if (attributeDict.count > 0) {
-        elementDict[@"attributes"] = [attributeDict copy];
-    }
-    elementDict[@"children"] = [NSMutableArray array]; // Initialize children array
-
-    // Add the element to the current dictionary's children
-    NSMutableArray *currentChildren = self.currentDictionary[@"children"];
-    if (!currentChildren) {
-        currentChildren = [NSMutableArray array];
-        self.currentDictionary[@"children"] = currentChildren;
-    }
-    [currentChildren addObject:elementDict];
-
-    // Push current dictionary to stack and set new current dictionary
-    [self.elementStack addObject:self.currentDictionary];
-    self.currentDictionary = elementDict;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    // Trim and store text content if present
-    NSString *trimmedText = [self.currentText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    if (trimmedText.length > 0) {
-        self.currentDictionary[@"text"] = trimmedText;
-    }
-
-    // Pop the stack and restore the parent dictionary
-    self.currentDictionary = [self.elementStack lastObject];
-    [self.elementStack removeLastObject];
-}
-
-- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    // Append found characters to current text buffer
-    [self.currentText appendString:string];
+    
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
     NSLog(@"Parse error: %@", parseError);
+    NSLog(@"Error line: %ld, column: %ld", (long)[parser lineNumber], (long)[parser columnNumber]);
 }
 
 @end

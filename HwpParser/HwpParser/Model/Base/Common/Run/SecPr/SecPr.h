@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../HwpUnit.h"
+#import "HwpUnit.h"
 
 @interface SecPr : NSObject
 
