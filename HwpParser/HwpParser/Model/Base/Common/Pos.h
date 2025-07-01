@@ -17,8 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property BOOL holdAnchorAndSO;
 @property(strong) NSString* vertRelTo;
 @property(strong) NSString* horzRelTo;
-@property(strong) NSNumber* vertAlign;
-@property(strong) NSNumber* horzAlign;
+@property(assign) NSInteger vertAlign;
+@property(assign) NSInteger horzAlign;
 @property(strong) HwpUnit* vertOffset;
 @property(strong) HwpUnit* horzOffset;
 @end

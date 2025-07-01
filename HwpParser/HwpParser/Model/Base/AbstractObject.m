@@ -7,8 +7,6 @@
 
 #import "AbstractObject.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation AbstractShapeObjectType
 
 // id
@@ -28,5 +26,3 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize metaTag;
 
 @end
-
-NS_ASSUME_NONNULL_END

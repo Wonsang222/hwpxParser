@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 // #import <ZipArchive.h>
 #import "Logger.h"
-#import "Lib/XMLReader.h"
 #import "XMLParser.h"
 
 int main(int argc, const char * argv[]) {

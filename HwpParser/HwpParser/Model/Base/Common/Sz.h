@@ -10,11 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Sz : NSObject
-@property(strong) NSNumber* width;
-@property(strong) NSNumber* widthRelTo;
-@property(strong) NSNumber* height;
-@property(strong) NSNumber* heightRelTo;
-@property(strong) NSNumber* protect;
+@property(assign) NSInteger width;
+@property(assign) NSInteger widthRelTo;
+@property(assign) NSInteger height;
+@property(assign) NSInteger heightRelTo;
+@property(assign) NSInteger protect;
 @end
 
 NS_ASSUME_NONNULL_END
