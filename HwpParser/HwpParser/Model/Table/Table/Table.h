@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Base/AbstractObject.h"
+#import "../Base/AbstractObject.h"
 
 
 @interface Table : NSObject

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(xcodebuild:*)",
-      "Bash(\"/Users/hwangwonsang/Library/Developer/Xcode/DerivedData/HwpParser-fcswbagapooftuexdsdxnqlttzlj/Build/Products/Debug/HwpParser\")"
+      "Bash(\"/Users/hwangwonsang/Library/Developer/Xcode/DerivedData/HwpParser-fcswbagapooftuexdsdxnqlttzlj/Build/Products/Debug/HwpParser\")",
+      "Bash(rm:*)"
     ],
     "deny": []
   }
