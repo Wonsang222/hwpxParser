@@ -11,10 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Margin : NSObject
-@property(strong) HwpUnit* top;
-@property(strong) HwpUnit* left;
-@property(strong) HwpUnit* right;
-@property(strong) HwpUnit* bottom;
+@property(strong) NSString* top;
+@property(strong) NSString* left;
+@property(strong) NSString* right;
+@property(strong) NSString* bottom;
 
 // nullable
 

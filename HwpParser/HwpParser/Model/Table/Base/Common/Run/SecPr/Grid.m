@@ -8,5 +8,6 @@
 #import "Grid.h"
 
 @implementation Grid
-
+@synthesize lineGrid;
+@synthesize charGrid;
 @end

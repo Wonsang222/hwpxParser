@@ -9,7 +9,7 @@
 
 @interface Grid : NSObject
 
-@property(assign) NSInteger lineGrid;
-@property(assign) NSInteger charGrid;
+@property(strong) NSString* lineGrid;
+@property(strong) NSString* charGrid;
 
 @end

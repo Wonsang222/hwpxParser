@@ -15,7 +15,6 @@
 @implementation XMLParser
 
 - (NSMutableArray *)parseXMLFile:(NSString *)filePath {
-    // Initialize parser and data structures
     self.current = [NSMutableArray array];
     self.result = [NSMutableArray array];
 
@@ -56,8 +55,8 @@
     if ([elementName isEqualToString:@"hp:sec"]) {
         return;
     }
-    
-    NSString* openTag = qName;
+ 
+    NSString* openTag = elementName;
     
     if ([openTag isEqualToString:@"p"]) {
         openTag = @"paragraph";
@@ -71,17 +70,14 @@
     if (elemCls) {
         id instace = [[elemCls alloc] init];
         [instace setValuesForKeysWithDictionary:attributeDict];
-        
-        // 테스트 필요
-        
-    } else {
-        return;
+        [self.current addObject:elemCls];
     }
-    
-    
+
     /*
      
      t에는 text 포함 shit
+     
+     content일때는 string ++
      
      1. 여는 태그 나오면 클래스 찾아서 new
      2. attributes 순회하면서, nonnull 프로퍼티 데이터 생성 -> KVO
@@ -93,10 +89,28 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
-    if ([elementName isEqualToString:@"hp:sec"]) {
+    // 해당 태그가 끝났을때, 해당 객체가 프로퍼티인지 확인하는 과정
+    
+    if ([elementName isEqualToString:@"sec"]) {
         return;
     }
     
+    id current = [self.current lastObject];
+    if (current) {
+        id superior = [self.current lastObject];
+        // current 객체는 superior의 프로퍼티임
+        // 상위 객체가 있을때 프로퍼티로 ..
+        if (superior) {
+            NSString *currentName = NSStringFromClass(current);
+            // 앞글자 소문자로
+            NSString *smallLetteredProperty = [[[currentName substringToIndex:1] lowercaseString ] stringByAppendingString:[currentName substringFromIndex:1]];
+            [superior setValue:current forKey:smallLetteredProperty];
+        } else {
+            // 상위 객체가 없을때, 즉 하나의 최상위 태그
+            [self.result addObject:current];
+        }
+        [self.current removeLastObject];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {

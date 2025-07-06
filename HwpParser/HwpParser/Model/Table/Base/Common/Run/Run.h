@@ -9,8 +9,8 @@
 
 @interface Run : NSObject
 
-@property(assign) NSInteger charPrIDRef;
-@property(assign) NSInteger charTcld;
+@property(strong) NSString* charPrIDRef;
+@property(strong) NSString* charTcld;
 
 @end
 

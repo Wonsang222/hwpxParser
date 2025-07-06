@@ -11,12 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Paragraph : NSObject
 
-@property(nonnull,nonatomic, strong) NSNumber *identification;
-@property(nonnull,nonatomic, strong) NSNumber *paraPrlDRef;
-@property(nonnull,nonatomic, strong) NSNumber *styleIDRef;
-@property(assign) BOOL pageBreak;
-@property(assign) BOOL columnBreak;
-@property(assign) BOOL merged;
+@property(nonnull,nonatomic, strong) NSString *identification;
+@property(nonnull,nonatomic, strong) NSString *paraPrlDRef;
+@property(nonnull,nonatomic, strong) NSString *styleIDRef;
+@property(nonnull,nonatomic, strong) NSString * pageBreak;
+@property(nonnull,nonatomic, strong) NSString * columnBreak;
+@property(nonnull,nonatomic, strong) NSString * merged;
 
 // nullable
 
