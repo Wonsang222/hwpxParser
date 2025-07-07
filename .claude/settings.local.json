@@ -4,7 +4,8 @@
       "Bash(xcodebuild:*)",
       "Bash(/Users/hwangwonsang/Library/Developer/Xcode/DerivedData/HwpParser-fcswbagapooftuexdsdxnqlttzlj/Build/Products/Debug/HwpParser)",
       "Bash(ls:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(rg:*)"
     ],
     "deny": []
   }

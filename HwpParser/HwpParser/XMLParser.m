@@ -55,6 +55,10 @@
     if ([elementName isEqualToString:@"hp:sec"]) {
         return;
     }
+    
+    if ([elementName isEqualToString:@"hp:shapeComment"]) {
+        return;
+    }
  
     NSString* openTag = elementName;
     
@@ -66,6 +70,12 @@
                                                         withString:[[openTag substringToIndex:1] uppercaseString]];
     
     Class elemCls = NSClassFromString(clsName);
+    
+    // Dict 순회 -> check dict property type -> match the right type -> assign
+    
+    for (id elem in attributeDict) {
+        // KVO로 프로퍼티
+    }
     
     if (elemCls) {
         id instace = [[elemCls alloc] init];
