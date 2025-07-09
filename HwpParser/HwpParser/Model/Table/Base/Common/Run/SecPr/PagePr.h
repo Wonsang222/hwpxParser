@@ -12,9 +12,10 @@
 @interface PagePr : NSObject
 
 @property(nonnull,nonatomic, strong) NSString *landscape;
-@property(nonnull,nonatomic, strong) HwpUnit *width;
-@property(nonnull,nonatomic, strong) HwpUnit *height;
+@property(nonnull,nonatomic, strong) NSString *width;
+@property(nonnull,nonatomic, strong) NSString *height;
+@property(nonnull,nonatomic, strong) NSString *gutterType;
 // nullable
-@property(nullable, strong, nonatomic) Margin* margin;
+@property(nullable, strong, nonatomic)Margin * margin;
 
 @end

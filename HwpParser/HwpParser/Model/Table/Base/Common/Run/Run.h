@@ -12,6 +12,8 @@
 @property(strong) NSString* charPrIDRef;
 @property(strong) NSString* charTcld;
 
+
+
 @end
 
     

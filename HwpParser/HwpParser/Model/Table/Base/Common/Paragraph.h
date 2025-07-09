@@ -7,8 +7,6 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface Paragraph : NSObject
 
 @property(nonnull,nonatomic, strong) NSString *identification;
@@ -20,6 +18,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 // nullable
 
-@end
 
-NS_ASSUME_NONNULL_END
+
+@end

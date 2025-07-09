@@ -8,18 +8,13 @@
 #import <Foundation/Foundation.h>
 #import "HwpUnit.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface Margin : NSObject
-@property(strong) NSString* top;
-@property(strong) NSString* left;
-@property(strong) NSString* right;
-@property(strong) NSString* bottom;
-
-// nullable
-
-@property(nullable, strong) HwpUnit* header;
-@property(nullable, strong) HwpUnit* footer;
+@property(nonnull,strong) NSString* top;
+@property(nonnull,strong) NSString* left;
+@property(nonnull,strong) NSString* right;
+@property(nonnull,strong) NSString* bottom;
+@property(nonnull, strong)NSString* header;
+@property(nonnull, strong)NSString* footer;
+@property(nonnull, strong)NSString* gutter;
 @end
 
-NS_ASSUME_NONNULL_END

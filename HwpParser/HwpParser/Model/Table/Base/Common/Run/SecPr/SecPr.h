@@ -10,16 +10,16 @@
 
 @interface SecPr : NSObject
 
-@property(assign) NSInteger identification;
-@property(nonnull,nonatomic, strong) NSString *textDirection;
-@property(assign) NSInteger spaceColumns;
-@property(assign) NSInteger tabStop;
-@property(assign) NSInteger tabStopVal;
-@property(nonnull, strong, nonatomic) HwpUnit* tabStopUnit;
-@property(assign) NSInteger outlineShapeIDRef;
-@property(assign) NSInteger memoShapeIDRef;
-@property(assign) BOOL textVerticalWidthHead;
-@property(assign) NSInteger masterPageCnt;
+@property(nonnull, strong) NSString *identification;
+@property(nonnull, strong) NSString *textDirection;
+@property(nonnull, strong) NSString *spaceColumns;
+@property(nonnull, strong) NSString *tabStop;
+@property(nonnull, strong) NSString *tabStopVal;
+@property(nonnull, strong) NSString *tabStopUnit;
+@property(nonnull, strong) NSString *outlineShapeIDRef;
+@property(nonnull, strong) NSString *memoShapeIDRef;
+@property(nonnull, strong) NSString *textVerticalWidthHead;
+@property(nonnull, strong) NSString *masterPageCut;
 
 // nullable
 

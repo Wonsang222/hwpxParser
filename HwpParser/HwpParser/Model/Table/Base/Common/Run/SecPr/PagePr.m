@@ -9,4 +9,20 @@
 
 @implementation PagePr
 
+@synthesize landscape;
+@synthesize width;
+@synthesize height;
+@synthesize gutterType;
+
+@synthesize margin;
+
+- (void)setMargin:(Margin *)newMargin {
+    margin = newMargin;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"PagePr{landscape=%@, width=%@, height=%@, gutterType=%@, margin=%@}", 
+            self.landscape, self.width, self.height, self.gutterType, self.margin];
+}
+
 @end

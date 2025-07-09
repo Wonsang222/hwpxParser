@@ -7,14 +7,19 @@
 
 #import "Margin.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation Margin
 @synthesize top;
 @synthesize bottom;
 @synthesize left;
 @synthesize right;
 
+@synthesize header;
+@synthesize footer;
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"Margin{top=%@, bottom=%@, left=%@, right=%@, header=%@, footer=%@}", 
+            self.top, self.bottom, self.left, self.right, self.header, self.footer];
+}
+
 @end
 
-NS_ASSUME_NONNULL_END
