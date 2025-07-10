@@ -8,5 +8,8 @@
 #import "LineNumberShape.h"
 
 @implementation LineNumberShape
-
+@synthesize  restartType;
+@synthesize countBy;
+@synthesize distance;
+@synthesize startNumber;
 @end

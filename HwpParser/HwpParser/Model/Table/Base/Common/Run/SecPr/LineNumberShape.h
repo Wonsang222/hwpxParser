@@ -9,9 +9,9 @@
 
 @interface LineNumberShape : NSObject
 
-@property(assign) NSInteger restartType;
-@property(assign) NSInteger countBy;
-@property(assign) NSInteger distance;
-@property(assign) NSInteger startNumber;
+@property(strong) NSString* restartType;
+@property(strong) NSString* countBy;
+@property(strong) NSString* distance;
+@property(strong) NSString* startNumber;
 
 @end

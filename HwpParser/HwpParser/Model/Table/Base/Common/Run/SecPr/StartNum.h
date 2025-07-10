@@ -10,9 +10,9 @@
 @interface StartNum : NSObject
 
 @property(nonnull,nonatomic, strong) NSString *pageStartsOn;
-@property(assign) NSInteger page;
-@property(assign) NSInteger pic;
-@property(assign) NSInteger tbl;
-@property(assign) NSInteger equation;
+@property(nonnull,nonatomic, strong) NSString *page;
+@property(nonnull,nonatomic, strong) NSString *pic;
+@property(nonnull,nonatomic, strong) NSString *tbl;
+@property(nonnull,nonatomic, strong) NSString *equation;
 
 @end

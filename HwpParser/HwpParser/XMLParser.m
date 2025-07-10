@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *current;
 @property (nonatomic, strong) NSMutableArray *result;
 @property (nonatomic, strong) NSArray *bannedList;
+@property (nonatomic, strong) NSDictionary *standFor;
 @end
 
 @implementation XMLParser
@@ -32,6 +33,10 @@
     self.current = [NSMutableArray array];
     self.result = [NSMutableArray array];
     self.bannedList = @[@"config", @"sec"];
+    self.standFor = @{
+        @"p" : @"paragraph",
+        @"t" : @"text"
+    };
 
     // Load XML file
     NSData *xmlData = [NSData dataWithContentsOfFile:filePath];
@@ -79,18 +84,12 @@
         openTag = [openTag substringFromIndex:3];
     }
     
-    if ([openTag isEqualToString:@"p"]) {
-        openTag = @"paragraph";
+    if ([self.standFor objectForKey:openTag]) {
+        openTag = [self.standFor objectForKey:openTag];
     }
-    
-    if ([openTag isEqualToString:@"t"]) {
-        openTag = @"text";
-    }
-
-    
+        
     NSString *clsName = [openTag stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                                         withString:[[openTag substringToIndex:1] uppercaseString]];
-    
     Class elemCls = NSClassFromString(clsName);
     
     if (elemCls) {

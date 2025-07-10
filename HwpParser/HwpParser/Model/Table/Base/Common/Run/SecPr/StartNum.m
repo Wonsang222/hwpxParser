@@ -8,5 +8,9 @@
 #import "StartNum.h"
 
 @implementation StartNum
-
+@synthesize pageStartsOn;
+@synthesize page;
+@synthesize pic;
+@synthesize tbl;
+@synthesize equation;
 @end
