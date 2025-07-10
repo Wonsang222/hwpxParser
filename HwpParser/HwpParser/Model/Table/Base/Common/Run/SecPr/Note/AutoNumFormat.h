@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic, strong) NSString *userChar;
 @property(nonnull,nonatomic, strong) NSString *prefixChar;
 @property(nonnull,nonatomic, strong) NSString *suffixChar;
-@property(nonnull,nonatomic, strong) NSString *subscript;
+@property(nonnull,nonatomic, strong) NSString *supscript;
 @end
 
 NS_ASSUME_NONNULL_END

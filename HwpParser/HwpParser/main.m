@@ -18,6 +18,7 @@ int main(int argc, const char * argv[]) {
     
         XMLParser *parser = [XMLParser new];
         NSArray *dic = [parser parseXMLFile:path];
+        NSLog(@"%@", dic);
     }
     return 0;
 }

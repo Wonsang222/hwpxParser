@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "./Run/Run.h"
 
 @interface Paragraph : NSObject
 
@@ -17,7 +18,5 @@
 @property(nonnull,nonatomic, strong) NSString * merged;
 
 // nullable
-
-
-
+@property(nullable, strong) Run* run;
 @end

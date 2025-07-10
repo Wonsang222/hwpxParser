@@ -11,5 +11,6 @@
 
 @property(strong) NSString* lineGrid;
 @property(strong) NSString* charGrid;
+@property(strong) NSString* wonggojiFormat;
 
 @end

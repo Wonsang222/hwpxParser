@@ -6,14 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SecPr/umb"
 
 @interface Run : NSObject
 
 @property(strong) NSString* charPrIDRef;
-@property(strong) NSString* charTcld;
 
-
-
+@property(nullable, strong)
 @end
 
     

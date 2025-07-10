@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation Numbering
 @synthesize type;
-@synthesize newNumbering;
+@synthesize newNum;
 @end
 
 NS_ASSUME_NONNULL_END

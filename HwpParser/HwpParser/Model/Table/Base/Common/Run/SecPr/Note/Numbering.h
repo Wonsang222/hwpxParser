@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface Numbering : NSObject
 @property(nonnull,nonatomic, strong) NSString *type;
-@property(nonnull,nonatomic, strong) NSString *newNumbering;
+@property (nonatomic, strong) NSString *newNum NS_RETURNS_NOT_RETAINED;
 @end
 
 NS_ASSUME_NONNULL_END

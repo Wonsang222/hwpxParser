@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize userChar;
 @synthesize prefixChar;
 @synthesize suffixChar;
-@synthesize subscript;
+@synthesize supscript;
 
 @end
 

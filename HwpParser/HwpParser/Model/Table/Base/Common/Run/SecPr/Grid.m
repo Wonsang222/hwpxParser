@@ -10,4 +10,5 @@
 @implementation Grid
 @synthesize lineGrid;
 @synthesize charGrid;
+@synthesize wonggojiFormat;
 @end
