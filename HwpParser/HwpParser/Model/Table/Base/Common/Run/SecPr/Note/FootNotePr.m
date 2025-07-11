@@ -8,5 +8,9 @@
 #import "FootNotePr.h"
 
 @implementation FootNotePr
-
+@synthesize autoNumFormat;
+@synthesize noteLine;
+@synthesize noteSpacing;
+@synthesize numbering;
+@synthesize placement;
 @end

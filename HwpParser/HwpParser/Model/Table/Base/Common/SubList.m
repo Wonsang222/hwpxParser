@@ -7,10 +7,18 @@
 
 #import "SubList.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation SubList
+@synthesize identification;
+@synthesize textDirection;
+@synthesize lineWrap;
+@synthesize vertAlign;
+@synthesize linkListDRef;
+@synthesize linkListNextIDRef;
+@synthesize textWidth;
+@synthesize textHeight;
+@synthesize hasTextRef;
+@synthesize hasNumRef;
+@synthesize metatag;
+@synthesize paragraph;
 
 @end
-
-NS_ASSUME_NONNULL_END

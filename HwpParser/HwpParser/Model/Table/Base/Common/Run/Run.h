@@ -6,13 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SecPr/umb"
+#import "SecPr/SecPr.h"
 
 @interface Run : NSObject
 
-@property(strong) NSString* charPrIDRef;
+@property(strong, nonnull) NSString* charPrIDRef;
 
-@property(nullable, strong)
+@property(nullable, strong) SecPr *secPr;
+
+
+
+
 @end
 
     

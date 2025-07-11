@@ -21,8 +21,8 @@
 @synthesize sz;
 @synthesize pos;
 @synthesize outMargin;
-@synthesize caption;
-@synthesize shapeComment;
-@synthesize metaTag;
+//@synthesize caption;
+//@synthesize shapeComment;
+//@synthesize metaTag;
 
 @end

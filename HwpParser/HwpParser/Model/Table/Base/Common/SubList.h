@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Paragraph.h"
 
 @interface SubList : NSObject
 
@@ -13,12 +14,16 @@
 @property(nonnull,nonatomic, strong) NSString* textDirection;
 @property(nonnull,nonatomic, strong) NSString* lineWrap;
 @property(nonnull,nonatomic, strong) NSString* vertAlign;
-@property(nonatomic, assign) NSInteger linkListDRef;
-@property(nonatomic, assign) NSInteger linkListNextIDRef;
-@property(nonatomic, assign) NSInteger textWidth;
-@property(nonatomic, assign) NSInteger textHeight;
+@property(nonnull,nonatomic, strong) NSString* linkListDRef;
+@property(nonnull,nonatomic, strong) NSString* linkListNextIDRef;
+@property(nonnull,nonatomic, strong) NSString* textWidth;
+@property(nonnull,nonatomic, strong) NSString* textHeight;
+@property(nonnull,nonatomic, strong) NSString* hasTextRef;
+@property(nonnull,nonatomic, strong) NSString* hasNumRef;
+@property(nonnull,nonatomic, strong) NSString* metatag;
 
 //paragraph 배열로
+@property(nullable,nonatomic, strong) Paragraph* paragraph;
 
 @end
 

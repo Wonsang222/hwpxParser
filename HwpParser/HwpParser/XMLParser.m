@@ -95,7 +95,20 @@
     if (elemCls) {
         NSLog(@"open tag : %@", clsName);
         id instace = [[elemCls alloc] init];
-        [instace setValuesForKeysWithDictionary:attributeDict];
+        
+        // attributeDict key 값 수정해야함 id 같은 문자열은 프로퍼티 이름으로 사용이 불가능함
+        
+        NSMutableDictionary *revisedDict = [attributeDict mutableCopy];
+        for (id i in revisedDict) {
+            if ([i isEqualToString:@"id"]) {
+                NSString *identification = @"identification";
+                NSString *value = [revisedDict valueForKey:i];
+                [revisedDict setValue:value forKey:identification];
+                [revisedDict removeObjectForKey:i];
+            }
+        }
+        
+        [instace setValuesForKeysWithDictionary:revisedDict];
         [self.current addObject:instace];
     }
 }

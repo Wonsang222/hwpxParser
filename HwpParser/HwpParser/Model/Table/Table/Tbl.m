@@ -5,11 +5,11 @@
 //  Created by 인스웨이브 on 7/1/25.
 //
 
-#import "Table.h"
+#import "Tbl.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation Table
+@implementation Tbl
 
 @end
 

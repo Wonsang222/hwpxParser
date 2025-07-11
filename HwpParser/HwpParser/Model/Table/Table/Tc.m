@@ -7,10 +7,16 @@
 
 #import "Tc.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation Tc
+
+@synthesize subList;
+@synthesize cellAddr;
+@synthesize cellSpan;
+@synthesize cellSz;
+@synthesize cellMargin;
+
+
+
 
 @end
 
-NS_ASSUME_NONNULL_END

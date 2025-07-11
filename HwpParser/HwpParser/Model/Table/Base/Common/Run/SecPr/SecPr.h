@@ -6,7 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HwpUnit.h"
+#import "StartNum.h"
+#import "Grid.h"
+#import "PagePr.h"
+#import "Note/FootNotePr.h"
+#import "Note/EndNotePr.h"
+#import "PageBorderFill.h"
 
 @interface SecPr : NSObject
 
@@ -22,7 +27,12 @@
 @property(nonnull, strong) NSString *masterPageCut;
 
 // nullable
-
+@property(nullable, strong) StartNum *startNum;
+@property(nullable, strong) Grid *grid;
+@property(nullable, strong) PagePr* pagePr;
+@property(nullable, strong) FootNotePr* footNotePr;
+@property(nullable, strong) EndNotePr* endNotePr;
+@property(nullable, strong) PageBorderFill* pageBorderFill;
 
 
 @end

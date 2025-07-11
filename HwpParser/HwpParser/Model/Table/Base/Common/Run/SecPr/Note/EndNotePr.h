@@ -8,5 +8,9 @@
 #import <Foundation/Foundation.h>
 
 @interface EndNotePr : NSObject
-
+@property(nonnull, strong) AutoNumFormat *autoNumFormat;
+@property(nonnull, strong) NoteLine *noteLine;
+@property(nonnull, strong) NoteSpacing *noteSpacing;
+@property(nonnull, strong) Numbering *numbering;
+@property(nonnull, strong) Placement *placement;
 @end

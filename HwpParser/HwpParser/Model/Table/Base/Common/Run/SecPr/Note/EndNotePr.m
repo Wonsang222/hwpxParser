@@ -8,5 +8,9 @@
 #import "EndNotePr.h"
 
 @implementation EndNotePr
-
+@synthesize autoNumFormat;
+@synthesize noteLine;
+@synthesize noteSpacing;
+@synthesize numbering;
+@synthesize placement;
 @end

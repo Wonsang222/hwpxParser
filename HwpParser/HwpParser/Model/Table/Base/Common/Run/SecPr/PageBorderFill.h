@@ -11,10 +11,10 @@
 @interface PageBorderFill : NSObject
 
 @property(nonnull,nonatomic, strong) NSString *type;
-@property(assign) NSInteger borderFillIDRef;
+@property(nonnull,nonatomic, strong) NSString *borderFillIDRef;
 @property(nonnull,nonatomic, strong) NSString *textBorder;
-@property(assign) BOOL headerInside;
-@property(assign) BOOL footerInside;
+@property(nonnull,nonatomic, strong) NSString *headerInside;
+@property(nonnull,nonatomic, strong) NSString *footerInside;
 @property(nonnull,nonatomic, strong) NSString *fillArea;
 
 @property(nullable, nonatomic, strong) OffSet* offset;

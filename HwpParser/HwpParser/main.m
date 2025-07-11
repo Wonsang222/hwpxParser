@@ -16,9 +16,21 @@ int main(int argc, const char * argv[]) {
         
         NSString *path = @"/Users/hwangwonsang/Desktop/git/hwpxParser/HwpParser/HwpParser/Temper/Table.xml";
     
-        XMLParser *parser = [XMLParser new];
-        NSArray *dic = [parser parseXMLFile:path];
-        NSLog(@"%@", dic);
+//        XMLParser *parser = [XMLParser new];
+//        NSArray *dic = [parser parseXMLFile:path];
+//        NSLog(@"%@", dic);
+        
+        NSDictionary *temper = @{
+            @"id" : @"fuck",
+            @"pw" : @"you"
+        };
+        
+        for (id i in temper) {
+            
+            if ([i isEqualToString:@"id"]) {
+                NSLog(@"key : %@", i);
+            }
+        }
     }
     return 0;
 }
