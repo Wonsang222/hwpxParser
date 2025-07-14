@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation CurSz
 @synthesize width;
-@synthesize height
+@synthesize height;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -99,7 +99,8 @@
         // attributeDict key 값 수정해야함 id 같은 문자열은 프로퍼티 이름으로 사용이 불가능함
         
         NSMutableDictionary *revisedDict = [attributeDict mutableCopy];
-        for (id i in revisedDict) {
+        NSArray *keys = [revisedDict allKeys];
+        for (id i in keys) {
             if ([i isEqualToString:@"id"]) {
                 NSString *identification = @"identification";
                 NSString *value = [revisedDict valueForKey:i];
