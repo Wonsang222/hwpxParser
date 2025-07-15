@@ -10,6 +10,7 @@
 #import "Logger.h"
 #import "XMLParser.h"
 #import "Model/Table/Base/Common/Run/SecPr/Grid.h"
+#import "Model/Table/Base/Common/Run/Text/Text.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -17,8 +18,9 @@ int main(int argc, const char * argv[]) {
         NSString *path = @"/Users/hwangwonsang/Desktop/git/hwpxParser/HwpParser/HwpParser/Temper/Table.xml";
     
         XMLParser *parser = [XMLParser new];
-        NSArray *dic = [parser parseXMLFile:path];
-        NSLog(@"%@", dic);
+        NSMutableArray *dic = [parser parseXMLFile:path];
+        
+        NSLog(@"%@", dic  );
         
         
 

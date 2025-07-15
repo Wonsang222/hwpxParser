@@ -13,4 +13,12 @@
 @synthesize instid;
 
 
+@synthesize offset;
+@synthesize orgSz;
+@synthesize curSz;
+@synthesize flip;
+@synthesize rotationInfo;
+@synthesize renderingInfo;
+
+
 @end

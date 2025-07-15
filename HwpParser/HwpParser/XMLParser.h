@@ -9,6 +9,6 @@
 
 @interface XMLParser : NSObject
 
-- (NSDictionary *)parseXMLFile:(NSString *)filePath;
+- (NSMutableArray *)parseXMLFile:(NSString *)filePath;
 
 @end

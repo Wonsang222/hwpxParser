@@ -11,7 +11,7 @@
 @interface Paragraph : NSObject
 
 @property(nonnull,nonatomic, strong) NSString *identification;
-@property(nonnull,nonatomic, strong) NSString *paraPrlDRef;
+@property(nonnull,nonatomic, strong) NSString *paraPrIDRef;
 @property(nonnull,nonatomic, strong) NSString *styleIDRef;
 @property(nonnull,nonatomic, strong) NSString * pageBreak;
 @property(nonnull,nonatomic, strong) NSString * columnBreak;

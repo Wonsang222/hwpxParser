@@ -19,7 +19,7 @@
 @property(strong, nonnull) NSString* protect;
 @property(strong, nonnull) NSString* editable;
 @property(strong, nonnull) NSString* dirty;
-@property(strong, nonnull) NSString* borderFillDRef;
+@property(strong, nonnull) NSString* borderFillIDRef;
 
 // nullable
 

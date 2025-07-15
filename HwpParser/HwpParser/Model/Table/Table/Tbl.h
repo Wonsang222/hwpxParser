@@ -20,6 +20,7 @@
 @property(strong, nonatomic, nonnull) NSString* noAdjust;
 @property(strong, nonatomic, nonnull) NSString* cellSpacing;
 @property(strong, nonatomic, nonnull) NSString* borderFillIDRef;
+@property(strong, nonatomic, nonnull) NSString* dropcapstyle;
 
 // nullable
 @property(nullable,nonatomic, strong) InMargin *inMargin;

@@ -32,7 +32,12 @@
 - (NSMutableArray *)parseXMLFile:(NSString *)filePath {
     self.current = [NSMutableArray array];
     self.result = [NSMutableArray array];
-    self.bannedList = @[@"config", @"sec"];
+    self.bannedList = @[
+        @"config",
+        @"sec",
+        @"effects",
+        @"shapeComment"
+    ];
     self.standFor = @{
         @"p" : @"paragraph",
         @"t" : @"text"
@@ -72,7 +77,7 @@
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
     // Start
-    
+    NSLog(@"open tag : %@", elementName);
     if ([self.bannedList containsObject: qName]) {
         return;
     }
@@ -97,7 +102,7 @@
         id instace = [[elemCls alloc] init];
         
         // attributeDict key 값 수정해야함 id 같은 문자열은 프로퍼티 이름으로 사용이 불가능함
-        
+
         NSMutableDictionary *revisedDict = [attributeDict mutableCopy];
         NSArray *keys = [revisedDict allKeys];
         for (id i in keys) {
@@ -116,6 +121,10 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     // 해당 태그가 끝났을때, 해당 객체가 프로퍼티인지 확인하는 과정
+//
+//    if ([self.bannedList containsObject: qName]) {
+//        return;
+//    }
     
     if ([self.bannedList containsObject: qName]) {
         return;
@@ -125,6 +134,16 @@
     if (current) {
         [self.current removeLastObject];
         id superior = [self.current lastObject];
+        
+        NSLog(@"close : %@", current );
+        NSLog(@"sup : %@", superior );
+        
+        
+        if ([elementName isEqualToString:@"inMargin"]){
+            
+        }
+        
+        
         // current 객체는 superior의 프로퍼티임
         // 상위 객체가 있을때 프로퍼티로 ..
         if (superior) {
@@ -144,4 +163,16 @@
     NSLog(@"Error line: %ld, column: %ld", (long)[parser lineNumber], (long)[parser columnNumber]);
 }
 
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    
+    // Text
+    id current = [self.current lastObject];
+    if (current) {
+        NSString* clsName = NSStringFromClass([current class]);
+        
+        if ([clsName isEqualToString:@"Text"]) {
+            [current setValue:string forKey:@"content"];
+        }
+    }
+}
 @end

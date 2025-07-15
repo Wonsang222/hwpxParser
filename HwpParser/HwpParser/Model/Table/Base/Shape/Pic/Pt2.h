@@ -1,17 +1,16 @@
 //
-//  InMargin.h
+//  Pt2.h
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/11/25.
+//  Created by Wonsang Hwang on 7/15/25.
 //
 
 #import <Foundation/Foundation.h>
-#import "Margin.h"
+#import "PointType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface InMargin : Margin
-
+@interface Pt2 : PointType
 
 @end
 

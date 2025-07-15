@@ -16,7 +16,7 @@
 @synthesize textWrap;
 @synthesize textFlow;
 @synthesize lock;
-@synthesize dropCapStyle;
+@synthesize dropcapstyle;
 
 @synthesize sz;
 @synthesize pos;

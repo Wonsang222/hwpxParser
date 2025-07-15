@@ -12,7 +12,7 @@
 @synthesize textDirection;
 @synthesize lineWrap;
 @synthesize vertAlign;
-@synthesize linkListDRef;
+@synthesize linkListIDRef;
 @synthesize linkListNextIDRef;
 @synthesize textWidth;
 @synthesize textHeight;

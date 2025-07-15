@@ -19,7 +19,7 @@
 @property(nonnull,nonatomic, strong) NSString *textWrap;
 @property(nonnull,nonatomic, strong) NSString *textFlow;
 @property(nonnull,nonatomic, strong) NSString *lock;
-@property(nonnull,nonatomic, strong) NSString *dropCapStyle;
+@property(nonnull,nonatomic, strong) NSString *dropcapstyle;
 
 @property(nullable,nonatomic, strong) Sz *sz;
 @property(nullable,nonatomic, strong) Pos *pos;
