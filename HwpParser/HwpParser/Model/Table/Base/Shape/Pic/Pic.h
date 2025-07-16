@@ -12,6 +12,7 @@
 #import "ImgClip.h"
 #import "../../Common/InMargin.h"
 #import "ImgDim.h"
+#import "Img.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic,strong) ImgClip* imgClip;
 @property(nonnull,nonatomic,strong) InMargin* inMargin;
 @property(nonnull,nonatomic,strong) ImgDim* imgDim;
-
+@property(nonnull,nonatomic,strong) Img* img;
 @end
 
 NS_ASSUME_NONNULL_END

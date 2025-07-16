@@ -5,18 +5,6 @@
 //  Created by Wonsang Hwang on 6/28/25.
 //
 
-/*
- 
- t에는 text 포함 shit
- 
- content일때는 string ++
- 
- 1. 여는 태그 나오면 클래스 찾아서 new
- 2. attributes 순회하면서, nonnull 프로퍼티 데이터 생성 -> KVO
- 3. 현재 작성중인 클래스로 등록
- 4. 닫는태그 나오면 내 자신을 current에서 빼고, current가 비었다면 result로 가고 아니면 해당 클래스에 내 자신을 프로퍼티로
- */
-
 #import "XMLParser.h"
 #import "Model/Table/Base/Common/Run/SecPr/PagePr.h"
 
@@ -76,9 +64,8 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary<NSString *,NSString *> *)attributeDict {
-    // Start
-    NSLog(@"open tag : %@", elementName);
-    if ([self.bannedList containsObject: qName]) {
+    
+    if ([self.bannedList containsObject: elementName]) {
         return;
     }
 
@@ -116,17 +103,15 @@
         
         [instace setValuesForKeysWithDictionary:revisedDict];
         [self.current addObject:instace];
+    } else {
+        NSLog(@"No class : %@", elementName);
     }
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     // 해당 태그가 끝났을때, 해당 객체가 프로퍼티인지 확인하는 과정
-//
-//    if ([self.bannedList containsObject: qName]) {
-//        return;
-//    }
     
-    if ([self.bannedList containsObject: qName]) {
+    if ([self.bannedList containsObject: elementName]) {
         return;
     }
     
@@ -134,16 +119,10 @@
     if (current) {
         [self.current removeLastObject];
         id superior = [self.current lastObject];
-        
+        NSLog(@"close - qname : %@", qName );
         NSLog(@"close : %@", current );
-        NSLog(@"sup : %@", superior );
-        
-        
-        if ([elementName isEqualToString:@"inMargin"]){
-            
-        }
-        
-        
+        NSLog(@"close - sup : %@", superior );
+
         // current 객체는 superior의 프로퍼티임
         // 상위 객체가 있을때 프로퍼티로 ..
         if (superior) {
@@ -154,6 +133,7 @@
         } else {
             // 상위 객체가 없을때, 즉 하나의 최상위 태그
             [self.result addObject:current];
+            NSLog(@"close - final");
         }
     }
 }

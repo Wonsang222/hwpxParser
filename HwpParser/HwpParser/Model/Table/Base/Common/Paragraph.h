@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "./Run/Run.h"
+#import "Linesegarray.h"
 
 @interface Paragraph : NSObject
 
@@ -19,4 +20,5 @@
 
 // nullable
 @property(nullable, strong) Run* run;
+@property(nullable, strong) Linesegarray* linesegarray;
 @end
