@@ -15,6 +15,7 @@
 
 @synthesize header;
 @synthesize footer;
+@synthesize gutter;
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"Margin{top=%@, bottom=%@, left=%@, right=%@, header=%@, footer=%@}", 

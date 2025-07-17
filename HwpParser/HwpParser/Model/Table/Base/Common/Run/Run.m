@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation Run
 
+@synthesize charPrIDRef;
+@synthesize charTcId;
+@synthesize secPr;
+@synthesize text;
+@synthesize pic;
+
 @end
 
 NS_ASSUME_NONNULL_END

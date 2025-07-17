@@ -11,6 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation Img
 
+@synthesize binaryItemIDRef;
+@synthesize bright;
+@synthesize contrast;
+@synthesize effect;
+@synthesize alpha;
+
 @end
 
 NS_ASSUME_NONNULL_END

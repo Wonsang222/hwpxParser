@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation Linesegarray
 
+@synthesize lineseg;
+
 @end
 
 NS_ASSUME_NONNULL_END

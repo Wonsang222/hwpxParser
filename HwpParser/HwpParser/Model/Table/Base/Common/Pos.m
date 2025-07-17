@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize affectLSpacing;
 @synthesize flowWithText;
 @synthesize holdAnchorAndSO;
+@synthesize allowOverlap;
 @synthesize vertRelTo;
 @synthesize horzRelTo;
 @synthesize vertAlign;

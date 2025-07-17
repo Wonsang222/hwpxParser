@@ -10,7 +10,14 @@
 
 @implementation Paragraph
 
-
+@synthesize identification;
+@synthesize paraPrIDRef;
+@synthesize styleIDRef;
+@synthesize pageBreak;
+@synthesize columnBreak;
+@synthesize merged;
+@synthesize run;
+@synthesize linesegarray;
 
 @end
 

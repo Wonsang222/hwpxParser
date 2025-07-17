@@ -9,6 +9,13 @@
 
 @implementation Tc
 
+@synthesize name;
+@synthesize header;
+@synthesize hasMargin;
+@synthesize protect;
+@synthesize editable;
+@synthesize dirty;
+@synthesize borderFillIDRef;
 @synthesize subList;
 @synthesize cellAddr;
 @synthesize cellSpan;

@@ -11,11 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation Pic
 
+@synthesize reverse;
 @synthesize lineShape;
 @synthesize imgRect;
 @synthesize imgClip;
 @synthesize inMargin;
 @synthesize imgDim;
+@synthesize img;
 
 
 
