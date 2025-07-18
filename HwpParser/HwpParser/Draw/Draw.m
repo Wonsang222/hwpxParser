@@ -33,11 +33,21 @@ NS_ASSUME_NONNULL_BEGIN
 + (HTMLElement *)createTbl:(Tbl *)table
 {
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table"];
-    NSNumber *col = (NSNumber*) table.colCnt;
-    NSNumber *row = (NSNumber*) table.rowCnt;
+    // reference니까 되것지?
+//    for ( int i = 0 ; i < row ; i++ ) {
+//        HTMLElement *tr = [[HTMLElement alloc] initWithTagName:@"tr"];
+//        [tbl appendNode:tr];
+//        
+//        for ( int i = 0 ; i < col ; i++ ) {
+//            HTMLElement *th = [[HTMLElement alloc] initWithTagName:@"th"];
+//            [tr appendNode:th];
+//        }
     
     
+//    }
     
+   
+        
     return tbl;
 }
 @end

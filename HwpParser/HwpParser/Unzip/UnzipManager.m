@@ -12,8 +12,15 @@
 + (BOOL)unzipHwpx:(NSString *)inputPath
 {
     // output에 파일 있으면
-    if (true) {
+    NSString *outputPath = @"";
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    BOOL isExist = [fileManager fileExistsAtPath:outputPath];
+    
+    if (isExist) {
         // 지우기
+        [fileManager removeItemAtPath:outputPath error:nil];
     }
     NSString *output = @"";
     return [SSZipArchive unzipFileAtPath:inputPath toDestination:output];

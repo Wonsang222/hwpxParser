@@ -129,6 +129,18 @@
             NSString *currentName = NSStringFromClass([current class]);
             // 앞글자 소문자로
             NSString *smallLetteredProperty = [[[currentName substringToIndex:1] lowercaseString ] stringByAppendingString:[currentName substringFromIndex:1]];
+            
+            // 해당 프로퍼티가 객체 타입일때, append
+            id property = [superior valueForKey:smallLetteredProperty];
+            
+            if ([property isKindOfClass:[NSMutableArray class]]) {
+                // 기존의 배열 갖고옴
+                NSMutableArray *arr = (NSMutableArray *) property;
+                // 배열에 append
+                [arr addObject:current];
+                return;
+            }
+            // 배열 아닐때
             [superior setValue:current forKey:smallLetteredProperty];
         } else {
             // 상위 객체가 없을때, 즉 하나의 최상위 태그
