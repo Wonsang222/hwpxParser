@@ -1,5 +1,5 @@
 //
-//  Bouncer.h
+//  NSObject+FilterNotNullProp.h
 //  HwpParser
 //
 //  Created by 인스웨이브 on 7/18/25.
@@ -9,8 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Bouncer : NSObject
-@property(nonnull, strong) NSString* num;
+@interface NSObject (FilterNotNullProp)
+-(id)filterNotNullProp;
+-(NSArray<NSString*>*)nullableProperties;
 @end
 
 NS_ASSUME_NONNULL_END

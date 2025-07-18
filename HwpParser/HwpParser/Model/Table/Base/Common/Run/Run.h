@@ -15,12 +15,11 @@
 @property(strong, nonnull) NSString* charPrIDRef;
 @property(strong, nonnull) NSString* charTcId;
 
-
 @property(nullable, strong) SecPr *secPr;
 @property(nullable, strong) Text* text;
 @property(nullable, strong) Pic* pic;
 
-
+-(id _Nullable )filterNotNull;
 @end
 
     

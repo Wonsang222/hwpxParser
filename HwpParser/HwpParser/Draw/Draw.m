@@ -43,13 +43,20 @@ NS_ASSUME_NONNULL_BEGIN
     return tbl;
 }
 
--(HTMLElement *) parseSubList: (SubList*) sub
-{
-    // sublist == paragraph container
-    for (id paragraph in sub.paragraph) {
-        
-    }
-}
+//-(HTMLElement *) parseSubList: (SubList*) sub
+//{
+//    // sublist는 paragraph container it seeems like nothing to raise
+//    for (id paragraph in sub.paragraph) {
+//       
+//    }
+//}
+//
+//-(HTMLElement *) parseSubList: (Paragraph*) paragraph
+//{
+//    // Run Container
+//  // null이 아닌 객체.
+//    
+//}
 
 @end
 

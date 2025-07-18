@@ -7,7 +7,8 @@
       "Bash(find:*)",
       "Bash(rg:*)",
       "Bash(rm:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(/Users/inswave/Library/Developer/Xcode/DerivedData/HwpParser-fbmuumnqiaedxngbsxcidmceomga/Build/Products/Debug/HwpParser)"
     ],
     "deny": []
   }

@@ -15,12 +15,13 @@
 #import "TestCls.h"
 #import "Bouncer.h"
 
-#warning tbl tr tc 태그 배열로 해야함,,,,,,,,
-
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
-       
+        TestCls *test = [[TestCls alloc] init];
+        [test setCheck:@"fff"];
+        id result = [test filterNotNull];
+        NSLog(@"%@", result);
         
 //        NSString *path = @"/Users/hwangwonsang/Desktop/git/hwpxParser/HwpParser/HwpParser/Temper/Table.xml";
 //    

@@ -7,11 +7,10 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface TestCls : NSObject
 @property (nullable, strong) NSString* check;
 @property (nonnull, strong) NSMutableArray* arr;
+
+- (id _Nullable )filterNotNull;
 @end
 
-NS_ASSUME_NONNULL_END
