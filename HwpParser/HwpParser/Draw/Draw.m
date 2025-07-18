@@ -33,23 +33,24 @@ NS_ASSUME_NONNULL_BEGIN
 + (HTMLElement *)createTbl:(Tbl *)table
 {
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table"];
-    // reference니까 되것지?
-//    for ( int i = 0 ; i < row ; i++ ) {
-//        HTMLElement *tr = [[HTMLElement alloc] initWithTagName:@"tr"];
-//        [tbl appendNode:tr];
-//        
-//        for ( int i = 0 ; i < col ; i++ ) {
-//            HTMLElement *th = [[HTMLElement alloc] initWithTagName:@"th"];
-//            [tr appendNode:th];
-//        }
     
-    
-//    }
+    for (id tr in table.tr) {
+        
+    }
     
    
         
     return tbl;
 }
+
+-(HTMLElement *) parseSubList: (SubList*) sub
+{
+    // sublist == paragraph container
+    for (id paragraph in sub.paragraph) {
+        
+    }
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -6,6 +6,7 @@
 //
 
 #import "Tbl.h"
+#import "../../../Extension/NSObject+MutableArrayInit.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,12 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize tr;
 @synthesize label;
 
+
+-(instancetype)init {
+    self = [super init];
+    [self initializeWithMutableArray];
+    return self;
+}
 @end
 
 NS_ASSUME_NONNULL_END

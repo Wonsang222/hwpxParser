@@ -6,6 +6,7 @@
 //
 
 #import "SubList.h"
+#import "../../../../Extension/NSObject+MutableArrayInit.h"
 
 @implementation SubList
 @synthesize identification;
@@ -21,4 +22,10 @@
 @synthesize metatag;
 @synthesize paragraph;
 
+-(instancetype) init
+{
+    self = [super init];
+    [self initializeWithMutableArray];
+    return self;
+}
 @end
