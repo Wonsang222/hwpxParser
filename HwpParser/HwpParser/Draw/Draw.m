@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (HTMLElement *)createTbl:(Tbl *)table
 {
-    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table"];
+    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:@{@"style" : @"border-collapse: collapse;"}];
     
     for (id tr in table.tr) {
         
