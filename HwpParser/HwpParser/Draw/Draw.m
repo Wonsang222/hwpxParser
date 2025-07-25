@@ -5,6 +5,11 @@
 //  Created by 인스웨이브 on 7/17/25.
 //
 
+/*
+ css 는 어케 해야 좋을지 몰루
+ 괜히 시작햇
+ */
+
 #import "Draw.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -42,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
         
     return tbl;
 }
+
 
 //-(HTMLElement *) parseSubList: (SubList*) sub
 //{
