@@ -22,7 +22,7 @@
 @property(nonnull,nonatomic, strong) NSString *dropcapstyle;
 
 @property(nullable,nonatomic, strong) Sz *sz;
-@property(nullable,nonatomic, strong) Pos *pos;
+@property(nullable,nonatomic, strong) Pos *pos;     
 @property(nullable,nonatomic, strong) OutMargin *outMargin;
 //@property(nullable,nonatomic, strong) NSString *caption;
 //@property(nullable,nonatomic, strong) NSString *shapeComment;

@@ -7,14 +7,33 @@
 
 /*
  css 는 어케 해야 좋을지 몰루
- 괜히 시작햇
  */
 
 #import "Draw.h"
+#import "../Model/Table/Base/Shape/Pic/Pic.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation Draw
+
++(NSString*)convertHwpunitToPt:(NSString*)hwpunit
+{
+    float unit = [hwpunit floatValue];
+    float pt = unit / 100.0f;
+    NSNumber* nsPt = [NSNumber numberWithFloat:pt];
+    return [nsPt stringValue];
+}
+
++(HTMLElement*) createPic:(Pic*)picModel
+{
+    HTMLElement* pic = [[HTMLElement alloc] initWithTagName:@"pic"];
+    
+    // attribute 모아서 한방에
+    
+    
+    return pic;
+}
+
 +(HTMLDocument *) createHtml
 {
     HTMLDocument *doc = [[HTMLDocument alloc] init];
