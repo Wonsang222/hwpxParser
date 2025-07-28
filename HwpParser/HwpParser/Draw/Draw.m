@@ -5,12 +5,8 @@
 //  Created by 인스웨이브 on 7/17/25.
 //
 
-/*
- css 는 어케 해야 좋을지 몰루
- */
-
 #import "Draw.h"
-#import "../Model/Table/Base/Shape/Pic/Pic.h"
+#import "../Model/Table/Base/Common/Paragraph.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,19 +20,44 @@ NS_ASSUME_NONNULL_BEGIN
     return [nsPt stringValue];
 }
 
-+(HTMLElement*) createPic:(Pic*)picModel
++(HTMLDocument*)parseParagraph:(Paragraph*)paragraph
 {
-    HTMLElement* pic = [[HTMLElement alloc] initWithTagName:@"pic"];
+    HTMLDocument* doc = [self createHtml];
     
-    // attribute 모아서 한방에
-    
-    // size
-    Sz* size = picModel.sz;
-    NSString* cssSize = [size cs];
-    
-    
-    return pic;
+    return doc;
 }
+
++(void)parseRun:(Run*)run withHtml:(HTMLDocument*)doc
+{
+    // 구역정보
+
+}
+
++(HTMLElement*)parsePage:(PagePr*)pr
+{
+    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
+    
+    NSString* marginTop = @"";
+    NSString* marginBottom = @"";
+    NSString* marginLeft = @"";
+    NSString* marginRight = @"";
+    
+    return div;
+}
+
+//+(HTMLElement*) createPic:(Pic*)picModel
+//{
+//    HTMLElement* pic = [[HTMLElement alloc] initWithTagName:@"pic"];
+//    
+//    // attribute 모아서 한방에
+//    
+//    // size
+//    Sz* size = picModel.sz;
+//    NSString* cssSize = [size cs];
+//    
+//    
+//    return pic;
+//}
 
 +(HTMLDocument *) createHtml
 {
