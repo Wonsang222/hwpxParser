@@ -30,6 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
     
     // attribute 모아서 한방에
     
+    // size
+    Sz* size = picModel.sz;
+    NSString* cssSize = [size cs];
+    
     
     return pic;
 }
