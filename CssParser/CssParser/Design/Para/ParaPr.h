@@ -7,8 +7,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Align.h"
-
-NS_ASSUME_NONNULL_BEGIN
+#import "Border.h"
+#import "Margin.h"
 
 @interface ParaPr : NSObject
 @property(nonnull, strong) NSString* identification;
@@ -22,10 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull, strong) NSString* textDir;
 
 @property(nonnull, strong) Align* align;
-
-
+@property(nullable, strong) Border* border;
+@property(nullable, strong) Margin* margin;
 
 
 @end
 
-NS_ASSUME_NONNULL_END

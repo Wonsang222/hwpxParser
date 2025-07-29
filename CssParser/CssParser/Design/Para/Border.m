@@ -1,8 +1,8 @@
 //
 //  Border.m
-//  HwpParser
+//  CssParser
 //
-//  Created by 인스웨이브 on 7/25/25.
+//  Created by Wonsang Hwang on 7/29/25.
 //
 
 #import "Border.h"
