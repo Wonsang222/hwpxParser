@@ -24,7 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 +(void)parseRun:(Run*)run withHtml:(HTMLDocument*)doc
 {
     // 구역정보
-    HTMLDocument* html = [self createHtml];
     
     
     // draw
@@ -32,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)parseSecPr:(SecPr*)secPr
 {
+    // secpr은 한개인가?
     HTMLDocument* html = [self createHtml];
     
     HTMLElement* mainDiv = [self drawMainDiv:secPr.pagePr];
