@@ -20,28 +20,61 @@ NS_ASSUME_NONNULL_BEGIN
     return [nsPt stringValue];
 }
 
-+(HTMLDocument*)parseParagraph:(Paragraph*)paragraph
-{
-    HTMLDocument* doc = [self createHtml];
-    
-    return doc;
-}
 
 +(void)parseRun:(Run*)run withHtml:(HTMLDocument*)doc
 {
     // 구역정보
-
+    HTMLDocument* html = [self createHtml];
+    
+    
+    // draw
 }
 
-+(HTMLElement*)parsePage:(PagePr*)pr
++(void)parseSecPr:(SecPr*)secPr
 {
+    HTMLDocument* html = [self createHtml];
+    
+    HTMLElement* mainDiv = [self drawMainDiv:secPr.pagePr];
+    [html appendNode:mainDiv];
+    // container on main
+    HTMLElement* containerDiv = [self drawContainerDiv:secPr.pagePr];
+    [mainDiv appendNode:containerDiv];
+    
+    
+    
+    
+}
+
++(HTMLElement*)drawMainDiv:(PagePr*)pr
+{
+    // 한글에서 정의하는 용지 사이즈를 그리는 태그
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
     
-    NSString* marginTop = @"";
-    NSString* marginBottom = @"";
-    NSString* marginLeft = @"";
-    NSString* marginRight = @"";
+    NSString* width = pr.width;
+    NSString* height = pr.height;
     
+    NSMutableDictionary *size = [@{@"width": width,
+                                 @"height": height} mutableCopy];
+    
+    [div setAttributes:size];
+        
+    return div;
+}
+
+// 이 태그에 추가해야함.
++(HTMLElement*)drawContainerDiv:(PagePr*)pr
+{
+    // 용지 사이즈 위에 마진이 포함된 진짜 컨텐츠가 들어가는 태그
+    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
+    Margin* margin = pr.margin;
+    
+    NSMutableDictionary *size = [@{@"margin-top": margin.top,
+                                 @"margin-right": margin.right,
+                                   @"margin-left" : margin.left,
+                                   @"margin-bottom" : margin.bottom
+                                 } mutableCopy];
+    
+    [div setAttributes:size];
     return div;
 }
 
