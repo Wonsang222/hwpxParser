@@ -23,6 +23,30 @@
     return [ptString stringByAppendingString:@"pt"];
 }
 
++(NSString*)convertUnsignedIntToPt:(NSString*)val
+{
+    // 큰 수를 처리하기 위해 long long 사용
+    long long unsignedVal = [val longLongValue];
+    
+    // 32비트 범위로 제한 (오버플로우 처리)
+    uint32_t maskedVal = (uint32_t)(unsignedVal & 0xFFFFFFFF);
+    
+    // 32비트의 절반값 (2^31 - 1)
+    uint32_t half = UINT32_MAX / 2;
+    
+    if (maskedVal > half) {
+        // 2의 보수 변환: 큰 값을 음수로 변환
+        int32_t result = (int32_t)maskedVal;
+        
+        NSString* val = [NSString stringWithFormat:@"%d", result];
+        return [self convertHwpunitToPt:val];
+    } else {
+        // 양수 범위
+        NSString* val = [NSString stringWithFormat:@"%u", maskedVal];
+        return [self convertHwpunitToPt:val];
+    }
+}
+
 +(HTMLDocument*)appendComponent:(HTMLElement*)element onDoc:(HTMLDocument*) doc
 {
     HTMLElement* body = doc.body;
@@ -49,9 +73,6 @@
     return [[HTMLElement alloc] initWithTagName:@"div" attributes:att];
 }
 
-
-
-
 +(void)parseRun:(Run*)run withHtml:(HTMLDocument*)doc
 {
     // 구역정보
@@ -68,10 +89,6 @@
 //    // container on main
 //    HTMLElement* containerDiv = [self drawContainerDiv:secPr.pagePr];
 //    [mainDiv appendNode:containerDiv];
-    
-    
-    
-    
 }
 
 // 이 태그에 추가해야함.
