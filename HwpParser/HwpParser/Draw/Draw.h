@@ -10,11 +10,7 @@
 #import "HTMLDocument.h"
 #import "../Model/Table/Table/Tbl.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface Draw : NSObject
 +(HTMLDocument *) createHtml;
 +(HTMLElement *) createTbl: (Tbl*) table;
 @end
-
-NS_ASSUME_NONNULL_END

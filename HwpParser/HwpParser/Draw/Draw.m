@@ -8,17 +8,48 @@
 #import "Draw.h"
 #import "../Model/Table/Base/Common/Paragraph.h"
 
-NS_ASSUME_NONNULL_BEGIN
+// 일단 paragraph 부터
 
 @implementation Draw
 
 +(NSString*)convertHwpunitToPt:(NSString*)hwpunit
 {
+    // hwpunit converter
     float unit = [hwpunit floatValue];
     float pt = unit / 100.0f;
     NSNumber* nsPt = [NSNumber numberWithFloat:pt];
-    return [nsPt stringValue];
+    NSString* ptString = [nsPt stringValue];
+    
+    return [ptString stringByAppendingString:@"pt"];
 }
+
++(HTMLDocument*)appendComponent:(HTMLElement*)element onDoc:(HTMLDocument*) doc
+{
+    HTMLElement* body = doc.body;
+    [body appendNode:element];
+    return doc;
+}
+
++(HTMLDocument*)parseP:(Paragraph*)paragraph
+{
+    HTMLDocument* doc = [self createHtml];
+    
+    
+
+    
+    return doc;
+}
+
++(HTMLElement*)createComponentWrapperDiv
+{
+    NSDictionary* att = @{
+        @"margin" : @"0px",
+        @"text-align" : @"justify"
+    };
+    return [[HTMLElement alloc] initWithTagName:@"div" attributes:att];
+}
+
+
 
 
 +(void)parseRun:(Run*)run withHtml:(HTMLDocument*)doc
@@ -31,66 +62,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)parseSecPr:(SecPr*)secPr
 {
-    // secpr은 한개인가?
-    HTMLDocument* html = [self createHtml];
-    
-    HTMLElement* mainDiv = [self drawMainDiv:secPr.pagePr];
-    [html appendNode:mainDiv];
-    // container on main
-    HTMLElement* containerDiv = [self drawContainerDiv:secPr.pagePr];
-    [mainDiv appendNode:containerDiv];
+//    // secpr은 한개인가?
+//    HTMLDocument* html = [self createHtml];
+//    [html appendNode:mainDiv];
+//    // container on main
+//    HTMLElement* containerDiv = [self drawContainerDiv:secPr.pagePr];
+//    [mainDiv appendNode:containerDiv];
     
     
     
     
-}
-
-+(HTMLElement*)drawMainDiv:(PagePr*)pr
-{
-    // 한글에서 정의하는 용지 사이즈를 그리는 태그
-    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    
-    NSString* width = pr.width;
-    NSString* height = pr.height;
-    
-    NSMutableDictionary *size = [@{@"width": width,
-                                 @"height": height} mutableCopy];
-    
-    [div setAttributes:size];
-        
-    return div;
 }
 
 // 이 태그에 추가해야함.
-+(HTMLElement*)drawContainerDiv:(PagePr*)pr
++(HTMLElement*)createContainerDiv:(PagePr*)pagePr
 {
-    // 용지 사이즈 위에 마진이 포함된 진짜 컨텐츠가 들어가는 태그
+    // 용지 사이즈를 정의하는 Div
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    Margin* margin = pr.margin;
     
-    NSMutableDictionary *size = [@{@"margin-top": margin.top,
-                                 @"margin-right": margin.right,
-                                   @"margin-left" : margin.left,
-                                   @"margin-bottom" : margin.bottom
-                                 } mutableCopy];
+    NSMutableDictionary* att = [@{
+        @"height" : [self convertHwpunitToPt:pagePr.height],
+        @"width" : [self convertHwpunitToPt:pagePr.width],
+        @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],
+        @"padding-bottom" : [self convertHwpunitToPt:pagePr.margin.bottom],
+        @"padding-left" : [self convertHwpunitToPt:pagePr.margin.left],
+        @"padding-right" : [self convertHwpunitToPt:pagePr.margin.right],
+    } mutableCopy];
     
-    [div setAttributes:size];
+    [div setAttributes:att];
     return div;
 }
-
-//+(HTMLElement*) createPic:(Pic*)picModel
-//{
-//    HTMLElement* pic = [[HTMLElement alloc] initWithTagName:@"pic"];
-//    
-//    // attribute 모아서 한방에
-//    
-//    // size
-//    Sz* size = picModel.sz;
-//    NSString* cssSize = [size cs];
-//    
-//    
-//    return pic;
-//}
 
 +(HTMLDocument *) createHtml
 {
@@ -116,9 +117,10 @@ NS_ASSUME_NONNULL_BEGIN
 {
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:@{@"style" : @"border-collapse: collapse;"}];
     
-    for (id tr in table.tr) {
-        
-    }
+    NSString* height = [self convertHwpunitToPt:table.sz.height];
+    NSString* width = [self convertHwpunitToPt:table.sz.width];
+    
+    
     
    
         
@@ -142,5 +144,3 @@ NS_ASSUME_NONNULL_BEGIN
 //}
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -17,6 +17,15 @@
 
 @implementation XMLParser
 
+@synthesize part;
+
+- (instancetype)initWithPart:(NSString *)part
+{
+    self = [super init];
+    self.part = part;
+    return self;
+}
+
 - (NSMutableArray *)parseXMLFile:(NSString *)filePath {
     self.current = [NSMutableArray array];
     self.result = [NSMutableArray array];
@@ -31,14 +40,12 @@
         @"t" : @"text"
     };
 
-    // Load XML file
     NSData *xmlData = [NSData dataWithContentsOfFile:filePath];
     if (!xmlData) {
         NSLog(@"Error: Could not load XML file at path: %@", filePath);
         return nil;
     }
 
-    // Initialize NSXMLParser
     NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
     parser.delegate = self;
     [parser setShouldProcessNamespaces:YES]; // Handle namespaces like 'hp:'
@@ -82,6 +89,12 @@
         
     NSString *clsName = [openTag stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                                         withString:[[openTag substringToIndex:1] uppercaseString]];
+    if (self.part != nil) {
+        // part를 붙임 "Header"
+        NSString* headerClsName = [self.part stringByAppendingString:clsName];
+        clsName = headerClsName;
+    }
+    
     Class elemCls = NSClassFromString(clsName);
     
     if (elemCls) {
