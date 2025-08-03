@@ -67,11 +67,28 @@
 +(HTMLElement*)createComponentWrapperDiv
 {
     NSDictionary* att = @{
-        @"margin" : @"0px",
-        @"text-align" : @"justify"
+        @"box-sizing" : @"border-box"	,
+        @"position" : @"relative"
     };
     return [[HTMLElement alloc] initWithTagName:@"div" attributes:att];
 }
+
++(HTMLElement*)createComponentDiv
+{
+    NSDictionary* att = @{
+        @"box-sizing" : @"border-box",
+        @"position" : @"absolute"
+    };
+    return [[HTMLElement alloc] initWithTagName:@"div" attributes:att];
+}
+
++(HTMLElement*)appendAtt:(NSDictionary*)att at:(HTMLElement*)elem
+{
+    NSMutableDictionary* atts = elem.attributes;
+    [atts addEntriesFromDictionary:att];
+    return elem;
+}
+
 
 +(void)parseRun:(Run*)run withHtml:(HTMLDocument*)doc
 {
@@ -98,6 +115,7 @@
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
     
     NSMutableDictionary* att = [@{
+        @"box-sizing" : @"border-box",
         @"height" : [self convertHwpunitToPt:pagePr.height],
         @"width" : [self convertHwpunitToPt:pagePr.width],
         @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],

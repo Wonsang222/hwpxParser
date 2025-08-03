@@ -1,72 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>HWP Table to HTML/CSS</title>
-<style>
-    /* 스타일(CSS) 정의 부분 
-    */
-
-    /* <hp:tbl> 태그에 대한 스타일 */
-    .hwp-table {
-        /* from <hp:outMargin ... /> (바깥 여백) */
-        margin: 10px; 
-        
-        width: 100%; /* 너비는 상황에 맞게 조절 */
-        border-collapse: collapse; /* 셀 테두리를 한 줄로 합침 */
-        border: 1px solid #000; /* 테이블 전체 테두리 (예시) */
-    }
-
-    /* <hp:tc> (셀) 태그에 대한 스타일 */
-    .hwp-table td {
-        /* from <hp:inMargin ... /> 또는 <hp:cellMargin ... /> (안 여백) */
-        padding: 5px;
-
-        border: 1px solid #ccc; /* 각 셀의 테두리 */
-        text-align: center; /* 텍스트 가운데 정렬 */
-        vertical-align: middle; /* from vertAlign="CENTER" (세로 중앙 정렬) */
-    }
-
-    /* 첫 번째와 세 번째 셀의 내용 스타일 */
-    .hwp-table .cell-org, .hwp-table .cell-logo {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px; /* 이미지와 텍스트 사이 간격 */
-    }
-
-    /* 두 번째 셀("보도자료")의 스타일 */
-    .hwp-table .cell-title {
-        font-size: 1.5em; /* 글자 크기 키우기 */
-        font-weight: bold; /* 굵게 */
-    }
-
-    /* <hp:pic> (이미지)에 대한 스타일 */
-    .hwp-table img {
-        max-width: 100px; /* 이미지 최대 너비 (예시) */
-        height: auto;
-    }
-</style>
-</head>
-<body>
-
-    <table class="hwp-table">
-        <tr>
-            <td class="cell-org">
-                <img src="https://via.placeholder.com/100x30.png?text=기관로고" alt="기관 로고">
-                <span>행정안전부</span>
+  <head>
+    <meta charset="UTF-8" />
+    <title>HWP Table to HTML/CSS</title>
+  </head>
+  <body>
+    <div
+      style="
+        background-color: black;
+        box-sizing: border-box;
+        width: 595.28pt;
+        height: 841.88pt;
+        padding-top: 42.51pt;
+        padding-bottom: 42.51pt;
+        padding-left: 56.69pt;
+        padding-right: 56.69pt;
+      "
+    >
+      // container
+      <div style="position: relative; background-color: blueviolet">
+        <table
+          style="
+            width: 476.97pt;
+            height: 41.78pt;
+            margin: 2.83pt 2.83pt 2.83pt 2.83pt;
+          "
+        >
+          <tr>
+            <td style="background-color: aqua">
+              <div
+                style="
+                  position: relative; /* 기준점 역할을 이 div가 하도록 설정 */
+                  overflow: hidden; /* 이 div를 넘어가는 내용은 숨김(자르기) */
+                  width: 100%;
+                  height: 100%;
+                "
+              >
+                <img
+                  style="
+                    box-sizing: border-box;
+                    padding: 1.41pt 1.41pt 1.41pt 1.41pt;
+                    width: 101.62pt;
+                    height: 31.93pt;
+                    transform: translate(
+                      -21.44pt,
+                      3.78pt
+                    ); /* 이미지는 원래대로 이동 */
+                  "
+                  src="imgs/image1.jpg"
+                  alt="fuckyou"
+                />
+              </div>
             </td>
-
-            <td class="cell-title">
-                보 도 자 료
-            </td>
-
-            <td class="cell-logo">
-                 <img src="https://via.placeholder.com/100x30.png?text=로고1" alt="로고1">
-                <img src="https://via.placeholder.com/40x40.png?text=로고2" alt="로고2">
-            </td>
-        </tr>
-    </table>
-
-</body>
+            <td>내용 2312234234</td>
+            <td>내용 3</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </body>
 </html>
