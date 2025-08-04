@@ -68,7 +68,8 @@
 {
     NSDictionary* att = @{
         @"box-sizing" : @"border-box"	,
-        @"position" : @"relative"
+        @"position" : @"relative",
+        @"overflow" : @"hidden"
     };
     return [[HTMLElement alloc] initWithTagName:@"div" attributes:att];
 }
@@ -133,14 +134,17 @@
     HTMLDocument *doc = [[HTMLDocument alloc] init];
     
     HTMLElement *html = [[HTMLElement alloc] initWithTagName:@"html"];
+    [html setAttributes: [@{ @"lang" : @"ko"} mutableCopy]];
     HTMLElement *head = [[HTMLElement alloc] initWithTagName:@"head"];
     HTMLElement *title = [[HTMLElement alloc] initWithTagName:@"title"];
     [title setTextContent:@"Testing Attention Plz"];
+    HTMLElement *style = [[HTMLElement alloc] initWithTagName:@"style"];
     HTMLElement *charset = [[HTMLElement alloc] initWithTagName:@"meta" attributes:@{@"charset" : @"utf-8"}];
     HTMLElement *body = [[HTMLElement alloc] initWithTagName:@"body"];
     
     [head appendNode:title];
     [head appendNode:charset];
+    [head appendNode:style];
     [html appendNode:head];
     [html appendNode:body];
     [doc appendNode:html];
@@ -148,18 +152,51 @@
     return doc;
 }
 
-+ (HTMLElement *)createTbl:(Tbl *)table
++ (HTMLElement *)appendTbl:(Tbl *)table onDoc:(HTMLDocument*)doc
 {
-    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:@{@"style" : @"border-collapse: collapse;"}];
+    NSMutableDictionary* att = [@{
+        @"box-sizing" : @"border-box",
+        @"height" : [self convertHwpunitToPt:table.sz.height],
+        @"width" : [self convertHwpunitToPt:table.sz.width],
+        @"margin-top" : [self convertHwpunitToPt:table.outMargin.top],
+        @"margin-bottom" : [self convertHwpunitToPt:table.outMargin.bottom],
+        @"margin-left" : [self convertHwpunitToPt:table.outMargin.left],
+        @"margin-right" : [self convertHwpunitToPt:table.outMargin.right],
+        @"border-collapse" : @"collapse",
+        @"table-layout" : @"fixed"
+    } mutableCopy];
     
-    NSString* height = [self convertHwpunitToPt:table.sz.height];
-    NSString* width = [self convertHwpunitToPt:table.sz.width];
+    // 해당 테이블에서 셀에 일괄적으로 적용하는 inmargin은 style 태그에 클래스를 만들어서 적용
+    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:att];
+    // style 태그 클래스 이름
+    NSString* tblID = [@"tbl" stringByAppendingString:table.identification];
+    // tbl의 inmargin 처리
+    InMargin* inMargin = table.inMargin;
+    NSString* inMarginString = [NSString stringWithFormat:@"padding : %@pt %@pt %@pt %@pt", [self convertHwpunitToPt:inMargin.top], [self convertHwpunitToPt:inMargin.right], [self convertHwpunitToPt:inMargin.bottom], [self convertHwpunitToPt:inMargin.left]];
     
+    NSString* styleCls = [NSString stringWithFormat:@".%@ {%@}", tblID, inMarginString];
+    HTMLNode* styleTextNode =
     
-    
-   
-        
+    [doc appendNode:tbl];
+
     return tbl;
+}
+
++(HTMLElement*)createPic:(Pic*)pic
+{
+    
+    //tbl에서 사용될때는,
+    NSMutableDictionary* att = [@{
+        @"box-sizing" : @"border-box",
+        @"height" : [self convertHwpunitToPt:pic.curSz.height],
+        @"width" : [self convertHwpunitToPt:pic.curSz.width],
+        @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],
+        @"padding-bottom" : [self convertHwpunitToPt:pagePr.margin.bottom],
+        @"padding-left" : [self convertHwpunitToPt:pagePr.margin.left],
+        @"padding-right" : [self convertHwpunitToPt:pagePr.margin.right],
+    } mutableCopy];
+    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img" attributes:att];
+    return picture;
 }
 
 

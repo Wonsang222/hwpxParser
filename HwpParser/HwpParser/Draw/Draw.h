@@ -11,6 +11,4 @@
 #import "../Model/Table/Table/Tbl.h"
 
 @interface Draw : NSObject
-+(HTMLDocument *) createHtml;
-+(HTMLElement *) createTbl: (Tbl*) table;
 @end
