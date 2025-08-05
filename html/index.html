@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -5,7 +7,7 @@
     <title>HWP Table to HTML/CSS</title>
     <style>
       .mainView {
-        background-color: black;
+        background-color: wheat;
         box-sizing: border-box;
         width: 595.28pt;
         height: 841.88pt;
@@ -26,6 +28,7 @@
       }
 
       .tbl {
+        box-sizing: border-box;
         width: 476.97pt;
         height: 41.78pt;
         margin: 2.83pt 2.83pt 2.83pt 2.83pt;
@@ -34,6 +37,8 @@
 
       .td1 {
         background-color: red;
+        height: 31.93pt;
+        width: 101.62pt;
       }
 
       .liner1 {
@@ -42,6 +47,7 @@
         left: 0pt;
         height: 31.93pt;
         overflow: hidden;
+        
       }
 
       .image1 {
@@ -52,24 +58,28 @@
                     transform: translate(
                       -21.44pt,
                       3.78pt
-                    ); 
+                    );
+                    margin-bottom: 10pt;
+                    
       }
+
       
 
     </style>
   </head>
   <body>
     <div class="mainView" >
-      // container
       <div class="container">
         <table
-         class="tbl"
-        >
+         class="tbl">
           <tr>
             <td class="td1">
               <div class="innerConatainer1">
                 <div class="liner1">
                   <img class="image1" src="imgs/image1.jpg" alt="fuckyou">
+                </div>
+                <div>
+                  행정안전부
                 </div>
               </div>
             </td>
