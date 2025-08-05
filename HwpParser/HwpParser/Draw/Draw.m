@@ -47,21 +47,31 @@
     }
 }
 
-+(HTMLDocument*)appendComponent:(HTMLElement*)element onDoc:(HTMLDocument*) doc
++(HTMLDocument*)appendComponent:(HTMLElement*)element onDocBody:(HTMLDocument*) doc
 {
     HTMLElement* body = doc.body;
     [body appendNode:element];
     return doc;
 }
 
-+(HTMLDocument*)parseP:(Paragraph*)paragraph
++(HTMLElement*)createLine:(Lineseg*)seg
 {
-    HTMLDocument* doc = [self createHtml];
-    
-    
+    // line
+    // textpos에 따라서 줄바꿈 -> 상위 arr 순회에서 처리해야함
+    // flag 비트 단위 데이터 처리 해야함
+    // 줄 간격 ->
 
-    
-    return doc;
+    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
+    NSDictionary* att = @{
+        @"box-sizing" : @"border-box"    ,
+        @"position" : @"absolute",
+        @"overflow" : @"hidden",
+        @"left" : [self convertHwpunitToPt:seg.textpos],
+        @"top" : [self convertHwpunitToPt:seg.vertpos],
+        @"height" : [self convertHwpunitToPt:seg.vertsize],
+        
+    };
+    return div;
 }
 
 +(HTMLElement*)createComponentWrapperDiv
