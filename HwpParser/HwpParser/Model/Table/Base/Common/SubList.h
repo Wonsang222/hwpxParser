@@ -23,7 +23,7 @@
 @property(nonnull,nonatomic, strong) NSString* metatag;
 
 //paragraph 배열로
-@property(nonnull,nonatomic, strong) NSMutableArray* paragraph;
+@property(nonnull,nonatomic, strong) NSMutableArray<Paragraph*>* paragraph;
 
 @end
 

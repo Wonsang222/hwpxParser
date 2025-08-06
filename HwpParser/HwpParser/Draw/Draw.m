@@ -62,15 +62,16 @@
     // 줄 간격 ->
 
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    NSDictionary* att = @{
+    NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box"    ,
         @"position" : @"absolute",
-        @"overflow" : @"hidden",
         @"left" : [self convertHwpunitToPt:seg.textpos],
         @"top" : [self convertHwpunitToPt:seg.vertpos],
         @"height" : [self convertHwpunitToPt:seg.vertsize],
-        
-    };
+    }mutableCopy];
+    
+    [div setAttributes:att];
+    
     return div;
 }
 
@@ -127,6 +128,7 @@
     
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box",
+        @"position" : @"relative",
         @"height" : [self convertHwpunitToPt:pagePr.height],
         @"width" : [self convertHwpunitToPt:pagePr.width],
         @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],
@@ -176,26 +178,33 @@
         @"padding-right" : [self convertHwpunitToPt:table.inMargin.right],
         @"padding-bottom" : [self convertHwpunitToPt:table.inMargin.bottom],
         @"padding-left" : [self convertHwpunitToPt:table.inMargin.left],
-        @"border-collapse" : @"collapse",
         @"table-layout" : @"fixed",
+        @"position" : @"relative",
     } mutableCopy];
     
     // 해당 테이블에서 셀에 일괄적으로 적용하는 inmargin은 style 태그에 클래스를 만들어서 적용
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:att];
-    // style 태그 클래스 이름
-    NSString* tblID = [@"tbl" stringByAppendingString:table.identification];
-    // tbl의 inmargin 처리
-    InMargin* inMargin = table.inMargin;
-    NSString* inMarginString = [NSString stringWithFormat:@"padding : %@pt %@pt %@pt %@pt",
-                                [self convertHwpunitToPt:inMargin.top],
-                                [self convertHwpunitToPt:inMargin.right],
-                                [self convertHwpunitToPt:inMargin.bottom],
-                                [self convertHwpunitToPt:inMargin.left]];
     
-    NSString* styleCls = [NSString stringWithFormat:@".%@ {%@}", tblID, inMarginString];
-    HTMLNode* styleTextNode = [doc appendNode:tbl];
+    // TC 만드러야함
+    for (Tr* tr in table.tr) {
+        HTMLElement* tablerow = [self createTr:tr];
+        
+    }
+    
 
     return tbl;
+}
+
++(HTMLElement*)createTr:(Tr*)tr {
+    HTMLElement *tableRow = [[HTMLElement alloc] initWithTagName:@"tr"];
+    
+    return tableRow;
+}
+
++(HTMLElement*)createTc:(Tc*)tc {
+    HTMLElement *tableRow = [[HTMLElement alloc] initWithTagName:@"tc"];
+    
+    return tableRow;
 }
 
 +(HTMLElement*)createPic:(Pic*)pic
@@ -225,20 +234,5 @@
     return picture;
 }
 
-
-//-(HTMLElement *) parseSubList: (SubList*) sub
-//{
-//    // sublist는 paragraph container it seeems like nothing to raise
-//    for (id paragraph in sub.paragraph) {
-//       
-//    }
-//}
-//
-//-(HTMLElement *) parseSubList: (Paragraph*) paragraph
-//{
-//    // Run Container
-//  // null이 아닌 객체.
-//    
-//}
 
 @end
