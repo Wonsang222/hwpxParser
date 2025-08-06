@@ -172,8 +172,12 @@
         @"margin-bottom" : [self convertHwpunitToPt:table.outMargin.bottom],
         @"margin-left" : [self convertHwpunitToPt:table.outMargin.left],
         @"margin-right" : [self convertHwpunitToPt:table.outMargin.right],
+        @"padding-top" : [self convertHwpunitToPt:table.inMargin.top],
+        @"padding-right" : [self convertHwpunitToPt:table.inMargin.right],
+        @"padding-bottom" : [self convertHwpunitToPt:table.inMargin.bottom],
+        @"padding-left" : [self convertHwpunitToPt:table.inMargin.left],
         @"border-collapse" : @"collapse",
-        @"table-layout" : @"fixed"
+        @"table-layout" : @"fixed",
     } mutableCopy];
     
     // 해당 테이블에서 셀에 일괄적으로 적용하는 inmargin은 style 태그에 클래스를 만들어서 적용
@@ -182,30 +186,42 @@
     NSString* tblID = [@"tbl" stringByAppendingString:table.identification];
     // tbl의 inmargin 처리
     InMargin* inMargin = table.inMargin;
-    NSString* inMarginString = [NSString stringWithFormat:@"padding : %@pt %@pt %@pt %@pt", [self convertHwpunitToPt:inMargin.top], [self convertHwpunitToPt:inMargin.right], [self convertHwpunitToPt:inMargin.bottom], [self convertHwpunitToPt:inMargin.left]];
+    NSString* inMarginString = [NSString stringWithFormat:@"padding : %@pt %@pt %@pt %@pt",
+                                [self convertHwpunitToPt:inMargin.top],
+                                [self convertHwpunitToPt:inMargin.right],
+                                [self convertHwpunitToPt:inMargin.bottom],
+                                [self convertHwpunitToPt:inMargin.left]];
     
     NSString* styleCls = [NSString stringWithFormat:@".%@ {%@}", tblID, inMarginString];
-    HTMLNode* styleTextNode =
-    
-    [doc appendNode:tbl];
+    HTMLNode* styleTextNode = [doc appendNode:tbl];
 
     return tbl;
 }
 
 +(HTMLElement*)createPic:(Pic*)pic
 {
+    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
+    Pos* position = pic.pos;
     
-    //tbl에서 사용될때는,
-    NSMutableDictionary* att = [@{
-        @"box-sizing" : @"border-box",
-        @"height" : [self convertHwpunitToPt:pic.curSz.height],
-        @"width" : [self convertHwpunitToPt:pic.curSz.width],
-        @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],
-        @"padding-bottom" : [self convertHwpunitToPt:pagePr.margin.bottom],
-        @"padding-left" : [self convertHwpunitToPt:pagePr.margin.left],
-        @"padding-right" : [self convertHwpunitToPt:pagePr.margin.right],
-    } mutableCopy];
-    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img" attributes:att];
+    if ([position.treatAsChar isEqualToString:@"1"]) {
+        // 이미지를 글자처럼 사용할때
+        // lineseg를 기준으로 이미지 배치
+    } else {
+        // 이미지를 아닐때
+        // 속해있는 부모태그를 기준으로 위치 배치
+    }
+    
+//    //tbl에서 사용될때는,
+//    NSMutableDictionary* att = [@{
+//        @"box-sizing" : @"border-box",
+//        @"height" : [self convertHwpunitToPt:pic.curSz.height],
+//        @"width" : [self convertHwpunitToPt:pic.curSz.width],
+//        @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],
+//        @"padding-bottom" : [self convertHwpunitToPt:pagePr.margin.bottom],
+//        @"padding-left" : [self convertHwpunitToPt:pagePr.margin.left],
+//        @"padding-right" : [self convertHwpunitToPt:pagePr.margin.right],
+//    } mutableCopy];
+    
     return picture;
 }
 
