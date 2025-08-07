@@ -10,7 +10,7 @@
 
 @interface Linesegarray : NSObject
 
-@property(nullable, strong) Lineseg* lineseg;
+@property(nullable, strong) NSMutableArray<Lineseg*>* lineseg;
 
 @end
 

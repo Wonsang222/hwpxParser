@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Tr : NSObject
-@property(nonnull, strong) Tc *tc;
+@property(nonnull, strong) NSMutableArray<Tc*>* tc;
 @end
 
 NS_ASSUME_NONNULL_END

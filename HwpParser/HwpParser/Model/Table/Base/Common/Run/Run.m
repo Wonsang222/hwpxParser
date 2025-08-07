@@ -6,28 +6,60 @@
 //
 
 #import "Run.h"
-#import "../../../../../Extension/NSObject+FilterNotNullProp.h"
-
-NS_ASSUME_NONNULL_BEGIN
+#import "../../../../../Extension/NSObject+MutableArrayInit.h"
 
 @implementation Run
 
 @synthesize charPrIDRef;
 @synthesize charTcId;
 @synthesize secPr;
-@synthesize text;
-@synthesize pic;
+@synthesize contents;
 
-- (NSArray<NSString*>*)nullableProperties
+-(instancetype)init
 {
-    return @[@"secPr",@"text", @"pic"];
+    self = [super init];
+    [self initializeWithMutableArray];
+    // 옵저버 설정
+    [self addObserver:self
+           forKeyPath:@"text"
+              options:(NSKeyValueObservingOptionNew) context:NULL];
+    
+    [self addObserver:self
+           forKeyPath:@"pic"
+              options:(NSKeyValueObservingOptionNew) context:NULL];
+    
+    return self;
 }
 
-- (id _Nullable)filterNotNull
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                      context:(void *)context
 {
-    return [self filterNotNullProp];
+    if (object == self) {
+        if ([keyPath isEqualToString:@"text"]) {
+            Text* t = change[NSKeyValueChangeNewKey];
+            if (t && ![t isEqual:[NSNull null]]) {
+                [self.contents addObject:t];
+            }
+        } else if ([keyPath isEqualToString:@"pic"]) {
+            Pic* t = change[NSKeyValueChangeNewKey];
+            if (t && ![t isEqual:[NSNull null]]) {
+                [self.contents addObject:t];
+            }
+        }
+    }
+}
+
+
+-(void)dealloc
+{
+    @try {
+          [self removeObserver:self forKeyPath:@"text"];
+          [self removeObserver:self forKeyPath:@"pic"];
+      } @catch (NSException *exception) {
+          NSLog(@"옵저버 제거 중 예외 발생: %@", exception);
+      }
 }
 
 @end
-
-NS_ASSUME_NONNULL_END

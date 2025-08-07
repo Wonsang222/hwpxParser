@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (HwpUnit)
--(float)convertHwpunitToPt:(NSString*) hwpUnit;
+-(NSString*)convertHwpunitToPt:(NSString*) hwpUnit;
+-(NSString*)convertUnsignedIntToPt:(NSString*)val;
 @end
 
 NS_ASSUME_NONNULL_END

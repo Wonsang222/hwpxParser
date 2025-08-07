@@ -6,6 +6,7 @@
 //
 
 #import "Pic.h"
+#import "../../../../../Extension/NSObject+HwpUnit.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,31 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize imgDim;
 @synthesize img;
 
-
+- (HTMLElement *)convertToHtml
+{
+    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
+    
+//    if ([self.pos.treatAsChar isEqualToString:@"1"]) {
+//        // 이미지를 글자처럼 사용할때
+//    } else {
+//        // 이미지를 아닐때
+//    }
+    
+    NSMutableDictionary* att = [@{
+        @"box-sizing" : @"border-box",
+        @"position" : @"absolute",
+        @"padding-top" : [self convertHwpunitToPt:self.inMargin.top],
+        @"padding-bottom" : [self convertHwpunitToPt:self.inMargin.bottom],
+        @"padding-left" : [self convertHwpunitToPt:self.inMargin.left],
+        @"padding-right" : [self convertHwpunitToPt:self.inMargin.right],
+        @"width" : [self convertHwpunitToPt:self.sz.width],
+        @"height" : [self convertHwpunitToPt:self.sz.height],
+        @"top" : [self convertUnsignedIntToPt:self.offset.y],
+        @"left" : [self convertUnsignedIntToPt:self.offset.x],
+    } mutableCopy];
+    
+    return picture;
+}
 
 @end
 

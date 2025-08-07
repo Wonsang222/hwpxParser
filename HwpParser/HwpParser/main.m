@@ -12,15 +12,11 @@
 #import "XMLParser.h"
 #import "HTMLElement.h"
 #import "HTMLDocument.h"
-#import "TestCls.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
        
-        TestCls *test = [[TestCls alloc] init];
-        [test setCheck:@"fff"];
-        id result = [test filterNotNull];
-        NSLog(@"%@", result);
+
         
 //        NSString *path = @"/Users/hwangwonsang/Desktop/git/hwpxParser/HwpParser/HwpParser/Temper/Table.xml";
 //    

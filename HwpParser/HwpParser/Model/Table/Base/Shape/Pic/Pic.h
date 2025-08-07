@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HTMLElement.h"
 #import "../../../../AbstractShapeComponentType.h"
 #import "LineShape.h"
 #import "ImgRect.h"
@@ -26,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic,strong) InMargin* inMargin;
 @property(nonnull,nonatomic,strong) ImgDim* imgDim;
 @property(nonnull,nonatomic,strong) Img* img;
+
+-(HTMLElement*)convertToHtml;
+
 @end
 
 NS_ASSUME_NONNULL_END

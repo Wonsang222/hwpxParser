@@ -164,8 +164,10 @@
     return doc;
 }
 
-+ (HTMLElement *)appendTbl:(Tbl *)table onDoc:(HTMLDocument*)doc
++ (HTMLElement *)createTbl:(Tbl *)table
 {
+    
+    // borderfill 에 따라서 att 변경되어야함. Todo
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box",
         @"height" : [self convertHwpunitToPt:table.sz.height],
@@ -189,10 +191,46 @@
     for (Tr* tr in table.tr) {
         HTMLElement* tablerow = [self createTr:tr];
         
+        for (Tc* column in tr.tc) {
+            // 만들고 tr에 appendNode
+            
+            for (Paragraph* p in column.subList.paragraph) {
+                
+            }
+            
+        }
+        
     }
     
 
     return tbl;
+}
+
++(HTMLElement*)parseParagraph:(Paragraph*)p onParent:(HTMLElement*)parent {
+    HTMLElement *result = [[HTMLElement alloc] initWithTagName:@"div"];
+    
+    // 라인을 배치해야함
+    NSMutableArray<HTMLElement*>* lines = [[NSMutableArray alloc] init];
+    NSMutableArray* contents = p.run.contents;
+    // line
+    for (Lineseg* line in p.linesegarray.lineseg) {
+        HTMLElement* liner = [self createLine:line];
+        
+    }
+    // calculate location
+    if ([lines count] == 1) {
+        HTMLElement* onlyLine = [lines firstObject];
+        
+        
+        
+        [parent appendNode:onlyLine];
+    } else {
+        
+    }
+    
+    
+    
+    return result;
 }
 
 +(HTMLElement*)createTr:(Tr*)tr {
