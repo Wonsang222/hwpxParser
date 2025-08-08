@@ -19,7 +19,7 @@
 
 @property(nullable, strong) SecPr *secPr;
 
-@property(nullable, strong) Text* text;
+@property(nonnull, strong) Text* text;
 @property(nullable, strong) Pic* pic;
 
 @end

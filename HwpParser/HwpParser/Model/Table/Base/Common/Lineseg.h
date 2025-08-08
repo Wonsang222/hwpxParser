@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HTMLElement.h"
+#import "../../../../Extension/NSObject+HwpUnit.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* horzpos;
 @property(nonnull,strong) NSString* horzsize;
 @property(nonnull,strong) NSString* flags;
+-(HTMLElement*)convertToHtml;
 @end
 
 NS_ASSUME_NONNULL_END

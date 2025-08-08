@@ -110,36 +110,7 @@
     // draw
 }
 
-+(void)parseSecPr:(SecPr*)secPr
-{
-//    // secpr은 한개인가?
-//    HTMLDocument* html = [self createHtml];
-//    [html appendNode:mainDiv];
-//    // container on main
-//    HTMLElement* containerDiv = [self drawContainerDiv:secPr.pagePr];
-//    [mainDiv appendNode:containerDiv];
-}
 
-// 이 태그에 추가해야함.
-+(HTMLElement*)createContainerDiv:(PagePr*)pagePr
-{
-    // 용지 사이즈를 정의하는 Div
-    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    
-    NSMutableDictionary* att = [@{
-        @"box-sizing" : @"border-box",
-        @"position" : @"relative",
-        @"height" : [self convertHwpunitToPt:pagePr.height],
-        @"width" : [self convertHwpunitToPt:pagePr.width],
-        @"padding-top" : [self convertHwpunitToPt:pagePr.margin.top],
-        @"padding-bottom" : [self convertHwpunitToPt:pagePr.margin.bottom],
-        @"padding-left" : [self convertHwpunitToPt:pagePr.margin.left],
-        @"padding-right" : [self convertHwpunitToPt:pagePr.margin.right],
-    } mutableCopy];
-    
-    [div setAttributes:att];
-    return div;
-}
 
 +(HTMLDocument *) createHtml
 {

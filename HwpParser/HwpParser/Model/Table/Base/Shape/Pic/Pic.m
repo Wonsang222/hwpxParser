@@ -30,6 +30,8 @@ NS_ASSUME_NONNULL_BEGIN
 //        // 이미지를 아닐때
 //    }
     
+    NSString* imgFilePath = [@"BinData/" stringByAppendingString:self.img.binaryItemIDRef];
+    
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box",
         @"position" : @"absolute",
@@ -41,8 +43,10 @@ NS_ASSUME_NONNULL_BEGIN
         @"height" : [self convertHwpunitToPt:self.sz.height],
         @"top" : [self convertUnsignedIntToPt:self.offset.y],
         @"left" : [self convertUnsignedIntToPt:self.offset.x],
+        @"src" : imgFilePath,
     } mutableCopy];
     
+    [picture setAttributes:att];
     return picture;
 }
 

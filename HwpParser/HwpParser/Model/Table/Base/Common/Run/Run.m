@@ -39,7 +39,7 @@
     if (object == self) {
         if ([keyPath isEqualToString:@"text"]) {
             Text* t = change[NSKeyValueChangeNewKey];
-            if (t && ![t isEqual:[NSNull null]]) {
+            if (t && ![t isEqual:[NSNull null]] && [t.content length] >= 1) {
                 [self.contents addObject:t];
             }
         } else if ([keyPath isEqualToString:@"pic"]) {

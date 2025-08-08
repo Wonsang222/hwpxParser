@@ -19,5 +19,50 @@
 @synthesize run;
 @synthesize linesegarray;
 
+- (HTMLElement *)convertToHtml
+{
+    if (self.run.secPr) {
+        // 용지
+        return run.secPr.pagePr.getHtml;
+    } else {
+        // 아닐때
+        // line 배치 및 컨텐츠
+        // line에 내가 배치할 글자수에 대한 정의가 있음.
+        // 그림은 treataschar 가 1 일때만 글자로 치고,
+        
+        if ([linesegarray.lineseg count] > 1) {
+            // 그룹핑을해서
+            // 배치를 하고
+            // 리턴 wrapper로?
+            
+            // 그룹은 lineseg [[]] 이런식으로 index 넘버에 맞춰서
+            
+            
+            
+            
+            
+            
+        } else {
+            // 문단이 하나일때
+            Lineseg* liner = [linesegarray.lineseg firstObject];
+            HTMLElement* line = [liner convertToHtml];
+            
+            for (id content in self.run.contents) {
+                
+                if ([content respondsToSelector:@selector(convertToHtml)]) {
+                    HTMLElement* elem = [content convertToHtml];
+                    [line appendNode:elem];
+                }
+            }
+            
+            return line;
+        }
+        
+        
+        
+        
+        
+    }
+}
 @end
 

@@ -21,6 +21,21 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize horzsize;
 @synthesize flags;
 
+- (HTMLElement *)convertToHtml
+{
+    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
+    NSMutableDictionary* att = [@{
+        @"box-sizing" : @"border-box"    ,
+        @"position" : @"absolute",
+        @"left" : [self convertHwpunitToPt:self.textpos],
+        @"top" : [self convertHwpunitToPt:self.vertpos],
+        @"height" : [self convertHwpunitToPt:self.vertsize],
+    }mutableCopy];
+    
+    [div setAttributes:att];
+    
+    return div;
+}
 @end
 
 NS_ASSUME_NONNULL_END
