@@ -6,6 +6,7 @@
 //
 
 #import "PagePr.h"
+#import "../../../../../../Extension/NSObject+AttributeSetter.h"
 
 @implementation PagePr
 
@@ -16,16 +17,7 @@
 
 @synthesize margin;
 
-- (void)setMargin:(Margin *)newMargin {
-    margin = newMargin;
-}
-
-- (NSString *)description {
-    return [NSString stringWithFormat:@"PagePr{landscape=%@, width=%@, height=%@, gutterType=%@, margin=%@}", 
-            self.landscape, self.width, self.height, self.gutterType, self.margin];
-}
-
-- (HTMLElement *)getHtml
+- (HTMLElement*)getHtml
 {
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
     
@@ -38,9 +30,12 @@
         @"padding-bottom" : [self convertHwpunitToPt:self.margin.bottom],
         @"padding-left" : [self convertHwpunitToPt:self.margin.left],
         @"padding-right" : [self convertHwpunitToPt:self.margin.right],
+        @"background-color" : @"red"
+        
     } mutableCopy];
     
-    [div setAttributes:att];
+    NSString* attString = [self createAttribute:att];
+    [div setAttributes:[@{@"style" : attString } mutableCopy]];
     return div;
 }
 

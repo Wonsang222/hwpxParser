@@ -12,6 +12,7 @@
 #import "Note/FootNotePr.h"
 #import "Note/EndNotePr.h"
 #import "PageBorderFill.h"
+#import "LineNumberShape.h"
 
 @interface SecPr : NSObject
 
@@ -24,9 +25,10 @@
 @property(nonnull, strong) NSString *outlineShapeIDRef;
 @property(nonnull, strong) NSString *memoShapeIDRef;
 @property(nonnull, strong) NSString *textVerticalWidthHead;
-@property(nonnull, strong) NSString *masterPageCut;
+@property(nonnull, strong) NSString *masterPageCnt;
 
 // nullable
+@property(nullable, strong) LineNumberShape* lineNumberShape;
 @property(nullable, strong) StartNum *startNum;
 @property(nullable, strong) Grid *grid;
 @property(nullable, strong) PagePr* pagePr;

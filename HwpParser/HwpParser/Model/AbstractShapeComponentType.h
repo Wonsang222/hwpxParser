@@ -7,13 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Table/Base/AbstractObject.h"
-#import "Table/Base/Shape/Offset.h"
 #import "Table/Base/Shape/OrgSz.h"
 #import "Table/Base/Shape/CurSz.h"
 #import "Table/Base/Shape/OrgSz.h"
 #import "Table/Base/Shape/Flip.h"
 #import "Table/Base/Shape/RotationInfo.h"
 #import "Table/Base/Shape/RenderingInfo.h"
+#import "../Model/Table/Base/Common/Run/SecPr/Offset.h"
 
 @interface AbstractShapeComponentType : AbstractShapeObjectType
 @property (nonnull, strong) NSString *href;

@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize outlineShapeIDRef;
 @synthesize memoShapeIDRef;
 @synthesize textVerticalWidthHead;
-@synthesize masterPageCut;
+@synthesize masterPageCnt;
 @synthesize startNum;
 @synthesize grid;
 @synthesize pagePr;

@@ -9,6 +9,7 @@
 #import "../../HwpUnit.h"
 #import "../../Margin.h"
 #import "HTMLElement.h"
+#import "HTMLDocument.h"
 #import "../../../../../../Extension/NSObject+HwpUnit.h"
 
 @interface PagePr : NSObject

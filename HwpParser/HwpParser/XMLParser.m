@@ -6,7 +6,7 @@
 //
 
 #import "XMLParser.h"
-#import "Model/Table/Base/Common/Run/SecPr/PagePr.h"
+
 
 @interface XMLParser () <NSXMLParserDelegate>
 @property (nonatomic, strong) NSMutableArray *current;
@@ -33,7 +33,8 @@
         @"config",
         @"sec",
         @"effects",
-        @"shapeComment"
+        @"shapeComment",
+        @"visibility"
     ];
     self.standFor = @{
         @"p" : @"paragraph",
@@ -94,11 +95,10 @@
         NSString* headerClsName = [self.part stringByAppendingString:clsName];
         clsName = headerClsName;
     }
-    
+ 
     Class elemCls = NSClassFromString(clsName);
     
     if (elemCls) {
-        NSLog(@"open tag : %@", clsName);
         id instace = [[elemCls alloc] init];
         
         // attributeDict key 값 수정해야함 id 같은 문자열은 프로퍼티 이름으로 사용이 불가능함

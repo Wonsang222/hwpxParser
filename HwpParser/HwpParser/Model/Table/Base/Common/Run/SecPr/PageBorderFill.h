@@ -17,6 +17,6 @@
 @property(nonnull,nonatomic, strong) NSString *footerInside;
 @property(nonnull,nonatomic, strong) NSString *fillArea;
 
-@property(nullable, nonatomic, strong) OffSet* offset;
+@property(nullable, nonatomic, strong) Offset* offset;
 
 @end

@@ -8,6 +8,7 @@
 #import "PageBorderFill.h"
 
 @implementation PageBorderFill
+
 @synthesize type;
 @synthesize borderFillIDRef;
 @synthesize textBorder;

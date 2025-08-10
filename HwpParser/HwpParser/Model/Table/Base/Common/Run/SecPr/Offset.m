@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@implementation OffSet
+@implementation Offset
 
 @synthesize left;
 @synthesize right;
