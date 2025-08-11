@@ -7,6 +7,12 @@
 
 #import "Draw.h"
 #import "../Model/Table/Base/Common/Paragraph.h"
+#import "../Model/Table/Table/Tbl.h"
+#import "../Model/Table/Table/Tr.h"
+#import "../Model/Table/Table/Tc.h"
+#import "../Model/Table/Base/Shape/Pic/Pic.h"
+#import "../Model/Table/Base/Common/Run/Run.h"
+#import "../Model/Table/Base/Common/SubList.h"
 
 // 일단 paragraph 부터
 

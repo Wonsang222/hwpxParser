@@ -13,6 +13,7 @@
 #import "SecPr/PagePr.h"
 #import "SecPr/Note/FootNotePr.h"
 #import "SecPr/Note/EndNotePr.h"
+@class Tbl;
 
 
 @interface Run : NSObject
@@ -23,7 +24,7 @@
 @property(nullable, strong) SecPr *secPr;
 @property(nonnull, strong) Text* text;
 @property(nullable, strong) Pic* pic;
-@property(nullable, strong) PagePr* pagePr;
+@property(nullable, strong) Tbl* tbl;
 @property(nullable, strong) FootNotePr* footNotePr;
 @property(nullable, strong) EndNotePr* endNotePr;
 

@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Tc.h"
+@class Tc;
 
 NS_ASSUME_NONNULL_BEGIN
 

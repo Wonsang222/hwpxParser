@@ -6,6 +6,7 @@
 //
 
 #import "Tr.h"
+#import "Tc.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

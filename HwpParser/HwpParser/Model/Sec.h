@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Table/Base/Common/Paragraph.h"
+@class Paragraph;
+#import "../Extension/NSObject+HtmlBuilder.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Sec : NSObject
 @property(nonnull, strong) Paragraph* paragraph;
+-(HTMLDocument*)createHtml;
 @end
 
 NS_ASSUME_NONNULL_END

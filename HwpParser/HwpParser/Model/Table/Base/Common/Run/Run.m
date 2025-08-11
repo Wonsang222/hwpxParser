@@ -6,6 +6,7 @@
 //
 
 #import "Run.h"
+#import "../../../Table/Tbl.h"
 #import "../../../../../Extension/NSObject+MutableArrayInit.h"
 
 @implementation Run

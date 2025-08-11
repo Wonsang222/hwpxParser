@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OffSet.h"
+#import "Offset.h"
 
 @interface PageBorderFill : NSObject
 

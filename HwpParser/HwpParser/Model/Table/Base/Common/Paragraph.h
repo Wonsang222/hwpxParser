@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "./Run/Run.h"
+@class Run;
 #import "Linesegarray.h"
 #import "../../../../Extension/NSObject+HwpUnit.h"
 

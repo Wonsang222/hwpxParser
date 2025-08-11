@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Base/Common/SubList.h"
+@class SubList;
 #import "CellAddr.h"
 #import "CellSpan.h"
 #import "CellSz.h"

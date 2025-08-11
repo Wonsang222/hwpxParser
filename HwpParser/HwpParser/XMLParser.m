@@ -31,7 +31,6 @@
     self.result = [NSMutableArray array];
     self.bannedList = @[
         @"config",
-        @"sec",
         @"effects",
         @"shapeComment",
         @"visibility"
@@ -78,6 +77,8 @@
     }
 
     NSString* openTag = elementName;
+    
+    NSLog(@"open : %@", openTag);
     
     // hp: 네임스페이스 제거
     if ([openTag hasPrefix:@"hp:"]) {

@@ -6,6 +6,7 @@
 //
 
 #import "Tbl.h"
+#import "Tr.h"
 #import "../../../Extension/NSObject+MutableArrayInit.h"
 
 NS_ASSUME_NONNULL_BEGIN

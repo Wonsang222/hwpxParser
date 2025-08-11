@@ -6,6 +6,7 @@
 //
 
 #import "SubList.h"
+#import "Paragraph.h"
 #import "../../../../Extension/NSObject+MutableArrayInit.h"
 
 @implementation SubList

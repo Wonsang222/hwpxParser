@@ -9,7 +9,7 @@
 #import "../Base/AbstractObject.h"
 #import "../Base/Common/InMargin.h"
 #import "CellZone.h"
-#import "Tr.h"
+@class Tr;
 #import "Label.h"
 
 @interface Tbl : AbstractShapeObjectType
