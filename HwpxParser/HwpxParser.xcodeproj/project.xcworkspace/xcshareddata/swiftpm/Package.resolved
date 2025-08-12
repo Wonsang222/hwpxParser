@@ -1,0 +1,24 @@
+{
+  "originHash" : "55a70d1b7480d5513f3cdca8837810c28411d680afa2ca47c726a1fd2303b400",
+  "pins" : [
+    {
+      "identity" : "htmlkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iabudiab/HTMLKit",
+      "state" : {
+        "revision" : "118cb4197164cc6987f41fae7e1eb21eb96b5f20",
+        "version" : "4.2.0"
+      }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive",
+      "state" : {
+        "revision" : "df35718ea19a94e015b91dc4881dee028ce4cdba",
+        "version" : "2.6.0"
+      }
+    }
+  ],
+  "version" : 3
+}
