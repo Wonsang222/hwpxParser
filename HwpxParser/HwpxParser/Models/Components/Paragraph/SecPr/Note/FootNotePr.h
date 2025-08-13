@@ -1,0 +1,21 @@
+//
+//  FootNotePr.h
+//  HwpParser
+//
+//  Created by 인스웨이브 on 7/1/25.
+//
+
+#import <Foundation/Foundation.h>
+#import "./AutoNumFormat.h"
+#import "NoteLine.h"
+#import "NoteSpacing.h"
+#import "Numbering.h"
+#import "Placement.h"
+
+@interface FootNotePr : NSObject
+@property(nonnull, strong) AutoNumFormat *autoNumFormat;
+@property(nonnull, strong) NoteLine *noteLine;
+@property(nonnull, strong) NoteSpacing *noteSpacing;
+@property(nonnull, strong) Numbering *numbering;
+@property(nonnull, strong) Placement *placement;
+@end

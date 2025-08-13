@@ -6,16 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Offset.h"
+#import "OrgSz.h"
+#import "CurSz.h"
+#import "Flip.h"
+#import "RotationInfo.h"
+#import "RenderingInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class Offset;
-@class OrgSz;
-@class CurSz;
-@class Flip;
-@class RotationInfo;
-@class RenderingInfo;
-
 @interface AbstractShapeComponentType : NSObject
 @property (strong) NSString *href;
 @property (strong) NSString *groupLevel;

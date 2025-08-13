@@ -1,0 +1,31 @@
+//
+//  SubList.m
+//  HwpParser
+//
+//  Created by 인스웨이브 on 7/1/25.
+//
+
+#import "SubList.h"
+#import "../../../Extensions/NSObject+ParsingHelper.h"
+
+@implementation SubList
+@synthesize identification;
+@synthesize textDirection;
+@synthesize lineWrap;
+@synthesize vertAlign;
+@synthesize linkListIDRef;
+@synthesize linkListNextIDRef;
+@synthesize textWidth;
+@synthesize textHeight;
+@synthesize hasTextRef;
+@synthesize hasNumRef;
+@synthesize metatag;
+@synthesize paragraph;
+
+-(instancetype) init
+{
+    self = [super init];
+    [self initializeWithMutableArray];
+    return self;
+}
+@end

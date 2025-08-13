@@ -6,8 +6,6 @@
 //
 
 #import "AbstractShapeComponentType.h"
-#import "Offset.h"
-
 
 NS_ASSUME_NONNULL_BEGIN
 

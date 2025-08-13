@@ -6,9 +6,7 @@
 //
 
 #import "AbstractShapeObjectType.h"
-#import "Sz.h"
-#import "Pos.h"
-#import "OutMargin.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
