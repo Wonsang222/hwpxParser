@@ -1,29 +1,16 @@
 //
 //  Tc.m
-//  HwpParser
+//  HwpxParser
 //
-//  Created by 인스웨이브 on 7/1/25.
+//  Created by Wonsang Hwang on 8/13/25.
 //
 
 #import "Tc.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation Tc
-
-@synthesize name;
-@synthesize header;
-@synthesize hasMargin;
-@synthesize protect;
-@synthesize editable;
-@synthesize dirty;
-@synthesize borderFillIDRef;
-@synthesize subList;
-@synthesize cellAddr;
-@synthesize cellSpan;
-@synthesize cellSz;
-@synthesize cellMargin;
-
-
-
 
 @end
 
+NS_ASSUME_NONNULL_END

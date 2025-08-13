@@ -13,7 +13,7 @@
 #import "SecPr/PagePr.h"
 #import "SecPr/Note/FootNotePr.h"
 #import "SecPr/Note/EndNotePr.h"
-@class Tbl;
+#import "../Table/Tbl.h"
 
 
 @interface Run : NSObject
