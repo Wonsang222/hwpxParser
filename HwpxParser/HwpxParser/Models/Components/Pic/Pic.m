@@ -7,6 +7,15 @@
 
 #import "Pic.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+@import HTMLKit;
+#import "LineShape.h"
+#import "ImgRect.h"
+#import "ImgClip.h"
+#import "InMargin.h"
+#import "ImgDim.h"
+#import "Img.h"
+#import "../../Base/AbstractShapeComponent/CurSz.h"
+#import "../../Base/AbstractShapeComponent/Offset.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

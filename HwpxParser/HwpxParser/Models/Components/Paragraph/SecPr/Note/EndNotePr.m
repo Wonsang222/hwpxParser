@@ -6,6 +6,11 @@
 //
 
 #import "EndNotePr.h"
+#import "AutoNumFormat.h"
+#import "NoteLine.h"
+#import "NoteSpacing.h"
+#import "Numbering.h"
+#import "Placement.h"
 
 @implementation EndNotePr
 @synthesize autoNumFormat;

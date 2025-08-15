@@ -6,6 +6,11 @@
 //
 
 #import "FootNotePr.h"
+#import "AutoNumFormat.h"
+#import "NoteLine.h"
+#import "NoteSpacing.h"
+#import "Numbering.h"
+#import "Placement.h"
 
 @implementation FootNotePr
 @synthesize autoNumFormat;

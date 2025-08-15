@@ -6,14 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "HTMLElement.h"
 #import "../../Base/AbstractShapeComponent/AbstractShapeComponentType.h"
-#import "LineShape.h"
-#import "ImgRect.h"
-#import "ImgClip.h"
-#import "InMargin.h"
-#import "ImgDim.h"
-#import "Img.h"
+
+@class HTMLElement;
+
+@class LineShape;
+@class ImgRect;
+@class ImgClip;
+@class InMargin;
+@class ImgDim;
+@class Img;
 
 NS_ASSUME_NONNULL_BEGIN
 

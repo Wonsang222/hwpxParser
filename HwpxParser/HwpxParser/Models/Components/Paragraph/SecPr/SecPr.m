@@ -6,6 +6,13 @@
 //
 
 #import "SecPr.h"
+#import "StartNum.h"
+#import "Grid.h"
+#import "PagePr.h"
+#import "Note/FootNotePr.h"
+#import "Note/EndNotePr.h"
+#import "PageBorderFill.h"
+#import "LineNumberShape.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +33,12 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize footNotePr;
 @synthesize endNotePr;
 @synthesize pageBorderFill;
+
+-(HTMLElement*)getHtml
+{
+    return [pagePr getHtml];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

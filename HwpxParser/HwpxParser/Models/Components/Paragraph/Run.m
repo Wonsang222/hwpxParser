@@ -7,6 +7,13 @@
 
 #import "Run.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+#import "SecPr/SecPr.h"
+#import "../Pic/Pic.h"
+#import "SecPr/LineNumberShape.h"
+#import "SecPr/PagePr.h"
+#import "SecPr/Note/FootNotePr.h"
+#import "SecPr/Note/EndNotePr.h"
+#import "../Table/Tbl.h"
 
 @implementation Run
 
@@ -14,6 +21,11 @@
 @synthesize charTcId;
 @synthesize secPr;
 @synthesize contents;
+
+- (HTMLElement*)getPaper
+{
+    return [secPr getHtml];
+}
 
 -(instancetype)init
 {

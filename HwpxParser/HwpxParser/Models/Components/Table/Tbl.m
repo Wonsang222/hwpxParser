@@ -7,6 +7,10 @@
 
 #import "Tbl.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+#import "../Pic/InMargin.h"
+#import "CellZone.h"
+#import "Label.h"
+#import "Tr.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,7 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Paragraph.h"
+
+@class Paragraph;
 
 @interface SubList : NSObject
 

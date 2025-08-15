@@ -6,9 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Run.h"
-#import "Linesegarray.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+
+@class Run;
+@class Linesegarray;
+@class HTMLElement;
 
 @interface Paragraph : NSObject
 
@@ -24,4 +26,5 @@
 @property(nullable, strong) Linesegarray* linesegarray;
 
 -(HTMLElement*_Nonnull)convertToHtml;
+-(HTMLElement*_Nonnull)convertToPaper;
 @end

@@ -6,11 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "./AutoNumFormat.h"
-#import "NoteLine.h"
-#import "NoteSpacing.h"
-#import "Numbering.h"
-#import "Placement.h"
+
+@class AutoNumFormat;
+@class NoteLine;
+@class NoteSpacing;
+@class Numbering;
+@class Placement;
 
 @interface FootNotePr : NSObject
 @property(nonnull, strong) AutoNumFormat *autoNumFormat;

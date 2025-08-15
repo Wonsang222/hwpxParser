@@ -6,9 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Sz.h"
-#import "Pos.h"
-#import "OutMargin.h"
+
+@class Sz;
+@class Pos;
+@class OutMargin;
 
 NS_ASSUME_NONNULL_BEGIN
 

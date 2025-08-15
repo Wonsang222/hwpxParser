@@ -7,10 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "../../Base/AbstractShape/AbstractShapeObjectType.h"
-#import "../Pic/InMargin.h"
-#import "CellZone.h"
-#import "Label.h"
-#import "Tr.h"
+
+@class InMargin;
+@class CellZone;
+@class Label;
+@class Tr;
 
 @interface Tbl : AbstractShapeObjectType
 @property(strong, nonatomic, nonnull) NSString* pageBreak;

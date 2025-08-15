@@ -6,6 +6,12 @@
 //
 
 #import "AbstractShapeComponentType.h"
+#import "Offset.h"
+#import "OrgSz.h"
+#import "CurSz.h"
+#import "Flip.h"
+#import "RotationInfo.h"
+#import "RenderingInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

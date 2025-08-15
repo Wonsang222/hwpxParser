@@ -7,6 +7,7 @@
 
 #import "SubList.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+#import "Paragraph.h"
 
 @implementation SubList
 @synthesize identification;

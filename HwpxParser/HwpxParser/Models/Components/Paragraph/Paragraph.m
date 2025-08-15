@@ -7,6 +7,9 @@
 
 #import "Paragraph.h"
 #import "Run.h"
+#import "Linesegarray.h"
+#import "../Pic/Pic.h"
+@import HTMLKit;
 
 @implementation Paragraph
 
@@ -19,9 +22,13 @@
 @synthesize run;
 @synthesize linesegarray;
 
+-(HTMLElement*) convertToPaper
+{
+    return [run getPaper];
+}
+
 - (HTMLElement *)convertToHtml
 {
-
     if ([linesegarray.lineseg count] > 1) {
         // 그룹핑을해서
         // 배치를 하고

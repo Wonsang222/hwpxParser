@@ -6,9 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MatrixType/TransMatrix.h"
-#import "MatrixType/RotMatrix.h"
-#import "MatrixType/ScaMatrix.h"
+
+@class TransMatrix;
+@class RotMatrix;
+@class ScaMatrix;
 
 NS_ASSUME_NONNULL_BEGIN
 

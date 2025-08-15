@@ -6,14 +6,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SecPr/SecPr.h"
 #import "Text/Text.h"
-#import "../Pic/Pic.h"
-#import "SecPr/LineNumberShape.h"
-#import "SecPr/PagePr.h"
-#import "SecPr/Note/FootNotePr.h"
-#import "SecPr/Note/EndNotePr.h"
-#import "../Table/Tbl.h"
+@import HTMLKit;
+
+@class SecPr;
+@class Pic;
+@class LineNumberShape;
+@class PagePr;
+@class FootNotePr;
+@class EndNotePr;
+@class Tbl;
+@class PageBorderFill;
 
 
 @interface Run : NSObject
@@ -29,6 +32,9 @@
 @property(nullable, strong) EndNotePr* endNotePr;
 
 @property(nonnull, strong) NSMutableArray<PageBorderFill*>* pageBorderFill;
+
+-(HTMLElement*_Nonnull)getHtml;
+-(HTMLElement*_Nullable)getPaper;
 
 @end
 

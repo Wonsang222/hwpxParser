@@ -6,6 +6,9 @@
 //
 
 #import "RenderingInfo.h"
+#import "MatrixType/TransMatrix.h"
+#import "MatrixType/RotMatrix.h"
+#import "MatrixType/ScaMatrix.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

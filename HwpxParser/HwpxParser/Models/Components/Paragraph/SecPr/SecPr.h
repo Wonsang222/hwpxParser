@@ -6,13 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "StartNum.h"
-#import "Grid.h"
-#import "PagePr.h"
-#import "Note/FootNotePr.h"
-#import "Note/EndNotePr.h"
-#import "PageBorderFill.h"
-#import "LineNumberShape.h"
+@import HTMLKit;
+
+@class StartNum;
+@class Grid;
+@class PagePr;
+@class FootNotePr;
+@class EndNotePr;
+@class PageBorderFill;
+@class LineNumberShape;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,10 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nullable, strong) LineNumberShape* lineNumberShape;
 @property(nullable, strong) StartNum *startNum;
 @property(nullable, strong) Grid *grid;
-@property(nullable, strong) PagePr* pagePr;
+@property(strong) PagePr* pagePr;
 @property(nullable, strong) FootNotePr* footNotePr;
 @property(nullable, strong) EndNotePr* endNotePr;
 @property(nullable, strong) PageBorderFill* pageBorderFill;
+-(HTMLElement*)getHtml;
 
 @end
 
