@@ -6,7 +6,7 @@
 //
 
 #import "Run.h"
-#import "../../../Extensions/NSObject+ParsingHelper.h"
+
 #import "SecPr/SecPr.h"
 #import "../Pic/Pic.h"
 #import "SecPr/LineNumberShape.h"
@@ -22,9 +22,15 @@
 @synthesize secPr;
 @synthesize contents;
 
-- (HTMLElement*)getPaper
+- (HTMLElement *)convertToHtml
 {
-    return [secPr getHtml];
+    HTMLElement* elem;
+    for (id content in self.contents) {
+        if (elem) {
+            
+        }
+    }
+    return elem;
 }
 
 -(instancetype)init
@@ -38,6 +44,10 @@
     
     [self addObserver:self
            forKeyPath:@"pic"
+              options:(NSKeyValueObservingOptionNew) context:NULL];
+    
+    [self addObserver:self
+           forKeyPath:@"secPr"
               options:(NSKeyValueObservingOptionNew) context:NULL];
     
     return self;
@@ -59,6 +69,11 @@
             if (t && ![t isEqual:[NSNull null]]) {
                 [self.contents addObject:t];
             }
+        } else if ([keyPath isEqualToString:@"secPr"]) {
+            SecPr* secPr = change[NSKeyValueChangeNewKey];
+            if (secPr) {
+                [self.contents addObject:secPr];
+            }
         }
     }
 }
@@ -69,6 +84,7 @@
     @try {
           [self removeObserver:self forKeyPath:@"text"];
           [self removeObserver:self forKeyPath:@"pic"];
+        [self removeObserver:self forKeyPath:@"secPr"];
       } @catch (NSException *exception) {
           NSLog(@"옵저버 제거 중 예외 발생: %@", exception);
       }

@@ -7,20 +7,39 @@
 
 #import "Sec.h"
 #import "../Paragraph/Paragraph.h"
+#import "../../../Extensions/NSObject+ParsingHelper.h"
+@import HTMLKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation Sec
 @synthesize paragraph;
+
+-(instancetype)init
+{
+    self = [super init];
+    [self initializeWithMutableArray];
+    return self;
+}
+
 -(HTMLDocument*)convertHtml
 {
     HTMLDocument* doc = [self createHtml];
     HTMLElement* body = [doc body];
     
-    // paper
-    HTMLElement* paper = [paragraph convertToPaper];
+    HTMLElement* paragraphs;
     
-    [body appendNode:paper];
+    for (Paragraph* p in paragraph) {
+        HTMLElement* elem = [p convertToHtml];
+        if (!paragraphs) {
+            paragraphs = elem;
+            continue;
+        }
+        [paragraphs appendNode:elem];
+    }
+    
+    [body appendNode:paragraphs];
+    
     return doc;
 }
 

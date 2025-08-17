@@ -33,9 +33,7 @@
 
 @property(nonnull, strong) NSMutableArray<PageBorderFill*>* pageBorderFill;
 
--(HTMLElement*_Nonnull)getHtml;
--(HTMLElement*_Nullable)getPaper;
-
+-(HTMLElement*_Nonnull)convertToHtml;
 @end
 
     

@@ -11,7 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSObject (ParsingHelper)
 -(void)initializeWithMutableArray;
--(NSString*)convertHwpunitToPt:(NSString*) hwpUnit;
 -(NSString*)convertUnsignedIntToPt:(NSString*)val;
 -(NSString*)createAttribute:(NSMutableDictionary*)dic;
 @end

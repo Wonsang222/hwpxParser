@@ -22,9 +22,9 @@
 @property(nonnull,nonatomic, strong) NSString *merged;
 
 // nullable
-@property(nullable, strong) Run* run;
+@property(nullable, strong) NSMutableArray<Run*>* run;
 @property(nullable, strong) Linesegarray* linesegarray;
 
 -(HTMLElement*_Nonnull)convertToHtml;
--(HTMLElement*_Nonnull)convertToPaper;
+
 @end

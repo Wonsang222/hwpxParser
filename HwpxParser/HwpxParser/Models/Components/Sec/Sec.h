@@ -6,11 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@import HTMLKit;
+
 NS_ASSUME_NONNULL_BEGIN
+@class HTMLDocument;
 @class Paragraph;
 @interface Sec : NSObject
-@property(nonnull, strong) Paragraph* paragraph;
+@property(nonnull, strong)  NSMutableArray<Paragraph*>* paragraph;
 -(HTMLDocument*)convertHtml;
 @end
 
