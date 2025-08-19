@@ -29,11 +29,13 @@
     return self;
 }
 
+-(HTMLElement*_Nonnull)convertToPaper
+{
+    return [[self.run firstObject] convertToPaper];
+}
+
 - (HTMLElement *)convertToHtml
 {
-    
-    
-    
 //    if ([linesegarray.lineseg count] > 1) {
 //        // 그룹핑을해서
 //        // 배치를 하고

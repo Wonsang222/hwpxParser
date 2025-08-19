@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
     HTMLDocument* doc = [self createHtml];
     HTMLElement* body = [doc body];
     
+    HTMLElement* paper = [[self.paragraph firstObject] convertToHtml];
+    
     HTMLElement* paragraphs;
     
     for (Paragraph* p in paragraph) {

@@ -26,5 +26,6 @@
 @property(nullable, strong) Linesegarray* linesegarray;
 
 -(HTMLElement*_Nonnull)convertToHtml;
+-(HTMLElement*_Nonnull)convertToPaper;
 
 @end

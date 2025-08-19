@@ -22,6 +22,11 @@
 @synthesize secPr;
 @synthesize contents;
 
+-(HTMLElement*)convertToPaper
+{
+    return [secPr getHtml];
+}
+
 - (HTMLElement *)convertToHtml
 {
     HTMLElement* elem;

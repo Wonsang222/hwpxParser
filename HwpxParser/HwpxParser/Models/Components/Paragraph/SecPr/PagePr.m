@@ -24,12 +24,12 @@
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box",
         @"position" : @"relative",
-        @"height" : [self convertHwpunitToPt:self.height],
-        @"width" : [self convertHwpunitToPt:self.width],
-        @"padding-top" : [self convertHwpunitToPt:self.margin.top],
-        @"padding-bottom" : [self convertHwpunitToPt:self.margin.bottom],
-        @"padding-left" : [self convertHwpunitToPt:self.margin.left],
-        @"padding-right" : [self convertHwpunitToPt:self.margin.right],
+        @"height" : [self convertUnsignedIntToPt:self.height],
+        @"width" : [self convertUnsignedIntToPt:self.width],
+        @"padding-top" : [self convertUnsignedIntToPt:self.margin.top],
+        @"padding-bottom" : [self convertUnsignedIntToPt:self.margin.bottom],
+        @"padding-left" : [self convertUnsignedIntToPt:self.margin.left],
+        @"padding-right" : [self convertUnsignedIntToPt:self.margin.right],
         @"background-color" : @"red"
         
     } mutableCopy];
