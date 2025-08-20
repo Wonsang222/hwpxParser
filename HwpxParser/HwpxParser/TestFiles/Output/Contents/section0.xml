@@ -1348,7 +1348,7 @@
                     </hp:subList>
                     <hp:textMargin left="283" right="283" top="283" bottom="283"/>
                 </hp:drawText>
-                <hc:pt0 x="0" y="0"/>
+                <hc:pt0 x="0" y="0"/
                 <hc:pt1 x="48150" y="0"/>
                 <hc:pt2 x="48150" y="3825"/>
                 <hc:pt3 x="0" y="3825"/>

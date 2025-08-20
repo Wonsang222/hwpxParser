@@ -18,7 +18,6 @@
 @class Tbl;
 @class PageBorderFill;
 
-
 @interface Run : NSObject
 
 @property(strong, nonnull) NSString* charPrIDRef;
@@ -33,7 +32,6 @@
 
 @property(nonnull, strong) NSMutableArray<PageBorderFill*>* pageBorderFill;
 
--(HTMLElement*_Nonnull)convertToHtml;
 -(HTMLElement*_Nonnull)convertToPaper;
 @end
 

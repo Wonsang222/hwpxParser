@@ -27,9 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box"    ,
         @"position" : @"absolute",
-        @"left" : [self convertHwpunitToPt:self.textpos],
-        @"top" : [self convertHwpunitToPt:self.vertpos],
-        @"height" : [self convertHwpunitToPt:self.vertsize],
+        @"left" : [self convertUnsignedIntToPt:self.textpos],
+        @"top" : [self convertUnsignedIntToPt:self.vertpos],
+        @"height" : [self convertUnsignedIntToPt:self.vertsize],
     }mutableCopy];
     
     [div setAttributes:att];

@@ -27,17 +27,6 @@
     return [secPr getHtml];
 }
 
-- (HTMLElement *)convertToHtml
-{
-    HTMLElement* elem;
-    for (id content in self.contents) {
-        if (elem) {
-            
-        }
-    }
-    return elem;
-}
-
 -(instancetype)init
 {
     self = [super init];

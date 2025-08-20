@@ -36,6 +36,18 @@
 
 - (HTMLElement *)convertToHtml
 {
+    
+    if ([linesegarray.lineseg count] == 1) {
+        // 1개면 여기에 content 담아서 리턴
+        HTMLElement* line = [[linesegarray.lineseg firstObject]convertToHtml];
+        
+        return line;
+    } else {
+        
+    }
+    
+    
+    
 //    if ([linesegarray.lineseg count] > 1) {
 //        // 그룹핑을해서
 //        // 배치를 하고

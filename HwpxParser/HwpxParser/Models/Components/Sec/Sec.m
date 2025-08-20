@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
     HTMLElement* body = [doc body];
     
     HTMLElement* paper = [[self.paragraph firstObject] convertToHtml];
+    // 복사해서 전달
     
     HTMLElement* paragraphs;
     
