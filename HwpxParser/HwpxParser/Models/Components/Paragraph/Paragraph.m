@@ -29,6 +29,13 @@
     return self;
 }
 
+- (BOOL)isNewPage
+{
+    
+    
+    return YES;
+}
+
 -(HTMLElement*_Nonnull)convertToPaper
 {
     return [[self.run firstObject] convertToPaper];

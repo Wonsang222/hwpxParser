@@ -21,6 +21,16 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
+- (BOOL)isNewPage
+{
+    for (Lineseg* line in lineseg) {
+        if ([line isNewPage]) {
+            return YES;
+        }
+    }
+    return  NO;
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

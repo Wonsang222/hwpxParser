@@ -36,6 +36,15 @@ NS_ASSUME_NONNULL_BEGIN
     
     return div;
 }
+
+
+- (BOOL)isNewPage
+{
+    if ([self.vertpos isEqualToString:@"0"]) {
+        return YES;
+    }
+    return NO;
+}
 @end
 
 NS_ASSUME_NONNULL_END

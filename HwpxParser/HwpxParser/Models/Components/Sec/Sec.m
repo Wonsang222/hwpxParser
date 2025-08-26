@@ -22,28 +22,38 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
--(HTMLDocument*)convertHtml
+-(NSMutableArray<HTMLDocument*>*)convertHtml
 {
-    HTMLDocument* doc = [self createHtml];
-    HTMLElement* body = [doc body];
+    NSMutableArray<HTMLDocument*> *docs = [[NSMutableArray alloc] init];
     
-    HTMLElement* paper = [[self.paragraph firstObject] convertToHtml];
+    HTMLElement* paperOrigin = [[self.paragraph firstObject] convertToPaper];
     // 복사해서 전달
     
-    HTMLElement* paragraphs;
+    HTMLElement* currentTarget;
     
     for (Paragraph* p in paragraph) {
-        HTMLElement* elem = [p convertToHtml];
-        if (!paragraphs) {
-            paragraphs = elem;
-            continue;
+        // outer lineseg vertpos == 0 means it is on the new page
+        if ([p isNewPage]) {
+            HTMLDocument* doc = [self createHtml];
+            currentTarget = [doc body];
+            [docs addObject:doc];
         }
-        [paragraphs appendNode:elem];
+        
+        // outerParagraph 작업
+        
+        
+        
+        
+        
+//        HTMLElement* elem = [p convertToHtml];
+//        if (!paragraphs) {
+//            paragraphs = elem;
+//            continue;
+//        }
+//        [paragraphs appendNode:elem];
     }
     
-    [body appendNode:paragraphs];
-    
-    return doc;
+    return docs;
 }
 
 -(HTMLDocument*)createHtml

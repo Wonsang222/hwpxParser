@@ -13,8 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class Paragraph;
 @interface Sec : NSObject
 @property(nonnull, strong)  NSMutableArray<Paragraph*>* paragraph;
--(HTMLDocument*)convertHtml;
-
+-(NSMutableArray<HTMLDocument*>*)convertHtml;
 @end
 
 NS_ASSUME_NONNULL_END

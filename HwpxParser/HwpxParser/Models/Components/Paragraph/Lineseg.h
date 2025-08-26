@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* flags;
 
 -(HTMLElement *)convertToHtml;
+-(BOOL)isNewPage;
 @end
 
 NS_ASSUME_NONNULL_END

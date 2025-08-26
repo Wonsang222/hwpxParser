@@ -27,5 +27,5 @@
 
 -(HTMLElement*_Nonnull)convertToHtml;
 -(HTMLElement*_Nonnull)convertToPaper;
-
+-(BOOL)isNewPage;
 @end

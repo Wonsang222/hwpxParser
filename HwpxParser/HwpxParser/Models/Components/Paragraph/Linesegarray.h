@@ -11,6 +11,7 @@
 @interface Linesegarray : NSObject
 
 @property(nullable, strong) NSMutableArray<Lineseg*>* lineseg;
+-(BOOL)isNewPage;
 
 @end
 
