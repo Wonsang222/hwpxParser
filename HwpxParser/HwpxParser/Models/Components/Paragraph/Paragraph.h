@@ -25,7 +25,8 @@
 @property(nullable, strong) NSMutableArray<Run*>* run;
 @property(nullable, strong) Linesegarray* linesegarray;
 
--(HTMLElement*_Nonnull)convertToHtml;
+
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
 -(HTMLElement*_Nonnull)convertToPaper;
 -(BOOL)isNewPage;
 @end

@@ -10,7 +10,7 @@
 @implementation Text
 
 @synthesize content;
--(HTMLElement *)convertToHtml
+-(HTMLElement *)converting
 {
     HTMLElement* span = [[HTMLElement alloc] initWithTagName:@"span"];
     [span setInnerHTML:self.content];

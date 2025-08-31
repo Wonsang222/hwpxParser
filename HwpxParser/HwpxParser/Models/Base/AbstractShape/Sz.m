@@ -15,6 +15,16 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize height;
 @synthesize heightRelTo;
 @synthesize protect;
+
+-(NSString*)getWidth
+{
+    return self.width;
+}
+-(NSString*)getHeight
+{
+    return self.height;
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

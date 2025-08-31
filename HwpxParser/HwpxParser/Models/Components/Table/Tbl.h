@@ -12,6 +12,7 @@
 @class CellZone;
 @class Label;
 @class Tr;
+@class HTMLElement;
 
 @interface Tbl : AbstractShapeObjectType
 @property(strong, nonatomic, nonnull) NSString* pageBreak;
@@ -26,8 +27,10 @@
 @property(nullable,nonatomic, strong) InMargin *inMargin;
 // cellzone -> 특정 셀에만 특정 서식이 부과되었을때 사용하는건디 어쩌라거
 @property(nullable,nonatomic, strong) CellZone *cellZone;
-
 @property(nullable, nonatomic, strong) Label *label;
+
+-(HTMLElement*_Nonnull)converting;
+-(NSMutableArray<NSString*>*_Nonnull)getInMarin;
 
 @end
 

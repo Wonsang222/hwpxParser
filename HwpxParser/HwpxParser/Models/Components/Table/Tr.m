@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation Tr
-
+@synthesize tc;
 @end
 
 NS_ASSUME_NONNULL_END

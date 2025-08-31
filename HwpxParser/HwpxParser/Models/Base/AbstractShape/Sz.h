@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *height;
 @property(strong) NSString *heightRelTo;
 @property(strong) NSString *protect;
+
+-(NSString*)getWidth;
+-(NSString*)getHeight;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,7 +10,7 @@
 
 @interface Text : NSObject
 @property (nullable, strong) NSString* content;
--(HTMLElement*_Nonnull)convertToHtml;
+-(HTMLElement*_Nonnull)converting;
 @end
 
 

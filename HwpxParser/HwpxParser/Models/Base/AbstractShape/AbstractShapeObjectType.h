@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 //@property(nullable,nonatomic, strong) NSString *caption;
 //@property(nullable,nonatomic, strong) NSString *shapeComment;
 
+-(NSMutableArray<NSString*>*)getSize;
+-(NSMutableArray<NSString*>*)getOutMargin;
 @end
 
 NS_ASSUME_NONNULL_END

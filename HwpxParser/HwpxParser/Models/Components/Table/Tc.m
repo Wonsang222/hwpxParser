@@ -7,10 +7,12 @@
 
 #import "Tc.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation Tc
+
+-(HTMLElement*_Nonnull)convertToHtml
+{
+    
+}
 
 @end
 
-NS_ASSUME_NONNULL_END

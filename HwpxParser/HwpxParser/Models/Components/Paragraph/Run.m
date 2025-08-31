@@ -72,6 +72,20 @@
     }
 }
 
+- (NSMutableArray<HTMLElement *> *)getContents
+{
+    NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc] init];
+    
+    for (id content in self.contents) {
+        if ([content respondsToSelector:@selector(converting)]) {
+            HTMLElement* mainContent = [content converting];
+            [result addObject:mainContent];
+        }
+    }
+    
+    return result;
+}
+
 
 -(void)dealloc
 {

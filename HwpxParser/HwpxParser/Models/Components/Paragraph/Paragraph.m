@@ -31,9 +31,7 @@
 
 - (BOOL)isNewPage
 {
-    
-    
-    return YES;
+    return [linesegarray isNewPage];
 }
 
 -(HTMLElement*_Nonnull)convertToPaper
@@ -41,19 +39,19 @@
     return [[self.run firstObject] convertToPaper];
 }
 
-- (HTMLElement *)convertToHtml
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml
 {
+    NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     
     if ([linesegarray.lineseg count] == 1) {
         // 1개면 여기에 content 담아서 리턴
         HTMLElement* line = [[linesegarray.lineseg firstObject]convertToHtml];
-        
-        return line;
+        [result addObject:line];
     } else {
         
     }
     
-    
+    return result;
     
 //    if ([linesegarray.lineseg count] > 1) {
 //        // 그룹핑을해서
