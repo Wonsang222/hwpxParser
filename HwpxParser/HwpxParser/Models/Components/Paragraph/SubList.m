@@ -8,6 +8,7 @@
 #import "SubList.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
 #import "Paragraph.h"
+@import HTMLKit;
 
 @implementation SubList
 @synthesize identification;
@@ -29,4 +30,10 @@
     [self initializeWithMutableArray];
     return self;
 }
+
+- (HTMLElement *)convertToHtml
+{
+    
+}
+
 @end

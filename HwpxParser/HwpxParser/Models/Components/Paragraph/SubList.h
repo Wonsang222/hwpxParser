@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 @class Paragraph;
+@class HTMLElement;
 
 @interface SubList : NSObject
 
@@ -25,6 +26,8 @@
 
 //paragraph 배열로
 @property(nonnull,nonatomic, strong) NSMutableArray<Paragraph*>* paragraph;
+
+-(HTMLElement*_Nonnull)convertToHtml;
 
 @end
 

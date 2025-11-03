@@ -22,11 +22,6 @@
 @synthesize secPr;
 @synthesize contents;
 
--(HTMLElement*)convertToPaper
-{
-    return [secPr getHtml];
-}
-
 -(instancetype)init
 {
     self = [super init];
@@ -41,10 +36,33 @@
               options:(NSKeyValueObservingOptionNew) context:NULL];
     
     [self addObserver:self
-           forKeyPath:@"secPr"
+           forKeyPath:@"tbl"
               options:(NSKeyValueObservingOptionNew) context:NULL];
     
     return self;
+}
+
+- (HTMLElement * _Nonnull)convertToHTML {
+    HTMLElement* paper;
+    
+    if (secPr) {
+        HTMLElement *paper = [self.secPr getHtml];
+    }
+    
+    int count = (int) [self.contents count] - 1;
+    
+    for (int i = 0 ; i <= count ; i++) {
+        id target = [self.contents objectAtIndex:i];
+        if ([target respondsToSelector:@selector(convertToHtml)]) {
+            if (!paper) {
+                paper = [target getHtml];
+                continue;
+            }
+            [paper appendNode:[target convertToHtml]];
+        }
+    }
+    
+    return paper;
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath
@@ -63,28 +81,20 @@
             if (t && ![t isEqual:[NSNull null]]) {
                 [self.contents addObject:t];
             }
-        } else if ([keyPath isEqualToString:@"secPr"]) {
-            SecPr* secPr = change[NSKeyValueChangeNewKey];
-            if (secPr) {
-                [self.contents addObject:secPr];
+        } else if ([keyPath isEqualToString:@"tbl"]) {
+            Pic* t = change[NSKeyValueChangeNewKey];
+            if (t && ![t isEqual:[NSNull null]]) {
+                [self.contents addObject:t];
             }
         }
     }
+    return;
 }
 
-- (NSMutableArray<HTMLElement *> *)getContents
-{
-    NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc] init];
-    
-    for (id content in self.contents) {
-        if ([content respondsToSelector:@selector(converting)]) {
-            HTMLElement* mainContent = [content converting];
-            [result addObject:mainContent];
-        }
-    }
-    
-    return result;
-}
+// secPr이 먼저 있는지 없는지가 젤 중요
+// 용지를 정의하기 때문
+// 다시 해야함
+
 
 
 -(void)dealloc
@@ -97,5 +107,7 @@
           NSLog(@"옵저버 제거 중 예외 발생: %@", exception);
       }
 }
+
+
 
 @end

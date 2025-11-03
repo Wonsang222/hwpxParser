@@ -29,8 +29,6 @@
 @property(nullable,nonatomic, strong) CellZone *cellZone;
 @property(nullable, nonatomic, strong) Label *label;
 
--(HTMLElement*_Nonnull)converting;
--(NSMutableArray<NSString*>*_Nonnull)getInMarin;
-
+-(HTMLElement*_Nonnull)convertToHtml;
 @end
 

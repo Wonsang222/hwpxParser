@@ -6,12 +6,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Tc.h"
+@class Tc;
+@class HTMLElement;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Tr : NSObject
 @property(strong)NSMutableArray<Tc*>* tc;
+
+-(HTMLElement*)getHtml;
 @end
 
 NS_ASSUME_NONNULL_END

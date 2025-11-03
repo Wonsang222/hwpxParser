@@ -34,7 +34,7 @@
     return self;
 }
 
-- (NSMutableArray<NSString *> *)getInMarin
+- (NSMutableArray<NSString*> *)getInMarin
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     NSString *top = self.inMargin.top;
@@ -49,7 +49,7 @@
     return result;
 }
 
--(HTMLElement*_Nonnull)converting;
+-(HTMLElement*_Nonnull)convertToHtml;
 {
     // borderfill 에 따라서 att 변경되어야함. Todo
     
@@ -91,7 +91,9 @@
     [tbl setAttributes:[@{@"style" : attString } mutableCopy]];
     
     for (Tr* tableRow in self.tr) {
-        
+        if ([tableRow respondsToSelector:@selector(getHtml)]) {
+            [tbl appendNode:[tableRow getHtml]];
+        }
     }
 
     return tbl;
