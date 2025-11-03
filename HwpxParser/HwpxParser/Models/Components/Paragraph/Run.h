@@ -33,6 +33,8 @@
 @property(nonnull, strong) NSMutableArray<PageBorderFill*>* pageBorderFill;
 
 -(HTMLElement*_Nonnull)convertToHTML;
+-(HTMLElement*_Nonnull)getPaper;
+-(BOOL)hasSecPr;
 
 @end
 

@@ -8,12 +8,13 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class HTMLDocument;
 @class HTMLElement;
 @class Paragraph;
+
 @interface Sec : NSObject
 @property(nonnull, strong)  NSMutableArray<Paragraph*>* paragraph;
--(NSMutableArray<HTMLDocument*>*)convertHtml;
+-(NSMutableArray<HTMLElement*>*) converToHtml;
+
 @end
 
 NS_ASSUME_NONNULL_END

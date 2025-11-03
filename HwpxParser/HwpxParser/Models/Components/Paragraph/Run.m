@@ -42,13 +42,22 @@
     return self;
 }
 
+- (BOOL)hasSecPr
+{
+    if (self.secPr) {
+        return YES;
+    }
+    return NO;
+}
+
+- (HTMLElement *)getPaper
+{
+    return [self.secPr getHtml];
+}
+
 - (HTMLElement * _Nonnull)convertToHTML {
     HTMLElement* paper;
-    
-    if (secPr) {
-        HTMLElement *paper = [self.secPr getHtml];
-    }
-    
+        
     int count = (int) [self.contents count] - 1;
     
     for (int i = 0 ; i <= count ; i++) {

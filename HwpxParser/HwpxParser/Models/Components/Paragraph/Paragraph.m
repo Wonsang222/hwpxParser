@@ -29,17 +29,22 @@
     return self;
 }
 
+- (BOOL)hasSecPr
+{
+    for (Run* r in run) {
+        if ([r hasSecPr]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)isNewPage
 {
     return [linesegarray isNewPage];
 }
 
--(HTMLElement*_Nonnull)convertToPaper
-{
-    return [[self.run firstObject] convertToPaper];
-}
-
--(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml
+-(HTMLElement*_Nonnull)convertToHtml
 {
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     

@@ -22,22 +22,46 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
--(NSMutableArray<HTMLDocument*>*)convertHtml
+-(NSMutableArray<HTMLElement *> *)converToHtml
 {
-    NSMutableArray<HTMLDocument*> *docs = [[NSMutableArray alloc] init];
+    NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
+    HTMLElement* registeredPaper;
     
-    HTMLElement* paperOrigin = [[self.paragraph firstObject] convertToPaper];
-    // 복사해서 전달
-    
-    HTMLElement* currentTarget;
-    
-    for (Paragraph* p in paragraph) {
-        // outer lineseg vertpos == 0 means it is on the new page
-        if ([p isNewPage]) {
-            HTMLDocument* doc = [self createHtml];
-            currentTarget = [doc body];
-            [docs addObject:doc];
+    for (Paragraph* p in self.paragraph) {
+        if ([p hasSecPr]) {
+            registeredPaper = [p ]
         }
+    }
+    
+    
+    return result;
+}
+
+-(HTMLElement*)convertHtml2
+{
+    HTMLElement* paper;
+
+    for (Paragraph* p in paragraph) {
+        // secPr인가
+        
+        
+        
+        
+        
+        
+        // outer lineseg vertpos == 0 means it is on the new page
+        
+        
+        
+//        if ([p isNewPage]) {
+//            if (!paper) {
+//                paper =
+//            }
+//            
+////            HTMLDocument* doc = [self createHtml];
+////            currentTarget = [doc body];
+////            [docs addObject:doc];
+//        }
         
         // outerParagraph 작업
         
@@ -53,7 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 //        [paragraphs appendNode:elem];
     }
     
-    return docs;
+    return paper;
 }
 
 -(HTMLDocument*)createHtml
@@ -64,7 +88,7 @@ NS_ASSUME_NONNULL_BEGIN
     [html setAttributes: [@{ @"lang" : @"ko"} mutableCopy]];
     HTMLElement *head = [[HTMLElement alloc] initWithTagName:@"head"];
     HTMLElement *title = [[HTMLElement alloc] initWithTagName:@"title"];
-    [title setTextContent:@"Testing Attention Plz"];
+    [title setTextContent:@"HWPX Converter"];
     HTMLElement *style = [[HTMLElement alloc] initWithTagName:@"style"];
     HTMLElement *charset = [[HTMLElement alloc] initWithTagName:@"meta" attributes:@{@"charset" : @"utf-8"}];
     HTMLElement *body = [[HTMLElement alloc] initWithTagName:@"body"];

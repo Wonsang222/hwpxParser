@@ -26,7 +26,7 @@
 @property(nullable, strong) Linesegarray* linesegarray;
 
 
--(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
--(HTMLElement*_Nonnull)convertToPaper;
+-(HTMLElement*_Nonnull)convertToHtml;
 -(BOOL)isNewPage;
+-(BOOL)hasSecPr;
 @end
