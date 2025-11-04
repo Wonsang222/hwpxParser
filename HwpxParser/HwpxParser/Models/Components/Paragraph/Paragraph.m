@@ -29,6 +29,21 @@
     return self;
 }
 
+- (HTMLElement *)getP
+{
+    HTMLElement* paper;
+    
+    for (int i = 0 ; i < [run count] ; i++) {
+        Run* targetRun = run[i];
+        if (targetRun.secPr) {
+            paper = [targetRun getPaper];
+            break;
+        }
+        continue;
+    }
+    return paper;
+}
+
 - (BOOL)hasSecPr
 {
     for (Run* r in run) {
@@ -38,19 +53,24 @@
     }
     return NO;
 }
-
+    
 - (BOOL)isNewPage
 {
     return [linesegarray isNewPage];
 }
 
--(HTMLElement*_Nonnull)convertToHtml
+-(NSMutableArray<HTMLElement*>*)convertToHtml
 {
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     
-    if ([linesegarray.lineseg count] == 1) {
+    // lineseg1개 content 1개 일때, content가 1개일때
+    
+    if ([linesegarray.lineseg count] == 1 && [run count] == 1) {
         // 1개면 여기에 content 담아서 리턴
         HTMLElement* line = [[linesegarray.lineseg firstObject]convertToHtml];
+        HTMLElement* target = [[run firstObject] getContent];
+        
+        [line appendNode:target];
         [result addObject:line];
     } else {
         

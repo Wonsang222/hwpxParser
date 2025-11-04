@@ -42,6 +42,24 @@
     return self;
 }
 
+- (HTMLElement *)getContent
+{
+    HTMLElement* target;
+    for (id c in self.contents) {
+        if ([c isKindOfClass:[Text class]]) {
+            // null인가..?
+            if ([[c content] isEqualTo:@""]) {
+                continue;
+            }
+        }
+        
+        if ([c respondsToSelector:@selector(convertToHtml)]) {
+            target = [c convertToHtml];
+        }
+    }
+    return target;
+}
+
 - (BOOL)hasSecPr
 {
     if (self.secPr) {
@@ -55,24 +73,6 @@
     return [self.secPr getHtml];
 }
 
-- (HTMLElement * _Nonnull)convertToHTML {
-    HTMLElement* paper;
-        
-    int count = (int) [self.contents count] - 1;
-    
-    for (int i = 0 ; i <= count ; i++) {
-        id target = [self.contents objectAtIndex:i];
-        if ([target respondsToSelector:@selector(convertToHtml)]) {
-            if (!paper) {
-                paper = [target getHtml];
-                continue;
-            }
-            [paper appendNode:[target convertToHtml]];
-        }
-    }
-    
-    return paper;
-}
 
 -(void)observeValueForKeyPath:(NSString *)keyPath
                      ofObject:(id)object
@@ -100,12 +100,6 @@
     return;
 }
 
-// secPr이 먼저 있는지 없는지가 젤 중요
-// 용지를 정의하기 때문
-// 다시 해야함
-
-
-
 -(void)dealloc
 {
     @try {
@@ -116,7 +110,5 @@
           NSLog(@"옵저버 제거 중 예외 발생: %@", exception);
       }
 }
-
-
 
 @end

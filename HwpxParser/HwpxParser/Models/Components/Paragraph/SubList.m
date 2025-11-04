@@ -31,9 +31,5 @@
     return self;
 }
 
-- (HTMLElement *)convertToHtml
-{
-    
-}
 
 @end

@@ -26,58 +26,30 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     HTMLElement* registeredPaper;
+    HTMLElement* targetPaper;
     
     for (Paragraph* p in self.paragraph) {
         if ([p hasSecPr]) {
-            registeredPaper = [p ]
+            registeredPaper = NULL;
+            registeredPaper = [p getP];
         }
+        
+        if ([p isNewPage]) {
+            targetPaper = [registeredPaper mutableCopy];
+            [result addObject:targetPaper];
+        }
+        
+        // Content append
+        //
+        
     }
     
+    HTMLElement* lastObj = [result lastObject];
+    if (targetPaper != lastObj) {
+        [result addObject:targetPaper];
+    }
     
     return result;
-}
-
--(HTMLElement*)convertHtml2
-{
-    HTMLElement* paper;
-
-    for (Paragraph* p in paragraph) {
-        // secPr인가
-        
-        
-        
-        
-        
-        
-        // outer lineseg vertpos == 0 means it is on the new page
-        
-        
-        
-//        if ([p isNewPage]) {
-//            if (!paper) {
-//                paper =
-//            }
-//            
-////            HTMLDocument* doc = [self createHtml];
-////            currentTarget = [doc body];
-////            [docs addObject:doc];
-//        }
-        
-        // outerParagraph 작업
-        
-        
-        
-        
-        
-//        HTMLElement* elem = [p convertToHtml];
-//        if (!paragraphs) {
-//            paragraphs = elem;
-//            continue;
-//        }
-//        [paragraphs appendNode:elem];
-    }
-    
-    return paper;
 }
 
 -(HTMLDocument*)createHtml

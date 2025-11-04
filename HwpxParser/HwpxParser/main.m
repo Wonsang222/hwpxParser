@@ -8,11 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <AppKit/AppKit.h>
 #import "XMLParser.h"
-#import "HTMLElement.h"
-#import "HTMLDocument.h"
-
-
-#import "HTMLElement.h"
+@import HTMLKit;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {

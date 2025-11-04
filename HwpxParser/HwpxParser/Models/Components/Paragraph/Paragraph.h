@@ -22,11 +22,12 @@
 @property(nonnull,nonatomic, strong) NSString *merged;
 
 // nullable
-@property(nullable, strong) NSMutableArray<Run*>* run;
+@property(nonnull, strong) NSMutableArray<Run*>* run;
 @property(nullable, strong) Linesegarray* linesegarray;
 
 
--(HTMLElement*_Nonnull)convertToHtml;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
+-(HTMLElement*_Nonnull)getP;
 @end

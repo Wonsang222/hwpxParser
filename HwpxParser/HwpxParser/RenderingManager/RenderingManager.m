@@ -10,11 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation RenderingManager
-+(HTMLDocument*)render:(Sec*)sec
-{
-    HTMLDocument* doc = [sec convertHtml];
-    return doc;
-}
+
 
 @end
 

@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 {
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
     NSMutableDictionary* att = [@{
-        @"box-sizing" : @"border-box"    ,
-        @"position" : @"absolute",
+        @"box-sizing" : @"border-box",
+        @"position" : @"abolute",
         @"left" : [self convertUnsignedIntToPt:self.textpos],
         @"top" : [self convertUnsignedIntToPt:self.vertpos],
         @"height" : [self convertUnsignedIntToPt:self.vertsize],

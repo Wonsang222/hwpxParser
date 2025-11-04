@@ -9,10 +9,6 @@
 
 @implementation Tc
 
--(HTMLElement*_Nonnull)convertToHtml
-{
-    
-}
 
 @end
 
