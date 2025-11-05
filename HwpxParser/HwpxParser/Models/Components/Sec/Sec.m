@@ -40,7 +40,6 @@ NS_ASSUME_NONNULL_BEGIN
         }
         
         // Content append
-        //
         
     }
     

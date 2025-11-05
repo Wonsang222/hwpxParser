@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CellSz : NSObject
 @property (strong, nonnull) NSString* width;
 @property (strong, nonnull) NSString* height;
+
+-(NSMutableDictionary*)getSizePt;
 @end
 
 NS_ASSUME_NONNULL_END

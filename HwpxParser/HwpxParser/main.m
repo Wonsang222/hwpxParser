@@ -12,12 +12,11 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-                NSString *path = @"/Users/hwangwonsang/Desktop/git/hwpxParser/HwpParser/HwpParser/Temper/Para.xml";
-                
-//                NSString* companyPath = [@"~/Desktop/MySpace/HwpParser/HwpParser/Temper/Para.xml" stringByExpandingTildeInPath];
-            
-                XMLParser *parser = [XMLParser new];
-                NSMutableArray *result = [parser parseXMLFile:path];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Table" ofType:@"xml"];
+        XMLParser *parser = [XMLParser new];
+        NSMutableArray *result = [parser parseXMLFile:path];
+        
+        
                 
                 
 

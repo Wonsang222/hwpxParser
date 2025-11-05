@@ -37,10 +37,10 @@
 - (NSMutableArray<NSString*> *)getInMarin
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSString *top = self.inMargin.top;
-    NSString *left = self.inMargin.left;
-    NSString *right = self.inMargin.right;
-    NSString *bottom = self.inMargin.bottom;
+    NSString *top = self.inMargin.top ?: @"0";
+    NSString *left = self.inMargin.left ?: @"0";
+    NSString *right = self.inMargin.right ?: @"0";
+    NSString *bottom = self.inMargin.bottom ?: @"0";
     
     [result addObject:top];
     [result addObject:left];

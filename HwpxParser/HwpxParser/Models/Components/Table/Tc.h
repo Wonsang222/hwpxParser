@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "../Paragraph/SubList.h"
-#import "CellAddr.h"
-#import "CellSpan.h"
-#import "CellSz.h"
-#import "CellMargin.h"
-@import HTMLKit;
+
+
+@class SubList;
+@class CellAddr;
+@class CellSpan;
+@class CellSz;
+@class CellMargin;
+@class HTMLElement;
 
 @interface Tc : NSObject
 

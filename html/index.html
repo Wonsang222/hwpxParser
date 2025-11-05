@@ -4,6 +4,21 @@
     <meta charset="UTF-8" />
     <title>HWP Table to HTML/CSS</title>
     <style>
+      .containA {
+        position: absolute;
+        height: 47.44pt;
+        width: 481.88pt;
+        background-color: cadetblue;
+      }
+
+      .containB {
+        position: absolute;
+        top: 41.44pt;
+        height: 33.63pt;
+        width: 481.88pt;
+        background-color: black;
+      }
+
       .mainView {
         position: relative;
         background-color: wheat;
@@ -33,7 +48,7 @@
         border-collapse: collapse;
       }
 
-      .liner   {
+      .liner {
         position: absolute;
         top: 0pt;
         left: 0pt;
@@ -62,6 +77,15 @@
   </head>
   <body>
     <div class="mainView">
+      <div class="containA">
+        <table class="tbl"></table>
+      </div>
+      <div class="containB">temp</div>
+    </div>
+  </body>
+</html>
+
+<!-- 
       <table class="tbl">
         <tr>
           <td style="
@@ -97,7 +121,4 @@
           <span>wofijw</span>
           </td>
         </tr>
-      </table>
-    </div>
-  </body>
-</html>
+      </table> -->

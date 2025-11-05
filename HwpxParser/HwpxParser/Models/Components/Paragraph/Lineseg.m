@@ -23,26 +23,32 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (HTMLElement *)convertToHtml
 {
-    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    NSMutableDictionary* att = [@{
-        @"box-sizing" : @"border-box",
-        @"position" : @"abolute",
-        @"left" : [self convertUnsignedIntToPt:self.textpos],
-        @"top" : [self convertUnsignedIntToPt:self.vertpos],
-        @"height" : [self convertUnsignedIntToPt:self.vertsize],
+    // 실제 높이 계산 vertsize + spacing
+    float calculatedSize = [self.vertsize floatValue] + [self.spacing floatValue];
+    NSString *sizeStr = [NSString stringWithFormat:@"%f", calculatedSize];
+    HTMLElement* outerFrame = [[HTMLElement alloc] initWithTagName:@"div"];
+    
+    NSMutableDictionary* outerAtt = [@{
+        @"position" : @"relative",
+        @"padding-top" : [self convertUnsignedIntToPt:self.vertpos],
+        @"padding-left" : [self convertUnsignedIntToPt:self.textpos],
+        @"height" : [self convertUnsignedIntToPt:sizeStr],
+        @"width" : [self convertUnsignedIntToPt:self.horzsize]
     }mutableCopy];
     
-    [div setAttributes:att];
-    
-    return div;
+    [outerFrame setAttributes:outerAtt];
+        
+    return outerFrame;
 }
 
 
 - (BOOL)isNewPage
 {
-    if ([self.vertpos isEqualToString:@"0"]) {
-        return YES;
-    }
+    
+#warning " isNewPage 로직 다시해야함";
+//    if ([self.vertpos isEqualToString:@"0"]) {
+//        return YES;
+//    }
     return NO;
 }
 @end

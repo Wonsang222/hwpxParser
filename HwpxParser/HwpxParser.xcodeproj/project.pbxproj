@@ -7,11 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1C3A0D62EBAD1290048B53A /* TestFiles in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
 		C1F1D0522E4AC90B000AAB17 /* HTMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D0512E4AC90B000AAB17 /* HTMLKit */; };
 		C1F1D1B42E4AC926000AAB17 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D1B32E4AC926000AAB17 /* ZipArchive */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C1C3A0D72EBAD38F0048B53A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1F1CEBA2E4ABB5A000AAB17 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -24,12 +34,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C1C3A0D52EBAD1290048B53A /* TestFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestFiles; path = HwpxParser/TestFiles; sourceTree = "<group>"; };
 		C1F1CEBC2E4ABB5A000AAB17 /* HwpxParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HwpxParser; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		C1C3A0D92EBAD3B70048B53A /* Exceptions for "HwpxParser" folder in "Copy Files" phase from "HwpxParser" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = C1C3A0D72EBAD38F0048B53A /* CopyFiles */;
+			membershipExceptions = (
+				TestFiles/Temp/Para.xml,
+				TestFiles/Temp/Table.xml,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C1F1CEBE2E4ABB5A000AAB17 /* HwpxParser */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				C1C3A0D92EBAD3B70048B53A /* Exceptions for "HwpxParser" folder in "Copy Files" phase from "HwpxParser" target */,
+			);
 			path = HwpxParser;
 			sourceTree = "<group>";
 		};
@@ -51,6 +76,7 @@
 		C1F1CEB32E4ABB5A000AAB17 = {
 			isa = PBXGroup;
 			children = (
+				C1C3A0D52EBAD1290048B53A /* TestFiles */,
 				C1F1CEBE2E4ABB5A000AAB17 /* HwpxParser */,
 				C1F1CEBD2E4ABB5A000AAB17 /* Products */,
 			);
@@ -74,6 +100,7 @@
 				C1F1CEB82E4ABB5A000AAB17 /* Sources */,
 				C1F1CEB92E4ABB5A000AAB17 /* Frameworks */,
 				C1F1CEBA2E4ABB5A000AAB17 /* CopyFiles */,
+				C1C3A0D72EBAD38F0048B53A /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C3A0D62EBAD1290048B53A /* TestFiles in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

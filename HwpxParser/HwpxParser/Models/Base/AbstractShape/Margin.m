@@ -6,10 +6,10 @@
 //
 
 #import "Margin.h"
-
-NS_ASSUME_NONNULL_BEGIN
+#import "../../../Extensions/NSObject+ParsingHelper.h"
 
 @implementation Margin
+
 @synthesize top;
 @synthesize bottom;
 @synthesize left;
@@ -17,6 +17,18 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize header;
 @synthesize footer;
 @synthesize gutter;
+
+- (NSMutableDictionary *)getMarginPt
+{
+    NSMutableDictionary *margins = [@{
+        @"padding-top" : [self convertUnsignedIntToPt:self.top ?: @"0"],
+        @"padding-bottom" : [self convertUnsignedIntToPt:self.bottom ?: @"0"],
+        @"padding-left" : [self convertUnsignedIntToPt:self.left ?: @"0"],
+        @"padding-right" : [self convertUnsignedIntToPt:self.right ?: @"0"],
+    }mutableCopy];
+    
+    return margins;
+}
 @end
 
-NS_ASSUME_NONNULL_END
+

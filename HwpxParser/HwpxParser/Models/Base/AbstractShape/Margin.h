@@ -7,16 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface Margin : NSObject
-@property(nonnull,strong) NSString* top;
-@property(nonnull,strong) NSString* left;
-@property(nonnull,strong) NSString* right;
-@property(nonnull,strong) NSString* bottom;
-@property(nonnull, strong)NSString* header;
-@property(nonnull, strong)NSString* footer;
-@property(nonnull, strong)NSString* gutter;
+@property(nullable,strong) NSString* top;
+@property(nullable,strong) NSString* left;
+@property(nullable,strong) NSString* right;
+@property(nullable,strong) NSString* bottom;
+@property(nullable, strong)NSString* header;
+@property(nullable, strong)NSString* footer;
+@property(nullable, strong)NSString* gutter;
+
+-(NSMutableDictionary*_Nonnull)getMarginPt;
 @end
 
-NS_ASSUME_NONNULL_END

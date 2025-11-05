@@ -43,10 +43,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSMutableArray<NSString *> *)getOutMargin
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSString *top = self.outMargin.top;
-    NSString *left = self.outMargin.left;
-    NSString *right = self.outMargin.right;
-    NSString *bottom = self.outMargin.bottom;
+    NSString *top = self.outMargin.top ?: @"0";
+    NSString *left = self.outMargin.left ?: @"0";
+    NSString *right = self.outMargin.right ?: @"0";
+    NSString *bottom = self.outMargin.bottom ?: @"0";
+    
     
     [result addObject:top];
     [result addObject:left];
