@@ -44,11 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)isNewPage
 {
-    
-#warning " isNewPage 로직 다시해야함";
-//    if ([self.vertpos isEqualToString:@"0"]) {
-//        return YES;
-//    }
+    if ([self.vertpos isEqualToString:@"0"]) {
+        return YES;
+    }
     return NO;
 }
 @end

@@ -39,6 +39,12 @@ NS_ASSUME_NONNULL_BEGIN
             [result addObject:targetPaper];
         }
         
+        // paragraph
+        
+//        HTMLElement* paragraph = [p ]
+        
+        
+        
         // Content append
         
     }
@@ -47,7 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
     if (targetPaper != lastObj) {
         [result addObject:targetPaper];
     }
-    
     return result;
 }
 
