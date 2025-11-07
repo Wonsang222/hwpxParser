@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C1C3A0D62EBAD1290048B53A /* TestFiles in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
+		C1C3A2C12EBDDBDF0048B53A /* TestFiles in CopyFiles */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
 		C1F1D0522E4AC90B000AAB17 /* HTMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D0512E4AC90B000AAB17 /* HTMLKit */; };
 		C1F1D1B42E4AC926000AAB17 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D1B32E4AC926000AAB17 /* ZipArchive */; };
 /* End PBXBuildFile section */
@@ -19,6 +20,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				C1C3A2C12EBDDBDF0048B53A /* TestFiles in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

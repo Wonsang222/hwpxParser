@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic, strong) NSString *contrast;
 @property(nonnull,nonatomic, strong) NSString *effect;
 @property(nonnull,nonatomic, strong) NSString *alpha;
+
+-(NSString*)getImgName;
+
 @end
 
 NS_ASSUME_NONNULL_END

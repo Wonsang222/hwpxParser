@@ -12,5 +12,6 @@
 +(BOOL)writeFileAtPath:(nonnull NSString *)path withData:(nonnull NSData*)data;
 +(nullable NSData*)loadFile:(NSString*_Nonnull)path;
 +(NSString*_Nonnull)getCurrentFolderPath;
++(nullable NSString*)getFileExtensionInDirectory:(NSString*_Nonnull)directoryPath fileName:(NSString*_Nonnull)fileName;
 @end
 

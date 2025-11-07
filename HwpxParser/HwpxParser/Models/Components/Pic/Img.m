@@ -17,6 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize effect;
 @synthesize alpha;
 
+- (NSString *)getImgName
+{
+    return binaryItemIDRef;
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

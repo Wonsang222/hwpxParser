@@ -28,6 +28,6 @@
 @property(nonnull,nonatomic,strong) ImgDim* imgDim;
 @property(nonnull,nonatomic,strong) Img* img;
 
--(HTMLElement*)convertToHtml;
+-(HTMLElement*_Nonnull)convertToHtml;
 
 @end

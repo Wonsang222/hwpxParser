@@ -16,6 +16,7 @@
 #import "Img.h"
 #import "../../Base/AbstractShapeComponent/CurSz.h"
 #import "../../Base/AbstractShapeComponent/Offset.h"
+#import "../../../Utils/FsManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,7 +40,16 @@ NS_ASSUME_NONNULL_BEGIN
 //        // 이미지를 아닐때
 //    }
     
-    NSString* imgFilePath = [@"BinData/" stringByAppendingString:self.img.binaryItemIDRef];
+    NSString* base = [NSString stringWithUTF8String:__FILE__];
+    NSString *base1 = [base stringByDeletingLastPathComponent];
+    NSString *resultPath = [base1 stringByAppendingPathComponent:@"TestFiles"];
+    NSString *resultPath2 = [resultPath stringByAppendingPathComponent:@"Output"];
+    NSString *resultPath3 = [resultPath2 stringByAppendingPathComponent:@"BinData"];
+    
+    NSString*ext = [FsManager getFileExtensionInDirectory:resultPath3 fileName:[self.img getImgName]];
+    
+    NSString*ext2 = [resultPath3 stringByAppendingPathComponent:[self.img getImgName]];
+    NSString*ext3 = [ext2 stringByAppendingPathExtension:ext];
     
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box",
@@ -52,10 +62,10 @@ NS_ASSUME_NONNULL_BEGIN
         @"height" : [self convertUnsignedIntToPt:self.curSz.height],
         @"top" : [self convertUnsignedIntToPt:self.offset.y],
         @"left" : [self convertUnsignedIntToPt:self.offset.x],
-        @"src" : imgFilePath,
+        @"src" : ext3,
     } mutableCopy];
     
-    [picture setAttributes:att];
+    [picture setAttributes:[self createAttribute:att]];
     return picture;
 }
 
