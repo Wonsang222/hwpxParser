@@ -19,6 +19,6 @@
 // nullable
 @property(nullable, strong, nonatomic)Margin * margin;
 
--(HTMLElement*_Nonnull)getHtml;
+-(NSMutableDictionary*)getPaperAtt;
 
 @end

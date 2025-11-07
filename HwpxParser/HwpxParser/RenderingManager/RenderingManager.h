@@ -6,13 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-@import HTMLKit;
-#import "../Models/Components/Sec/Sec.h"
+@class HTMLDocument;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RenderingManager : NSObject
-+(HTMLDocument*)render:(Sec*)sec;
++(HTMLDocument*)buildHTMLDocument;
 @end
 
 NS_ASSUME_NONNULL_END

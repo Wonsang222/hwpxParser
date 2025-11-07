@@ -31,5 +31,16 @@
     return self;
 }
 
+- (NSMutableArray<HTMLElement *> *)convertToHtml
+{
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+    
+    for (Paragraph* p in self.paragraph) {
+        
+    }
+    
+    return result;
+}
+
 
 @end

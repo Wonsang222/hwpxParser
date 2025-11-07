@@ -27,7 +27,7 @@
 //paragraph 배열로
 @property(nonnull,nonatomic, strong) NSMutableArray<Paragraph*>* paragraph;
 
--(HTMLElement*_Nonnull)convertToHtml;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
 
 @end
 

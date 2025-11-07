@@ -19,7 +19,7 @@
 
 - (HTMLElement *)convertToHtml
 {
-    HTMLElement* tc = [[HTMLElement alloc] initWithTagName:@"tc"];
+    HTMLElement* tc = [[HTMLElement alloc] initWithTagName:@"td"];
 
     NSMutableDictionary *att = [@{
         
@@ -36,10 +36,19 @@
         // 명시적 셀여백 사용
     }
     
-    [tc setAttributes:att];
+    NSMutableDictionary* attString = [self createAttribute:att];
+    [tc setAttributes:attString];
+    
+    
+    // tc Contents
+#warning "tc content 여기임"
     
     return tc;
 }
 
+-(NSMutableArray<HTMLElement*>*)getContent
+{
+    return [self.subList convertToHtml];
+}
 @end
 

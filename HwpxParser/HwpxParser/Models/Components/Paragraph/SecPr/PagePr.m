@@ -17,10 +17,8 @@
 
 @synthesize margin;
 
-- (HTMLElement*)getHtml
+-(NSMutableDictionary*)getPaperAtt
 {
-    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    
     NSMutableDictionary* att = [@{
         @"box-sizing" : @"border-box",
         @"position" : @"relative",
@@ -34,9 +32,7 @@
         
     } mutableCopy];
     
-    NSString* attString = [self createAttribute:att];
-    [div setAttributes:[@{@"style" : attString } mutableCopy]];
-    return div;
+    return att;
 }
 
 @end

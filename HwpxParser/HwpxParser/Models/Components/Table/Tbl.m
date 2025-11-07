@@ -87,8 +87,8 @@
     
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:att];
     
-    NSString* attString = [self createAttribute:att];
-    [tbl setAttributes:[@{@"style" : attString } mutableCopy]];
+    NSMutableDictionary* attString = [self createAttribute:att];
+    [tbl setAttributes:attString];
     
     for (Tr* tableRow in self.tr) {
         if ([tableRow respondsToSelector:@selector(getHtml)]) {

@@ -34,9 +34,9 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize endNotePr;
 @synthesize pageBorderFill;
 
--(HTMLElement*)getHtml
+-(NSMutableDictionary*)getPaperAtt
 {
-    return [pagePr getHtml];
+    return [pagePr getPaperAtt];
 }
 
 @end

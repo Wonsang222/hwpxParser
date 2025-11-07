@@ -33,10 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
         @"padding-top" : [self convertUnsignedIntToPt:self.vertpos],
         @"padding-left" : [self convertUnsignedIntToPt:self.textpos],
         @"height" : [self convertUnsignedIntToPt:sizeStr],
-        @"width" : [self convertUnsignedIntToPt:self.horzsize]
+        @"width" : [self convertUnsignedIntToPt:self.horzsize],
+        @"background-color" : @"#008000"
     }mutableCopy];
     
-    [outerFrame setAttributes:outerAtt];
+    NSMutableDictionary* attString = [self createAttribute:outerAtt];
+    
+    [outerFrame setAttributes:attString];
         
     return outerFrame;
 }

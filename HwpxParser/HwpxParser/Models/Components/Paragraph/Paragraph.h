@@ -26,8 +26,9 @@
 @property(nullable, strong) Linesegarray* linesegarray;
 
 
--(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraph;
+-(nonnull HTMLElement*)getContents;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
--(HTMLElement*_Nonnull)getP;
+-(NSMutableDictionary*_Nonnull)getP;
 @end

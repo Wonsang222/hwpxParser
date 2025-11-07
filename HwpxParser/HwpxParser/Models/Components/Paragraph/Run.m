@@ -68,9 +68,9 @@
     return NO;
 }
 
-- (HTMLElement *)getPaper
+- (NSMutableDictionary *)getPaper
 {
-    return [self.secPr getHtml];
+    return [self.secPr getPaperAtt];
 }
 
 

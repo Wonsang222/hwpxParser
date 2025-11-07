@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 #import "Text/Text.h"
-@import HTMLKit;
 
 @class SecPr;
 @class Pic;
@@ -17,6 +16,7 @@
 @class EndNotePr;
 @class Tbl;
 @class PageBorderFill;
+@class HTMLElement;
 
 @interface Run : NSObject
 
@@ -32,10 +32,9 @@
 
 @property(nonnull, strong) NSMutableArray<PageBorderFill*>* pageBorderFill;
 
--(HTMLElement*_Nonnull)getPaper;
+-(NSMutableDictionary*_Nonnull)getPaper;
 -(BOOL)hasSecPr;
 -(HTMLElement*_Nonnull)getContent;
-
 
 @end
 

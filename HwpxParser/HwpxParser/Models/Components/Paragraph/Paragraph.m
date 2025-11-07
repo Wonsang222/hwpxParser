@@ -29,9 +29,9 @@
     return self;
 }
 
-- (HTMLElement *)getP
+- (NSMutableDictionary *)getP
 {
-    HTMLElement* paper;
+    NSMutableDictionary* paper;
     
     for (int i = 0 ; i < [run count] ; i++) {
         Run* targetRun = run[i];
@@ -59,18 +59,31 @@
     return [linesegarray isNewPage];
 }
 
--(NSMutableArray<HTMLElement*>*)convertToHtml
+- (HTMLElement *)getContents
+{
+    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
+    
+    // run 에서 리턴하는 contents
+    
+    
+    // linesegarr에서 리턴하는 작은 paragraph
+    
+    
+    return div;
+}
+
+
+-(NSMutableArray<HTMLElement*>*)convertParagraph
 {
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     // lineseg1개 content 1개 일때, content가 1개일때
     
     if ([linesegarray.lineseg count] == 1 && [run count] == 1) {
         // 1개면 여기에 content 담아서 리턴
-        HTMLElement* line = [[linesegarray.lineseg firstObject]convertToHtml];
+        HTMLElement* paragraph = [[linesegarray.lineseg firstObject]convertToHtml];
+        //content
 //        HTMLElement* target = [[run firstObject] getContent];
-        
-//        [line appendNode:target];
-        [result addObject:line];
+        [result addObject:paragraph];
     } else {
         
     }

@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nullable, strong) FootNotePr* footNotePr;
 @property(nullable, strong) EndNotePr* endNotePr;
 @property(nullable, strong) PageBorderFill* pageBorderFill;
--(HTMLElement*)getHtml;
+-(NSMutableDictionary*)getPaperAtt;
 
 @end
 

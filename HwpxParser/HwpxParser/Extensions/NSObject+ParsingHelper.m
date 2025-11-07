@@ -71,7 +71,7 @@
     free(properties);
 }
 
-- (NSString *)createAttribute:(NSMutableDictionary *)dic
+- (NSMutableDictionary *)createAttribute:(NSMutableDictionary *)dic
 {
     NSMutableString* atts = [NSMutableString string];
     for (NSString* key in dic) {
@@ -79,8 +79,8 @@
         
         [atts appendFormat:@"%@:%@; ", key, value];
     }
-    
-    return atts;
+        
+    return [@{@"style" : atts}mutableCopy];
 }
 
 @end
