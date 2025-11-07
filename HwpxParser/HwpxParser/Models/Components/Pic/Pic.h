@@ -17,8 +17,6 @@
 @class ImgDim;
 @class Img;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface Pic : AbstractShapeComponentType
 @property(nonnull,nonatomic, strong) NSString *reverse;
 
@@ -33,5 +31,3 @@ NS_ASSUME_NONNULL_BEGIN
 -(HTMLElement*)convertToHtml;
 
 @end
-    
-NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @class HTMLElement;
 @class Paragraph;
+@class Tbl;
 
 @interface Sec : NSObject
 @property(nonnull, strong)  NSMutableArray<Paragraph*>* paragraph;

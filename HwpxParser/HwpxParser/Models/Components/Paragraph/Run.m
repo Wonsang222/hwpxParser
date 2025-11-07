@@ -105,7 +105,7 @@
     @try {
           [self removeObserver:self forKeyPath:@"text"];
           [self removeObserver:self forKeyPath:@"pic"];
-        [self removeObserver:self forKeyPath:@"secPr"];
+        [self removeObserver:self forKeyPath:@"tbl"];
       } @catch (NSException *exception) {
           NSLog(@"옵저버 제거 중 예외 발생: %@", exception);
       }

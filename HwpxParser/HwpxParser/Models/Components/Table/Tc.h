@@ -23,6 +23,7 @@
 @property(strong, nonnull)NSString* protect;
 @property(strong, nonnull)NSString* editable;
 @property(strong, nonnull)NSString* dirty;
+@property(strong, nonatomic, nonnull) NSString* borderFillIDRef;
 
 @property(nullable, strong)SubList* subList;
 @property(nullable, strong)CellAddr* cellAddr;

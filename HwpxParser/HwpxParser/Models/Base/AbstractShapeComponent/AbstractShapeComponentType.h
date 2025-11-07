@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../AbstractShape/AbstractShapeObjectType.h"
 
 @class Offset;
 @class OrgSz;
@@ -15,7 +16,7 @@
 @class RenderingInfo;
 
 NS_ASSUME_NONNULL_BEGIN
-@interface AbstractShapeComponentType : NSObject
+@interface AbstractShapeComponentType : AbstractShapeObjectType
 @property (strong) NSString *href;
 @property (strong) NSString *groupLevel;
 @property (strong) NSString *instid;

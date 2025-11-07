@@ -78,8 +78,6 @@
 
     NSString* openTag = elementName;
     
-    NSLog(@"open : %@", openTag);
-    
     // hp: 네임스페이스 제거
     if ([openTag hasPrefix:@"hp:"]) {
         openTag = [openTag substringFromIndex:3];
@@ -101,7 +99,9 @@
     
     if (elemCls) {
         id instace = [[elemCls alloc] init];
-        
+
+        NSLog(@"Open: %@ <%p>", clsName, instace);
+
         // attributeDict key 값 수정해야함 id 같은 문자열은 프로퍼티 이름으로 사용이 불가능함
 
         NSMutableDictionary *revisedDict = [attributeDict mutableCopy];
@@ -124,19 +124,45 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     // 해당 태그가 끝났을때, 해당 객체가 프로퍼티인지 확인하는 과정
-    
+
     if ([self.bannedList containsObject: elementName]) {
         return;
     }
-    
+
+    // didStartElement와 동일한 로직으로 클래스 이름 변환
+    NSString* closeTag = elementName;
+
+    // hp: 네임스페이스 제거
+    if ([closeTag hasPrefix:@"hp:"]) {
+        closeTag = [closeTag substringFromIndex:3];
+    }
+
+    if ([self.standFor objectForKey:closeTag]) {
+        closeTag = [self.standFor objectForKey:closeTag];
+    }
+
+    NSString *clsName = [closeTag stringByReplacingCharactersInRange:NSMakeRange(0, 1)
+                                                        withString:[[closeTag substringToIndex:1] uppercaseString]];
+    if (self.part != nil) {
+        NSString* headerClsName = [self.part stringByAppendingString:clsName];
+        clsName = headerClsName;
+    }
+
+    // 클래스가 존재하는지 확인 - 존재하지 않으면 객체가 생성되지 않았으므로 close도 하지 않음
+    Class elemCls = NSClassFromString(clsName);
+    if (!elemCls) {
+        NSLog(@"No class for closing tag: %@", elementName);
+        return;
+    }
+
     id current = [self.current lastObject];
     if (current) {
         [self.current removeLastObject];
         id superior = [self.current lastObject];
-        NSLog(@"close - qname : %@", qName );
-        NSLog(@"close : %@", current );
-        NSLog(@"close - sup : %@", superior );
 
+        NSString *currentName = NSStringFromClass([current class]);
+        NSString *superiorName = superior ? NSStringFromClass([superior class]) : @"nil";
+        NSLog(@"Close: %@ <%p> -> Superior: %@ <%p>", currentName, current, superiorName, superior);
         // current 객체는 superior의 프로퍼티임
         // 상위 객체가 있을때 프로퍼티로 ..
         if (superior) {
