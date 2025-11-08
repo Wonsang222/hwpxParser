@@ -29,6 +29,14 @@ NS_ASSUME_NONNULL_BEGIN
 //@synthesize caption;
 //@synthesize shapeComment;
 
+- (NSMutableDictionary *)getAtt
+{
+    NSMutableDictionary* sizes = [self.sz getAtt];
+    NSMutableDictionary* outMargins = [self.outMargin getAtt];
+    [sizes addEntriesFromDictionary:outMargins];
+    return sizes;
+}
+
 - (NSMutableArray<NSString *> *)getSize
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];

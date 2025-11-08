@@ -12,6 +12,7 @@
 #import "Flip.h"
 #import "RotationInfo.h"
 #import "RenderingInfo.h"
+#import "../../../Extensions/NSObject+ParsingHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -26,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize flip;
 @synthesize rotationInfo;
 @synthesize renderingInfo;
+
+- (NSMutableDictionary *)getAtts
+{
+    return [self getAtt];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

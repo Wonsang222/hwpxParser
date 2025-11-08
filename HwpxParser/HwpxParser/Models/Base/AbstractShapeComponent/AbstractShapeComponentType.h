@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nullable, strong) Flip* flip;
 @property(nullable, strong) RotationInfo* rotationInfo;
 @property(nullable, strong) RenderingInfo* renderingInfo;
+
+-(NSMutableDictionary*)getAtts;
+
 @end
 
 NS_ASSUME_NONNULL_END

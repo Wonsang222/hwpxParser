@@ -9,7 +9,6 @@
 #import "../../Base/AbstractShapeComponent/AbstractShapeComponentType.h"
 
 @class HTMLElement;
-
 @class LineShape;
 @class ImgRect;
 @class ImgClip;

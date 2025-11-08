@@ -19,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString*)getWidth;
 -(NSString*)getHeight;
 
+-(NSMutableDictionary*)getAtt;
+
 @end
 
 NS_ASSUME_NONNULL_END

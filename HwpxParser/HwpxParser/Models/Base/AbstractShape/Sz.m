@@ -6,6 +6,7 @@
 //
 
 #import "Sz.h"
+#import "../../../Extensions/NSObject+ParsingHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSString*)getHeight
 {
     return self.height;
+}
+
+- (NSMutableDictionary *)getAtt
+{
+    return [@{
+        @"height" : [self convertUnsignedIntToPt:self.height],
+        @"width" : [self convertUnsignedIntToPt:self.height]
+    }mutableCopy];
 }
 
 @end

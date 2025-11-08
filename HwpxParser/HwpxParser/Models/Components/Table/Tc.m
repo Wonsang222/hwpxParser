@@ -41,7 +41,8 @@
     
     
     // tc Contents
-#warning "tc content 여기임"
+    
+    
     
     return tc;
 }

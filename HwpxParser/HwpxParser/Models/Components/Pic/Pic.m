@@ -42,30 +42,26 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSString* base = [NSString stringWithUTF8String:__FILE__];
     NSString *base1 = [base stringByDeletingLastPathComponent];
-    NSString *resultPath = [base1 stringByAppendingPathComponent:@"TestFiles"];
-    NSString *resultPath2 = [resultPath stringByAppendingPathComponent:@"Output"];
-    NSString *resultPath3 = [resultPath2 stringByAppendingPathComponent:@"BinData"];
+    NSString *resultPath = [base1 stringByAppendingPathComponent:@"result"];
+    NSString *resultPath3 = [resultPath stringByAppendingPathComponent:@"BinData"];
     
     NSString*ext = [FsManager getFileExtensionInDirectory:resultPath3 fileName:[self.img getImgName]];
     
     NSString*ext2 = [resultPath3 stringByAppendingPathComponent:[self.img getImgName]];
     NSString*ext3 = [ext2 stringByAppendingPathExtension:ext];
     
-    NSMutableDictionary* att = [@{
-        @"box-sizing" : @"border-box",
-        @"position" : @"absolute",
-        @"padding-top" : [self convertUnsignedIntToPt:self.inMargin.top],
-        @"padding-bottom" : [self convertUnsignedIntToPt:self.inMargin.bottom],
-        @"padding-left" : [self convertUnsignedIntToPt:self.inMargin.left],
-        @"padding-right" : [self convertUnsignedIntToPt:self.inMargin.right],
-        @"width" : [self convertUnsignedIntToPt:self.curSz.width],
-        @"height" : [self convertUnsignedIntToPt:self.curSz.height],
-        @"top" : [self convertUnsignedIntToPt:self.offset.y],
-        @"left" : [self convertUnsignedIntToPt:self.offset.x],
-        @"src" : ext3,
-    } mutableCopy];
+    NSMutableDictionary* att1 = [self getAtts];
+    NSMutableDictionary* att2 = [self.inMargin getAtt];
     
-    [picture setAttributes:[self createAttribute:att]];
+    [att1 addEntriesFromDictionary:att2];
+    [picture setAttributes:[self createAttribute:att1]];
+    
+    // src settting
+    
+    [picture setAttributes:[@{
+        @"src" : @"fads"
+    }mutableCopy]];
+    
     return picture;
 }
 

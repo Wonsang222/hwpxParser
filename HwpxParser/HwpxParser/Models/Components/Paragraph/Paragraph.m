@@ -59,30 +59,18 @@
     return [linesegarray isNewPage];
 }
 
-- (HTMLElement *)getContents
-{
-    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
-    
-    // run 에서 리턴하는 contents
-    
-    
-    // linesegarr에서 리턴하는 작은 paragraph
-    
-    
-    return div;
-}
-
-
 -(NSMutableArray<HTMLElement*>*)convertParagraph
 {
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     // lineseg1개 content 1개 일때, content가 1개일때
     
-    if ([linesegarray.lineseg count] == 1 && [run count] == 1) {
+    if ([linesegarray.lineseg count] == 1) {
         // 1개면 여기에 content 담아서 리턴
         HTMLElement* paragraph = [[linesegarray.lineseg firstObject]convertToHtml];
-        //content
-//        HTMLElement* target = [[run firstObject] getContent];
+        // content
+        for (Run *r in self.run) {
+            [paragraph appendNode:[r getContent]];
+        }
         [result addObject:paragraph];
     } else {
         
@@ -90,73 +78,7 @@
     
     return result;
     
-//    if ([linesegarray.lineseg count] > 1) {
-//        // 그룹핑을해서
-//        // 배치를 하고
-//        // 리턴 wrapper로?
-//        
-//        // 그룹은 lineseg [[]] 이런식으로 index 넘버에 맞춰서
-//        // text는 그대로, pic은 1개로 가정..
-//        
-//        HTMLElement* wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
-//        
-//        int wordStack = 0;
-//        int startP = 0;
-//        
-//        for (int i = 0; i < [linesegarray.lineseg count]; i++) {
-//            HTMLElement* currentLine = [linesegarray.lineseg[i] convertToHtml];
-//            
-//            if (i+1 > [linesegarray.lineseg count]) {
-//                // 마지막
-//                while (startP <= [self.run.contents count] - 1) {
-//                    id content = self.run.contents[startP];
-//                    if ([content isKindOfClass:[Pic class]]) {
-//                        Pic* p = (Pic*) content;
-//                        HTMLElement* picHtml = [p convertToHtml];
-//                        [currentLine appendNode:picHtml];
-//                        wordStack++;
-//                    } else {
-//                        Text* t = (Text*) content;
-//                        int wordCount = (int)[t.content length];
-//                        wordStack = wordStack + wordCount;
-//                    }
-//                    startP++;
-//                }
-//                break;
-//            }
-//            int nextLineStartPoint = [linesegarray.lineseg[i+1].textpos intValue];
-//            
-//            while (wordStack < nextLineStartPoint) {
-//                id content = self.run.contents[startP];
-//                if ([content isKindOfClass:[Pic class]]) {
-//                    Pic* p = (Pic*) content;
-//                    HTMLElement* picHtml = [p convertToHtml];
-//                    [currentLine appendNode:picHtml];
-//                    wordStack++;
-//                } else {
-//                    Text* t = (Text*) content;
-//                    int wordCount = (int)[t.content length];
-//                    wordStack = wordStack + wordCount;
-//                }
-//                startP++;
-//            }
-//            continue;
-//        }
-//        return wrapper;
-//    } else {
-//        // 문단이 하나일때
-//        Lineseg* liner = [linesegarray.lineseg firstObject];
-//        HTMLElement* line = [liner convertToHtml];
-//        
-//        for (id content in self.run.contents) {
-//            
-//            if ([content respondsToSelector:@selector(convertToHtml)]) {
-//                HTMLElement* elem = [content convertToHtml];
-//                [line appendNode:elem];
-//            }
-//        }
-//        return line;
-//    }
+
 }
 @end
 

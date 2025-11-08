@@ -59,7 +59,7 @@ int main(int argc, const char * argv[]) {
         
         
         
-//        [[NSWorkspace sharedWorkspace] openFile:fileExt withApplication:@"Safari"];
+        [[NSWorkspace sharedWorkspace] openFile:fileExt withApplication:@"Safari"];
     }
     return 0;
 }

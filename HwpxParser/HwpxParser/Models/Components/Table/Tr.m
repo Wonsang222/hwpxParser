@@ -17,11 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(HTMLElement*)getHtml
 {
     HTMLElement* row = [[HTMLElement alloc] initWithTagName:@"tr"];
-    for (id content in self.tc) {
-        if ([content respondsToSelector:@selector(convertToHtml)]) {
-            [row appendNode:[content convertToHtml]];
-        }
-    }
+    for (Tc *t in self.tc) {
+     }
     return row;
 }
 

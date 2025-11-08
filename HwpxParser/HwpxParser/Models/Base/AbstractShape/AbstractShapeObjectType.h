@@ -11,8 +11,6 @@
 @class Pos;
 @class OutMargin;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface AbstractShapeObjectType : NSObject
 
 @property(nonnull,nonatomic, strong) NSString *identification;
@@ -29,8 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 //@property(nullable,nonatomic, strong) NSString *caption;
 //@property(nullable,nonatomic, strong) NSString *shapeComment;
 
--(NSMutableArray<NSString*>*)getSize;
--(NSMutableArray<NSString*>*)getOutMargin;
+-(NSMutableArray<NSString*>*_Nonnull)getSize;
+-(NSMutableArray<NSString*>*_Nonnull)getOutMargin;
+-(NSMutableDictionary*_Nonnull)getAtt;
 @end
 
-NS_ASSUME_NONNULL_END

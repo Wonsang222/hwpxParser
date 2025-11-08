@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface OutMargin : Margin
-
+-(NSMutableDictionary*)getAtt;
 @end
 
 NS_ASSUME_NONNULL_END

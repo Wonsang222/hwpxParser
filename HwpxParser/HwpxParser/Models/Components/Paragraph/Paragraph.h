@@ -27,7 +27,6 @@
 
 
 -(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraph;
--(nonnull HTMLElement*)getContents;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
 -(NSMutableDictionary*_Nonnull)getP;
