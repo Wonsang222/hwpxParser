@@ -12,7 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Tr : NSObject
-@property(strong)NSMutableArray<Tc*>* tc;
+@property(strong, nonnull) Tc* tc;
+@property(strong)NSMutableArray<Tc*>* contents;
 
 -(HTMLElement*)getHtml;
 @end
