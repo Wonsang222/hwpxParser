@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../../../Delegate/ContentDelegate.h"
 
 @class Paragraph;
 @class HTMLElement;
@@ -23,11 +24,11 @@
 @property(nonnull,nonatomic, strong) NSString* hasTextRef;
 @property(nonnull,nonatomic, strong) NSString* hasNumRef;
 @property(nonnull,nonatomic, strong) NSString* metatag;
+@property(nullable, nonatomic, weak) id<ContentDelegate> parent;
 
 //paragraph 배열로
 @property(nonnull,nonatomic, strong) NSMutableArray<Paragraph*>* paragraph;
 
 -(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
-
 @end
 

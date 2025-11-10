@@ -9,8 +9,6 @@
 @class Tc;
 @class HTMLElement;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface Tr : NSObject
 @property(strong, nonnull) Tc* tc;
 @property(strong)NSMutableArray<Tc*>* contents;
@@ -18,4 +16,3 @@ NS_ASSUME_NONNULL_BEGIN
 -(HTMLElement*)getHtml;
 @end
 
-NS_ASSUME_NONNULL_END

@@ -57,7 +57,7 @@
     NSString* height = [sizes firstObject];
     NSString* width = [sizes lastObject];
     
-    NSMutableArray *outmargins = [self getOutMargin];
+    NSMutableArray *outmargins = [self getOMargin];
     NSString *outMarginTop = outmargins[0];
     NSString *outMarginLeft = outmargins[1];
     NSString *outMarginRight = outmargins[2];

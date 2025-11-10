@@ -8,9 +8,9 @@
 #import "Text.h"
 
 @implementation Text
-
 @synthesize content;
--(HTMLElement *)converting
+
+- (HTMLElement *)convertToHtml
 {
     HTMLElement* span = [[HTMLElement alloc] initWithTagName:@"span"];
     [span setInnerHTML:self.content];

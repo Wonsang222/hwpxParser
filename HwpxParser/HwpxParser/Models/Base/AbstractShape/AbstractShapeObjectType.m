@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     NSMutableDictionary* sizes = [self.sz getAtt];
     NSMutableDictionary* outMargins = [self.outMargin getAtt];
+    
     [sizes addEntriesFromDictionary:outMargins];
     return sizes;
 }
@@ -48,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
     return result;
 }
 
-- (NSMutableArray<NSString *> *)getOutMargin
+- (NSMutableArray<NSString *> *)getOMargin
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
     NSString *top = self.outMargin.top ?: @"0";

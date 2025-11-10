@@ -16,10 +16,12 @@
 
 @import HTMLKit;
 
+NSString* base;
+
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
-        NSString* base = [NSString stringWithUTF8String:__FILE__];
+
+        base = [NSString stringWithUTF8String:__FILE__];
         NSString *base1 = [base stringByDeletingLastPathComponent];
         NSString *resultPath = [base1 stringByAppendingPathComponent:@"result"];
         NSString* fileName = [resultPath stringByAppendingPathComponent:@"test"];

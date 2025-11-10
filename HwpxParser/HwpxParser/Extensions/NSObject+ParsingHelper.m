@@ -52,7 +52,7 @@
 
     for (int i = 0; i < count; i++) {
         objc_property_t property = properties[i];
-        
+
         // 2. 프로퍼티의 문자열로
         const char *attrs = property_getAttributes(property);
         NSString *attrsString = [NSString stringWithUTF8String:attrs];
@@ -62,9 +62,12 @@
             // 4. 프로퍼티의 이름을 로등
             const char *name = property_getName(property);
             NSString *propertyName = [NSString stringWithUTF8String:name];
-            
+
             // 5. arr 초기화
             [self setValue:[[NSMutableArray alloc] init] forKey:propertyName];
+        } else {
+            const char *name = property_getName(property);
+            NSString *propertyName = [NSString stringWithUTF8String:name];
         }
     }
     // 6. 해제
@@ -73,14 +76,29 @@
 
 - (NSMutableDictionary *)createAttribute:(NSMutableDictionary *)dic
 {
-    NSMutableString* atts = [NSMutableString string];
-    for (NSString* key in dic) {
-        NSString* value = dic[key];
+    NSMutableString *style = [NSMutableString string];
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    
+    for (NSString *key in dic) {
+        NSString *value = dic[key];
         
-        [atts appendFormat:@"%@:%@; ", key, value];
+        // CSS 속성은 style로 합치고
+        if ([key isEqualToString:@"src"] ||
+            [key isEqualToString:@"alt"] ||
+            [key isEqualToString:@"id"] ||
+            [key isEqualToString:@"class"]) {
+            // HTML 속성은 따로 둔다
+            result[key] = value;
+        } else {
+            [style appendFormat:@"%@:%@; ", key, value];
+        }
     }
-        
-    return [@{@"style" : atts}mutableCopy];
+    
+    if (style.length > 0) {
+        result[@"style"] = style;
+    }
+    
+    return result;
 }
 
 @end

@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 {
     return [@{
         @"height" : [self convertUnsignedIntToPt:self.height],
-        @"width" : [self convertUnsignedIntToPt:self.height]
+        @"width" : [self convertUnsignedIntToPt:self.width]
     }mutableCopy];
 }
 

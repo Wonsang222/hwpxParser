@@ -6,6 +6,7 @@
 //
 
 #import "XMLParser.h"
+#import "../Delegate/ContentDelegate.h"
 
 
 @interface XMLParser () <NSXMLParserDelegate>
@@ -169,19 +170,30 @@
             NSString *currentName = NSStringFromClass([current class]);
             // 앞글자 소문자로
             NSString *smallLetteredProperty = [[[currentName substringToIndex:1] lowercaseString ] stringByAppendingString:[currentName substringFromIndex:1]];
-            
+
             // 해당 프로퍼티가 객체 타입일때, append
-            id property = [superior valueForKey:smallLetteredProperty];
-            
-            if ([property isKindOfClass:[NSMutableArray class]]) {
-                // 기존의 배열 갖고옴
-                NSMutableArray *arr = (NSMutableArray *) property;
-                // 배열에 append
-                [arr addObject:current];
-                return;
+            @try {
+                id property = [superior valueForKey:smallLetteredProperty];
+                
+                if ([property isKindOfClass:[NSMutableArray class]]) {
+                    // 기존의 배열 갖고옴
+                    NSMutableArray *arr = (NSMutableArray *) property;
+                    // 배열에 append
+                    [arr addObject:current];
+                    // 배열의 원소도 부모 참조 설정
+                    return;
+                }
+                // 배열 아닐때
+                [superior setValue:current forKey:smallLetteredProperty];
+                // delegate 필요할때
+
+                if ([superior conformsToProtocol:@protocol(ContentDelegate)] && [current respondsToSelector:@selector(setParent:)]) {
+                    [current setValue:superior forKey:@"parent"];
+                    NSLog(@"Parent set: %@ -> %@", NSStringFromClass([current class]), NSStringFromClass([superior class]));
+                }
+            } @catch (NSException *exception) {
+                NSLog(@"ERROR: Failed to access/set property '%@' on %@: %@", smallLetteredProperty, superiorName, exception);
             }
-            // 배열 아닐때
-            [superior setValue:current forKey:smallLetteredProperty];
         } else {
             // 상위 객체가 없을때, 즉 하나의 최상위 태그
             [self.result addObject:current];

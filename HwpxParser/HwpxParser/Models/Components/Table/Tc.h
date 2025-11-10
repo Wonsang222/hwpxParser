@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "../../../Delegate/ContentDelegate.h"
 
 @class SubList;
 @class CellAddr;
@@ -15,7 +15,7 @@
 @class CellMargin;
 @class HTMLElement;
 
-@interface Tc : NSObject
+@interface Tc : NSObject <ContentDelegate>
 
 @property(strong, nonnull)NSString* name;
 @property(strong, nonnull)NSString* header;
@@ -32,6 +32,7 @@
 @property(nullable, strong)CellMargin* cellMargin;
 
 -(HTMLElement*_Nonnull)convertToHtml;
+-(NSMutableDictionary*_Nonnull) getPaddings;
 
 @end
 

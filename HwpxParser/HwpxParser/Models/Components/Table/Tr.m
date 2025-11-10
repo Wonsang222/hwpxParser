@@ -10,8 +10,6 @@
 @import HTMLKit;
 #import "../../../Extensions/NSObject+ParsingHelper.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation Tr
 @synthesize tc;
 
@@ -27,15 +25,30 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context
+{
+    if (object == self) {
+        if ([keyPath isEqualToString:@"tc"]) {
+            Tc *tc = change[NSKeyValueChangeNewKey];
+            if (tc && ![tc isEqual:[NSNull null]]) {
+                [self.contents addObject:tc];
+            }
+        }
+    }
+}
+
 
 -(HTMLElement*)getHtml
 {
     HTMLElement* row = [[HTMLElement alloc] initWithTagName:@"tr"];
-    for (Tc *t in self.tc) {
+    for (Tc *t in self.contents) {
+        HTMLElement* tcContent = [t convertToHtml];
+        [row appendNode:tcContent];
      }
     return row;
 }
 
 @end
-
-NS_ASSUME_NONNULL_END

@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* horzsize;
 @property(nonnull,strong) NSString* flags;
 
--(HTMLElement *)convertToHtml;
+-(HTMLElement *)convertToHtml:(NSString*)position withParent:(NSMutableDictionary*_Nullable)parentAtt;
 -(BOOL)isNewPage;
 @end
 

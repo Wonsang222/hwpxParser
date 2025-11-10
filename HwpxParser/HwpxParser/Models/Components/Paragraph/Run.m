@@ -45,17 +45,12 @@
 - (HTMLElement *)getContent
 {
     HTMLElement* target;
-    for (id c in self.contents) {
-        if ([c isKindOfClass:[Text class]]) {
-            // null인가..?
-            if ([[c content] isEqualTo:@""]) {
-                continue;
-            }
-        }
-        
-        if ([c respondsToSelector:@selector(convertToHtml)]) {
-            target = [c convertToHtml];
-        }
+    id mainContent = [self.contents firstObject];
+    
+    if ([mainContent respondsToSelector:@selector(convertToHtml)]) {
+        target = [mainContent convertToHtml];
+    } else {
+        exit(11);
     }
     return target;
 }

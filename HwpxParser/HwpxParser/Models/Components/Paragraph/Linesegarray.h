@@ -12,6 +12,7 @@
 
 @property(nullable, strong) NSMutableArray<Lineseg*>* lineseg;
 -(BOOL)isNewPage;
+-(int)count;
 
 @end
 

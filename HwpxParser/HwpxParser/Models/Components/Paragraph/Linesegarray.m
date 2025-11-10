@@ -31,6 +31,11 @@ NS_ASSUME_NONNULL_BEGIN
     return  NO;
 }
 
+- (int)count
+{
+    return (int) [self.lineseg count];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

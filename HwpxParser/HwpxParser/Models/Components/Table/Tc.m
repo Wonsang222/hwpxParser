@@ -27,6 +27,12 @@
     
     NSMutableDictionary* size = [self.cellSz getSizePt];
     [att addEntriesFromDictionary:size];
+    
+    NSMutableDictionary *relativePosition = [@{
+        @"position" : @"relative"
+    }mutableCopy];
+    
+    [att addEntriesFromDictionary:relativePosition];
         
     if ([self.hasMargin isEqualTo:@"0"]) {
         NSMutableDictionary *margins = [self.cellMargin getMarginPt];
@@ -38,11 +44,12 @@
     
     NSMutableDictionary* attString = [self createAttribute:att];
     [tc setAttributes:attString];
-    
-    
     // tc Contents
+    NSMutableArray<HTMLElement *>* contentFromSublist = [self.subList convertToHtml];
     
-    
+    for (HTMLElement* e in contentFromSublist) {
+        [tc appendNode:e];
+    }
     
     return tc;
 }
@@ -50,6 +57,11 @@
 -(NSMutableArray<HTMLElement*>*)getContent
 {
     return [self.subList convertToHtml];
+}
+
+- (NSMutableDictionary *)getPaddings
+{
+    return [self.cellMargin getMarginPt];
 }
 @end
 

@@ -7,8 +7,6 @@
 
 #import "Lineseg.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation Lineseg
 
 @synthesize textpos;
@@ -21,17 +19,34 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize horzsize;
 @synthesize flags;
 
-- (HTMLElement *)convertToHtml
+- (HTMLElement *)convertToHtml:(NSString *)position withParent:(NSMutableDictionary *)parentAtt
 {
     // 실제 높이 계산 vertsize + spacing
     float calculatedSize = [self.vertsize floatValue] + [self.spacing floatValue];
     NSString *sizeStr = [NSString stringWithFormat:@"%f", calculatedSize];
     HTMLElement* outerFrame = [[HTMLElement alloc] initWithTagName:@"div"];
     
+    NSString* pos = @"relative";
+    NSString* positionLeft = [self convertUnsignedIntToPt:self.textpos];
+    NSString* positionTop = [self convertUnsignedIntToPt:self.vertpos];
+    
+    if ([position isEqualToString:@"second"] && parentAtt) {
+        pos = @"absolute";
+        
+        float lef = [parentAtt[@"padding-left"]floatValue] + [self.textpos floatValue];
+        float top = [parentAtt[@"padding-right"]floatValue] + [self.vertpos floatValue];
+        
+        NSString* topString = [NSString stringWithFormat:@"%f", top];
+        NSString* leftString = [NSString stringWithFormat:@"%f", lef];
+        
+        positionTop = [self convertUnsignedIntToPt:topString];
+        positionLeft = [self convertUnsignedIntToPt:leftString];
+    }
+    
     NSMutableDictionary* outerAtt = [@{
-        @"position" : @"relative",
-        @"padding-top" : [self convertUnsignedIntToPt:self.vertpos],
-        @"padding-left" : [self convertUnsignedIntToPt:self.textpos],
+        @"position" : pos,
+        @"top" : positionTop,
+        @"left" : positionLeft,
         @"height" : [self convertUnsignedIntToPt:sizeStr],
         @"width" : [self convertUnsignedIntToPt:self.horzsize],
         @"background-color" : @"#008000"
@@ -40,10 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
     NSMutableDictionary* attString = [self createAttribute:outerAtt];
     
     [outerFrame setAttributes:attString];
-        
     return outerFrame;
 }
-
 
 - (BOOL)isNewPage
 {
@@ -54,4 +67,3 @@ NS_ASSUME_NONNULL_BEGIN
 }
 @end
 
-NS_ASSUME_NONNULL_END

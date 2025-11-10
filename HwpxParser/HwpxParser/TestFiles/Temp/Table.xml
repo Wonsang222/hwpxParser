@@ -61,7 +61,7 @@
                     <hp:tc name="기관명" header="0" hasMargin="0" protect="0" editable="0" dirty="0" borderFillIDRef="9">
                         <hp:subList id="" textDirection="HORIZONTAL" lineWrap="BREAK" vertAlign="CENTER" linkListIDRef="0" linkListNextIDRef="0" textWidth="0" textHeight="0" hasTextRef="0" hasNumRef="0" metatag="{&quot;name&quot;:&quot;#기관명&quot;}">
                             <hp:p id="2147483648" paraPrIDRef="45" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
-                                <hp:run charPrIDRef="30">
+                                    <hp:run charPrIDRef="30">
                                     <hp:pic id="1856774881" zOrder="7" numberingType="PICTURE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None" href="" groupLevel="0" instid="783033058" reverse="0">
                                         <hp:offset x="4294965152" y="378"/>
                                         <hp:orgSz width="94200" height="22800"/>
@@ -112,8 +112,8 @@
             </hp:tbl>
             <hp:t/>
         </hp:run>
-        <hp:linesegarray>
-            <hp:lineseg textpos="0" vertpos="0" vertsize="4744" textheight="4744" baseline="4032" spacing="-600" horzpos="0" horzsize="48188" flags="393216"/>
-        </hp:linesegarray>
+            <hp:linesegarray>
+                <hp:lineseg textpos="0" vertpos="0" vertsize="4744" textheight="4744" baseline="4032" spacing="-600" horzpos="0" horzsize="48188" flags="393216"/>
+            </hp:linesegarray>
     </hp:p>
 </hs:sec>

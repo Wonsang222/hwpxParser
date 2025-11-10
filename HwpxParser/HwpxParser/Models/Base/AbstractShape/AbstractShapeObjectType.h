@@ -28,7 +28,7 @@
 //@property(nullable,nonatomic, strong) NSString *shapeComment;
 
 -(NSMutableArray<NSString*>*_Nonnull)getSize;
--(NSMutableArray<NSString*>*_Nonnull)getOutMargin;
+-(NSMutableArray<NSString*>*_Nonnull)getOMargin;
 -(NSMutableDictionary*_Nonnull)getAtt;
 @end
 
