@@ -51,4 +51,9 @@
     return row;
 }
 
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"tc"];
+}
+
 @end

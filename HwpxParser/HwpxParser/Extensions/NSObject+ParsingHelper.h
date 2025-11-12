@@ -13,6 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)initializeWithMutableArray;
 -(NSString*)convertUnsignedIntToPt:(NSString*)val;
 -(NSMutableDictionary*)createAttribute:(NSMutableDictionary*)dic;
+-(void)addKVO:(NSObject*)target withMember:(NSString*)name;
+-(void)removeKVO:(NSObject*)target withMember:(NSString*)name;
+-(void)addContents:(NSMutableArray*)contents withContent:(NSObject*)content;
 @end
 
 NS_ASSUME_NONNULL_END

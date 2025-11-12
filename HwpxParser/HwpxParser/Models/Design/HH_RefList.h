@@ -1,0 +1,30 @@
+//
+//  HH_RefList.h
+//  HwpxParser
+//
+//  Created by 인스웨이브 on 11/11/25.
+//
+
+#import <Foundation/Foundation.h>
+
+@class HH_Fontfaces;
+@class HH_BorderFills;
+@class HH_CharProperties;
+@class HH_TabProperties;
+@class HH_Numberings;
+@class HH_ParaProperties;
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface HH_RefList : NSObject
+
+@property(strong, nullable) HH_Fontfaces *fontfaces;
+@property(strong, nullable) HH_BorderFills *borderFills;
+@property(strong, nullable) HH_CharProperties *charProperties;
+@property(strong, nullable) HH_TabProperties *tabProperties;
+@property(strong, nullable) HH_Numberings *numberings;
+@property(strong, nullable) HH_ParaProperties *paraProperties;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -65,9 +65,6 @@
 
             // 5. arr 초기화
             [self setValue:[[NSMutableArray alloc] init] forKey:propertyName];
-        } else {
-            const char *name = property_getName(property);
-            NSString *propertyName = [NSString stringWithUTF8String:name];
         }
     }
     // 6. 해제
@@ -101,4 +98,20 @@
     return result;
 }
 
+- (void)addKVO:(NSObject *)target withMember:(NSString *)name
+{
+    [self addObserver:target forKeyPath:name options:NSKeyValueObservingOptionNew context:NULL];
+}
+
+- (void)removeKVO:(NSObject *)target withMember:(NSString *)name
+{
+    [self removeObserver:target forKeyPath:name];
+}
+
+- (void)addContents:(NSMutableArray *_Nonnull)contents withContent:(NSObject *)content
+{
+    if (content) {
+        [contents addObject:content];
+    }
+}
 @end
