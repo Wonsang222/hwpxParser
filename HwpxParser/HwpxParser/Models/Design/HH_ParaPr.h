@@ -36,5 +36,7 @@
 
 @property(strong, nullable) HH_Default *defaults;
 
+-(NSString*_Nonnull)getStyleData;
+
 @end
 

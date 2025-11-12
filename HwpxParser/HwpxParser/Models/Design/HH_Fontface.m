@@ -8,13 +8,12 @@
 #import "HH_Fontface.h"
 #import "../../Extensions/NSObject+ParsingHelper.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @implementation HH_Fontface
 
+@synthesize fontCnt;
+@synthesize lang;
 @synthesize font;
 @synthesize contents;
-@synthesize lang;
 
 - (instancetype)init
 {
@@ -26,11 +25,24 @@ NS_ASSUME_NONNULL_BEGIN
     return self;
 }
 
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context
+{
+    if (object == self) {
+        if ([keyPath isEqualToString:@"font"]) {
+            HH_Font *font = change[NSKeyValueChangeNewKey];
+            if (font) {
+                [self.contents addObject:font];
+            }
+        }
+    }
+}
+
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"font"];
 }
 
 @end
-
-NS_ASSUME_NONNULL_END

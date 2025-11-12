@@ -9,6 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class HH_RefList;
+
 @interface HH_BeginNum : NSObject
 @property(strong, nonatomic) NSString* page;
 @property(strong, nonatomic) NSString* footnote;
@@ -16,6 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonatomic) NSString* pic;
 @property(strong, nonatomic) NSString* tbl;
 @property(strong, nonatomic) NSString* equation;
+
+@property(strong, nonatomic) HH_RefList* refList;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,9 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HH_Fontface : NSObject
 
+@property(strong) NSString* fontCnt;
+@property(strong) NSString* lang;
 @property(strong) HH_Font * font;
 @property(strong) NSMutableArray<HH_Font*>* contents;
-@property(strong) NSString* lang;
 
 @end
 

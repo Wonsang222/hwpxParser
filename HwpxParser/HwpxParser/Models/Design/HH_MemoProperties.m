@@ -1,20 +1,18 @@
 //
-//  HH_Styles.m
+//  HH_MemoProperties.m
 //  HwpxParser
 //
 //  Created by 인스웨이브 on 11/12/25.
 //
 
-#import "HH_Styles.h"
+#import "HH_MemoProperties.h"
 #import "../../Extensions/NSObject+ParsingHelper.h"
-#import "HH_Style.h"
+#import "HH_MemoPr.h"
 
-
-
-@implementation HH_Styles
+@implementation HH_MemoProperties
 
 @synthesize itemCnt;
-@synthesize style;
+@synthesize memoPr;
 @synthesize contents;
 
 - (instancetype)init
@@ -22,7 +20,7 @@
     self = [super init];
     if (self) {
         [self initializeWithMutableArray];
-        [self addKVO:self withMember:@"style"];
+        [self addKVO:self withMember:@"memoPr"];
     }
     return self;
 }
@@ -30,17 +28,16 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     if (object) {
-        if ([keyPath isEqualToString:@"style"]) {
-            HH_Style *style = change[NSKeyValueChangeNewKey];
-            [self addContents:self.contents withContent:style];
+        if ([keyPath isEqualToString:@"memoPr"]) {
+            HH_MemoPr *memoPr = change[NSKeyValueChangeNewKey];
+            [self addContents:self.contents withContent:memoPr];
         }
     }
 }
 
 - (void)dealloc
 {
-    [self removeKVO:self withMember:@"style"];
+    [self removeKVO:self withMember:@"memoPr"];
 }
 
 @end
-

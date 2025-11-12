@@ -35,6 +35,18 @@
     }
 }
 
+- (NSString *)getParaPr:(NSString *)num
+{
+    NSString *result = [[NSString alloc] init];
+    
+    for (HH_ParaPr *content in self.contents) {
+        if ([content.identification isEqualToString:num]) {
+            
+        }
+    }
+    return result;
+}
+
 - (void)dealloc
 {
     [self removeKVO:self withMember:@"paraPr"];

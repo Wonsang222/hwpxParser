@@ -24,4 +24,9 @@
 @synthesize lineSpacing;
 @synthesize border;
 
+- (NSString *)getStyleData
+{
+    
+}
+
 @end

@@ -12,6 +12,7 @@
 
 @interface HH_Styles : NSObject
 
+@property(strong) NSString *itemCnt;
 @property(strong) HH_Style *style;
 @property(strong) NSMutableArray<HH_Style*> *contents;
 

@@ -12,4 +12,39 @@
 @synthesize horizontal;
 @synthesize vertical;
 
+- (NSString *)getCssData {
+    NSMutableString *css = [NSMutableString string];
+    
+    // --- Horizontal alignment ---
+    if (self.horizontal) {
+        NSString *cssAlign = nil;
+        if ([self.horizontal isEqualToString:@"LEFT"]) cssAlign = @"left";
+        else if ([self.horizontal isEqualToString:@"RIGHT"]) cssAlign = @"right";
+        else if ([self.horizontal isEqualToString:@"CENTER"]) cssAlign = @"center";
+        else if ([self.horizontal isEqualToString:@"JUSTIFY"]) cssAlign = @"justify";
+        else if ([self.horizontal isEqualToString:@"DISTRIBUTE"]) cssAlign = @"justify";
+        
+        if (cssAlign) {
+            [css appendFormat:@"text-align: %@; ", cssAlign];
+        }
+    }
+    
+    // --- Vertical alignment ---
+    if (self.vertical) {
+        NSString *cssValign = nil;
+        if ([self.vertical isEqualToString:@"TOP"]) cssValign = @"top";
+        else if ([self.vertical isEqualToString:@"CENTER"]) cssValign = @"middle";
+        else if ([self.vertical isEqualToString:@"BASELINE"]) cssValign = @"baseline";
+        else if ([self.vertical isEqualToString:@"BOTTOM"]) cssValign = @"bottom";
+        
+        if (cssValign) {
+            if (css.length > 0) [css appendString:@" "];
+            [css appendFormat:@"vertical-align: %@; ", cssValign];
+        }
+    }
+    
+    return css;
+}
+
+
 @end

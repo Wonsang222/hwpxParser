@@ -10,7 +10,7 @@
 @class HH_Margin;
 @class HH_LineSpacing;
 
-@interface HH_Default : NSObject
+@interface HH_Defaults : NSObject
 
 @property(strong, nullable) HH_TabItem *tabItem;
 @property(strong, nullable) HH_Margin *margin;

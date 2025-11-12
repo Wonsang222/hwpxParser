@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) NSString *prev;
 @property(strong, nullable) NSString *next;
 
+-(NSString*)getCssData;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1,5 +1,5 @@
 //
-//  HH_Align.h
+//  HH_TrackchageConfig.h
 //  HwpxParser
 //
 //  Created by 인스웨이브 on 11/12/25.
@@ -9,12 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HH_Align : NSObject
+@interface HH_TrackchageConfig : NSObject
 
-@property(strong) NSString *horizontal;
-@property(strong) NSString *vertical;
-
--(NSString*)getCssData;
+@property(strong, nonnull) NSString *flags;
 
 @end
 

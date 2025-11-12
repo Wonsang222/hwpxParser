@@ -10,6 +10,7 @@
 
 @implementation HH_Fontfaces
 
+@synthesize itemCnt;
 @synthesize fontface;
 @synthesize contents;
 

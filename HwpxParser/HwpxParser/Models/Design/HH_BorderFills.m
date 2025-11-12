@@ -10,6 +10,10 @@
 
 @implementation HH_BorderFills
 
+@synthesize itemCnt;
+@synthesize borderFill;
+@synthesize contents;
+
 - (instancetype)init
 {
     self = [super init];

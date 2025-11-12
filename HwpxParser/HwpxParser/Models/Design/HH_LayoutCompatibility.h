@@ -1,5 +1,5 @@
 //
-//  HH_Align.h
+//  HH_LayoutCompatibility.h
 //  HwpxParser
 //
 //  Created by 인스웨이브 on 11/12/25.
@@ -9,12 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HH_Align : NSObject
-
-@property(strong) NSString *horizontal;
-@property(strong) NSString *vertical;
-
--(NSString*)getCssData;
+@interface HH_LayoutCompatibility : NSObject
 
 @end
 

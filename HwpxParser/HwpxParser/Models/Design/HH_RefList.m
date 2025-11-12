@@ -15,5 +15,7 @@
 @synthesize tabProperties;
 @synthesize numberings;
 @synthesize paraProperties;
+@synthesize styles;
+@synthesize memoProperties;
 
 @end

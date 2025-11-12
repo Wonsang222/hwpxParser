@@ -114,4 +114,10 @@
         [contents addObject:content];
     }
 }
+
+-(NSMutableString*)buildCssString:(NSMutableString*)start withKey:(NSString*)key withValue:(NSString*)value
+{
+    NSString* combination = [NSString stringWithFormat:@"%@:%@; ", key,value];
+    return [[start stringByAppendingString:combination]mutableCopy];
+}
 @end

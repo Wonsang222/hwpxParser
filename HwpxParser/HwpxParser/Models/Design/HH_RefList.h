@@ -13,6 +13,8 @@
 @class HH_TabProperties;
 @class HH_Numberings;
 @class HH_ParaProperties;
+@class HH_Styles;
+@class HH_MemoProperties;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) HH_TabProperties *tabProperties;
 @property(strong, nullable) HH_Numberings *numberings;
 @property(strong, nullable) HH_ParaProperties *paraProperties;
+@property(strong, nullable) HH_Styles *styles;
+@property(strong, nullable) HH_MemoProperties *memoProperties;
 
 @end
 

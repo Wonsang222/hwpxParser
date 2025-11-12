@@ -9,6 +9,8 @@
 
 @implementation HH_BeginNum
 
+NS_ASSUME_NONNULL_BEGIN
+
 @synthesize page;
 @synthesize footnote;
 @synthesize endnote;

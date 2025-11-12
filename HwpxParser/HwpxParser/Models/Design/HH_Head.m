@@ -10,8 +10,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @implementation HH_Head
+@synthesize version;
+@synthesize secCnt;
 @synthesize beginNum;
 @synthesize refList;
+@synthesize compatibleDocument;
+@synthesize docOption;
+@synthesize trackchageConfig;
+
+- (NSMutableDictionary *)getparaPr:(NSString *)num
+{
+    
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

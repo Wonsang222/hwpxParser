@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSMutableArray *result;
 @property (nonatomic, strong) NSArray *bannedList;
 @property (nonatomic, strong) NSDictionary *standFor;
+@property (nonatomic, strong) NSArray *prefix;
+
 @end
 
 @implementation XMLParser
@@ -38,8 +40,15 @@
     ];
     self.standFor = @{
         @"p" : @"paragraph",
-        @"t" : @"text"
+        @"t" : @"text",
+        @"default" : @"defaults"
     };
+    
+    self.prefix = @[
+        @"hh:",
+        @"hp:",
+        @"hc:"
+    ];
 
     NSData *xmlData = [NSData dataWithContentsOfFile:filePath];
     if (!xmlData) {
@@ -80,8 +89,11 @@
     NSString* openTag = elementName;
     
     // hp: 네임스페이스 제거
-    if ([openTag hasPrefix:@"hp:"]) {
-        openTag = [openTag substringFromIndex:3];
+    
+    for (NSString* pre in self.prefix) {
+        if ([openTag hasPrefix:pre]) {
+            openTag = [openTag substringFromIndex:3];
+        }
     }
     
     if ([self.standFor objectForKey:openTag]) {
@@ -92,7 +104,8 @@
                                                         withString:[[openTag substringToIndex:1] uppercaseString]];
     if (self.part != nil) {
         // part를 붙임 "Header"
-        NSString* headerClsName = [self.part stringByAppendingString:clsName];
+        NSString *header = @"HH_";
+        NSString* headerClsName = [header stringByAppendingString:clsName];
         clsName = headerClsName;
     }
  
@@ -132,10 +145,12 @@
 
     // didStartElement와 동일한 로직으로 클래스 이름 변환
     NSString* closeTag = elementName;
-
+    
     // hp: 네임스페이스 제거
-    if ([closeTag hasPrefix:@"hp:"]) {
-        closeTag = [closeTag substringFromIndex:3];
+    for (NSString* pre in self.prefix) {
+        if ([closeTag hasPrefix:pre]) {
+            closeTag = [closeTag substringFromIndex:3];
+        }
     }
 
     if ([self.standFor objectForKey:closeTag]) {
@@ -145,7 +160,9 @@
     NSString *clsName = [closeTag stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                                         withString:[[closeTag substringToIndex:1] uppercaseString]];
     if (self.part != nil) {
-        NSString* headerClsName = [self.part stringByAppendingString:clsName];
+        // part를 붙임 "Header"
+        NSString *header = @"HH_";
+        NSString* headerClsName = [header stringByAppendingString:clsName];
         clsName = headerClsName;
     }
 
@@ -168,6 +185,12 @@
         // 상위 객체가 있을때 프로퍼티로 ..
         if (superior) {
             NSString *currentName = NSStringFromClass([current class]);
+
+            // HH_ 접두사 제거
+            if ([currentName hasPrefix:@"HH_"]) {
+                currentName = [currentName substringFromIndex:3];
+            }
+
             // 앞글자 소문자로
             NSString *smallLetteredProperty = [[[currentName substringToIndex:1] lowercaseString ] stringByAppendingString:[currentName substringFromIndex:1]];
 

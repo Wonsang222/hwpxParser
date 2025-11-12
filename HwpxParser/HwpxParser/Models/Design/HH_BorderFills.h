@@ -11,8 +11,9 @@
 
 @interface HH_BorderFills : NSObject
 
-@property(strong, nonnull) NSMutableArray<HH_BorderFill*>* contents;
+@property(strong, nonnull) NSString *itemCnt;
 @property(strong, nonnull) HH_BorderFill * borderFill;
+@property(strong, nonnull) NSMutableArray<HH_BorderFill*>* contents;
 
 @end
 
