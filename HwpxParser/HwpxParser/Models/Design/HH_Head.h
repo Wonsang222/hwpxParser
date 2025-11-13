@@ -12,22 +12,18 @@
 @class HH_DocOption;
 @class HH_TrackchageConfig;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface HH_Head : NSObject
-@property(strong) NSString *version;
-@property(strong) NSString *secCnt;
-@property(strong) HH_BeginNum * beginNum;
-@property(strong) HH_RefList * refList;
+@property(strong, nonnull) NSString *version;
+@property(strong, nonnull) NSString *secCnt;
+@property(strong, nonnull) HH_BeginNum * beginNum;
+@property(strong, nonnull) HH_RefList * refList;
 @property(strong, nullable) HH_CompatibleDocument * compatibleDocument;
 @property(strong, nullable) HH_DocOption * docOption;
 @property(strong, nullable) HH_TrackchageConfig * trackchageConfig;
 
--(NSMutableDictionary*)getparaPr:(NSString*)num;
+-(NSString*_Nonnull)getparaPr:(NSString*_Nonnull)num;
 
 @end
-
-NS_ASSUME_NONNULL_END
 
 
 /*

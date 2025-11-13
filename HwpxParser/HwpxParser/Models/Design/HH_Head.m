@@ -6,6 +6,7 @@
 //
 
 #import "HH_Head.h"
+#import "HH_RefList.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,9 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize docOption;
 @synthesize trackchageConfig;
 
-- (NSMutableDictionary *)getparaPr:(NSString *)num
+- (NSString *)getparaPr:(NSString *)num
 {
-    
+    return [self.refList getParaPr:num];
 }
 
 @end

@@ -19,7 +19,6 @@
     NSMutableString* cssString = [NSMutableString string];
     
     if ([type isEqualToString:@"PERCENT"]) {
-        
         float percent = [self.value floatValue] / 100.0;
         NSString* val = [NSString stringWithFormat:@"%.2f;", percent];
         cssString = [self buildCssString:cssString withKey:@"line-height" withValue: val];

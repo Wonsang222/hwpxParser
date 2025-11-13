@@ -6,6 +6,10 @@
 //
 
 #import "HH_ParaPr.h"
+#import "HH_Align.h"
+#import "HH_BreakSetting.h"
+#import "HH_LineSpacing.h"
+#import "HH_Margin.h"
 
 @implementation HH_ParaPr
 
@@ -26,7 +30,19 @@
 
 - (NSString *)getStyleData
 {
+    NSMutableString* result = [NSMutableString string];
     
+    NSString* align = [self.align getCssData];
+    NSString* breakSetting = [self.breakSetting getCssData];
+    NSString* lineSpacing = [self.lineSpacing getCssData];
+    NSString* margin = [self.margin getCssData];
+    
+    [result appendString:align];
+    [result appendString:breakSetting];
+    [result appendString:lineSpacing];
+    [result appendString:margin];
+
+    return result;
 }
 
 @end

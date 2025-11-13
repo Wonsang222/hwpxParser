@@ -50,7 +50,8 @@
     if ([mainContent respondsToSelector:@selector(convertToHtml)]) {
         target = [mainContent convertToHtml];
     } else {
-        exit(11);
+        NSLog(@"🤔 No convertToHtml Method at Run ");
+        exit(1);
     }
     return target;
 }

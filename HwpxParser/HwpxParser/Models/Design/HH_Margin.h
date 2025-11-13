@@ -8,14 +8,19 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@class HH_Intent;
+@class HH_Left;
+@class HH_Right;
+@class HH_Prev;
+@class HH_Next;
 
 @interface HH_Margin : NSObject
 
-@property(strong, nullable) NSString *intent;
-@property(strong, nullable) NSString *left;
-@property(strong, nullable) NSString *right;
-@property(strong, nullable) NSString *prev;
-@property(strong, nullable) NSString *next;
+@property(strong, nullable) HH_Intent *intent;
+@property(strong, nullable) HH_Left *left;
+@property(strong, nullable) HH_Right *right;
+@property(strong, nullable) HH_Prev *prev;
+@property(strong, nullable) HH_Next *next;
 
 -(NSString*)getCssData;
 

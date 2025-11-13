@@ -6,6 +6,7 @@
 //
 
 #import "HH_RefList.h"
+#import "HH_ParaProperties.h"
 
 @implementation HH_RefList
 
@@ -17,5 +18,10 @@
 @synthesize paraProperties;
 @synthesize styles;
 @synthesize memoProperties;
+
+- (NSString*)getParaPr:(NSString *)num
+{
+    return [self.paraProperties getParaPr:num];
+}
 
 @end

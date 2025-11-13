@@ -59,12 +59,14 @@
     return [linesegarray isNewPage];
 }
 
-
 -(NSMutableArray<HTMLElement*>*)convertParagraph:(NSString *)position withParent:(NSMutableDictionary *)att{
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     // lineseg1개 content 1개 일때, content가 1개일때
     
     if ([linesegarray.lineseg count] == 1) {
+        
+        // 해당 컨텐츠가 1개일때, <p>인지 <div>인지 결정
+        
         // 1개면 여기에 content 담아서 리턴
         HTMLElement* paragraph = [[linesegarray.lineseg firstObject]convertToHtml:position withParent:att];
         // content

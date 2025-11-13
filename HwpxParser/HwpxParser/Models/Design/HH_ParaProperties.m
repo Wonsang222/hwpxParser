@@ -37,11 +37,11 @@
 
 - (NSString *)getParaPr:(NSString *)num
 {
-    NSString *result = [[NSString alloc] init];
+    NSString *result = [NSString string];
     
     for (HH_ParaPr *content in self.contents) {
         if ([content.identification isEqualToString:num]) {
-            
+            result = [content getStyleData];
         }
     }
     return result;

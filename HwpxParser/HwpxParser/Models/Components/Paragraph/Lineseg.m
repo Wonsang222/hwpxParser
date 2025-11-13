@@ -19,12 +19,12 @@
 @synthesize horzsize;
 @synthesize flags;
 
-- (HTMLElement *)convertToHtml:(NSString *)position withParent:(NSMutableDictionary *)parentAtt
+- (HTMLElement *)convertToHtml:(NSString *)position withParent:(NSMutableDictionary *)parentAtt withType:(NSString*)type
 {
     // 실제 높이 계산 vertsize + spacing
     float calculatedSize = [self.vertsize floatValue] + [self.spacing floatValue];
     NSString *sizeStr = [NSString stringWithFormat:@"%f", calculatedSize];
-    HTMLElement* outerFrame = [[HTMLElement alloc] initWithTagName:@"div"];
+    HTMLElement* outerFrame = [[HTMLElement alloc] initWithTagName:type];
     
     NSString* pos = @"relative";
     NSString* positionLeft = [self convertUnsignedIntToPt:self.textpos];

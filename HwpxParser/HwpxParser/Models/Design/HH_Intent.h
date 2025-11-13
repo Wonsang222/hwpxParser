@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *value;
 @property(strong) NSString *unit;
 
+-(NSString*)getCSSData;
+
 @end
 
 NS_ASSUME_NONNULL_END

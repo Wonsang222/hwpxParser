@@ -10,6 +10,7 @@
 #import "XMLParser.h"
 #import "./Models/Components/Sec/Sec.h"
 #import "./Utils/FsManager.h"
+#import "./Models/Design/HH_Head.h"
 
 
 #import "./RenderingManager/RenderingManager.h"
@@ -17,31 +18,34 @@
 @import HTMLKit;
 
 NSString* base;
+HH_Head* head;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
         base = [NSString stringWithUTF8String:__FILE__];
         NSString *base1 = [base stringByDeletingLastPathComponent];
-        
-        NSLog(@"%@", base1);
-        
         NSString *testPath = @"/TestFiles/Temp/header.xml";
-        
-        NSString* path = [base1 stringByAppendingString:testPath];
+        NSString *path = [base1 stringByAppendingString:testPath];
         
 //        NSString *resultPath = [base1 stringByAppendingPathComponent:@"result"];
 //        NSString* fileName = [resultPath stringByAppendingPathComponent:@"test"];
 //        NSString* fileExt = [fileName stringByAppendingPathExtension:@"html"];
-//        
-////        NSString *path = [[NSBundle mainBundle] pathForResource:@"Table" ofType:@"xml"];
-//        NSString *path = [[NSBundle mainBundle] pathForResource:@"header" ofType:@"xml"];
-        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
         
-//
+        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
+
 //        // Sec model
         NSMutableArray *models = [parser parseXMLFile:path];
-//        
+        HH_Head *innerHead = [models firstObject];
+        
+        head = innerHead;
+        
+        
+        NSLog(@"first objct : %@", [head getparaPr:@"0"]);
+        
+        
+        
+//
 //        // paragraph 그리기
 //        Sec *targetSec = [models firstObject];
 //    

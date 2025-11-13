@@ -16,8 +16,6 @@
 @class HH_Styles;
 @class HH_MemoProperties;
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface HH_RefList : NSObject
 
 @property(strong, nullable) HH_Fontfaces *fontfaces;
@@ -29,6 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) HH_Styles *styles;
 @property(strong, nullable) HH_MemoProperties *memoProperties;
 
-@end
+-(NSString*_Nonnull)getParaPr:(NSString*_Nonnull)num;
 
-NS_ASSUME_NONNULL_END
+@end
