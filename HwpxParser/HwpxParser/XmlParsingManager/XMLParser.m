@@ -8,7 +8,6 @@
 #import "XMLParser.h"
 #import "../Delegate/ContentDelegate.h"
 
-
 @interface XMLParser () <NSXMLParserDelegate>
 @property (nonatomic, strong) NSMutableArray *current;
 @property (nonatomic, strong) NSMutableArray *result;
@@ -210,7 +209,7 @@
                 [superior setValue:current forKey:smallLetteredProperty];
                 // delegate 필요할때
 
-                if ([superior conformsToProtocol:@protocol(ContentDelegate)] && [current respondsToSelector:@selector(setParent:)]) {
+                if ([superior conformsToProtocol:@protocol(ContentDelegate)]) {
                     [current setValue:superior forKey:@"parent"];
                     NSLog(@"Parent set: %@ -> %@", NSStringFromClass([current class]), NSStringFromClass([superior class]));
                 }

@@ -19,29 +19,29 @@
 @synthesize horzsize;
 @synthesize flags;
 
-- (HTMLElement *)convertToHtml:(NSString *)position withParent:(NSMutableDictionary *)parentAtt withType:(NSString*)type
+- (HTMLElement *)convertToHtml
 {
     // 실제 높이 계산 vertsize + spacing
     float calculatedSize = [self.vertsize floatValue] + [self.spacing floatValue];
     NSString *sizeStr = [NSString stringWithFormat:@"%f", calculatedSize];
-    HTMLElement* outerFrame = [[HTMLElement alloc] initWithTagName:type];
+    HTMLElement* outerFrame = [[HTMLElement alloc] initWithTagName:@"div"];
     
     NSString* pos = @"relative";
     NSString* positionLeft = [self convertUnsignedIntToPt:self.textpos];
     NSString* positionTop = [self convertUnsignedIntToPt:self.vertpos];
     
-    if ([position isEqualToString:@"second"] && parentAtt) {
-        pos = @"absolute";
-        
-        float lef = [parentAtt[@"padding-left"]floatValue] + [self.textpos floatValue];
-        float top = [parentAtt[@"padding-right"]floatValue] + [self.vertpos floatValue];
-        
-        NSString* topString = [NSString stringWithFormat:@"%f", top];
-        NSString* leftString = [NSString stringWithFormat:@"%f", lef];
-        
-        positionTop = [self convertUnsignedIntToPt:topString];
-        positionLeft = [self convertUnsignedIntToPt:leftString];
-    }
+//    if ([position isEqualToString:@"second"]) {
+//        pos = @"absolute";
+//        
+//        float lef = [parentAtt[@"padding-left"]floatValue] + [self.textpos floatValue];
+//        float top = [parentAtt[@"padding-right"]floatValue] + [self.vertpos floatValue];
+//        
+//        NSString* topString = [NSString stringWithFormat:@"%f", top];
+//        NSString* leftString = [NSString stringWithFormat:@"%f", lef];
+//        
+//        positionTop = [self convertUnsignedIntToPt:topString];
+//        positionLeft = [self convertUnsignedIntToPt:leftString];
+//    }
     
     NSMutableDictionary* outerAtt = [@{
         @"position" : pos,

@@ -9,5 +9,3 @@
 #import "./Models/Design/HH_Head.h"
 
 extern NSString* base;
-
-extern HH_Head* head;

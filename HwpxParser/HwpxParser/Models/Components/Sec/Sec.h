@@ -11,11 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 @class HTMLElement;
 @class Paragraph;
 @class Tbl;
+@class HH_Head;
 
 @interface Sec : NSObject
-@property(nonnull, strong)  NSMutableArray<Paragraph*>* paragraph;
+@property(nonnull, strong) NSMutableArray<Paragraph*>* paragraph;
+@property(nullable, strong) HH_Head* head;
 -(NSMutableArray<HTMLElement*>*) converToHtml;
-
 @end
 
 NS_ASSUME_NONNULL_END

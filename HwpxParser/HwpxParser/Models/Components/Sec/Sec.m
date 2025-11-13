@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation Sec
 @synthesize paragraph;
+@synthesize head;
 
 -(instancetype)init
 {

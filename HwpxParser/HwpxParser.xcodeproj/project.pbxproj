@@ -8,20 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		C1C3A0D62EBAD1290048B53A /* TestFiles in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
-		C1C3A2C12EBDDBDF0048B53A /* TestFiles in CopyFiles */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
+		C1C3A2C12EBDDBDF0048B53A /* TestFiles in Copy Files */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
 		C1F1D0522E4AC90B000AAB17 /* HTMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D0512E4AC90B000AAB17 /* HTMLKit */; };
 		C1F1D1B42E4AC926000AAB17 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D1B32E4AC926000AAB17 /* ZipArchive */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C1C3A0D72EBAD38F0048B53A /* CopyFiles */ = {
+		C1C3A0D72EBAD38F0048B53A /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				C1C3A2C12EBDDBDF0048B53A /* TestFiles in CopyFiles */,
+				C1C3A2C12EBDDBDF0048B53A /* TestFiles in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -34,7 +35,7 @@
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 		C1C3A0D92EBAD3B70048B53A /* Exceptions for "HwpxParser" folder in "Copy Files" phase from "HwpxParser" target */ = {
 			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = C1C3A0D72EBAD38F0048B53A /* CopyFiles */;
+			buildPhase = C1C3A0D72EBAD38F0048B53A /* Copy Files */;
 			membershipExceptions = (
 				TestFiles/Temp/Para.xml,
 				TestFiles/Temp/Table.xml,
@@ -92,7 +93,7 @@
 			buildPhases = (
 				C1F1CEB82E4ABB5A000AAB17 /* Sources */,
 				C1F1CEB92E4ABB5A000AAB17 /* Frameworks */,
-				C1C3A0D72EBAD38F0048B53A /* CopyFiles */,
+				C1C3A0D72EBAD38F0048B53A /* Copy Files */,
 			);
 			buildRules = (
 			);

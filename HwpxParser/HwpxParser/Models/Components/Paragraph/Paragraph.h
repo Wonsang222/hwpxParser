@@ -26,7 +26,7 @@
 @property(nullable, strong) Linesegarray* linesegarray;
 
 
--(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraph:(NSString*_Nonnull)position withParent:(NSMutableDictionary*_Nullable)att;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraph;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
 -(NSMutableDictionary*_Nonnull)getP;
