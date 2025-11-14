@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) HH_Prev *prev;
 @property(strong, nullable) HH_Next *next;
 
--(NSString*)getCssData;
+-(NSDictionary*)getCssData;
 
 @end
 

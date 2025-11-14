@@ -27,6 +27,6 @@
 @property(strong, nullable) HH_Styles *styles;
 @property(strong, nullable) HH_MemoProperties *memoProperties;
 
--(NSString*_Nonnull)getParaPr:(NSString*_Nonnull)num;
+-(NSDictionary*_Nonnull)getParaPr:(NSString*_Nonnull)num;
 
 @end

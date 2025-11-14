@@ -7,9 +7,12 @@
 
 #import <Foundation/Foundation.h>
 #import "../../../Extensions/NSObject+ParsingHelper.h"
-#import "HTMLElement.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
+
+@class HH_Head;
+@class HTMLElement;
 
 @interface Lineseg : NSObject
 @property(nonnull,strong) NSString* textpos;
@@ -21,9 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* horzpos;
 @property(nonnull,strong) NSString* horzsize;
 @property(nonnull,strong) NSString* flags;
-
--(HTMLElement *)convertToHtml;
 -(BOOL)isNewPage;
+-(HTMLElement*)getOuterP:(HH_Head*)head WithID:(NSString*)identification;
 @end
 
 NS_ASSUME_NONNULL_END

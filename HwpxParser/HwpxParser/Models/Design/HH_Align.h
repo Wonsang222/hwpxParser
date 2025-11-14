@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *horizontal;
 @property(strong) NSString *vertical;
 
--(NSString*)getCssData;
+-(NSDictionary*)getCssData;
 
 @end
 

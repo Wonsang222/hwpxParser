@@ -12,8 +12,9 @@
 @synthesize horizontal;
 @synthesize vertical;
 
-- (NSString *)getCssData {
-    NSMutableString *css = [NSMutableString string];
+- (NSDictionary *)getCssData {
+    
+    NSMutableDictionary *result = [@{}mutableCopy];
     
     // --- Horizontal alignment ---
     if (self.horizontal) {
@@ -25,7 +26,7 @@
         else if ([self.horizontal isEqualToString:@"DISTRIBUTE"]) cssAlign = @"justify";
         
         if (cssAlign) {
-            [css appendFormat:@"text-align: %@; ", cssAlign];
+            result[@"text-align"] = cssAlign;
         }
     }
     
@@ -38,12 +39,11 @@
         else if ([self.vertical isEqualToString:@"BOTTOM"]) cssValign = @"bottom";
         
         if (cssValign) {
-            if (css.length > 0) [css appendString:@" "];
-            [css appendFormat:@"vertical-align: %@; ", cssValign];
+            result[@"vertical-align"] = cssValign;
         }
     }
     
-    return css;
+    return result;
 }
 
 

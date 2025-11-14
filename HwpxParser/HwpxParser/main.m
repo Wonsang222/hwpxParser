@@ -46,30 +46,32 @@ int main(int argc, const char * argv[]) {
         NSArray *secs = [parser2 parseXMLFile:path2];
         Sec *sec = [secs firstObject];
         [sec setHead:innerHead];
+        
+        
 
-        HTMLDocument* doc = [RenderingManager buildHTMLDocument];
-        NSError* error = nil;
-//        // paragraph 그리기
-        
-        if (!sec) {
-            NSLog(@"noShit");
-            exit(0);
-        }
-        
+//        HTMLDocument* doc = [RenderingManager buildHTMLDocument];
+//        NSError* error = nil;
+////        // paragraph 그리기
+//        
+//        if (!sec) {
+//            NSLog(@"noShit");
+//            exit(0);
+//        }
+//        
         NSMutableArray<HTMLElement*>* sections = [sec converToHtml];
-
-        for (HTMLElement* section in sections) {
-            [[doc body] appendNode:section];
-        }
+//
+//        for (HTMLElement* section in sections) {
+//            [[doc body] appendNode:section];
+//        }
 //        // HTML 생성 후에 문자열로 변환
-        NSString* outer = [doc outerHTML];
-        [outer writeToFile:resPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-        
-        if (error) {
-          NSLog(@"errrrr");
-            exit(0);
-        }
-        [[NSWorkspace sharedWorkspace] openFile:resPath withApplication:@"Safari"];
+//        NSString* outer = [doc outerHTML];
+//        [outer writeToFile:resPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+//        
+//        if (error) {
+//          NSLog(@"errrrr");
+//            exit(0);
+//        }
+//        [[NSWorkspace sharedWorkspace] openFile:resPath withApplication:@"Safari"];
     }
     return 0;
 }

@@ -18,44 +18,41 @@
 @synthesize pageBreakBefore;
 @synthesize lineWrap;
 
--(NSMutableString*)getCssData
+-(NSDictionary*)getCssData
 {
-    NSMutableString *css = [NSMutableString string];
+    NSMutableDictionary *css = [@{}mutableCopy];
 
         // 영어 단어 줄바꿈
         if ([breakLatinWord isEqualToString:@"BREAK"]) {
-            css = [self buildCssString:css withKey:@"word-break" withValue:@"break-all"];
+            css[@"word-break"] = @"break-all";
         } else if ([breakLatinWord isEqualToString:@"KEEP_WORD"]) {
-            css = [self buildCssString:css withKey:@"word-break" withValue:@"keep-all"];
+            css[@"word-break"] = @"keep-all";
         }
-
         // 줄바꿈 처리
         if ([lineWrap isEqualToString:@"BREAK"]) {
-            css = [self buildCssString:css withKey:@"white-space" withValue:@"normal"];
+            css[@"white-space"] = @"normal";
         } else if ([lineWrap isEqualToString:@"BREAK_WORD"]) {
-            css = [self buildCssString:css withKey:@"overflow-wrap" withValue:@"break-word"];
+            css[@"overflow-wrap"] = @"break-word";
         } else if ([lineWrap isEqualToString:@"KEEP"]) {
-            css = [self buildCssString:css withKey:@"white-space" withValue:@"nowrap"];
+            css[@"white-space"] = @"nowrap";
         }
-
         // 페이지 관련
         if ([pageBreakBefore isEqualToString:@"1"]) {
-            css = [self buildCssString:css withKey:@"page-break-before" withValue:@"always"];
+            css[@"page-break-before"] = @"always";
         }
 
         if ([keepWithNext isEqualToString:@"1"]) {
-            css = [self buildCssString:css withKey:@"break-after" withValue:@"avoid"];
+            css[@"break-after"] = @"avoid";
         }
 
         if ([keepLines isEqualToString:@"1"]) {
-            css = [self buildCssString:css withKey:@"break-inside" withValue:@"avoid"];
+            css[@"break-inside"] = @"avoid";
         }
 
         if ([widowOrphan isEqualToString:@"1"]) {
-            css = [self buildCssString:css withKey:@"orphans" withValue:@"2"];
-            css = [self buildCssString:css withKey:@"windows" withValue:@"2"];
+            css[@"orphans"] = @"2";
+            css[@"windows"] = @"2";
         }
-
         return css;
 }
 

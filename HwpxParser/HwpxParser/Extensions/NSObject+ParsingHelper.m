@@ -120,4 +120,16 @@
     NSString* combination = [NSString stringWithFormat:@"%@:%@; ", key,value];
     return [[start stringByAppendingString:combination]mutableCopy];
 }
+
+-(NSString*)convertDic:(NSDictionary*)dic
+{
+    NSMutableString *result = [NSMutableString string];
+    
+    for (NSString *key in [dic allKeys]) {
+        NSString *val = dic[key];
+        [result appendFormat:@"%@:%@; ", key, val];
+    }
+    
+    return result;
+}
 @end

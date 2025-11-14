@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull, strong) NSMutableArray<Paragraph*>* paragraph;
 @property(nullable, strong) HH_Head* head;
 -(NSMutableArray<HTMLElement*>*) converToHtml;
+@property(nonnull, strong) NSString *hwpunitchar;
 @end
 
 NS_ASSUME_NONNULL_END

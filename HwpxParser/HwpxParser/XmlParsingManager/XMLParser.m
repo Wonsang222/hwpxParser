@@ -40,7 +40,9 @@
     self.standFor = @{
         @"p" : @"paragraph",
         @"t" : @"text",
-        @"default" : @"defaults"
+        @"default" : @"defaults",
+        @"case" : @"cases",
+        @"switch" : @"switches"
     };
     
     self.prefix = @[
@@ -119,6 +121,7 @@
 
         NSMutableDictionary *revisedDict = [attributeDict mutableCopy];
         NSArray *keys = [revisedDict allKeys];
+
         for (id i in keys) {
             if ([i isEqualToString:@"id"]) {
                 NSString *identification = @"identification";
@@ -126,12 +129,23 @@
                 [revisedDict setValue:value forKey:identification];
                 [revisedDict removeObjectForKey:i];
             }
+            
+            
+            
+            if (self.part != nil) {
+                if ([i isEqualToString:@"hp:required-namespace"]) {
+                    NSString *replacement = @"requirednamespace";
+                    NSString *value = [revisedDict valueForKey:i];
+                    [revisedDict setValue:value forKey:replacement];
+                    [revisedDict removeObjectForKey:i];
+                }
+            }
         }
         
         [instace setValuesForKeysWithDictionary:revisedDict];
         [self.current addObject:instace];
     } else {
-        NSLog(@"No class : %@", elementName);
+        NSLog(@"No class : %@, And ClsName is %@", elementName, clsName);
     }
 }
 

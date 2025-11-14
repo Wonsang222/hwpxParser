@@ -11,7 +11,7 @@
 #import "HH_Left.h"
 #import "HH_Right.h"
 #import "HH_Prev.h"
-#import "HH_Next.h""
+#import "HH_Next.h"//"
 
 
 @implementation HH_Margin
@@ -22,38 +22,33 @@
 @synthesize prev;
 @synthesize next;
 
-- (NSString *)getCssData
+- (NSDictionary *)getCssData
 {
-    NSMutableString *css = [NSMutableString string];
+    NSMutableDictionary *css = [@{}mutableCopy];
     
     // 들여쓰기
     if (self.intent) {
-        css = [self buildCssString:css withKey:@"text-indent"
-                         withValue: [self.intent getCSSData]];
+        css[@"text-indent"] = [self.intent getCSSData];
     }
     
     // 왼쪽 여백
     if (self.left) {
-        css = [self buildCssString:css withKey:@"margin-left"
-                         withValue: [self.left getCSSData]];
+        css[@"margin-left"] = [self.left getCSSData];
     }
     
     // 오른쪽 여백
     if (self.right) {
-        css = [self buildCssString:css withKey:@"margin-right"
-                         withValue: [self.right getCSSData]];
+        css[@"margin-right"] = [self.right getCSSData];
     }
     
     // 이전 문단과 간격 (위 여백)
     if (self.prev) {
-        css = [self buildCssString:css withKey:@"margin-top"
-                         withValue: [self.prev getCSSData]];
+        css[@"margin-top"] = [self.prev getCSSData];
     }
     
     // 다음 문단과 간격 (아래 여백)
     if (self.next) {
-        css = [self buildCssString:css withKey:@"margin-top"
-                         withValue: [self.next getCSSData]];
+        css[@"margin-bottom"] = [self.next getCSSData];
     }
     return css;
 }

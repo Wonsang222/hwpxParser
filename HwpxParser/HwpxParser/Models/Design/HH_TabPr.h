@@ -14,7 +14,6 @@
 @property(strong, nonnull) NSString *identification;
 @property(strong, nonnull) NSString *autoTabLeft;
 @property(strong, nonnull) NSString *autoTabRight;
-
 @property(strong, nullable) HH_Default *defaults;
 
 @end

@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)removeKVO:(NSObject*)target withMember:(NSString*)name;
 -(void)addContents:(NSMutableArray*)contents withContent:(NSObject*)content;
 -(NSMutableString*)buildCssString:(NSMutableString*)start withKey:(NSString*)key withValue:(NSString*)value;
+-(NSString*)convertDic:(NSDictionary*)dic;
 @end
 
 NS_ASSUME_NONNULL_END

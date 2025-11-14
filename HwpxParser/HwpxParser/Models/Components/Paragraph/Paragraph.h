@@ -11,6 +11,7 @@
 @class Run;
 @class Linesegarray;
 @class HTMLElement;
+@class HH_Head;
 
 @interface Paragraph : NSObject
 
@@ -25,8 +26,7 @@
 @property(nonnull, strong) NSMutableArray<Run*>* run;
 @property(nullable, strong) Linesegarray* linesegarray;
 
-
--(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraph;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraphWithHead:(HH_Head*_Nonnull)head;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
 -(NSMutableDictionary*_Nonnull)getP;

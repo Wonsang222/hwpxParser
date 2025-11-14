@@ -15,6 +15,7 @@
 @class HH_LineSpacing;
 @class HH_Border;
 @class HH_Default;
+@class HH_Switches;
 
 @interface HH_ParaPr : NSObject
 
@@ -30,13 +31,11 @@
 @property(strong, nullable) HH_Heading *heading;
 @property(strong, nullable) HH_BreakSetting *breakSetting;
 @property(strong, nullable) HH_AutoSpacing *autoSpacing;
-@property(strong, nullable) HH_Margin *margin;
-@property(strong, nullable) HH_LineSpacing *lineSpacing;
 @property(strong, nullable) HH_Border *border;
 
-@property(strong, nullable) HH_Default *defaults;
+@property(strong, nullable) HH_Switches *switches;
 
--(NSString*_Nonnull)getStyleData;
+-(NSDictionary*_Nonnull)getStyleData;
 
 @end
 

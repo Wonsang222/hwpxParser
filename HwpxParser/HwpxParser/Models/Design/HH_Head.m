@@ -19,10 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize docOption;
 @synthesize trackchageConfig;
 
-- (NSString *)getparaPr:(NSString *)num
+- (NSDictionary *)getParaPr:(NSString *)num
 {
     return [self.refList getParaPr:num];
 }
+
 
 @end
 

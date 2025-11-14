@@ -14,20 +14,16 @@
 @synthesize value;
 @synthesize unit;
 
--(NSMutableString*) getCssData
+-(NSDictionary*) getCssData
 {
-    NSMutableString* cssString = [NSMutableString string];
+    NSMutableDictionary* cssString = [@{}mutableCopy];
     
     if ([type isEqualToString:@"PERCENT"]) {
         float percent = [self.value floatValue] / 100.0;
         NSString* val = [NSString stringWithFormat:@"%.2f;", percent];
-        cssString = [self buildCssString:cssString withKey:@"line-height" withValue: val];
-    } else if ([type isEqualToString:@"FIX"] || [type isEqualToString:@"POINT"]) {
-        // 고정값 단위
-        cssString = [self buildCssString:cssString withKey:@"line-height" withValue:[self convertUnsignedIntToPt:self.value]];
+        cssString[@"line-height"] = val;
     } else {
-        // fallback
-        cssString = [self buildCssString:cssString withKey:@"line-height" withValue:@"normal"];
+        @throw @"LineSpacing Error in No using HWPUnit";
     }
     
     return cssString;

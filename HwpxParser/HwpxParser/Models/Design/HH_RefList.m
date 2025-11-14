@@ -19,7 +19,7 @@
 @synthesize styles;
 @synthesize memoProperties;
 
-- (NSString*)getParaPr:(NSString *)num
+- (NSDictionary*)getParaPr:(NSString *)num
 {
     return [self.paraProperties getParaPr:num];
 }

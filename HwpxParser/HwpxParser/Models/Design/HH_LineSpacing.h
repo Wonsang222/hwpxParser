@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *value;
 @property(strong, nullable) NSString *unit;
 
--(NSMutableString*) getCssData;
+-(NSDictionary*) getCssData;
 
 @end
 

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *pageBreakBefore;
 @property(strong) NSString *lineWrap;
 
--(NSMutableString*)getCssData;
+-(NSDictionary*)getCssData;
 
 
 @end

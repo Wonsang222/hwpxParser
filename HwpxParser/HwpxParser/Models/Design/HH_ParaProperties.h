@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonnull) HH_ParaPr *paraPr;
 @property(strong, nonnull) NSMutableArray<HH_ParaPr*> *contents;
 
--(NSString*)getParaPr:(NSString*)num;
+-(NSDictionary*)getParaPr:(NSString*)num;
 
 @end
 

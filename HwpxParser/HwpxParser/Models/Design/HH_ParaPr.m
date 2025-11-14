@@ -10,6 +10,7 @@
 #import "HH_BreakSetting.h"
 #import "HH_LineSpacing.h"
 #import "HH_Margin.h"
+#import "./BorderFill/HH_Switches.h"
 
 @implementation HH_ParaPr
 
@@ -24,24 +25,21 @@
 @synthesize heading;
 @synthesize breakSetting;
 @synthesize autoSpacing;
-@synthesize margin;
-@synthesize lineSpacing;
 @synthesize border;
 
-- (NSString *)getStyleData
+- (NSDictionary *)getStyleData
 {
-    NSMutableString* result = [NSMutableString string];
+    NSMutableDictionary *result = [@{}mutableCopy];
     
-    NSString* align = [self.align getCssData];
-    NSString* breakSetting = [self.breakSetting getCssData];
-    NSString* lineSpacing = [self.lineSpacing getCssData];
-    NSString* margin = [self.margin getCssData];
-    
-    [result appendString:align];
-    [result appendString:breakSetting];
-    [result appendString:lineSpacing];
-    [result appendString:margin];
+    NSDictionary* align = [self.align getCssData];
+    NSDictionary* breakSetting = [self.breakSetting getCssData];
+    NSDictionary *swit = [self.switches getCssData];
 
+    
+    [result addEntriesFromDictionary:align];
+    [result addEntriesFromDictionary:breakSetting];
+    [result addEntriesFromDictionary:swit];
+    
     return result;
 }
 

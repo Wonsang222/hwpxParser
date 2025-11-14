@@ -45,12 +45,12 @@
             location = @"second";
         }
         
-        Paragraph* targetP = self.paragraph[i];
-        NSMutableArray *innerContents = [targetP convertParagraph:location withParent:parentAtt];
-        
-        for (HTMLElement* e in innerContents) {
-            [result addObject:e];
-        }
+//        Paragraph* targetP = self.paragraph[i];
+//        NSMutableArray *innerContents = [targetP convertParagraphWithHead:<#(HH_Head * _Nonnull)#>];
+//        
+//        for (HTMLElement* e in innerContents) {
+//            [result addObject:e];
+//        }
     }
     return result;
 }
