@@ -14,6 +14,7 @@
 @class HH_TopBorder;
 @class HH_BottomBorder;
 @class HH_Diagonal;
+@class HH_FillBrush;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -32,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) HH_TopBorder * topBorder;
 @property(strong, nullable) HH_BottomBorder * bottomBorder;
 @property(strong, nullable) HH_Diagonal * diagonal;
+@property(strong, nullable) HH_FillBrush *fillBrush;
+
+-(NSDictionary*)getBorderFill;
 
 @end
 

@@ -7,6 +7,7 @@
 
 #import "HH_RefList.h"
 #import "HH_ParaProperties.h"
+#import "HH_BorderFills.h"
 
 @implementation HH_RefList
 
@@ -22,6 +23,11 @@
 - (NSDictionary*)getParaPr:(NSString *)num
 {
     return [self.paraProperties getParaPr:num];
+}
+
+- (NSDictionary *)getBorderFill:(NSString *)num
+{
+    return [self.borderFills getBorderFill:num];
 }
 
 @end

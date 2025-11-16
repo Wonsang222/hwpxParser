@@ -15,5 +15,8 @@
 @property(strong, nonnull) HH_BorderFill * borderFill;
 @property(strong, nonnull) NSMutableArray<HH_BorderFill*>* contents;
 
+-(NSDictionary*_Nonnull)getBorderFill:(NSString*_Nonnull)num;
+
+
 @end
 

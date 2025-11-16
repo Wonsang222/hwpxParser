@@ -6,10 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HH_LeftBorder.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HH_BottomBorder : NSObject
+@interface HH_BottomBorder : HH_LeftBorder
 
 @property(strong) NSString *type;
 @property(strong) NSString *width;

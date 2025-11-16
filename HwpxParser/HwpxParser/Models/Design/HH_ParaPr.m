@@ -35,7 +35,6 @@
     NSDictionary* breakSetting = [self.breakSetting getCssData];
     NSDictionary *swit = [self.switches getCssData];
 
-    
     [result addEntriesFromDictionary:align];
     [result addEntriesFromDictionary:breakSetting];
     [result addEntriesFromDictionary:swit];

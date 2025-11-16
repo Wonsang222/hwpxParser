@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *width;
 @property(strong) NSString *color;
 
+-(NSDictionary*)getCSS;
+-(NSString*)location;
+
 @end
 
 NS_ASSUME_NONNULL_END

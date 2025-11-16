@@ -20,8 +20,10 @@
 @property(strong, nullable) HH_CompatibleDocument * compatibleDocument;
 @property(strong, nullable) HH_DocOption * docOption;
 @property(strong, nullable) HH_TrackchageConfig * trackchageConfig;
+@property(strong, nullable) NSString* flag;
 
 -(NSDictionary*_Nonnull)getParaPr:(NSString*_Nonnull)num;
+-(NSDictionary*_Nonnull)getBorderFill:(NSString*_Nonnull)num;
 
 @end
 

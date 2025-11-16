@@ -18,10 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize compatibleDocument;
 @synthesize docOption;
 @synthesize trackchageConfig;
+@synthesize flag;
 
 - (NSDictionary *)getParaPr:(NSString *)num
 {
     return [self.refList getParaPr:num];
+}
+
+- (NSDictionary *)getBorderFill:(NSString *)num
+{
+    return [self.refList getBorderFill:num];
 }
 
 

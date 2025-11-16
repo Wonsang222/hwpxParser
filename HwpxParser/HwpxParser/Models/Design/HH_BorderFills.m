@@ -6,6 +6,7 @@
 //
 
 #import "HH_BorderFills.h"
+#import "./BorderFill/HH_BorderFill.h"
 #import "../../Extensions/NSObject+ParsingHelper.h"
 
 @implementation HH_BorderFills
@@ -36,6 +37,16 @@
             }
         }
     }
+}
+
+- (NSDictionary *)getBorderFill:(NSString *)num
+{
+    for (HH_BorderFill* content in self.contents) {
+        if ([num isEqualToString: content.identification]) {
+            return [content getBorderFill];
+        }
+    }
+    return @{};
 }
 
 

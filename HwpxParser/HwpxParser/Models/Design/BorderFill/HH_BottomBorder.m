@@ -13,4 +13,9 @@
 @synthesize width;
 @synthesize color;
 
+- (NSString *)location
+{
+    return @"border-bottom";
+}
+
 @end

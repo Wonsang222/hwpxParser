@@ -6,6 +6,11 @@
 //
 
 #import "HH_BorderFill.h"
+#import "HH_LeftBorder.h"
+#import "HH_RightBorder.h"
+#import "HH_TopBorder.h"
+#import "HH_BottomBorder.h"
+#import "HH_FillBrush.h"
 
 @implementation HH_BorderFill
 
@@ -21,5 +26,21 @@
 @synthesize topBorder;
 @synthesize bottomBorder;
 @synthesize diagonal;
+
+- (NSDictionary *)getBorderFill
+{
+    NSMutableDictionary *result = [@{}mutableCopy];
+    
+    [result addEntriesFromDictionary:[self.leftBorder getCSS]];
+    [result addEntriesFromDictionary:[self.rightBorder getCSS]];
+    [result addEntriesFromDictionary:[self.topBorder getCSS]];
+    [result addEntriesFromDictionary:[self.bottomBorder getCSS]];
+    
+    if (self.fillBrush) {
+        [result addEntriesFromDictionary:[self.fillBrush getCSS]];
+    }
+    
+    return result;
+}
 
 @end

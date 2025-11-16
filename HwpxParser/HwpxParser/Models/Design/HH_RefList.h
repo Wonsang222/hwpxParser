@@ -28,5 +28,7 @@
 @property(strong, nullable) HH_MemoProperties *memoProperties;
 
 -(NSDictionary*_Nonnull)getParaPr:(NSString*_Nonnull)num;
+-(NSDictionary*_Nonnull)getBorderFill:(NSString*_Nonnull)num;
+
 
 @end

@@ -22,12 +22,8 @@
 @synthesize horzsize;
 @synthesize flags;
 
-
 - (HTMLElement*)getOuterP:(HH_Head *)head WithID:(NSString *)identification
 {
-    
-#warning 빠진거있을거임 css chatgpt
-    
     HTMLElement *div = [[HTMLElement alloc]initWithTagName:@"div"];
     // line - height 계산
     NSMutableDictionary *paraPr = [[head getParaPr:identification]mutableCopy];
@@ -37,7 +33,8 @@
     float value = [paraPr[lineHeight] floatValue] * [self.textheight floatValue];
     NSString *strVal = [NSString stringWithFormat:@"%.2fpx", value];
     paraPr[lineHeight] = strVal;
-    
+    paraPr[@"position"] = @"relative";
+    paraPr[@"height"] = @"auto";
     NSString *style = [self convertDic:paraPr];
     
     [div setAttributes:[@{@"style" : style}mutableCopy]];
