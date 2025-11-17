@@ -30,7 +30,6 @@ NS_ASSUME_NONNULL_BEGIN
     return [self.refList getBorderFill:num];
 }
 
-
 @end
 
 NS_ASSUME_NONNULL_END

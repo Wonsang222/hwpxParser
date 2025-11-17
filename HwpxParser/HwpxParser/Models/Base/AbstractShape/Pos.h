@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic, strong) NSString * horzAlign;
 @property(nonnull,nonatomic, strong) NSString *vertOffset;
 @property(nonnull,nonatomic, strong) NSString *horzOffset;
+
+-(NSDictionary*)getCSS;
+
 @end
 
 NS_ASSUME_NONNULL_END

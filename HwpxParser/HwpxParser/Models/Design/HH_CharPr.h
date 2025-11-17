@@ -40,6 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) HH_Outline *outline;
 @property(strong, nullable) HH_Shadow *shadow;
 
+-(NSDictionary*)getCSS;
+
 @end
 
 NS_ASSUME_NONNULL_END

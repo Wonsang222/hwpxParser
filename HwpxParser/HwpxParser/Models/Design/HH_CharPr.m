@@ -6,6 +6,7 @@
 //
 
 #import "HH_CharPr.h"
+#import "../../Extensions/NSObject+ParsingHelper.h"
 
 @implementation HH_CharPr
 
@@ -26,5 +27,15 @@
 @synthesize strikeout;
 @synthesize outline;
 @synthesize shadow;
+
+- (NSDictionary *)getCSS
+{
+    NSMutableDictionary *res = [@{}mutableCopy];
+    res[@"font-size"] = [self convertUnsignedIntToPt:self.height];
+    res[@"color"] = self.textColor;
+    
+    
+    return res;
+}
 
 @end

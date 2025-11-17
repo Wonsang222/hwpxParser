@@ -21,6 +21,14 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize horzAlign;
 @synthesize vertOffset;
 @synthesize horzOffset;
+
+- (NSDictionary *)getCSS
+{
+    NSMutableDictionary* result = [@{}mutableCopy];
+    
+    
+    return result;
+}
 @end
 
 NS_ASSUME_NONNULL_END

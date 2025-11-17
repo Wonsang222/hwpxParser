@@ -11,8 +11,6 @@
 #import "./Models/Components/Sec/Sec.h"
 #import "./Utils/FsManager.h"
 #import "./Models/Design/HH_Head.h"
-
-
 #import "./RenderingManager/RenderingManager.h"
 
 @import HTMLKit;
@@ -47,8 +45,6 @@ int main(int argc, const char * argv[]) {
         Sec *sec = [secs firstObject];
         [sec setHead:innerHead];
         
-        
-
 //        HTMLDocument* doc = [RenderingManager buildHTMLDocument];
 //        NSError* error = nil;
 ////        // paragraph 그리기

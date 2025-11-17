@@ -17,4 +17,13 @@
 @synthesize symbol;
 @synthesize user;
 
+- (NSDictionary *)getCSS
+{
+    NSMutableDictionary* res = [@{}mutableCopy];
+    
+    res[@"font-family"] = Eewjrlqewjrlewqjrqewjroij;
+    
+    return res;
+}
+
 @end

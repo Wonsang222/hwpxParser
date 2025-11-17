@@ -66,6 +66,19 @@ NS_ASSUME_NONNULL_BEGIN
     return result;
 }
 
+- (NSMutableDictionary *)getCSS
+{
+    NSMutableDictionary* result = [@{}mutableCopy];
+    // fuck z order
+    NSDictionary* oMargin = [self.outMargin getAtt];
+    NSDictionary* size = [self.sz getAtt];
+    
+    [result addEntriesFromDictionary:oMargin];
+    [result addEntriesFromDictionary:size];
+    
+    return result;
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

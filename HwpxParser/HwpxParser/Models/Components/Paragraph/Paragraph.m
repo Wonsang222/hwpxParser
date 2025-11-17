@@ -64,8 +64,7 @@
     // lineseg1개 content 1개 일때, content가 1개일때
     
     if ([linesegarray.lineseg count] == 1) {
-        // 1개면 여기에 content 담아서 리턴
-        HTMLElement* paragraph = [[linesegarray.lineseg firstObject] getOuterP:head WithID:self.paraPrIDRef];
+        NSDictionary* linesegCSS = [[linesegarray.lineseg firstObject] getOuterP:head WithID:self.paraPrIDRef];
         // content
         for (Run *r in self.run) {
             [paragraph appendNode:[r getContent]];

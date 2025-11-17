@@ -11,6 +11,8 @@
 #import "CellZone.h"
 #import "Label.h"
 #import "Tr.h"
+
+
 @import HTMLKit;
 
 @implementation Tbl
@@ -47,6 +49,26 @@
     [result addObject:right];
     [result addObject:bottom];
     return result;
+}
+
+- (NSDictionary *)getCSS
+{
+    NSMutableDictionary *superVal = [super getCSS];
+    NSDictionary *inMargin = [self.inMargin getAtt];
+    [superVal addEntriesFromDictionary:inMargin];
+    NSDictionary *own = [self getOwn];
+    [superVal addEntriesFromDictionary:own];
+    return superVal;
+}
+
+-(NSDictionary*)getOwn
+{
+    NSMutableDictionary* res = [@{}mutableCopy];
+    // inline으로 강제
+    res[@"display"] = @"inline-table";
+    res[@"border-collapse"] = @"collapse";
+    res[@"table-layout"] = @"fixed";
+    return res;
 }
 
 -(HTMLElement*_Nonnull)convertToHtml;

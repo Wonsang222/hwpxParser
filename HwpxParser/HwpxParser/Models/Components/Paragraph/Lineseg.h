@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* horzsize;
 @property(nonnull,strong) NSString* flags;
 -(BOOL)isNewPage;
--(HTMLElement*)getOuterP:(HH_Head*)head WithID:(NSString*)identification;
+-(NSDictionary*)getOuterP:(HH_Head*)head WithID:(NSString*)identification;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -45,4 +45,11 @@
     [self removeObserver:self forKeyPath:@"font"];
 }
 
+- (HH_Font *)getFontWithNum:(NSString *)num
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identification == %@", num];
+    HH_Font *font = [[self.contents filteredArrayUsingPredicate:predicate] firstObject];
+    return font;
+}
+
 @end

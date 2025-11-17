@@ -30,5 +30,8 @@
 -(NSMutableArray<NSString*>*_Nonnull)getSize;
 -(NSMutableArray<NSString*>*_Nonnull)getOMargin;
 -(NSMutableDictionary*_Nonnull)getAtt;
+
+-(NSMutableDictionary*_Nonnull)getCSS;
+
 @end
 

@@ -7,6 +7,7 @@
 
 #import "HH_Fontfaces.h"
 #import "../../Extensions/NSObject+ParsingHelper.h"
+#import "HH_Fontface.h"
 
 @implementation HH_Fontfaces
 
@@ -44,6 +45,14 @@
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"fontface"];
+}
+
+- (HH_Font *)getFontWithNum:(NSString *)num
+{
+    NSPredicate* filter = [NSPredicate predicateWithFormat:@"lang == 'HANGUL'"];
+    NSArray *filtered = [self.contents filteredArrayUsingPredicate:filter];
+    HH_Fontface *hangulFont = [filtered firstObject];
+    return [hangulFont getFontWithNum:num];
 }
 
 @end
