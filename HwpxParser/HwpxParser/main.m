@@ -15,7 +15,8 @@
 
 @import HTMLKit;
 
-NSString* base;
+NSString *base;
+HH_Head *head;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -39,6 +40,8 @@ int main(int argc, const char * argv[]) {
 
         NSMutableArray *heads = [parser parseXMLFile:path];
         HH_Head *innerHead = [heads firstObject];
+        
+        head = innerHead;
         
         XMLParser *parser2 = [[XMLParser alloc] init];
         NSArray *secs = [parser2 parseXMLFile:path2];

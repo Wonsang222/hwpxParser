@@ -8,6 +8,8 @@
 #import "SubList.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
 #import "Paragraph.h"
+#import "../../../main.h"
+
 @import HTMLKit;
 
 @implementation SubList
@@ -35,10 +37,39 @@
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
     
-    
-
-
+    for (int i = 0 ; i < [self.paragraph count] ; i++) {
+        Paragraph *p = self.paragraph[i];
+        
+        NSArray *elements = [p convertParagraphWithHead:head];
+        result = [elements mutableCopy];
+    }
     return result;
+}
+
+-(NSDictionary*)getLineWrap
+{
+    NSMutableDictionary *res = [@{}mutableCopy];
+    
+    NSString *key = @"white-space";
+    NSString *val;
+    
+    if ([self.lineWrap isEqualToString:@"BREAK"]) {
+        val = @"normal";
+    } else if ([self.lineWrap isEqualToString:@"NONE"]) {
+        val = @"nowrap";
+    } else {
+        key = @"hyphens";
+        val = @"auto";
+    }
+    res[key] = val;
+    
+    if ([self.textDirection isEqualToString:@"VERTICAL"]) {
+        key = @"writing-mode";
+        val = @"vertical-rl";
+        res[key] = val;
+    }
+    
+    return res;
 }
 
 @end
