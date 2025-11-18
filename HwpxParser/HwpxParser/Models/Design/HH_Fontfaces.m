@@ -47,7 +47,7 @@
     [self removeObserver:self forKeyPath:@"fontface"];
 }
 
-- (HH_Font *)getFontWithNum:(NSString *)num
+- (NSString *)getFontWithNum:(NSString *)num
 {
     NSPredicate* filter = [NSPredicate predicateWithFormat:@"lang == 'HANGUL'"];
     NSArray *filtered = [self.contents filteredArrayUsingPredicate:filter];

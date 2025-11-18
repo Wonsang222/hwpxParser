@@ -10,8 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol ContentDelegate <NSObject>
-@required
--(NSMutableDictionary*)getPaddings;
+@optional
+-(NSDictionary*)getBorderFill:(NSString*)num;
+@optional
+-(NSString*)getFontWithNum:(NSString*)num;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -59,9 +59,5 @@
     return [self.subList convertToHtml];
 }
 
-- (NSMutableDictionary *)getPaddings
-{
-    return [self.cellMargin getMarginPt];
-}
 @end
 

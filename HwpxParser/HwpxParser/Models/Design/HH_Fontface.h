@@ -18,10 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) HH_Font * font;
 @property(strong) NSMutableArray<HH_Font*>* contents;
 
--(HH_Font*)getFontWithNum:(NSString*)num;
-
-
-
+-(NSString*)getFontWithNum:(NSString*)num;
 
 @end
 

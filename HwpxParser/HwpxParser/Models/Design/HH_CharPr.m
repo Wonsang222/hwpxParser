@@ -7,6 +7,7 @@
 
 #import "HH_CharPr.h"
 #import "../../Extensions/NSObject+ParsingHelper.h"
+#import "HH_FontRef.h"
 
 @implementation HH_CharPr
 
@@ -27,6 +28,7 @@
 @synthesize strikeout;
 @synthesize outline;
 @synthesize shadow;
+@synthesize parent;
 
 - (NSDictionary *)getCSS
 {
@@ -34,6 +36,10 @@
     res[@"font-size"] = [self convertUnsignedIntToPt:self.height];
     res[@"color"] = self.textColor;
     
+    NSString* fontID = [self.parent getFontWithNum:[self.fontRef hangul]];
+    NSString *fontName = [self.parent getFontWithNum:fontID];
+    
+    res[@"font-family"] = fontName;
     
     return res;
 }

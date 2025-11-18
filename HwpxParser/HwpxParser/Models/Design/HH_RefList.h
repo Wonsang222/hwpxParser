@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../../Delegate/ContentDelegate.h"
 
 @class HH_Fontfaces;
 @class HH_BorderFills;
@@ -16,7 +17,7 @@
 @class HH_Styles;
 @class HH_MemoProperties;
 
-@interface HH_RefList : NSObject
+@interface HH_RefList : NSObject <ContentDelegate>
 
 @property(strong, nullable) HH_Fontfaces *fontfaces;
 @property(strong, nullable) HH_BorderFills *borderFills;
@@ -29,6 +30,7 @@
 
 -(NSDictionary*_Nonnull)getParaPr:(NSString*_Nonnull)num;
 -(NSDictionary*_Nonnull)getBorderFill:(NSString*_Nonnull)num;
-
+-(NSDictionary*_Nonnull)getCharPr:(NSString*_Nonnull)num;
+-(NSString*_Nonnull)getFont:(NSString*_Nonnull)num;
 
 @end

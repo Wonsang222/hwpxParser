@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../../Delegate/ContentDelegate.h"
 
 @class HH_FontRef;
 @class HH_Ratio;
@@ -29,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonnull) NSString *useKerning;
 @property(strong, nonnull) NSString *symMark;
 @property(strong, nonnull) NSString *borderFillIDRef;
+@property(weak) id<ContentDelegate> parent;
 
 @property(strong, nullable) HH_FontRef *fontRef;
 @property(strong, nullable) HH_Ratio *ratio;

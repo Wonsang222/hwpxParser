@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *symbol;
 @property(strong) NSString *user;
 
--(NSDictionary*)getCSS;
+-(NSString*)getFont;
 
 @end
 

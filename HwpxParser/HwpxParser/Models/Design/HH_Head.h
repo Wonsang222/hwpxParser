@@ -24,6 +24,7 @@
 
 -(NSDictionary*_Nonnull)getParaPr:(NSString*_Nonnull)num;
 -(NSDictionary*_Nonnull)getBorderFill:(NSString*_Nonnull)num;
+-(NSDictionary*_Nonnull)getCharPr:(NSString*_Nonnull)num;
 
 @end
 

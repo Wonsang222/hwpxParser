@@ -73,44 +73,12 @@
 
 -(HTMLElement*_Nonnull)convertToHtml;
 {
-    // borderfill 에 따라서 att 변경되어야함. Todo
+    NSDictionary *css = [self getCSS];
+    NSString *cssString = [self convertDic:css];
+    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:[@{
+        @"style" : cssString
+    }mutableCopy]];
     
-    NSMutableArray *sizes = [self getSize];
-    NSString* height = [sizes firstObject];
-    NSString* width = [sizes lastObject];
-    
-    NSMutableArray *outmargins = [self getOMargin];
-    NSString *outMarginTop = outmargins[0];
-    NSString *outMarginLeft = outmargins[1];
-    NSString *outMarginRight = outmargins[2];
-    NSString *outMarginBottom = outmargins[3];
-    
-    NSMutableArray *inMargins = [self getInMarin];
-    NSString *inMarginTop = inMargins[0];
-    NSString *inMarginLeft = inMargins[1];
-    NSString *inMarginRight = inMargins[2];
-    NSString *inMarginBottom = inMargins[3];
-    
-    NSMutableDictionary* att = [@{
-        @"box-sizing" : @"border-box",
-        @"height" : [self convertUnsignedIntToPt:height],
-        @"width" : [self convertUnsignedIntToPt:width],
-        @"margin-top" : [self convertUnsignedIntToPt:outMarginTop],
-        @"margin-bottom" : [self convertUnsignedIntToPt:outMarginBottom],
-        @"margin-left" : [self convertUnsignedIntToPt:outMarginLeft],
-        @"margin-right" : [self convertUnsignedIntToPt:outMarginRight],
-        @"padding-top" : [self convertUnsignedIntToPt:inMarginTop],
-        @"padding-right" : [self convertUnsignedIntToPt:inMarginRight],
-        @"padding-bottom" : [self convertUnsignedIntToPt:inMarginBottom],
-        @"padding-left" : [self convertUnsignedIntToPt:inMarginLeft],
-        @"table-layout" : @"fixed",
-        @"position" : @"relative",
-    } mutableCopy];
-    
-    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:att];
-    
-    NSMutableDictionary* attString = [self createAttribute:att];
-    [tbl setAttributes:attString];
     
     for (Tr* tableRow in self.tr) {
         if ([tableRow respondsToSelector:@selector(getHtml)]) {

@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
     return [self.refList getBorderFill:num];
 }
 
+- (NSDictionary *)getCharPr:(NSString *)num
+{
+    return [self.refList getCharPr:num];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

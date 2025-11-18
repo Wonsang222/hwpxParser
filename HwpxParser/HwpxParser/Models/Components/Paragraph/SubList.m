@@ -23,7 +23,6 @@
 @synthesize hasNumRef;
 @synthesize metatag;
 @synthesize paragraph;
-@synthesize parent;
 
 -(instancetype) init
 {
@@ -35,23 +34,10 @@
 - (NSMutableArray<HTMLElement *> *)convertToHtml
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
-    NSString* location = @"first";
-    NSMutableDictionary* parentAtt;
     
-    parentAtt = [self.parent getPaddings];
     
-    for (int i = 0 ; i < [self.paragraph count] ; i++) {
-        if (i != 0) {
-            location = @"second";
-        }
-        
-//        Paragraph* targetP = self.paragraph[i];
-//        NSMutableArray *innerContents = [targetP convertParagraphWithHead:<#(HH_Head * _Nonnull)#>];
-//        
-//        for (HTMLElement* e in innerContents) {
-//            [result addObject:e];
-//        }
-    }
+
+
     return result;
 }
 

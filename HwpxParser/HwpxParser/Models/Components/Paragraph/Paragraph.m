@@ -9,6 +9,8 @@
 #import "Run.h"
 #import "Linesegarray.h"
 #import "../Pic/Pic.h"
+#import "../../Design/HH_Head.h"
+
 @import HTMLKit;
 
 @implementation Paragraph
@@ -62,14 +64,24 @@
 -(NSMutableArray<HTMLElement*>*)convertParagraphWithHead:(HH_Head *)head {
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     // lineseg1개 content 1개 일때, content가 1개일때
-    
-    if ([linesegarray.lineseg count] == 1) {
-        NSDictionary* linesegCSS = [[linesegarray.lineseg firstObject] getOuterP:head WithID:self.paraPrIDRef];
+    if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
+        // run charpr 계산
+        Run *r = [self.run firstObject];
+        NSMutableDictionary *charPr = [[head getCharPr:r.charPrIDRef]mutableCopy];
+        NSDictionary *linesegCSS = [[linesegarray.lineseg firstObject] getOuterP:head WithID:self.paraPrIDRef];
+        [charPr addEntriesFromDictionary:linesegCSS];
+        NSString *linesegCSSString = [self convertDic:charPr];
         // content
-        for (Run *r in self.run) {
-            [paragraph appendNode:[r getContent]];
-        }
-        [result addObject:paragraph];
+        
+        HTMLElement* content = [r getContent];
+        NSMutableDictionary* atts = [content attributes];
+        NSMutableString *originCSS = [atts[@"style"] mutableCopy];
+        NSString* final = [originCSS stringByAppendingString:linesegCSSString];
+        
+        [content setAttributes:[@{
+            @"style" : final
+        }mutableCopy]];
+        [result addObject:content];
     } else {
         
     }

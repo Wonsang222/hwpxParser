@@ -7,6 +7,7 @@
 
 #import "HH_Fontface.h"
 #import "../../Extensions/NSObject+ParsingHelper.h"
+#import "HH_Font.h"
 
 @implementation HH_Fontface
 
@@ -45,11 +46,11 @@
     [self removeObserver:self forKeyPath:@"font"];
 }
 
-- (HH_Font *)getFontWithNum:(NSString *)num
+- (NSString *)getFontWithNum:(NSString *)num
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identification == %@", num];
     HH_Font *font = [[self.contents filteredArrayUsingPredicate:predicate] firstObject];
-    return font;
+    return font.identification;
 }
 
 @end

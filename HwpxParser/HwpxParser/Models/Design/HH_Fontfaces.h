@@ -16,7 +16,7 @@
 @property(strong) HH_Fontface *fontface;
 @property(strong) NSMutableArray<HH_Fontface*>* contents;
 
--(HH_Font*)getFontWithNum:(NSString*)num;
+-(NSString*)getFontWithNum:(NSString*)num;
 
 @end
 

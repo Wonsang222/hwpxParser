@@ -6,16 +6,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "../../Delegate/ContentDelegate.h"
 
 @class HH_CharPr;
+@class HH_RefList;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HH_CharProperties : NSObject
+@interface HH_CharProperties : NSObject <ContentDelegate>
 
-@property(strong, nonnull) NSString *itemCnt;
-@property(strong, nonnull) HH_CharPr *charPr;
-@property(strong, nonnull) NSMutableArray<HH_CharPr*> *contents;
+@property(strong) NSString *itemCnt;
+@property(strong) HH_CharPr *charPr;
+@property(strong) NSMutableArray<HH_CharPr*> *contents;
+@property(weak) id<ContentDelegate> parent;
+
+-(NSDictionary*_Nonnull)getCharPr:(NSString*_Nonnull)num;
+-(NSString*)getFontWithNum:(NSString*)num;
+
 
 @end
 

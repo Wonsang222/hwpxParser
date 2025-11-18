@@ -8,6 +8,8 @@
 #import "HH_RefList.h"
 #import "HH_ParaProperties.h"
 #import "HH_BorderFills.h"
+#import "HH_CharProperties.h"
+#import "HH_Fontfaces.h"
 
 @implementation HH_RefList
 
@@ -28,6 +30,16 @@
 - (NSDictionary *)getBorderFill:(NSString *)num
 {
     return [self.borderFills getBorderFill:num];
+}
+
+-(NSDictionary*_Nonnull)getCharPr:(NSString*_Nonnull)num;
+{
+    return [self.charProperties getCharPr:num];
+}
+
+- (NSString *)getFont:(NSString *)num
+{
+    return [self.fontfaces getFontWithNum:num];
 }
 
 @end

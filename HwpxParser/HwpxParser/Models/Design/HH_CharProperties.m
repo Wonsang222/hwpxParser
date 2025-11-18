@@ -14,6 +14,7 @@
 @synthesize itemCnt;
 @synthesize charPr;
 @synthesize contents;
+@synthesize parent;
 
 - (instancetype)init
 {
@@ -41,6 +42,27 @@
 - (void)dealloc
 {
     [self removeKVO:self withMember:@"charPr"];
+}
+
+- (NSDictionary *)getCharPr:(NSString *)num
+{
+    NSMutableDictionary *res = [@{}mutableCopy];
+    NSPredicate* filter = [NSPredicate predicateWithFormat:@"%k == %@", @"identification", num];
+    HH_CharPr *target = [[self.contents filteredArrayUsingPredicate:filter] firstObject];
+    NSDictionary *targetCSS = [target getCSS];
+    // borderFill
+    NSString *borderFillID = [target borderFillIDRef];
+    NSDictionary *borderCSS = [parent getBorderFill:borderFillID];
+    
+    [res addEntriesFromDictionary:borderCSS];
+    [res addEntriesFromDictionary:targetCSS];
+    
+    return res;
+}
+
+- (NSString *)getFontWithNum:(NSString *)num
+{
+    return [self.parent getFontWithNum:num];
 }
 
 @end

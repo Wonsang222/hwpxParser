@@ -17,13 +17,9 @@
 @synthesize symbol;
 @synthesize user;
 
-- (NSDictionary *)getCSS
+- (NSString *)getFont
 {
-    NSMutableDictionary* res = [@{}mutableCopy];
-    
-    res[@"font-family"] = Eewjrlqewjrlewqjrqewjroij;
-    
-    return res;
+    return self.hangul;
 }
 
 @end
