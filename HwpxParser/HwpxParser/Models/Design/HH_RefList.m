@@ -37,7 +37,7 @@
     return [self.charProperties getCharPr:num];
 }
 
-- (NSString *)getFont:(NSString *)num
+- (NSString *)getFontWithNum:(NSString *)num
 {
     return [self.fontfaces getFontWithNum:num];
 }

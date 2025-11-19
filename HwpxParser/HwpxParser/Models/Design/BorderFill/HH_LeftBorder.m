@@ -22,7 +22,7 @@
     NSMutableDictionary *result = [@{}mutableCopy];
     NSString *val = @"none";
     
-    if ([type isNotEqualTo:@"NONE"]) {
+    if ([self.type isNotEqualTo:@"NONE"]) {
         val = [NSString stringWithFormat:@"%@ %@ %@", self.width, self.type, self.color];
     }
     NSString *key = [self location];

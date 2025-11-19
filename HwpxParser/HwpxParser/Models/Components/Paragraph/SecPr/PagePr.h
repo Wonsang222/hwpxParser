@@ -19,6 +19,6 @@
 // nullable
 @property(nullable, strong, nonatomic)Margin * margin;
 
--(NSMutableDictionary*)getPaperAtt;
+-(NSMutableDictionary*_Nonnull)getPaperAtt;
 
 @end

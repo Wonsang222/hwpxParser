@@ -73,6 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSDictionary* oMargin = [self.outMargin getAtt];
     NSDictionary* size = [self.sz getAtt];
     
+    result[@"z-index"] = self.zOrder;
     [result addEntriesFromDictionary:oMargin];
     [result addEntriesFromDictionary:size];
     

@@ -36,11 +36,21 @@
 - (NSMutableArray<HTMLElement *> *)convertToHtml
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
-    
+    NSDictionary *lineWrapCSS = [self getLineWrap];
+    NSString *lineWrapCSSString = [self convertDic:lineWrapCSS];
+        
     for (int i = 0 ; i < [self.paragraph count] ; i++) {
         Paragraph *p = self.paragraph[i];
         
         NSArray *elements = [p convertParagraphWithHead:head];
+        // add Sublist CSS
+        for (HTMLElement *element in elements) {
+            // atts
+            NSMutableDictionary *atts = [element attributes];
+            NSString *style = atts[@"style"];
+            style = [style stringByAppendingString:lineWrapCSSString];
+            // 포인터라서 된건가..?
+        }
         result = [elements mutableCopy];
     }
     return result;
@@ -64,9 +74,9 @@
     res[key] = val;
     
     if ([self.textDirection isEqualToString:@"VERTICAL"]) {
-        key = @"writing-mode";
-        val = @"vertical-rl";
-        res[key] = val;
+        NSString *key2 = @"writing-mode";
+        NSString *val2 = @"vertical-rl";
+        res[key2] = val2;
     }
     
     return res;

@@ -47,17 +47,22 @@ NS_ASSUME_NONNULL_BEGIN
     NSString*imgName = [self.img getImgName];
     NSString*ext = [FsManager getFileExtensionInDirectory:resultPath3 fileName:imgName];
     NSString*ext2 = [resultPath3 stringByAppendingPathComponent:imgName];
-    
-
-    NSString*ext3 = [ext2 stringByAppendingPathExtension:ext];
+    NSString*ext3 = ext.length > 0 ? [ext2 stringByAppendingPathExtension:ext] : ext2;
 
     NSMutableDictionary* att1 = [self getAtts];
     NSMutableDictionary* att2 = [self.inMargin getAtt];
 
     [att1 addEntriesFromDictionary:att2];
-    att1[@"src"] = ext3;
-
-    [picture setAttributes:[self createAttribute:att1]];
+    
+    NSString *styleString = [self convertDic:att1];
+    NSString *srcString = @"image1.jpg";
+    
+    [picture setAttributes:[@{
+        @"src" : srcString,
+        @"style" : styleString,
+        
+    }mutableCopy]];
+        
     
     return picture;
 }

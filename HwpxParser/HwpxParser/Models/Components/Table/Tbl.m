@@ -11,6 +11,7 @@
 #import "CellZone.h"
 #import "Label.h"
 #import "Tr.h"
+#import "../../../main.h"
 
 
 @import HTMLKit;
@@ -68,6 +69,13 @@
     res[@"display"] = @"inline-table";
     res[@"border-collapse"] = @"collapse";
     res[@"table-layout"] = @"fixed";
+    // borderFill 반영
+    
+    NSDictionary *borderFill = [head getBorderFill:self.borderFillIDRef];
+    [res addEntriesFromDictionary:borderFill];
+    
+    
+    
     return res;
 }
 
@@ -75,6 +83,8 @@
 {
     NSDictionary *css = [self getCSS];
     NSString *cssString = [self convertDic:css];
+    
+    
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:[@{
         @"style" : cssString
     }mutableCopy]];

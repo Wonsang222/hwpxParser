@@ -72,7 +72,6 @@
         [charPr addEntriesFromDictionary:linesegCSS];
         NSString *linesegCSSString = [self convertDic:charPr];
         // content
-        
         HTMLElement* content = [r getContent];
         NSMutableDictionary* atts = [content attributes];
         NSMutableString *originCSS = [atts[@"style"] mutableCopy];

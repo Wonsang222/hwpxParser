@@ -47,14 +47,14 @@
 - (NSDictionary *)getCharPr:(NSString *)num
 {
     NSMutableDictionary *res = [@{}mutableCopy];
-    NSPredicate* filter = [NSPredicate predicateWithFormat:@"%k == %@", @"identification", num];
+    NSPredicate* filter = [NSPredicate predicateWithFormat:@"identification == %@", num];
     HH_CharPr *target = [[self.contents filteredArrayUsingPredicate:filter] firstObject];
     NSDictionary *targetCSS = [target getCSS];
     // borderFill
     NSString *borderFillID = [target borderFillIDRef];
-    NSDictionary *borderCSS = [parent getBorderFill:borderFillID];
+//    NSDictionary *borderCSS = [parent getBorderFill:borderFillID];
     
-    [res addEntriesFromDictionary:borderCSS];
+//    [res addEntriesFromDictionary:borderCSS];
     [res addEntriesFromDictionary:targetCSS];
     
     return res;

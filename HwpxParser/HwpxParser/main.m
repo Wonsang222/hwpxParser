@@ -33,8 +33,9 @@ int main(int argc, const char * argv[]) {
         
         NSString *startS = [NSString stringWithUTF8String:__FILE__];
         NSString *ppp = [startS stringByDeletingLastPathComponent];
-        NSString *resultPath = @"result/test.html";
-        NSString *resPath = [ppp stringByAppendingString:resultPath];
+        NSString *resultPath = @"/test.html";
+        NSString *resPath = [ppp stringByAppendingPathComponent:@"result"];
+        NSString *finPath = [resPath stringByAppendingString: resultPath];
         
         XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
 
@@ -48,29 +49,30 @@ int main(int argc, const char * argv[]) {
         Sec *sec = [secs firstObject];
         [sec setHead:innerHead];
         
-//        HTMLDocument* doc = [RenderingManager buildHTMLDocument];
-//        NSError* error = nil;
+        HTMLDocument* doc = [RenderingManager buildHTMLDocument];
+        NSError* error = nil;
 ////        // paragraph 그리기
 //        
-//        if (!sec) {
-//            NSLog(@"noShit");
-//            exit(0);
-//        }
+        if (!sec) {
+            NSLog(@"noShit");
+            exit(0);
+        }
 //        
         NSMutableArray<HTMLElement*>* sections = [sec converToHtml];
 //
-//        for (HTMLElement* section in sections) {
-//            [[doc body] appendNode:section];
-//        }
-//        // HTML 생성 후에 문자열로 변환
-//        NSString* outer = [doc outerHTML];
-//        [outer writeToFile:resPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
-//        
-//        if (error) {
-//          NSLog(@"errrrr");
-//            exit(0);
-//        }
-//        [[NSWorkspace sharedWorkspace] openFile:resPath withApplication:@"Safari"];
+        for (HTMLElement* section in sections) {
+            [[doc body] appendNode:section];
+        }
+        // HTML 생성 후에 문자열로 변환
+        NSString* outer = [doc outerHTML];
+        [outer writeToFile:finPath atomically:YES encoding:NSUTF8StringEncoding error:&error];
+        
+        if (error) {
+          NSLog(@"errrrr");
+            NSLog(@"%@", [error description]);
+            exit(0);
+        }
+        [[NSWorkspace sharedWorkspace] openFile:finPath withApplication:@"Safari"];
     }
     return 0;
 }

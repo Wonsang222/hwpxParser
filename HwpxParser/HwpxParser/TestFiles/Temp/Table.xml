@@ -94,14 +94,14 @@
                                     <hp:lineseg textpos="0" vertpos="0" vertsize="3193" textheight="3193" baseline="2714" spacing="-600" horzpos="0" horzsize="13068" flags="393216"/>
                                 </hp:linesegarray>
                             </hp:p>
-                            <hp:p id="2147483648" paraPrIDRef="18" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+                            <!-- <hp:p id="2147483648" paraPrIDRef="18" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
                                 <hp:run charPrIDRef="36">
                                     <hp:t>행정안전부</hp:t>
                                 </hp:run>
                                 <hp:linesegarray>
                                     <hp:lineseg textpos="0" vertpos="2593" vertsize="1000" textheight="1000" baseline="850" spacing="600" horzpos="0" horzsize="13068" flags="393216"/>
                                 </hp:linesegarray>
-                            </hp:p>
+                            </hp:p> -->
                         </hp:subList>
                         <hp:cellAddr colAddr="0" rowAddr="0"/>
                         <hp:cellSpan colSpan="1" rowSpan="1"/>
