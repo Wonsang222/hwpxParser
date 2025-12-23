@@ -2,9 +2,24 @@
 
 ## 목표
 
-- Objective-C로 작성
+- Objective-C 라이브러리 완성 목표
 - Hwpx 파일을 파싱해서 Html로 컨버팅 후, WKWebview 화면으로 송출
 - [https://standard.go.kr](https://standard.go.kr/) 공식문서를 참조해서 컴포넌트 구성
+
+## 과정
+
+![process](./ReadMeImgs/process.png)
+
+## HWPX 파일구조
+
+![Tree](./ReadMeImgs/FileTree.png)
+
+- XMLParser를 만들어, Contents 폴더에 위치한 header 파일을 파싱 후 디자인 서식에 대한 정보를 저장.
+- section 파일을 파싱하면서 각 컴포넌트에 해당하는 객체를 생성함. 각 객체는 html 작성하는 함수를 가지고 있음. 이 과정에서 header에서 CSS 서식을 적용 및 BinData에서 이미지와 같은 데이터를 링크
+
+## 문단 구성
+
+![paragraph](./ReadMeImgs/paragraph.png)
 
 ```
 // 프로젝트 폴더 트리
