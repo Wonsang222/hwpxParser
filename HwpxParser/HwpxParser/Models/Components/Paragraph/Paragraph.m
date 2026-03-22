@@ -65,6 +65,9 @@
     NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
     // lineseg1개 content 1개 일때, content가 1개일때
     if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
+        
+        HTMLElement *lineSeg = [linesegarray.lineseg.firstObject];
+        
         // run charpr 계산
         Run *r = [self.run firstObject];
         NSMutableDictionary *charPr = [[head getCharPr:r.charPrIDRef]mutableCopy];

@@ -30,11 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
     HTMLElement* targetPaper;
     
     for (Paragraph* p in self.paragraph) {
-        
+        // 바탕이 되는 페이지 css 데이터
         if ([p hasSecPr]) {
             registeredPaper = [p getP];
         }
-        
+        // line의 시작점이 page에서 0일때, 새로운 페이지 div 를 만들어서 바탕이 되는 페이지 css데이터를 입히고 result 배열로
         if ([p isNewPage]) {
             targetPaper = [[HTMLElement alloc] initWithTagName:@"div"];
             NSMutableDictionary* att = [self createAttribute:registeredPaper];
