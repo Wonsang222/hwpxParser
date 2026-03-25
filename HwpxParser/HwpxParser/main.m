@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
         
         NSString *start = [NSString stringWithUTF8String:__FILE__];
         NSString *startP = [start stringByDeletingLastPathComponent];
-        NSString *testPath2 = @"/TestFiles/Temp/Table.xml";
+        NSString *testPath2 = @"/TestFiles/Temp/Base.xml";
         NSString *path2 = [startP stringByAppendingString:testPath2];
         
         NSString *startS = [NSString stringWithUTF8String:__FILE__];
@@ -47,12 +47,14 @@ int main(int argc, const char * argv[]) {
         XMLParser *parser2 = [[XMLParser alloc] init];
         NSArray *secs = [parser2 parseXMLFile:path2];
         Sec *sec = [secs firstObject];
+        
         [sec setHead:innerHead];
         
         HTMLDocument* doc = [RenderingManager buildHTMLDocument];
         NSError* error = nil;
+        
 ////        // paragraph 그리기
-//        
+        ///
         if (!sec) {
             NSLog(@"noShit");
             exit(0);

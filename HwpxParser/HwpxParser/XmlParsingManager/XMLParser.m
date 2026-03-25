@@ -88,7 +88,7 @@
     }
 
     NSString* openTag = elementName;
-    
+        
     // hp: 네임스페이스 제거
     
     for (NSString* pre in self.prefix) {
@@ -129,8 +129,6 @@
                 [revisedDict setValue:value forKey:identification];
                 [revisedDict removeObjectForKey:i];
             }
-            
-            
             
             if (self.part != nil) {
                 if ([i isEqualToString:@"hp:required-namespace"]) {

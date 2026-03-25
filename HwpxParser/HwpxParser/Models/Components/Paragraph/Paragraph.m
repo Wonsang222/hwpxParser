@@ -81,7 +81,7 @@
         NSString* final = [originCSS stringByAppendingString:linesegCSSString];
         
         [content setAttributes:[@{
-            @"style" : final
+            @"style" : @""
         }mutableCopy]];
         [result addObject:content];
     } else {
