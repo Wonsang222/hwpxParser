@@ -43,11 +43,14 @@ NS_ASSUME_NONNULL_BEGIN
             [result addObject:targetPaper];
         }
         // paragraph
-        NSMutableArray<HTMLElement*>* paragraphs = [p convertParagraphWithHead:self.head];
+//        NSMutableArray<HTMLElement*>* paragraphs = [p convertParagraphWithHead:self.head];
         
-        for (HTMLElement* elem in paragraphs) {
-            [targetPaper appendNode:elem];
-        }
+//        for (HTMLElement* elem in paragraphs) {
+//            [targetPaper appendNode:elem];
+//        }
+        
+        NSMutableArray<HTMLElement*>* paragraphs = [p];
+        
     }
     
     HTMLElement* lastObj = [result lastObject];

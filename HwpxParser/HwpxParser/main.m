@@ -59,9 +59,9 @@ int main(int argc, const char * argv[]) {
             NSLog(@"noShit");
             exit(0);
         }
-//        
+
         NSMutableArray<HTMLElement*>* sections = [sec converToHtml];
-//
+
         for (HTMLElement* section in sections) {
             [[doc body] appendNode:section];
         }
