@@ -68,7 +68,7 @@
     if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
 //        HTMLElement *lineSegHtml = [lineSeg getOuterP:head WithID:z]
-        HTMLElement *lineSegHtml = [lineSeg getou]
+//        HTMLElement *lineSegHtml = [lineSeg getou]
     } else {
         
     }

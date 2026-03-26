@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class HH_Head;
-@class HTMLElement;
+@class WrapperP;
 
 @interface Lineseg : NSObject
 @property(nonnull,strong) NSString* textpos;
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* horzsize;
 @property(nonnull,strong) NSString* flags;
 -(BOOL)isNewPage;
--(HTMLElement*)getOuterP;
+-(WrapperP*)getOuterP;
 @end
 
 NS_ASSUME_NONNULL_END
