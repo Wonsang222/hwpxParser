@@ -22,18 +22,15 @@
 @synthesize horzsize;
 @synthesize flags;
 
-- (NSDictionary*)getOuterP:(HH_Head *)head WithID:(NSString *)identification
+- (HTMLElement *)getOuterP
 {
-    // line - height 계산
-    NSMutableDictionary *paraPr = [[head getParaPr:identification]mutableCopy];
+    // OuterP는 
+    HTMLElement* divTagWithAbsolute = [[HTMLElement alloc] initWithTagName:@"div"];
+    [divTagWithAbsolute setAttributes:@[@"style":
+                                            
+                                      ];
     
-    NSString *lineHeight = @"line-height";
     
-    float value = [paraPr[lineHeight] floatValue] * [self.textheight floatValue];
-    NSString *strVal = [NSString stringWithFormat:@"%.2fpx", value];
-    paraPr[lineHeight] = strVal;
-    
-    return paraPr;
 }
 
 - (BOOL)isNewPage
