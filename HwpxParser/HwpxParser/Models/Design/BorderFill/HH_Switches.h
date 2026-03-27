@@ -2,7 +2,7 @@
 //  HH_Switch.h
 //  HwpxParser
 //
-//  Created by 인스웨이브 on 11/14/25.
+//  Created by WonsangHwang on 11/14/25.
 //
 
 #import <Foundation/Foundation.h>

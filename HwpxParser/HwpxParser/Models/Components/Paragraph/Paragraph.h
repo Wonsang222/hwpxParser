@@ -2,7 +2,7 @@
 //  Paragraph.h
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/1/25.
+//  Created by WonsangHwang on 7/1/25.
 //
 
 #import <Foundation/Foundation.h>
@@ -11,7 +11,7 @@
 @class Run;
 @class Linesegarray;
 @class Lineseg;
-@class HTMLElement;
+@class WrapperP;
 @class HH_Head;
 
 @interface Paragraph : NSObject
@@ -28,7 +28,7 @@
 @property(nullable, strong) Linesegarray* linesegarray;
 
 //-(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraphWithHead:(HH_Head*_Nonnull)head;
--(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraphWithHead;
+-(NSMutableArray<WrapperP*>*_Nonnull)convertParagraphWithHead;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
 -(NSMutableDictionary*_Nonnull)getP;

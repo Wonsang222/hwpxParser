@@ -40,6 +40,8 @@
     HTMLElement *innerDiv = [[HTMLElement alloc] initWithTagName:@"div"];
     [innerDiv setAttributes:[@{@"style": relativeStyle} mutableCopy]];
 
+    [outerDiv appendNode:innerDiv];
+
     WrapperP *wrapper = [[WrapperP alloc] init];
     wrapper.outer = outerDiv;
     wrapper.inner = innerDiv;

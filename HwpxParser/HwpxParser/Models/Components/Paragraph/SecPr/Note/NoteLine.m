@@ -2,7 +2,7 @@
 //  NoteLine.m
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/10/25.
+//  Created by WonsangHwang on 7/10/25.
 //
 
 #import "NoteLine.h"

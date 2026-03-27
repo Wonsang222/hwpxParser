@@ -2,7 +2,7 @@
 //  SubList.m
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/1/25.
+//  Created by WonsangHwang on 7/1/25.
 //
 
 #import "SubList.h"
@@ -42,9 +42,9 @@
     for (int i = 0 ; i < [self.paragraph count] ; i++) {
         Paragraph *p = self.paragraph[i];
         
-        NSArray *elements = [p convertParagraphWithHead:head];
+        NSArray *elements = [p convertParagraphWithHead];
         // add Sublist CSS
-        for (HTMLElement *element in elements) {
+        for (WrapperP *element in elements) {
             // atts
             NSMutableDictionary *atts = [element attributes];
             NSString *style = atts[@"style"];

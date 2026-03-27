@@ -2,7 +2,7 @@
 //  Table.m
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/1/25.
+//  Created by WonsangHwang on 7/1/25.
 //
 
 #import "Tbl.h"
@@ -37,6 +37,8 @@
     return self;
 }
 
+
+// 각각의 cell에 부여해야함. 값을 가지고 있다면, ovveride delegate?
 - (NSMutableArray<NSString*> *)getInMarin
 {
     NSMutableArray *result = [[NSMutableArray alloc] init];
@@ -55,8 +57,6 @@
 - (NSDictionary *)getCSS
 {
     NSMutableDictionary *superVal = [super getCSS];
-    NSDictionary *inMargin = [self.inMargin getAtt];
-    [superVal addEntriesFromDictionary:inMargin];
     NSDictionary *own = [self getOwn];
     [superVal addEntriesFromDictionary:own];
     return superVal;
@@ -70,11 +70,8 @@
     res[@"border-collapse"] = @"collapse";
     res[@"table-layout"] = @"fixed";
     // borderFill 반영
-    
     NSDictionary *borderFill = [head getBorderFill:self.borderFillIDRef];
     [res addEntriesFromDictionary:borderFill];
-    
-    
     
     return res;
 }
@@ -83,7 +80,6 @@
 {
     NSDictionary *css = [self getCSS];
     NSString *cssString = [self convertDic:css];
-    
     
     HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:[@{
         @"style" : cssString

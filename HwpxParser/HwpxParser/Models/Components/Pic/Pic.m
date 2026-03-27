@@ -60,10 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
     [picture setAttributes:[@{
         @"src" : srcString,
         @"style" : styleString,
-        
     }mutableCopy]];
-        
-    
     return picture;
 }
 

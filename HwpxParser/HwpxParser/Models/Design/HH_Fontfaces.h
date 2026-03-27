@@ -2,7 +2,7 @@
 //  HH_Fontfaces.h
 //  HwpxParser
 //
-//  Created by 인스웨이브 on 11/11/25.
+//  Created by WonsangHwang on 11/11/25.
 //
 
 #import <Foundation/Foundation.h>

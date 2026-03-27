@@ -2,7 +2,7 @@
 //  CurSz.h
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/11/25.
+//  Created by WonsangHwang on 7/11/25.
 //
 
 #import <Foundation/Foundation.h>

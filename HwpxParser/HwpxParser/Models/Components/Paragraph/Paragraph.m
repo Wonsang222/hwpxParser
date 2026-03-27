@@ -2,7 +2,7 @@
 //  Paragraph.m
 //  HwpParser
 //
-//  Created by 인스웨이브 on 7/1/25.
+//  Created by WonsangHwang on 7/1/25.
 //
 
 #import "Paragraph.h"
@@ -11,6 +11,7 @@
 #import "../Pic/Pic.h"
 #import "../../Design/HH_Head.h"
 #import "Lineseg.h"
+#import "../../WrapperP.h"
 
 @import HTMLKit;
 
@@ -62,13 +63,22 @@
     return [linesegarray isNewPage];
 }
 
-- (NSMutableArray<HTMLElement *> *)convertParagraphWithHead
+- (NSMutableArray<WrapperP *> *)convertParagraphWithHead
 {
-    NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
+    NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
     if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
+        Run *targetRun = [self.run firstObject];
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
-//        HTMLElement *lineSegHtml = [lineSeg getOuterP:head WithID:z]
-//        HTMLElement *lineSegHtml = [lineSeg getou]
+        // wraapper innerDiv
+        WrapperP *wrapper = [lineSeg getOuterP];
+        HTMLElement *innerDiv = wrapper.inner;
+        // Contents
+        HTMLElement *content = [targetRun getContent];
+        // innerDiv에 Content 배치
+        [innerDiv appendNode:content];
+        // result에 append
+        [result addObject:wrapper];
+        
     } else {
         
     }
