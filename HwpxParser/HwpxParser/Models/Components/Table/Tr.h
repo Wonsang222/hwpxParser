@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) Tc* tc;
 @property(strong)NSMutableArray<Tc*>* contents;
 
--(HTMLElement*)getHtml;
+-(HTMLElement*)getHtml:(NSString*)margin;
 @end
 
 NS_ASSUME_NONNULL_END

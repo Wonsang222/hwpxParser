@@ -85,34 +85,5 @@
     return result;
 }
 
-//-(NSMutableArray<HTMLElement*>*)convertParagraphWithHead:(HH_Head *)head {
-//    NSMutableArray<HTMLElement*>* result = [[NSMutableArray alloc]init];
-//    // lineseg1개 content 1개 일때, content가 1개일때
-//    if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
-//        
-//        Lineseg *lineSeg = [linesegarray.lineseg firstObject];
-//        HTMLElement *lineSegHtml = [lineSeg getOuterP:head WithID:z]
-//        
-//        // run charpr 계산
-//        Run *r = [self.run firstObject];
-//        NSMutableDictionary *charPr = [[head getCharPr:r.charPrIDRef]mutableCopy];
-//        NSDictionary *linesegCSS = [[linesegarray.lineseg firstObject] getOuterP:head WithID:self.paraPrIDRef];
-//        [charPr addEntriesFromDictionary:linesegCSS];
-//        NSString *linesegCSSString = [self convertDic:charPr];
-//        // content
-//        HTMLElement* content = [r getContent];
-//        NSMutableDictionary* atts = [content attributes];
-//        NSMutableString *originCSS = [atts[@"style"] mutableCopy];
-//        NSString* final = [originCSS stringByAppendingString:linesegCSSString];
-//        
-//        [content setAttributes:[@{
-//            @"style" : @""
-//        }mutableCopy]];
-//        [result addObject:content];
-//    } else {
-//        
-//    }
-//    return result;
-//}
 @end
 

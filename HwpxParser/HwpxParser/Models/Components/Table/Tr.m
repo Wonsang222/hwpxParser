@@ -40,12 +40,11 @@
     }
 }
 
-
--(HTMLElement*)getHtml
+- (HTMLElement *)getHtml:(NSDictionary *)margin
 {
     HTMLElement* row = [[HTMLElement alloc] initWithTagName:@"tr"];
     for (Tc *t in self.contents) {
-        HTMLElement* tcContent = [t convertToHtml];
+        HTMLElement* tcContent = [t convertToHtml:margin];
         [row appendNode:tcContent];
      }
     return row;

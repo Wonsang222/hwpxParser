@@ -12,8 +12,7 @@
 #import "Label.h"
 #import "Tr.h"
 #import "../../../main.h"
-
-
+#import "../../../Models/WrapperP.h"
 @import HTMLKit;
 
 @implementation Tbl
@@ -35,23 +34,16 @@
     self = [super init];
     [self initializeWithMutableArray];
     return self;
-}
+}				
 
-
-// 각각의 cell에 부여해야함. 값을 가지고 있다면, ovveride delegate?
-- (NSMutableArray<NSString*> *)getInMarin
+- (NSString*)getInMarin
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSString *top = self.inMargin.top ?: @"0";
-    NSString *left = self.inMargin.left ?: @"0";
-    NSString *right = self.inMargin.right ?: @"0";
-    NSString *bottom = self.inMargin.bottom ?: @"0";
-    
-    [result addObject:top];
-    [result addObject:left];
-    [result addObject:right];
-    [result addObject:bottom];
-    return result;
+    NSString *top = [self convertUnsignedIntToPt:self.inMargin.top];
+    NSString *left = [self convertUnsignedIntToPt:self.inMargin.left];
+    NSString *right = [self convertUnsignedIntToPt:self.inMargin.right];
+    NSString *bottom = [self convertUnsignedIntToPt:self.inMargin.bottom];
+
+    return [NSString stringWithFormat:@"top:%@; left:%@; right:%@; bottom:%@;", top, left, right, bottom];
 }
 
 - (NSDictionary *)getCSS
@@ -76,23 +68,29 @@
     return res;
 }
 
--(HTMLElement*_Nonnull)convertToHtml;
+-(WrapperP*_Nonnull)convertToHtml;
 {
-    NSDictionary *css = [self getCSS];
-    NSString *cssString = [self convertDic:css];
-    
-    HTMLElement *tbl = [[HTMLElement alloc] initWithTagName:@"table" attributes:[@{
-        @"style" : cssString
+    // absolute
+    HTMLElement *wrapperDiv = [self getWrapperDiv];
+    HTMLElement *table = [[HTMLElement alloc] initWithTagName:@"table"];
+    NSMutableString *position = [@"position:relative; "mutableCopy];
+    NSString *css = [position stringByAppendingString:[self getSize]];
+    [table setAttributes:[@{
+        @"style": css
     }mutableCopy]];
     
+    WrapperP *wrapper = [WrapperP new];
+    [wrapperDiv appendNode:table];
+    wrapper.outer = wrapperDiv;
+    wrapper.inner = table;
     
     for (Tr* tableRow in self.tr) {
-        if ([tableRow respondsToSelector:@selector(getHtml)]) {
-            [tbl appendNode:[tableRow getHtml]];
+        if ([tableRow respondsToSelector:@selector(getHtml:)]) {
+            [tbl appendNode:[tableRow getHtml:<#(nonnull NSDictionary *)#>]];
         }
     }
 
-    return tbl;
+    return wrapper;
 }
 
 @end

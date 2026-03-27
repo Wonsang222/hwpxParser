@@ -9,6 +9,7 @@
 #import "../../../Extensions/NSObject+ParsingHelper.h"
 #import "Paragraph.h"
 #import "../../../main.h"
+#import "../../WrapperP.h"
 
 @import HTMLKit;
 
@@ -33,7 +34,7 @@
     return self;
 }
 
-- (NSMutableArray<HTMLElement *> *)convertToHtml
+- (NSMutableArray<WrapperP *> *)convertToHtml
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
     NSDictionary *lineWrapCSS = [self getLineWrap];
@@ -46,12 +47,13 @@
         // add Sublist CSS
         for (WrapperP *element in elements) {
             // atts
-            NSMutableDictionary *atts = [element attributes];
-            NSString *style = atts[@"style"];
-            style = [style stringByAppendingString:lineWrapCSSString];
+//            NSMutableDictionary *atts = [element attributes];
+//            NSString *style = atts[@"style"];
+//            style = [style stringByAppendingString:lineWrapCSSString];
             // 포인터라서 된건가..?
+            [result addObject:element];
         }
-        result = [elements mutableCopy];
+//        result = [elements mutableCopy];
     }
     return result;
 }

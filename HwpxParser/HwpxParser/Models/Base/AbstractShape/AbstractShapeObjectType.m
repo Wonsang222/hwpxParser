@@ -9,7 +9,8 @@
 #import "Sz.h"
 #import "Pos.h"
 #import "OutMargin.h"
-
+#import "../../../Extensions/NSObject+ParsingHelper.h"
+@import HTMLKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -29,6 +30,23 @@ NS_ASSUME_NONNULL_BEGIN
 //@synthesize caption;
 //@synthesize shapeComment;
 
+- (HTMLElement *)getWrapperDiv
+{
+    HTMLElement *div = [[HTMLElement alloc] initWithTagName:@"div"];
+    NSString *cssString = [NSString stringWithFormat:@"height:%@; width:%@; top:%@; left:%@ right:%@ bottom:%@ position:absolute",
+                           [self convertUnsignedIntToPt:self.sz.height],
+                           [self convertUnsignedIntToPt:self.sz.width],
+                           [self convertUnsignedIntToPt:self.outMargin.top],
+                           [self convertUnsignedIntToPt:self.outMargin.left],
+                           [self convertUnsignedIntToPt:self.outMargin.right],
+                           [self convertUnsignedIntToPt:self.outMargin.bottom]
+    ];
+    NSMutableDictionary *attributes = [@[]mutableCopy];
+    attributes[@"style"] = cssString;
+    [div setAttributes:attributes];
+    return div;
+}
+
 - (NSMutableDictionary *)getAtt
 {
     NSMutableDictionary* sizes = [self.sz getAtt];
@@ -38,30 +56,26 @@ NS_ASSUME_NONNULL_BEGIN
     return sizes;
 }
 
-- (NSMutableArray<NSString *> *)getSize
+- (NSString *)getSize
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSString* height = self.sz.height;
-    NSString* width = self.sz.width;
+    NSString *width = [self convertUnsignedIntToPt:self.sz.width];
+    NSString *height = [self convertUnsignedIntToPt:self.sz.height];
     
-    [result addObject:height];
-    [result addObject:width];
-    return result;
+    return [NSString stringWithFormat:@"width:%@; height:%@;", width, height];
 }
 
-- (NSMutableArray<NSString *> *)getOMargin
+- (NSMutableDictionary *)getOMargin
 {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    NSString *top = self.outMargin.top ?: @"0";
-    NSString *left = self.outMargin.left ?: @"0";
-    NSString *right = self.outMargin.right ?: @"0";
-    NSString *bottom = self.outMargin.bottom ?: @"0";
+    NSMutableDictionary *result = [@[]mutableCopy];
+    NSString *top = [self convertUnsignedIntToPt:self.outMargin.top] ?: @"0";
+    NSString *left = [self convertUnsignedIntToPt:self.outMargin.left] ?: @"0";
+    NSString *right = [self convertUnsignedIntToPt:self.outMargin.right] ?: @"0";
+    NSString *bottom = [self convertUnsignedIntToPt:self.outMargin.bottom] ?: @"0";
     
-    
-    [result addObject:top];
-    [result addObject:left];
-    [result addObject:right];
-    [result addObject:bottom];
+    result[@"top"] = top;
+    result[@"left"] = left;
+    result[@"right"] = right;
+    result[@"bottom"] = bottom;
     
     return result;
 }

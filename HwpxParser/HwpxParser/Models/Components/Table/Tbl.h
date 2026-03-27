@@ -12,7 +12,7 @@
 @class CellZone;
 @class Label;
 @class Tr;
-@class HTMLElement;
+@class WrapperP;
 
 @interface Tbl : AbstractShapeObjectType
 @property(strong, nonatomic, nonnull) NSString* pageBreak;
@@ -29,6 +29,6 @@
 @property(nullable,nonatomic, strong) CellZone *cellZone;
 @property(nullable, nonatomic, strong) Label *label;
 
--(HTMLElement*_Nonnull)convertToHtml;
+-(WrapperP*_Nonnull)convertToHtml;
 @end
 

@@ -10,6 +10,7 @@
 @class Sz;
 @class Pos;
 @class OutMargin;
+@class HTMLElement;
 
 @interface AbstractShapeObjectType : NSObject
 
@@ -27,11 +28,12 @@
 //@property(nullable,nonatomic, strong) NSString *caption;
 //@property(nullable,nonatomic, strong) NSString *shapeComment;
 
--(NSMutableArray<NSString*>*_Nonnull)getSize;
--(NSMutableArray<NSString*>*_Nonnull)getOMargin;
+-(NSString *_Nonnull)getSize;
+-(NSMutableDictionary *_Nonnull)getOMargin;
 -(NSMutableDictionary*_Nonnull)getAtt;
 
 -(NSMutableDictionary*_Nonnull)getCSS;
+-(HTMLElement*_Nonnull)getWrapperDiv;
 
 @end
 

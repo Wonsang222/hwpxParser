@@ -12,12 +12,13 @@
 #import "CellSz.h"
 #import "CellMargin.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+#import "../../WrapperP.h"
 
 @import HTMLKit;
 
 @implementation Tc
 
-- (HTMLElement *)convertToHtml
+- (HTMLElement *)convertToHtml:(NSDictionary *)marin
 {
     HTMLElement* tc = [[HTMLElement alloc] initWithTagName:@"td"];
 
@@ -34,30 +35,27 @@
     
     [att addEntriesFromDictionary:relativePosition];
         
-    if ([self.hasMargin isEqualTo:@"0"]) {
+    if (![self.hasMargin isEqualTo:@"0"]) {
         NSMutableDictionary *margins = [self.cellMargin getMarginPt];
         [att addEntriesFromDictionary:margins];
         
     } else {
         // 명시적 셀여백 사용
+        [att addEntriesFromDictionary:marin];
     }
     
     NSMutableDictionary* attString = [self createAttribute:att];
     [tc setAttributes:attString];
     // tc Contents
-    NSMutableArray<HTMLElement *>* contentFromSublist = [self.subList convertToHtml];
+    NSMutableArray<WrapperP *>* contentFromSublist = [self.subList convertToHtml];
     
-    for (HTMLElement* e in contentFromSublist) {
-        [tc appendNode:e];
+    for (WrapperP* e in contentFromSublist) {
+        [tc appendNode:e.outer];
     }
     
     return tc;
 }
 
--(NSMutableArray<HTMLElement*>*)getContent
-{
-    return [self.subList convertToHtml];
-}
 
 @end
 

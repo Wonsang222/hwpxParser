@@ -13,7 +13,7 @@
 @class CellSpan;
 @class CellSz;
 @class CellMargin;
-@class HTMLElement;
+@class WrapperP;
 
 @interface Tc : NSObject
 
@@ -31,7 +31,7 @@
 @property(nullable, strong)CellSz* cellSz;
 @property(nullable, strong)CellMargin* cellMargin;
 
--(HTMLElement*_Nonnull)convertToHtml;
+-(WrapperP*_Nonnull)convertToHtml:(NSDictionary*_Nullable)marin;
 
 @end
 
