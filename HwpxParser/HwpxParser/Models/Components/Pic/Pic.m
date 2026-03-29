@@ -31,6 +31,13 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize imgDim;
 @synthesize img;
 
+- (NSString *)imgSrc
+{
+    NSString *rootPath = [base stringByDeletingLastPathComponent];
+    NSString *imgName = [self.img getImgName];
+    return [FsManager findFileRecursively:rootPath fileName:imgName];
+}
+
 -(HTMLElement*)convertToHtml
 {
     HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
@@ -41,27 +48,50 @@ NS_ASSUME_NONNULL_BEGIN
 //        // 이미지를 아닐때
 //    }
 
-    NSString *base1 = [base stringByDeletingLastPathComponent];
-    NSString *resultPath = [base1 stringByAppendingPathComponent:@"result"];
-    NSString *resultPath3 = [resultPath stringByAppendingPathComponent:@"BinData"];
-    NSString*imgName = [self.img getImgName];
-    NSString*ext = [FsManager getFileExtensionInDirectory:resultPath3 fileName:imgName];
-    NSString*ext2 = [resultPath3 stringByAppendingPathComponent:imgName];
-    NSString*ext3 = ext.length > 0 ? [ext2 stringByAppendingPathExtension:ext] : ext2;
-
-    NSMutableDictionary* att1 = [self getAtts];
+    NSMutableDictionary* att1 = [self getAtts]; // size
     NSMutableDictionary* att2 = [self.inMargin getAtt];
 
     [att1 addEntriesFromDictionary:att2];
-    
+
+    NSString *position = @"position:relative; ";
     NSString *styleString = [self convertDic:att1];
-    NSString *srcString = @"image1.jpg";
+    NSString *srcString = [self imgSrc];
     
     [picture setAttributes:[@{
         @"src" : srcString,
-        @"style" : styleString,
+        @"style" : [position stringByAppendingString:styleString],
     }mutableCopy]];
     return picture;
+}
+
+- (HTMLElement *)convertToHtmlWith:(NSString *)margin
+{
+    if (!margin) {
+        return [self convertToHtml];
+    }
+    
+    NSMutableDictionary* att1 = [self getAtts]; // size
+    NSString *sizeString = [self convertDic:att1];
+    HTMLElement *wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
+    NSString *absolute = @"position: absolute ";
+    NSString *absoluteSize = [absolute stringByAppendingString:sizeString];
+    [wrapper setAttributes:[@{
+        @"style" : absoluteSize
+    }mutableCopy]];
+    
+    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
+    NSString *relative = @"position:relative; ";
+    NSString *relativeSize = [relative stringByAppendingString:sizeString];
+    
+    NSString *srcString = [self imgSrc];
+    [picture setAttributes:[@{
+        @"style" : relativeSize,
+        @"src" : srcString
+    } mutableCopy]];
+    
+    [wrapper appendNode:picture];
+    
+    return wrapper;
 }
 
 @end

@@ -52,5 +52,20 @@
     return nil; // 파일을 찾지 못한 경우
 }
 
++ (NSString *)findFileRecursively:(NSString *)rootPath fileName:(NSString *)fileName
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSDirectoryEnumerator *enumerator = [fileManager enumeratorAtPath:rootPath];
+
+    NSString *relativePath;
+    while ((relativePath = [enumerator nextObject])) {
+        NSString *nameWithoutExt = [[relativePath lastPathComponent] stringByDeletingPathExtension];
+        if ([nameWithoutExt isEqualToString:fileName]) {
+            return [rootPath stringByAppendingPathComponent:relativePath];
+        }
+    }
+    return nil;
+}
+
 @end
 

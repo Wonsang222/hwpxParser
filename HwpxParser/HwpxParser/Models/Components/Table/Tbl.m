@@ -43,7 +43,7 @@
     NSString *right = [self convertUnsignedIntToPt:self.inMargin.right];
     NSString *bottom = [self convertUnsignedIntToPt:self.inMargin.bottom];
 
-    return [NSString stringWithFormat:@"top:%@; left:%@; right:%@; bottom:%@;", top, left, right, bottom];
+    return [NSString stringWithFormat:[self outMarginFormat], top, left, right, bottom];
 }
 
 - (NSDictionary *)getCSS
@@ -73,23 +73,24 @@
     // absolute
     HTMLElement *wrapperDiv = [self getWrapperDiv];
     HTMLElement *table = [[HTMLElement alloc] initWithTagName:@"table"];
-    NSMutableString *position = [@"position:relative; "mutableCopy];
-    NSString *css = [position stringByAppendingString:[self getSize]];
+    NSString *position = @"position:relative; ";
+    NSString *css = [[[self convertDic:[self getOwn]] stringByAppendingString:position]stringByAppendingString:[self getSize]];
     [table setAttributes:[@{
         @"style": css
     }mutableCopy]];
+    
+    for (Tr* tableRow in self.tr) {
+        if ([tableRow respondsToSelector:@selector(getHtml:)]) {
+            HTMLElement* tr = [tableRow getHtml:[self getInMarin]];
+            [table appendNode:tr];
+        }
+    }
     
     WrapperP *wrapper = [WrapperP new];
     [wrapperDiv appendNode:table];
     wrapper.outer = wrapperDiv;
     wrapper.inner = table;
     
-    for (Tr* tableRow in self.tr) {
-        if ([tableRow respondsToSelector:@selector(getHtml:)]) {
-            [tbl appendNode:[tableRow getHtml:<#(nonnull NSDictionary *)#>]];
-        }
-    }
-
     return wrapper;
 }
 

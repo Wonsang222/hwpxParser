@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (HTMLElement *)getWrapperDiv
 {
     HTMLElement *div = [[HTMLElement alloc] initWithTagName:@"div"];
-    NSString *cssString = [NSString stringWithFormat:@"height:%@; width:%@; top:%@; left:%@ right:%@ bottom:%@ position:absolute",
+    NSString *cssString = [NSString stringWithFormat:@"height:%@; width:%@; top:%@; left:%@; right:%@; bottom:%@; position:absolute;",
                            [self convertUnsignedIntToPt:self.sz.height],
                            [self convertUnsignedIntToPt:self.sz.width],
                            [self convertUnsignedIntToPt:self.outMargin.top],
@@ -41,18 +41,16 @@ NS_ASSUME_NONNULL_BEGIN
                            [self convertUnsignedIntToPt:self.outMargin.right],
                            [self convertUnsignedIntToPt:self.outMargin.bottom]
     ];
-    NSMutableDictionary *attributes = [@[]mutableCopy];
-    attributes[@"style"] = cssString;
-    [div setAttributes:attributes];
+    
+    [div setAttributes:[@{
+        @"style" : cssString
+    }mutableCopy]];
     return div;
 }
 
 - (NSMutableDictionary *)getAtt
 {
     NSMutableDictionary* sizes = [self.sz getAtt];
-    NSMutableDictionary* outMargins = [self.outMargin getAtt];
-    
-    [sizes addEntriesFromDictionary:outMargins];
     return sizes;
 }
 

@@ -12,6 +12,7 @@
 #import "./Utils/FsManager.h"
 #import "./Models/Design/HH_Head.h"
 #import "./RenderingManager/RenderingManager.h"
+#import "./Models/WrapperP.h"
 
 @import HTMLKit;
 
@@ -41,18 +42,18 @@ int main(int argc, const char * argv[]) {
         NSString *resPath = [ppp stringByAppendingPathComponent:@"result"];
         NSString *finPath = [resPath stringByAppendingString: resultPath];
         
-        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
-
-        NSMutableArray *heads = [parser parseXMLFile:path];
-        HH_Head *innerHead = [heads firstObject];
-        
-        head = innerHead;
+//        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
+//
+//        NSMutableArray *heads = [parser parseXMLFile:path];
+//        HH_Head *innerHead = [heads firstObject];
+//        
+//        head = innerHead;
         
         XMLParser *parser2 = [[XMLParser alloc] init];
         NSArray *secs = [parser2 parseXMLFile:path2];
         Sec *sec = [secs firstObject];
         
-        [sec setHead:innerHead];
+//        [sec setHead:innerHead];
         
         HTMLDocument* doc = [RenderingManager buildHTMLDocument];
         NSError* error = nil;
@@ -64,10 +65,10 @@ int main(int argc, const char * argv[]) {
             exit(0);
         }
 
-        NSMutableArray<HTMLElement*>* sections = [sec converToHtml];
+        NSMutableArray<WrapperP*>* sections = [sec converToHtml];
 
-        for (HTMLElement* section in sections) {
-            [[doc body] appendNode:section];
+        for (WrapperP* section in sections) {
+            [[doc body] appendNode:section.outer];
         }
         // HTML 생성 후에 문자열로 변환
         NSString* outer = [doc outerHTML];

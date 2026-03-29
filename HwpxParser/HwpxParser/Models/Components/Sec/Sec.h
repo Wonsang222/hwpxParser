@@ -12,11 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 @class Paragraph;
 @class Tbl;
 @class HH_Head;
+@class WrapperP;
 
 @interface Sec : NSObject
 @property(nonnull, strong) NSMutableArray<Paragraph*>* paragraph;
 @property(nullable, strong) HH_Head* head;
--(NSMutableArray<HTMLElement*>*) converToHtml;
+-(NSMutableArray<WrapperP*>*) converToHtml;
 @property(nonnull, strong) NSString *hwpunitchar;
 @end
 

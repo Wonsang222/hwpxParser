@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* flags;
 -(BOOL)isNewPage;
 -(WrapperP*)getOuterP;
+-(void)addMargin:(NSString*)margin;
 @end
 
 NS_ASSUME_NONNULL_END

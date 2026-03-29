@@ -34,7 +34,7 @@
     return self;
 }
 
-- (NSMutableArray<WrapperP *> *)convertToHtml
+- (NSMutableArray<HTMLElement *> *)convertToHtml
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
     NSDictionary *lineWrapCSS = [self getLineWrap];
@@ -55,6 +55,23 @@
         }
 //        result = [elements mutableCopy];
     }
+    return result;
+}
+
+- (NSMutableArray<HTMLElement *> *)convertToHtml:(NSString *)margin
+{
+    // 현재 TC에서만 호출..
+    // TD
+    NSMutableArray* result = [[NSMutableArray alloc] init];
+
+    for (int i = 0 ; i < [self.paragraph count] ; i++) {
+        Paragraph *p = self.paragraph[i];
+        NSArray *contents = [p convertParagraphWithHeadFromSubList:margin];
+        for (WrapperP *element in contents) {
+            [result addObject:element];
+        }
+    }
+
     return result;
 }
 

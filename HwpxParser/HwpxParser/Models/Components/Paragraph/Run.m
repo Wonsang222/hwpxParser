@@ -6,7 +6,6 @@
 //
 
 #import "Run.h"
-
 #import "SecPr/SecPr.h"
 #import "../Pic/Pic.h"
 #import "SecPr/LineNumberShape.h"
@@ -14,6 +13,8 @@
 #import "SecPr/Note/FootNotePr.h"
 #import "SecPr/Note/EndNotePr.h"
 #import "../Table/Tbl.h"
+#import "../../../Models/WrapperP.h"
+@import HTMLKit;
 
 @implementation Run
 
@@ -42,18 +43,44 @@
     return self;
 }
 
-- (HTMLElement *)getContent
+- (WrapperP *)getContent
 {
+    id mainContent = [self.contents firstObject];
+
+    if (![mainContent respondsToSelector:@selector(convertToHtml)]) {
+        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents count]);
+        __builtin_trap();
+    }
+
+    id result = [mainContent convertToHtml];
+
+    if ([result isKindOfClass:[WrapperP class]]) {
+        return result;
+    }
+
+    WrapperP *wrapper = [WrapperP new];
+    wrapper.outer = result;
+    wrapper.inner = result;
+    return wrapper;
+}
+
+- (HTMLElement *)getContentWith:(NSString *)margin
+{
+    if(!margin) {
+        return [self getContent].outer;
+    }
+    
     HTMLElement* target;
     id mainContent = [self.contents firstObject];
     
-    if ([mainContent respondsToSelector:@selector(convertToHtml)]) {
-        target = [mainContent convertToHtml];
+    if ([mainContent respondsToSelector:@selector(convertToHtmlWith:)]) {
+        target = [mainContent convertToHtmlWith:margin];
     } else {
-        NSLog(@"🤔 No convertToHtml Method at Run ");
-        exit(1);
+        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
+        __builtin_trap();
     }
     return target;
+    
 }
 
 - (BOOL)hasSecPr

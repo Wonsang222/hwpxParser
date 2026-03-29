@@ -73,15 +73,33 @@
         WrapperP *wrapper = [lineSeg getOuterP];
         HTMLElement *innerDiv = wrapper.inner;
         // Contents
-        HTMLElement *content = [targetRun getContent];
+        WrapperP *content = [targetRun getContent];
         // innerDiv에 Content 배치
-        [innerDiv appendNode:content];
+        [innerDiv appendNode:content.outer];
         // result에 append
         [result addObject:wrapper];
         
     } else {
         
     }
+    return result;
+}
+
+- (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(NSString *)margin
+{
+    NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
+
+    if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
+        Run *targetRun = [self.run firstObject];
+        Lineseg *lineSeg = [linesegarray.lineseg firstObject];
+
+        WrapperP *wrapper = [lineSeg getOuterP];
+        HTMLElement *innerDiv = wrapper.inner;
+        WrapperP *content = [targetRun getContent];
+        [innerDiv appendNode:content.outer];
+        [result addObject:wrapper];
+    }
+
     return result;
 }
 

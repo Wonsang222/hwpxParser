@@ -132,4 +132,9 @@
     
     return result;
 }
+
+- (NSString *)outMarginFormat
+{
+    return @"top:%@; left:%@; right:%@; bottom:%@;";
+}
 @end

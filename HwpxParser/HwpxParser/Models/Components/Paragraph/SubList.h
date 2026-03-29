@@ -9,7 +9,7 @@
 #import "../../../Delegate/ContentDelegate.h"
 
 @class Paragraph;
-@class WrapperP;
+@class HTMLElement;
 
 
 @interface SubList : NSObject
@@ -29,7 +29,7 @@
 //paragraph 배열로
 @property(nonnull,nonatomic, strong) NSMutableArray<Paragraph*>* paragraph;
 
--(NSMutableArray<WrapperP*>*_Nonnull)convertToHtml;
-
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml:(NSString*_Nullable)margin;
 @end
 

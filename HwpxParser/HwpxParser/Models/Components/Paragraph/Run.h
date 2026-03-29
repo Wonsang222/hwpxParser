@@ -17,6 +17,7 @@
 @class Tbl;
 @class PageBorderFill;
 @class HTMLElement;
+@class WrapperP;
 
 @interface Run : NSObject
 
@@ -34,8 +35,8 @@
 
 -(NSMutableDictionary*_Nonnull)getPaper;
 -(BOOL)hasSecPr;
--(HTMLElement*_Nonnull)getContent;
-
+-(WrapperP*_Nonnull)getContent;
+-(HTMLElement*_Nonnull)getContentWith:(NSString*_Nullable)margin;
 @end
 
     

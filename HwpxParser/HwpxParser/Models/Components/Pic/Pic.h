@@ -28,5 +28,6 @@
 @property(nonnull,nonatomic,strong) Img* img;
 
 -(HTMLElement*_Nonnull)convertToHtml;
+-(HTMLElement*_Nonnull)convertToHtmlWith:(NSString*_Nonnull)margin;
 
 @end

@@ -18,36 +18,22 @@
 
 @implementation Tc
 
-- (HTMLElement *)convertToHtml:(NSDictionary *)marin
+- (HTMLElement *)convertToHtml:(NSString *)marin
 {
     HTMLElement* tc = [[HTMLElement alloc] initWithTagName:@"td"];
-
-    NSMutableDictionary *att = [@{
-        
-    }mutableCopy];
+    NSString *relative = @"position:relative; ";
+    [tc setAttributes:[@{
+        @"style": relative
+    }mutableCopy]];
     
-    NSMutableDictionary* size = [self.cellSz getSizePt];
-    [att addEntriesFromDictionary:size];
+    NSString *margin = marin;
     
-    NSMutableDictionary *relativePosition = [@{
-        @"position" : @"relative"
-    }mutableCopy];
-    
-    [att addEntriesFromDictionary:relativePosition];
-        
     if (![self.hasMargin isEqualTo:@"0"]) {
-        NSMutableDictionary *margins = [self.cellMargin getMarginPt];
-        [att addEntriesFromDictionary:margins];
-        
-    } else {
-        // 명시적 셀여백 사용
-        [att addEntriesFromDictionary:marin];
+        // table 태그의 패딩을 사용  -> contents 로 넘김- > sublist
+        marin = NULL;
     }
     
-    NSMutableDictionary* attString = [self createAttribute:att];
-    [tc setAttributes:attString];
-    // tc Contents
-    NSMutableArray<WrapperP *>* contentFromSublist = [self.subList convertToHtml];
+    NSMutableArray<HTMLElement *>* contentFromSublist = [self.subList convertToHtml:margin];
     
     for (WrapperP* e in contentFromSublist) {
         [tc appendNode:e.outer];
@@ -55,7 +41,6 @@
     
     return tc;
 }
-
 
 @end
 

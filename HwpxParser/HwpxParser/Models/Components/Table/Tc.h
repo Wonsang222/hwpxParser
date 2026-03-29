@@ -31,7 +31,7 @@
 @property(nullable, strong)CellSz* cellSz;
 @property(nullable, strong)CellMargin* cellMargin;
 
--(WrapperP*_Nonnull)convertToHtml:(NSDictionary*_Nullable)marin;
+-(WrapperP*_Nonnull)convertToHtml:(NSString*_Nullable)marin;
 
 @end
 

@@ -40,7 +40,7 @@
     }
 }
 
-- (HTMLElement *)getHtml:(NSDictionary *)margin
+- (HTMLElement *)getHtml:(NSString *)margin
 {
     HTMLElement* row = [[HTMLElement alloc] initWithTagName:@"tr"];
     for (Tc *t in self.contents) {

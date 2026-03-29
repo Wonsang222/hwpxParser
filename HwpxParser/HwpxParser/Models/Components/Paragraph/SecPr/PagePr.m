@@ -27,8 +27,7 @@
         @"padding-top" : [self convertUnsignedIntToPt:self.margin.top],
         @"padding-bottom" : [self convertUnsignedIntToPt:self.margin.bottom],
         @"padding-left" : [self convertUnsignedIntToPt:self.margin.left],
-        @"padding-right" : [self convertUnsignedIntToPt:self.margin.right],
-        @"background-color" : @"red"
+        @"padding-right" : [self convertUnsignedIntToPt:self.margin.right]
         
     } mutableCopy];
     

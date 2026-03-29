@@ -13,5 +13,6 @@
 +(nullable NSData*)loadFile:(NSString*_Nonnull)path;
 +(NSString*_Nonnull)getCurrentFolderPath;
 +(nullable NSString*)getFileExtensionInDirectory:(NSString*_Nonnull)directoryPath fileName:(NSString*_Nonnull)fileName;
++(nullable NSString*)findFileRecursively:(NSString*_Nonnull)rootPath fileName:(NSString*_Nonnull)fileName;
 @end
 
