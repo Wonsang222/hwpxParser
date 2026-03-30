@@ -36,7 +36,7 @@
 -(NSMutableDictionary*_Nonnull)getPaper;
 -(BOOL)hasSecPr;
 -(WrapperP*_Nonnull)getContent;
--(HTMLElement*_Nonnull)getContentWith:(NSString*_Nullable)margin;
+-(NSArray*_Nonnull)getContentWith:(NSString*_Nullable)margin;
 @end
 
     

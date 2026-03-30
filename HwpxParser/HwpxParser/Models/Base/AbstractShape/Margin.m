@@ -21,10 +21,10 @@
 - (NSMutableDictionary *)getMarginPt
 {
     NSMutableDictionary *margins = [@{
-        @"padding-top" : [self convertUnsignedIntToPt:self.top ?: @"0"],
-        @"padding-bottom" : [self convertUnsignedIntToPt:self.bottom ?: @"0"],
-        @"padding-left" : [self convertUnsignedIntToPt:self.left ?: @"0"],
-        @"padding-right" : [self convertUnsignedIntToPt:self.right ?: @"0"],
+        @"top" : [self convertUnsignedIntToPt:self.top ?: @"0"],
+        @"bottom" : [self convertUnsignedIntToPt:self.bottom ?: @"0"],
+        @"left" : [self convertUnsignedIntToPt:self.left ?: @"0"],
+        @"right" : [self convertUnsignedIntToPt:self.right ?: @"0"],
     }mutableCopy];
     
     return margins;

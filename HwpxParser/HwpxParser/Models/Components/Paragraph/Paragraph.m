@@ -63,6 +63,7 @@
     return [linesegarray isNewPage];
 }
 
+// Sec에서 호출
 - (NSMutableArray<WrapperP *> *)convertParagraphWithHead
 {
     NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
@@ -85,6 +86,7 @@
     return result;
 }
 
+// Sublist 에서 호출
 - (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(NSString *)margin
 {
     NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
@@ -95,9 +97,13 @@
 
         WrapperP *wrapper = [lineSeg getOuterP];
         HTMLElement *innerDiv = wrapper.inner;
-        WrapperP *content = [targetRun getContent];
-        [innerDiv appendNode:content.outer];
+        HTMLElement *content = [targetRun getContentWith:margin];
+        [innerDiv appendNode:content];
         [result addObject:wrapper];
+    } else if ([linesegarray.lineseg count] == 1 && [self.run count] > 1) {
+        // 1줄에 2개의 컨텐츠를 배치해야함.
+        // 현재 pic이 2개 오는 상황
+        
     }
 
     return result;

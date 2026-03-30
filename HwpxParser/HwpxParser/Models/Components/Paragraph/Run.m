@@ -43,12 +43,13 @@
     return self;
 }
 
+// Sec에서 호출되는 메서드
 - (WrapperP *)getContent
 {
     id mainContent = [self.contents firstObject];
 
     if (![mainContent respondsToSelector:@selector(convertToHtml)]) {
-        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents count]);
+        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents description]);
         __builtin_trap();
     }
 
@@ -64,22 +65,23 @@
     return wrapper;
 }
 
-- (HTMLElement *)getContentWith:(NSString *)margin
+// Paragraph 안에서 호출되는 메서드
+- (NSArray *)getContentWith:(NSString *)margin
 {
-    if(!margin) {
-        return [self getContent].outer;
-    }
+    NSMutableArray *contents = [@[] mutableCopy];
     
-    HTMLElement* target;
     id mainContent = [self.contents firstObject];
     
-    if ([mainContent respondsToSelector:@selector(convertToHtmlWith:)]) {
-        target = [mainContent convertToHtmlWith:margin];
-    } else {
-        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
-        __builtin_trap();
+    for (id content in self.contents) {
+        if ([mainContent respondsToSelector:@selector(convertToHtmlWith:)]) {
+            HTMLElement* target = [content convertToHtmlWith:margin];
+            [contents addObject:target];
+        } else {
+            NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
+            __builtin_trap();
+        }
     }
-    return target;
+    return contents;
     
 }
 

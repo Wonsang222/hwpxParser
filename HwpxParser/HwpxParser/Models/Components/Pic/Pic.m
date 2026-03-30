@@ -42,12 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
 {
     HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
 
-//    if ([self.pos.treatAsChar isEqualToString:@"1"]) {
-//        // 이미지를 글자처럼 사용할때
-//    } else {
-//        // 이미지를 아닐때
-//    }
-
     NSMutableDictionary* att1 = [self getAtts]; // size
     NSMutableDictionary* att2 = [self.inMargin getAtt];
 
