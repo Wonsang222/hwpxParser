@@ -91,21 +91,20 @@
 {
     NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
 
-    if ([linesegarray.lineseg count] == 1 && [self.run count] == 1) {
-        Run *targetRun = [self.run firstObject];
+    if ([linesegarray.lineseg count] == 1)  {
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
-
         WrapperP *wrapper = [lineSeg getOuterP];
-        HTMLElement *innerDiv = wrapper.inner;
-        HTMLElement *content = [targetRun getContentWith:margin];
-        [innerDiv appendNode:content];
-        [result addObject:wrapper];
-    } else if ([linesegarray.lineseg count] == 1 && [self.run count] > 1) {
-        // 1줄에 2개의 컨텐츠를 배치해야함.
-        // 현재 pic이 2개 오는 상황
         
+        if ([self.run count] == 1) {
+            Run *targetRun = [self.run firstObject];
+            HTMLElement *innerDiv = wrapper.inner;
+            NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin];
+            [innerDiv appendNode:content];
+            [result addObject:wrapper];
+        } else {
+            
+        }
     }
-
     return result;
 }
 

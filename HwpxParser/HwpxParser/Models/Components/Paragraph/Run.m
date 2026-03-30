@@ -72,6 +72,7 @@
     
     id mainContent = [self.contents firstObject];
     
+    // Run에서 Contents 개수가 1개 이상이면, 컨텐츠의 x좌료 y좌표를 계산해서 넣기
     for (id content in self.contents) {
         if ([mainContent respondsToSelector:@selector(convertToHtmlWith:)]) {
             HTMLElement* target = [content convertToHtmlWith:margin];
