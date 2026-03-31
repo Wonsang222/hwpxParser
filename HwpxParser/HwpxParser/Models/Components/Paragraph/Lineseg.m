@@ -25,14 +25,19 @@
 
 - (WrapperP *)getOuterP
 {
-    NSMutableString *baseStyle = [NSMutableString string];
-    baseStyle = [self buildCssString:baseStyle withKey:@"top"    withValue:[self convertUnsignedIntToPt:self.vertpos]];
-    baseStyle = [self buildCssString:baseStyle withKey:@"left"   withValue:[self convertUnsignedIntToPt:self.horzpos]];
-    baseStyle = [self buildCssString:baseStyle withKey:@"width"  withValue:[self convertUnsignedIntToPt:self.horzsize]];
-    baseStyle = [self buildCssString:baseStyle withKey:@"height" withValue:[self convertUnsignedIntToPt:self.vertsize]];
+    // outerDiv(absolute) : top, left, width, height 모두 필요
+    NSMutableString *absoluteStyle = [NSMutableString string];
+    absoluteStyle = [self buildCssString:absoluteStyle withKey:@"top"      withValue:[self convertUnsignedIntToPt:self.vertpos]];
+    absoluteStyle = [self buildCssString:absoluteStyle withKey:@"left"     withValue:[self convertUnsignedIntToPt:self.horzpos]];
+    absoluteStyle = [self buildCssString:absoluteStyle withKey:@"width"    withValue:[self convertUnsignedIntToPt:self.horzsize]];
+    absoluteStyle = [self buildCssString:absoluteStyle withKey:@"height"   withValue:[self convertUnsignedIntToPt:self.vertsize]];
+    absoluteStyle = [self buildCssString:absoluteStyle withKey:@"position" withValue:@"absolute"];
 
-    NSMutableString *relativeStyle = [[self buildCssString:[baseStyle mutableCopy] withKey:@"position" withValue:@"relative"] mutableCopy];
-    NSMutableString *absoluteStyle = [[self buildCssString:[baseStyle mutableCopy] withKey:@"position" withValue:@"absolute"] mutableCopy];
+    // innerDiv(relative) : top, left 없이 width, height 만 적용
+    NSMutableString *relativeStyle = [NSMutableString string];
+    relativeStyle = [self buildCssString:relativeStyle withKey:@"width"    withValue:[self convertUnsignedIntToPt:self.horzsize]];
+    relativeStyle = [self buildCssString:relativeStyle withKey:@"height"   withValue:[self convertUnsignedIntToPt:self.vertsize]];
+    relativeStyle = [self buildCssString:relativeStyle withKey:@"position" withValue:@"relative"];
 
     HTMLElement *outerDiv = [[HTMLElement alloc] initWithTagName:@"div"];
     [outerDiv setAttributes:[@{@"style": absoluteStyle} mutableCopy]];

@@ -16,8 +16,10 @@
 #import "Img.h"
 #import "../../Base/AbstractShapeComponent/CurSz.h"
 #import "../../Base/AbstractShapeComponent/Offset.h"
+#import "../../Base/AbstractShape/Pos.h"
 #import "../../../Utils/FsManager.h"
 #import "../../../main.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -129,36 +131,47 @@ NS_ASSUME_NONNULL_BEGIN
     if (!margin) {
         return [self convertToHtml];
     }
-
+    
     NSMutableDictionary* att1 = [self getAtts]; // size
     NSString *sizeString = [self convertDic:att1];
     HTMLElement *wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
     NSString *absolute = @"position: absolute; ";
-    NSString *absoluteSize = [absolute stringByAppendingString:sizeString];
-
-    // margin의 left + stackSizes 누적 width 합산값을 wrapperDiv의 left로 사용
-    NSString *stackedWidth = [self sumOfStackSizes][@"width"];
-    NSString *adjustedMargin = [self marginStringByAddingTop:@"0pt"
-                                                        left:stackedWidth
-                                                    toMargin:margin];
-
-    NSString *sizeWithMargin;
-
-    if ([self.offset.x isEqualToString:@"0"] && [self.offset.y isEqualToString:@"0"]) {
-        sizeWithMargin = [absoluteSize stringByAppendingString:adjustedMargin];
-    } else {
-        NSString *offsetX = [self convertUnsignedIntToPt:self.offset.x];
-        NSString *offsetY = [self convertUnsignedIntToPt:self.offset.y];
-        NSString *offsetAdjustedMargin = [self marginStringByAddingTop:offsetY left:offsetX toMargin:adjustedMargin];
-        sizeWithMargin = [absoluteSize stringByAppendingString:offsetAdjustedMargin];
-    }
-    
+    NSString *absoluteSize = [sizeString stringByAppendingString:absolute];
+    NSString *absoluteSizeMargin = [absoluteSize stringByAppendingString:margin];
     [wrapper setAttributes:[@{
-        @"style" : sizeWithMargin
+        @"style" : absoluteSizeMargin
     }mutableCopy]];
     
+    if ([self.pos.treatAsChar isEqualToString:@"1"]) {
+        // 문자열로 처리
+        HTMLElement *p = [[HTMLElement alloc] initWithTagName:@"p"];
+        
+    }
+    
+
+
+//    // margin의 left + stackSizes 누적 width 합산값을 wrapperDiv의 left로 사용
+//    NSString *stackedWidth = [self sumOfStackSizes][@"width"];
+//    NSString *adjustedMargin = [self marginStringByAddingTop:@"0pt"
+//                                                        left:stackedWidth
+//                                                    toMargin:margin];
+//    NSString *sizeWithMargin;
+//
+//    if ([self.offset.x isEqualToString:@"0"] && [self.offset.y isEqualToString:@"0"]) {
+//        sizeWithMargin = [absoluteSize stringByAppendingString:adjustedMargin];
+//    } else {
+//        NSString *offsetX = [self convertUnsignedIntToPt:self.offset.x];
+//        NSString *offsetY = [self convertUnsignedIntToPt:self.offset.y];
+//        NSString *offsetAdjustedMargin = [self marginStringByAddingTop:offsetY left:offsetX toMargin:adjustedMargin];
+//        sizeWithMargin = [absoluteSize stringByAppendingString:offsetAdjustedMargin];
+//    }
+    
+//    [wrapper setAttributes:[@{
+//        @"style" : sizeWithMargin
+//    }mutableCopy]];
+    
     HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
-    NSString *relative = @"position:relative; ";
+    NSString *relative = @"position:relative; vertical-align: baseline; ";
     NSString *relativeSize = [relative stringByAppendingString:sizeString];
     
     NSString *srcString = [self imgSrc];
