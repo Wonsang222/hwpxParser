@@ -26,8 +26,9 @@
 @property(nonnull,nonatomic,strong) InMargin* inMargin;
 @property(nonnull,nonatomic,strong) ImgDim* imgDim;
 @property(nonnull,nonatomic,strong) Img* img;
+@property(nullable, nonatomic, strong) NSMutableArray<NSMutableDictionary*> *stackSizes;
 
 -(HTMLElement*_Nonnull)convertToHtml;
--(HTMLElement*_Nonnull)convertToHtmlWith:(NSString*_Nonnull)margin;
+-(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin;
 
 @end

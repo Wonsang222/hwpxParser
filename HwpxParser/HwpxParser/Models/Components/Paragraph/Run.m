@@ -70,17 +70,35 @@
 {
     NSMutableArray *contents = [@[] mutableCopy];
     
-    id mainContent = [self.contents firstObject];
-    
-    // Run에서 Contents 개수가 1개 이상이면, 컨텐츠의 x좌료 y좌표를 계산해서 넣기
-    for (id content in self.contents) {
-        if ([mainContent respondsToSelector:@selector(convertToHtmlWith:)]) {
-            HTMLElement* target = [content convertToHtmlWith:margin];
+    if ([self.contents count] == 1) {
+        id targetContent = [self.contents firstObject];
+        if ([targetContent respondsToSelector:@selector(convertToHtmlWith:)]) {
+            HTMLElement* target = [targetContent convertToHtmlWith:margin];
             [contents addObject:target];
         } else {
             NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
             __builtin_trap();
         }
+        return contents;
+    }
+    
+    int index = 0;
+    NSMutableArray<NSMutableDictionary*> *sizes = [NSMutableArray new];
+    // Run에서 Contents 개수가 1개 이상이면,
+    for (id content in self.contents) {
+        if ([content respondsToSelector:@selector(convertToHtmlWith:)] && [content respondsToSelector:@selector(getAtts)]) {
+            if (index != 0) {
+                // 여기는 set
+                [content setStackSizes:sizes];
+            }
+            HTMLElement* target = [content convertToHtmlWith:margin];
+            [contents addObject:target];
+            [sizes addObject:[content getAtts]];
+        } else {
+            NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
+            __builtin_trap();
+        }
+        index++;
     }
     return contents;
     
@@ -106,6 +124,7 @@
                       context:(void *)context
 {
     if (object == self) {
+        
         if ([keyPath isEqualToString:@"text"]) {
             Text* t = change[NSKeyValueChangeNewKey];
             if (t && ![t isEqual:[NSNull null]] && [t.content length] >= 1) {
@@ -117,7 +136,7 @@
                 [self.contents addObject:t];
             }
         } else if ([keyPath isEqualToString:@"tbl"]) {
-            Pic* t = change[NSKeyValueChangeNewKey];
+            Tbl* t = change[NSKeyValueChangeNewKey];
             if (t && ![t isEqual:[NSNull null]]) {
                 [self.contents addObject:t];
             }

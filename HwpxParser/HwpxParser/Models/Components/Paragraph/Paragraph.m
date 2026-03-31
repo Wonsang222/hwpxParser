@@ -99,7 +99,7 @@
             Run *targetRun = [self.run firstObject];
             HTMLElement *innerDiv = wrapper.inner;
             NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin];
-            [innerDiv appendNode:content];
+            [innerDiv appendNodes:contents];
             [result addObject:wrapper];
         } else {
             
