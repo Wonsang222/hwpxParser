@@ -87,7 +87,7 @@
 }
 
 // Sublist 에서 호출
-- (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(NSString *)margin
+- (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(NSString *)margin :(DesignSender *)sender
 {
     NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
 
@@ -98,7 +98,7 @@
         if ([self.run count] == 1) {
             Run *targetRun = [self.run firstObject];
             HTMLElement *innerDiv = wrapper.inner;
-            NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin];
+            NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin sender:sender];
             [innerDiv appendNodes:contents];
             [result addObject:wrapper];
         } else {
@@ -107,6 +107,7 @@
     }
     return result;
 }
+
 
 @end
 

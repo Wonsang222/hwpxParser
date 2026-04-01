@@ -66,14 +66,14 @@
 }
 
 // Paragraph 안에서 호출되는 메서드
-- (NSArray *)getContentWith:(NSString *)margin
+- (NSArray *)getContentWith:(NSString *)margin sender:(DesignSender *)designSender
 {
     NSMutableArray *contents = [@[] mutableCopy];
     
     if ([self.contents count] == 1) {
         id targetContent = [self.contents firstObject];
-        if ([targetContent respondsToSelector:@selector(convertToHtmlWith:)]) {
-            HTMLElement* target = [targetContent convertToHtmlWith:margin];
+        if ([targetContent respondsToSelector:@selector(convertToHtmlWith:sender:)]) {
+            HTMLElement* target = [targetContent convertToHtmlWith:margin sender:designSender];
             [contents addObject:target];
         } else {
             NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
@@ -86,12 +86,12 @@
     NSMutableArray<NSMutableDictionary*> *sizes = [NSMutableArray new];
     // Run에서 Contents 개수가 1개 이상이면,
     for (id content in self.contents) {
-        if ([content respondsToSelector:@selector(convertToHtmlWith:)] && [content respondsToSelector:@selector(getAtts)]) {
+        if ([content respondsToSelector:@selector(convertToHtmlWith:sender:)] && [content respondsToSelector:@selector(getAtts)]) {
             if (index != 0) {
                 // 여기는 set
                 [content setStackSizes:sizes];
             }
-            HTMLElement* target = [content convertToHtmlWith:margin];
+            HTMLElement* target = [content convertToHtmlWith:margin sender:designSender];
             [contents addObject:target];
             [sizes addObject:[content getAtts]];
         } else {

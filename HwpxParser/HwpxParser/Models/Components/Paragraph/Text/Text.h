@@ -7,11 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import "HTMLElement.h"
+@class DesignSender;
 
 @interface Text : NSObject
 @property (nullable, strong) NSString* content;
--(HTMLElement*_Nonnull)convertToHtml;
--(HTMLElement*_Nonnull)convertToHtmlWith:(NSString*)margin;
+-(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin sender:(DesignSender* _Nonnull)DesignSender;
 @end
 
 

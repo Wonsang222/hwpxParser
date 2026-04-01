@@ -10,17 +10,11 @@
 @implementation Text
 @synthesize content;
 
-- (HTMLElement *)convertToHtml
+- (HTMLElement *)convertToHtmlWith:(NSString *)margin sender:(DesignSender *)DesignSender
 {
     HTMLElement* span = [[HTMLElement alloc] initWithTagName:@"span"];
     [span setInnerHTML:self.content];
     return span;
 }
 
-- (HTMLElement *)convertToHtmlWith:(NSString *)margin
-{
-    HTMLElement* span = [[HTMLElement alloc] initWithTagName:@"span"];
-    [span setInnerHTML:self.content];
-    return span;
-}
 @end

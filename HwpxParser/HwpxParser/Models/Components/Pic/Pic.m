@@ -126,6 +126,29 @@ NS_ASSUME_NONNULL_BEGIN
     return [result copy];
 }
 
+- (HTMLElement *)convertToHtmlWith:(NSString *)margin sender:(DesignSender *)DesignSender
+{
+    if (!margin) {
+        return [self convertToHtml];
+    }
+    
+    NSMutableDictionary* att1 = [self getAtts]; // size
+    NSString *sizeString = [self convertDic:att1];
+    HTMLElement *wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
+    NSString *absolute = @"position: absolute; ";
+    NSString *absoluteSize = [sizeString stringByAppendingString:absolute];
+    NSString *absoluteSizeMargin = [absoluteSize stringByAppendingString:margin];
+    [wrapper setAttributes:[@{
+        @"style" : absoluteSizeMargin
+    }mutableCopy]];
+    
+    if ([self.pos.treatAsChar isEqualToString:@"1"]) {
+        // 문자열로 처리
+        HTMLElement *p = [[HTMLElement alloc] initWithTagName:@"p"];
+        
+    }
+}
+
 - (HTMLElement *)convertToHtmlWith:(NSString *)margin
 {
     if (!margin) {

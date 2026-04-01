@@ -13,6 +13,7 @@
 @class Lineseg;
 @class WrapperP;
 @class HH_Head;
+@class DesignSender;
 
 @interface Paragraph : NSObject
 
@@ -29,7 +30,7 @@
 
 //-(NSMutableArray<HTMLElement*>*_Nonnull)convertParagraphWithHead:(HH_Head*_Nonnull)head;
 -(NSMutableArray<WrapperP*>*_Nonnull)convertParagraphWithHead;
--(NSMutableArray<WrapperP*>*_Nonnull)convertParagraphWithHeadFromSubList:(NSString*_Nullable)margin;
+-(NSMutableArray<WrapperP*>*_Nonnull)convertParagraphWithHeadFromSubList:(NSString*_Nullable)margin:(DesignSender*)sender;
 -(BOOL)isNewPage;
 -(BOOL)hasSecPr;
 -(NSMutableDictionary*_Nonnull)getP;
