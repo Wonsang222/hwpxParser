@@ -15,7 +15,6 @@
 @class InMargin;
 @class ImgDim;
 @class Img;
-@class DesignSender;
 
 @interface Pic : AbstractShapeComponentType
 @property(nonnull,nonatomic, strong) NSString *reverse;
@@ -30,6 +29,6 @@
 @property(nullable, nonatomic, strong) NSMutableArray<NSMutableDictionary*> *stackSizes;
 
 -(HTMLElement*_Nonnull)convertToHtml;
--(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin sender:(DesignSender* _Nonnull)DesignSender;
+-(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin;
 
 @end

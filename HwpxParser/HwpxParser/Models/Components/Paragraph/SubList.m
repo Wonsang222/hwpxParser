@@ -10,7 +10,6 @@
 #import "Paragraph.h"
 #import "../../../main.h"
 #import "../../WrapperP.h"
-#import "../../DesignSender.h"
 @import HTMLKit;
 
 @implementation SubList
@@ -58,28 +57,14 @@
     return result;
 }
 
--(DesignSender*)getDesignSender
-{
-    DesignSender *sender = [DesignSender new];
-    
-    if ([self.vertAlign isEqualToString:@"CENTER"]) {
-        sender.vertAlign = @"CENTER";
-    } else {
-        sender.vertAlign = NULL;
-    }
-    
-    return sender;
-}
-
 - (NSMutableArray<HTMLElement *> *)convertToHtml:(NSString *)margin
 {
-    // 현재 TC에서만 호출..
-    // TD
+    NSString *updatedMargin = [self getStyleString:margin];
+    
     NSMutableArray* result = [[NSMutableArray alloc] init];
-    DesignSender *subListDesign = [self getDesignSender];
     for (int i = 0 ; i < [self.paragraph count] ; i++) {
         Paragraph *p = self.paragraph[i];
-        NSArray *contents = [p convertParagraphWithHeadFromSubList:margin :subListDesign];
+        NSArray *contents = [p convertParagraphWithHeadFromSubList:updatedMargin];
         for (WrapperP *element in contents) {
             [result addObject:element];
         }
@@ -88,19 +73,27 @@
     return result;
 }
 
--(NSString*)getStyleString
+-(NSString*)getStyleString:(NSString*)margin
 {
-    
-    NSString *styleString = [NSString string];
-//    if ([self.textDirection isEqualToString:@"HORIZONTAL"]) {
-//        styleString = [styleString stringByAppendingString:@"writing-mode: horizontal-tb; "];
-//    } else {
-//        styleString = [styleString stringByAppendingString:@"writing-mode: vertical-rl; "];
-//    }
-    
-    
-    
-    
+    // top: 50%;  transform: translateY(-50%);
+    NSString *styleString = margin;
+    if ([self.vertAlign isEqualToString:@"CENTER"]) {
+        NSRegularExpression *topRegex = [NSRegularExpression regularExpressionWithPattern:@"top:([0-9.]+)pt ;"
+                                                                             options:0
+                                                                               error:NULL];
+        NSString *updatedTop = [topRegex stringByReplacingMatchesInString:styleString
+                                                                  options:0
+                                                                    range:NSMakeRange(0, styleString.length)
+                                                             withTemplate:@"top: 50%; transform: translateY(-50%)"];
+        NSRegularExpression *rightRegex = [NSRegularExpression regularExpressionWithPattern:@"right:([0-9.]+)pt ;"
+                                                                             options:0
+                                                                               error:NULL];
+        NSString *finalStyleString = [rightRegex stringByReplacingMatchesInString:updatedTop
+                                                                          options:0
+                                                                            range:NSMakeRange(0, updatedTop.length)
+                                                                     withTemplate:@""];
+        return finalStyleString;
+    }
     return styleString;
 }
 

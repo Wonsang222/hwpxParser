@@ -18,8 +18,6 @@
 @class PageBorderFill;
 @class HTMLElement;
 @class WrapperP;
-@class DesignSender;
-
 @interface Run : NSObject
 
 @property(strong, nonnull) NSString* charPrIDRef;
@@ -37,7 +35,7 @@
 -(NSMutableDictionary*_Nonnull)getPaper;
 -(BOOL)hasSecPr;
 -(WrapperP*_Nonnull)getContent;
--(NSArray*_Nonnull)getContentWith:(NSString*_Nullable)margin sender:(DesignSender* _Nonnull)designSender;
+-(NSArray*_Nonnull)getContentWith:(NSString*_Nullable)margin;
 @end
 
     
