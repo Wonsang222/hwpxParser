@@ -27,19 +27,26 @@
     NSMutableDictionary *size = [self.cellSz getSizePt];
     NSString *sizeString = [self convertDic:size];
     
-    [tc setAttributes:[@{
-        @"style": [relative stringByAppendingString:sizeString]
-    }mutableCopy]];
-    
     NSString *margin = marin;
+    NSString *final;
+    NSString *relativeWithSize = [relative stringByAppendingString:sizeString];
     
     if (![self.hasMargin isEqualTo:@"0"]) {
-        // 고유의 cell margin을 사용한다는 의미인듯 -> 공식문서에도 정확하게 안나와있다..
-        // cell margin, cell size
+        // 고유의 cell margin을 사용 안한다
+        // 1 depth 아래 relative일때만 적용할 padding
+        NSString *paddingString = [self addPaddingString:marin];
+        final = [relativeWithSize stringByAppendingString:paddingString];
+    } else {
         NSMutableDictionary* cellMargin = [self.cellMargin getMarginPt];
         NSString *cellMarginString = [self convertDic:cellMargin];
+        NSString *paddingCellMargin = [self addPaddingString:[cellMarginString mutableCopy]];
+        final = [relativeWithSize stringByAppendingString:paddingCellMargin];
         margin = cellMarginString;
     }
+    
+    [tc setAttributes:[@{
+        @"style": final
+    }mutableCopy]];
     
     NSMutableArray<HTMLElement *>* contentFromSublist = [self.subList convertToHtml:margin];
     

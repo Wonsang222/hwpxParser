@@ -137,4 +137,27 @@
 {
     return @"top:%@; left:%@; right:%@; bottom:%@;";
 }
+
+- (NSString *)addPaddingString:(NSString*)insetString
+{
+    NSArray *components = [insetString componentsSeparatedByString:@";"];
+      NSMutableArray *result = [NSMutableArray array];
+      
+      for (NSString *component in components) {
+          NSString *trimmed = [component stringByTrimmingCharactersInSet:
+                               [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+          
+          if (trimmed.length == 0) continue;
+          
+          if (![trimmed hasPrefix:@"padding-"]) {
+              trimmed = [@"padding-" stringByAppendingString:trimmed];
+          }
+          
+          [result addObject:trimmed];
+      }
+      
+      // "; " 로 join하고 마지막에 ";" 추가
+      return [[result componentsJoinedByString:@"; "] stringByAppendingString:@";"];
+}
+
 @end

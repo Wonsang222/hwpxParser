@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSMutableString*)buildCssString:(NSMutableString*)start withKey:(NSString*)key withValue:(NSString*)value;
 -(NSString*)convertDic:(NSDictionary*)dic;
 -(NSString*)outMarginFormat;
+- (NSString *)addPaddingString:(NSString*)insetString;
 @end
 
 NS_ASSUME_NONNULL_END

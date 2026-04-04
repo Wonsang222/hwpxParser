@@ -132,21 +132,30 @@ NS_ASSUME_NONNULL_BEGIN
         return [self convertToHtml];
     }
     
+    HTMLElement *wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
     NSMutableDictionary* att1 = [self getAtts]; // size
     NSString *sizeString = [self convertDic:att1];
-    HTMLElement *wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
-    NSString *absolute = @"position: absolute; ";
-    NSString *absoluteSize = [sizeString stringByAppendingString:absolute];
-    NSString *absoluteSizeMargin = [absoluteSize stringByAppendingString:margin];
-    [wrapper setAttributes:[@{
-        @"style" : absoluteSizeMargin
-    }mutableCopy]];
+    NSString *position;
+    NSString *final;
     
     if ([self.pos.treatAsChar isEqualToString:@"1"]) {
         // 문자열로 처리
-        HTMLElement *p = [[HTMLElement alloc] initWithTagName:@"p"];
-        
+        NSString *display = @"display:inline-block; ";
+        position = @"position:relative; ";
+        position = [position stringByAppendingString:display];
+        NSString *absoluteSize = [sizeString stringByAppendingString:position];
+        final = absoluteSize;
+    } else {
+        position = @"position:absolute; ";
+        NSString *absoluteSize = [sizeString stringByAppendingString:position];
+        NSString *absoluteSizeMargin = [absoluteSize stringByAppendingString:margin];
+        final = absoluteSizeMargin;
     }
+    
+    [wrapper setAttributes:[@{
+        @"style" : final
+    }mutableCopy]];
+
     
 
 
@@ -171,7 +180,7 @@ NS_ASSUME_NONNULL_BEGIN
 //    }mutableCopy]];
     
     HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
-    NSString *relative = @"position:relative; vertical-align: baseline; ";
+    NSString *relative = @"position:relative; ";
     NSString *relativeSize = [relative stringByAppendingString:sizeString];
     
     NSString *srcString = [self imgSrc];

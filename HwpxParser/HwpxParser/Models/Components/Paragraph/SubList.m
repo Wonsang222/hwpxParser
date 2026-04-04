@@ -78,21 +78,27 @@
     // top: 50%;  transform: translateY(-50%);
     NSString *styleString = margin;
     if ([self.vertAlign isEqualToString:@"CENTER"]) {
-        NSRegularExpression *topRegex = [NSRegularExpression regularExpressionWithPattern:@"top:([0-9.]+)pt ;"
+        NSRegularExpression *topRegex = [NSRegularExpression regularExpressionWithPattern:@"top:[0-9.]+pt;"
                                                                              options:0
                                                                                error:NULL];
         NSString *updatedTop = [topRegex stringByReplacingMatchesInString:styleString
                                                                   options:0
                                                                     range:NSMakeRange(0, styleString.length)
-                                                             withTemplate:@"top: 50%; transform: translateY(-50%)"];
-        NSRegularExpression *rightRegex = [NSRegularExpression regularExpressionWithPattern:@"right:([0-9.]+)pt ;"
+                                                             withTemplate:@"top: 50%; transform: translateY(-50%); "];
+        NSRegularExpression *rightRegex = [NSRegularExpression regularExpressionWithPattern:@" right:[0-9.]+pt;"
                                                                              options:0
                                                                                error:NULL];
         NSString *finalStyleString = [rightRegex stringByReplacingMatchesInString:updatedTop
                                                                           options:0
                                                                             range:NSMakeRange(0, updatedTop.length)
                                                                      withTemplate:@""];
-        return finalStyleString;
+        
+        NSRegularExpression *bottomRegex = [NSRegularExpression regularExpressionWithPattern:@" bottom:[0-9.]+pt;"
+                                                                             options:0
+                                                                               error:NULL];
+        
+        NSString *finStyleString = [bottomRegex stringByReplacingMatchesInString:finalStyleString options:0 range:NSMakeRange(0, finalStyleString.length) withTemplate:@""];
+        return finStyleString;
     }
     return styleString;
 }
