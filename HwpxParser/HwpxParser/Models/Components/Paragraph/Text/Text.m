@@ -16,5 +16,8 @@
     [span setInnerHTML:self.content];
     return span;
 }
-
+- (BOOL)treatAsChar
+{
+    return TRUE;
+}
 @end

@@ -82,23 +82,16 @@
         return contents;
     }
 
-    int index = 0;
-    NSMutableArray<NSMutableDictionary*> *sizes = [NSMutableArray new];
-    // Run에서 Contents 개수가 1개 이상이면,
+    // Run에서 Contents 개수가 1개 이상이면, 즉 lineseg한개에 2개 이상의 컨텐츠가 들어갈때,
+    
     for (id content in self.contents) {
-        if ([content respondsToSelector:@selector(convertToHtmlWith:)] && [content respondsToSelector:@selector(getAtts)]) {
-            if (index != 0) {
-                // 여기는 set
-                [content setStackSizes:sizes];
-            }
+        if ([content respondsToSelector:@selector(convertToHtmlWith:)]) {
             HTMLElement* target = [content convertToHtmlWith:margin];
             [contents addObject:target];
-            [sizes addObject:[content getAtts]];
         } else {
             NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
             __builtin_trap();
         }
-        index++;
     }
     return contents;
 

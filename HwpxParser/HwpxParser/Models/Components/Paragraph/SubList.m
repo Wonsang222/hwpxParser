@@ -93,7 +93,7 @@
                                                                             range:NSMakeRange(0, updatedTop.length)
                                                                      withTemplate:@""];
         
-        NSRegularExpression *bottomRegex = [NSRegularExpression regularExpressionWithPattern:@" bottom:[0-9.]+pt;"
+        NSRegularExpression *bottomRegex = [NSRegularExpression regularExpressionWithPattern:@"bottom:[0-9.]+pt;"
                                                                              options:0
                                                                                error:NULL];
         

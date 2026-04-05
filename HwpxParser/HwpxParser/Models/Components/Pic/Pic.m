@@ -40,44 +40,24 @@ NS_ASSUME_NONNULL_BEGIN
     return [FsManager findFileRecursively:rootPath fileName:imgName];
 }
 
--(HTMLElement*)convertToHtml
-{
-    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
-
-    NSMutableDictionary* att1 = [self getAtts]; // size
-    NSMutableDictionary* att2 = [self.inMargin getAtt];
-
-    [att1 addEntriesFromDictionary:att2];
-
-    NSString *position = @"position:relative; ";
-    NSString *styleString = [self convertDic:att1];
-    NSString *srcString = [self imgSrc];
-    
-    [picture setAttributes:[@{
-        @"src" : srcString,
-        @"style" : [position stringByAppendingString:styleString],
-    }mutableCopy]];
-    return picture;
-}
-
-/// self.stackSizes (getAtts 반환값 배열) 를 순회하며 width / height 의 합산값을 반환한다.
-- (NSMutableDictionary *)sumOfStackSizes
-{
-    CGFloat totalWidth  = 0.0f;
-    CGFloat totalHeight = 0.0f;
-
-    for (NSMutableDictionary *size in self.stackSizes) {
-        NSString *widthStr  = size[@"width"];
-        NSString *heightStr = size[@"height"];
-        totalWidth  += [[widthStr  stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
-        totalHeight += [[heightStr stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
-    }
-
-    return [@{
-        @"width"  : [NSString stringWithFormat:@"%gpt", totalWidth],
-        @"height" : [NSString stringWithFormat:@"%gpt", totalHeight]
-    } mutableCopy];
-}
+///// self.stackSizes (getAtts 반환값 배열) 를 순회하며 width / height 의 합산값을 반환한다.
+//- (NSMutableDictionary *)sumOfStackSizes
+//{
+//    CGFloat totalWidth  = 0.0f;
+//    CGFloat totalHeight = 0.0f;
+//
+//    for (NSMutableDictionary *size in self.stackSizes) {
+//        NSString *widthStr  = size[@"width"];
+//        NSString *heightStr = size[@"height"];
+//        totalWidth  += [[widthStr  stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+//        totalHeight += [[heightStr stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+//    }
+//
+//    return [@{
+//        @"width"  : [NSString stringWithFormat:@"%gpt", totalWidth],
+//        @"height" : [NSString stringWithFormat:@"%gpt", totalHeight]
+//    } mutableCopy];
+//}
 
 /// margin 문자열(예: "top:10pt; left:20pt; right:...; bottom:...;")에서
 /// top, left 각각의 pt 값에 addTop / addLeft ("Xpt" 형태) 를 더해 새 margin 문자열을 반환한다.
@@ -129,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (HTMLElement *)convertToHtmlWith:(NSString *)margin
 {
     if (!margin) {
-        return [self convertToHtml];
+        __builtin_trap();
     }
     
     HTMLElement *wrapper = [[HTMLElement alloc] initWithTagName:@"div"];
@@ -144,7 +124,8 @@ NS_ASSUME_NONNULL_BEGIN
         position = @"position:relative; ";
         position = [position stringByAppendingString:display];
         NSString *absoluteSize = [sizeString stringByAppendingString:position];
-        final = absoluteSize;
+        NSString *absoluteSizeWithLocation = [absoluteSize stringByAppendingString:margin];
+        final = absoluteSizeWithLocation;
     } else {
         position = @"position:absolute; ";
         NSString *absoluteSize = [sizeString stringByAppendingString:position];
@@ -179,8 +160,18 @@ NS_ASSUME_NONNULL_BEGIN
 //        @"style" : sizeWithMargin
 //    }mutableCopy]];
     
+    HTMLElement *picture = [self getContentHtml];
+    [wrapper appendNode:picture];
+    
+    return wrapper;
+}
+
+-(HTMLElement*)getContentHtml
+{
     HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
     NSString *relative = @"position:relative; ";
+    NSMutableDictionary* att1 = [self getAtts]; // size
+    NSString *sizeString = [self convertDic:att1];
     NSString *relativeSize = [relative stringByAppendingString:sizeString];
     
     NSString *srcString = [self imgSrc];
@@ -188,10 +179,12 @@ NS_ASSUME_NONNULL_BEGIN
         @"style" : relativeSize,
         @"src" : srcString
     } mutableCopy]];
-    
-    [wrapper appendNode:picture];
-    
-    return wrapper;
+    return picture;
+}
+
+- (BOOL)isTreatAsChar
+{
+    return [self.pos.treatAsChar isEqualToString:@"1"] ? TRUE : FALSE;
 }
 
 

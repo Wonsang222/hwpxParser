@@ -11,6 +11,7 @@
 @interface Text : NSObject
 @property (nullable, strong) NSString* content;
 -(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin;
+-(BOOL)treatAsChar;
 @end
 
 

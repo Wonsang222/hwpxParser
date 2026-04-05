@@ -32,23 +32,9 @@
 		C1F1CEBC2E4ABB5A000AAB17 /* HwpxParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HwpxParser; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		C1C3A0D92EBAD3B70048B53A /* Exceptions for "HwpxParser" folder in "Copy Files" phase from "HwpxParser" target */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = C1C3A0D72EBAD38F0048B53A /* Copy Files */;
-			membershipExceptions = (
-				TestFiles/Temp/Para.xml,
-				TestFiles/Temp/Table.xml,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		C1F1CEBE2E4ABB5A000AAB17 /* HwpxParser */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				C1C3A0D92EBAD3B70048B53A /* Exceptions for "HwpxParser" folder in "Copy Files" phase from "HwpxParser" target */,
-			);
 			path = HwpxParser;
 			sourceTree = "<group>";
 		};
