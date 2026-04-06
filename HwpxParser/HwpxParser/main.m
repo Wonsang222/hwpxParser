@@ -28,7 +28,7 @@ int main(int argc, const char * argv[]) {
 
         base = [NSString stringWithUTF8String:__FILE__];
         NSString *base1 = [base stringByDeletingLastPathComponent];
-        NSString *testPath = @"/TestFiles/Temp/header.xml";
+        NSString *testPath = @"/TestFiles/Output/Contents/header.xml";
         NSString *path = [base1 stringByAppendingString:testPath];
         
         NSString *start = [NSString stringWithUTF8String:__FILE__];

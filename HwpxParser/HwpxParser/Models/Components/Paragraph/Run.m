@@ -49,7 +49,7 @@
     id mainContent = [self.contents firstObject];
 
     if (![mainContent respondsToSelector:@selector(convertToHtml)]) {
-        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents description]);
+        NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [mainContent description]);
         __builtin_trap();
     }
 

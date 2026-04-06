@@ -108,7 +108,6 @@ extern HH_Head *head;
             NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
             NSDictionary *paraPr = [head getParaPr:self.paraPrIDRef];
 
-            
             NSLog(@"testing : %@", charPr);
             NSLog(@"testing2 : %@", paraPr);
             // charPr, paraPr CSS를 innerDiv style에 추가
