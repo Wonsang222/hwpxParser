@@ -168,18 +168,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(HTMLElement*)getContentHtml
 {
-    HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
-    NSString *relative = @"position:relative; ";
-    NSMutableDictionary* att1 = [self getAtts]; // size
-    NSString *sizeString = [self convertDic:att1];
-    NSString *relativeSize = [relative stringByAppendingString:sizeString];
-    
-    NSString *srcString = [self imgSrc];
-    [picture setAttributes:[@{
-        @"style" : relativeSize,
-        @"src" : srcString
-    } mutableCopy]];
-    return picture;
+    if ([self isTreatAsChar]) {
+        HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
+        NSString *relative = @"position:relative; ";
+        NSMutableDictionary* att1 = [self getAtts]; // size
+        NSString *sizeString = [self convertDic:att1];
+        NSString *relativeSize = [relative stringByAppendingString:sizeString];
+        
+        NSString *srcString = [self imgSrc];
+        [picture setAttributes:[@{
+            @"style" : relativeSize,
+            @"src" : srcString
+        } mutableCopy]];
+        return picture;
+    }
+    return NULL;
 }
 
 - (BOOL)isTreatAsChar

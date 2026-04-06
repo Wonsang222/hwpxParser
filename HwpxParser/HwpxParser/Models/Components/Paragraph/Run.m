@@ -65,15 +65,16 @@
     return wrapper;
 }
 
+
 // Paragraph 안에서 호출되는 메서드
-- (NSArray *)getContentWith:(NSString *)margin
+-(NSArray*_Nonnull)getContentWith:(NSString*_Nullable)margin lineseg:(HTMLElement* _Nonnull)line align:(NSString*_Nullable)alignString
 {
     NSMutableArray *contents = [@[] mutableCopy];
 
     if ([self.contents count] == 1) {
         id targetContent = [self.contents firstObject];
-        if ([targetContent respondsToSelector:@selector(convertToHtmlWith:)]) {
-            HTMLElement* target = [targetContent convertToHtmlWith:margin];
+        if ([targetContent respondsToSelector:@selector(getContentHtml)] && [targetContent respondsToSelector:@selector(isTreatAsChar)]) {
+            HTMLElement* target = [targetContent getContentHtml];
             [contents addObject:target];
         } else {
             NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
@@ -82,11 +83,11 @@
         return contents;
     }
 
-    // Run에서 Contents 개수가 1개 이상이면, 즉 lineseg한개에 2개 이상의 컨텐츠가 들어갈때,
+    // Run에서 Contents 개수가 1개 이상이면, 즉 lineseg한개에 2개 이상의 컨텐츠가 들어갈때, -> 대다수는 inline일듯?
     
     for (id content in self.contents) {
-        if ([content respondsToSelector:@selector(convertToHtmlWith:)]) {
-            HTMLElement* target = [content convertToHtmlWith:margin];
+        if ([content respondsToSelector:@selector(getContentHtml)] && [content respondsToSelector:@selector(isTreatAsChar)]) {
+            HTMLElement* target = [content getContentHtml];
             [contents addObject:target];
         } else {
             NSLog(@"🤔 No convertToHtml Method at Run | contents: %@", [self.contents valueForKey:@"description"]);
@@ -94,7 +95,6 @@
         }
     }
     return contents;
-
 }
 
 - (BOOL)hasSecPr

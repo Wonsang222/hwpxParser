@@ -9,6 +9,8 @@
 #import "Tc.h"
 @import HTMLKit;
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+#import "../../WrapperP.h"
+#import "../../MarginSender.h"
 
 @implementation Tr
 @synthesize tc;
@@ -40,7 +42,7 @@
     }
 }
 
-- (HTMLElement *)getHtml:(NSString *)margin
+- (HTMLElement *)getHtml:(MarginSender *)margin
 {
     HTMLElement* row = [[HTMLElement alloc] initWithTagName:@"tr"];
     for (Tc *t in self.contents) {

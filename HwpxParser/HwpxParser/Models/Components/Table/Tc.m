@@ -13,12 +13,15 @@
 #import "CellMargin.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
 #import "../../WrapperP.h"
-
+#import "../../MarginSender.h"
+#import "../../Design/HH_Head.h"
 @import HTMLKit;
+
+extern HH_Head *head;
 
 @implementation Tc
 
-- (HTMLElement *)convertToHtml:(NSString *)marin
+- (HTMLElement *)convertToHtml:(MarginSender *)marin
 {
     // marin == tbl로 부터 넘어온 마진 데이터
     HTMLElement* tc = [[HTMLElement alloc] initWithTagName:@"td"];
@@ -27,31 +30,43 @@
     NSMutableDictionary *size = [self.cellSz getSizePt];
     NSString *sizeString = [self convertDic:size];
     
-    NSString *margin = marin;
-    NSString *final;
-    NSString *relativeWithSize = [relative stringByAppendingString:sizeString];
+    NSDictionary *border = [head getBorderFill:self.borderFillIDRef];
+    NSString *borderString = [self convertDic:border];
+
+    MarginSender *finalMargin;
+    NSString *relativeWithSize = [[relative stringByAppendingString:sizeString] stringByAppendingString:borderString];
     
-    if (![self.hasMargin isEqualTo:@"0"]) {
+    if ([self.hasMargin isEqualTo:@"0"]) {
         // 고유의 cell margin을 사용 안한다
-        // 1 depth 아래 relative일때만 적용할 padding
-        NSString *paddingString = [self addPaddingString:marin];
-        final = [relativeWithSize stringByAppendingString:paddingString];
+        finalMargin = marin;
     } else {
         NSMutableDictionary* cellMargin = [self.cellMargin getMarginPt];
-        NSString *cellMarginString = [self convertDic:cellMargin];
-        NSString *paddingCellMargin = [self addPaddingString:[cellMarginString mutableCopy]];
-        final = [relativeWithSize stringByAppendingString:paddingCellMargin];
-        margin = cellMarginString;
+        MarginSender *margin = [MarginSender new];
+        margin.top = cellMargin[@"top"];
+        margin.left = cellMargin[@"left"];
+        finalMargin = margin;
     }
     
     [tc setAttributes:[@{
-        @"style": final
+        @"style": relativeWithSize
     }mutableCopy]];
     
-    NSMutableArray<HTMLElement *>* contentFromSublist = [self.subList convertToHtml:margin];
-    
-    for (WrapperP* e in contentFromSublist) {
-        [tc appendNode:e.outer];
+    NSMutableArray<HTMLElement *>* contentFromSublist = [self.subList convertToHtml:finalMargin];
+
+    NSString *vertAlign = self.subList.vertAlign;
+    if ([vertAlign isEqualToString:@"CENTER"]) {
+        HTMLElement *alignDiv = [[HTMLElement alloc] initWithTagName:@"div"];
+        [alignDiv setAttributes:[@{
+            @"style": @"display:flex; align-items:center; width:100%; height:100%;"
+        } mutableCopy]];
+        for (WrapperP* e in contentFromSublist) {
+            [alignDiv appendNode:e.outer];
+        }
+        [tc appendNode:alignDiv];
+    } else {
+        for (WrapperP* e in contentFromSublist) {
+            [tc appendNode:e.outer];
+        }
     }
     
     return tc;

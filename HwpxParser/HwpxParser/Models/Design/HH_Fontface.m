@@ -50,7 +50,7 @@
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"identification == %@", num];
     HH_Font *font = [[self.contents filteredArrayUsingPredicate:predicate] firstObject];
-    return font.identification;
+    return font.face;
 }
 
 @end

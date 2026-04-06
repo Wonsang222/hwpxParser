@@ -7,6 +7,7 @@
 
 #import "Linesegarray.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
+#import "../../MarginSender.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (int)count
 {
     return (int) [self.lineseg count];
+}
+
+- (void)addMarginWith:(MarginSender *)margin
+{
+    for (Lineseg *line in self.lineseg) {
+        line.textpos = [NSString stringWithFormat:@"%d", [line.textpos intValue] + [margin.left intValue]];
+        line.vertpos = [NSString stringWithFormat:@"%d", [line.vertpos intValue] + [margin.top intValue]];
+    }
 }
 
 @end

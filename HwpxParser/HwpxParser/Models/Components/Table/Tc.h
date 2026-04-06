@@ -14,6 +14,7 @@
 @class CellSz;
 @class CellMargin;
 @class WrapperP;
+@class MarginSender;
 
 @interface Tc : NSObject
 
@@ -31,7 +32,7 @@
 @property(nullable, strong)CellSz* cellSz;
 @property(nullable, strong)CellMargin* cellMargin;
 
--(WrapperP*_Nonnull)convertToHtml:(NSString*_Nullable)marin;
+-(WrapperP*_Nonnull)convertToHtml:(MarginSender*_Nullable)marin;
 
 @end
 

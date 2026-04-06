@@ -13,7 +13,11 @@
 #import "Tr.h"
 #import "../../../main.h"
 #import "../../../Models/WrapperP.h"
+#import "../../../Models/MarginSender.h"
+#import "../../Design/HH_Head.h"
 @import HTMLKit;
+
+extern HH_Head *head;
 
 @implementation Tbl
 
@@ -36,14 +40,15 @@
     return self;
 }				
 
-- (NSString*)getInMarin
+- (MarginSender*)getInMarin
 {
-    NSString *top = [self convertUnsignedIntToPt:self.inMargin.top];
-    NSString *left = [self convertUnsignedIntToPt:self.inMargin.left];
-    NSString *right = [self convertUnsignedIntToPt:self.inMargin.right];
-    NSString *bottom = [self convertUnsignedIntToPt:self.inMargin.bottom];
+    NSString *top = self.inMargin.top;
+    NSString *left = self.inMargin.left;
+    MarginSender* marginSender = [MarginSender new];
+    marginSender.top = top;
+    marginSender.left = left;
 
-    return [NSString stringWithFormat:[self outMarginFormat], top, left, right, bottom];
+    return marginSender;
 }
 
 - (NSDictionary *)getCSS

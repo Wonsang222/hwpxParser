@@ -36,10 +36,7 @@
     res[@"font-size"] = [self convertUnsignedIntToPt:self.height];
     res[@"color"] = self.textColor;
     
-    NSString* fontID = [self.parent getFontWithNum:[self.fontRef hangul]];
-    NSString *fontName = [self.parent getFontWithNum:fontID];
-    
-    res[@"font-family"] = fontName;
+    res[@"font-family"] = @"sans-serif";
     
     return res;
 }

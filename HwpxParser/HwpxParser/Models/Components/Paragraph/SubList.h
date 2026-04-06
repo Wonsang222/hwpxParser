@@ -10,7 +10,7 @@
 
 @class Paragraph;
 @class HTMLElement;
-
+@class MarginSender;
 
 @interface SubList : NSObject
 
@@ -30,6 +30,6 @@
 @property(nonnull,nonatomic, strong) NSMutableArray<Paragraph*>* paragraph;
 
 -(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml;
--(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml:(NSString*_Nullable)margin;
+-(NSMutableArray<HTMLElement*>*_Nonnull)convertToHtml:(MarginSender*_Nullable)margin;
 @end
 

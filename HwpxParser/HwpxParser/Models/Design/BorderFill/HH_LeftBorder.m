@@ -23,7 +23,8 @@
     NSString *val = @"none";
     
     if ([self.type isNotEqualTo:@"NONE"]) {
-        val = [NSString stringWithFormat:@"%@ %@ %@", self.width, self.type, self.color];
+        NSString *cssWidth = [self.width stringByReplacingOccurrencesOfString:@" " withString:@""];
+        val = [NSString stringWithFormat:@"%@ %@ %@", cssWidth, self.type, self.color];
     }
     NSString *key = [self location];
     result[key] = val;

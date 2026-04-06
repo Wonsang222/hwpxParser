@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 @class Tc;
 @class HTMLElement;
+@class MarginSender;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) Tc* tc;
 @property(strong)NSMutableArray<Tc*>* contents;
 
--(HTMLElement*)getHtml:(NSString*)margin;
+-(HTMLElement*)getHtml:(MarginSender*)margin;
 @end
 
 NS_ASSUME_NONNULL_END

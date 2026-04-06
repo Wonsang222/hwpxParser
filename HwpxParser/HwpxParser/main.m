@@ -42,18 +42,15 @@ int main(int argc, const char * argv[]) {
         NSString *resPath = [ppp stringByAppendingPathComponent:@"result"];
         NSString *finPath = [resPath stringByAppendingString: resultPath];
         
-//        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
-//
-//        NSMutableArray *heads = [parser parseXMLFile:path];
-//        HH_Head *innerHead = [heads firstObject];
-//        
-//        head = innerHead;
+        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
+
+        NSMutableArray *heads = [parser parseXMLFile:path];
+        HH_Head *innerHead = [heads firstObject];
+        head = innerHead;
         
         XMLParser *parser2 = [[XMLParser alloc] init];
         NSArray *secs = [parser2 parseXMLFile:path2];
         Sec *sec = [secs firstObject];
-        
-//        [sec setHead:innerHead];
         
         HTMLDocument* doc = [RenderingManager buildHTMLDocument];
         NSError* error = nil;

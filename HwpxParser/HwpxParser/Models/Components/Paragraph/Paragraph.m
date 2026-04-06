@@ -12,8 +12,11 @@
 #import "../../Design/HH_Head.h"
 #import "Lineseg.h"
 #import "../../WrapperP.h"
-
+#import "../../MarginSender.h"
+#import "../../Design/HH_Head.h"
 @import HTMLKit;
+
+extern HH_Head *head;
 
 @implementation Paragraph
 
@@ -87,23 +90,46 @@
 }
 
 // Sublist 에서 호출
-- (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(NSString *)margin
+- (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(MarginSender *)margin align:(NSString *)alignString
 {
     NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
 
+    // lineSeg에 AddMargin
+    [self.linesegarray addMarginWith:margin];
+    
     if ([linesegarray.lineseg count] == 1)  {
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
         WrapperP *wrapper = [lineSeg getOuterP];
-
+        
+        
         if ([self.run count] == 1) {
             Run *targetRun = [self.run firstObject];
             HTMLElement *innerDiv = wrapper.inner;
-            NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin];
+            NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
+            NSDictionary *paraPr = [head getParaPr:self.paraPrIDRef];
+
+            
+            NSLog(@"testing : %@", charPr);
+            NSLog(@"testing2 : %@", paraPr);
+            // charPr, paraPr CSS를 innerDiv style에 추가
+            NSMutableString *additionalStyle = [NSMutableString string];
+            for (NSString *key in paraPr) {
+                [additionalStyle appendFormat:@" %@:%@;", key, paraPr[key]];
+            }
+            for (NSString *key in charPr) {
+                [additionalStyle appendFormat:@" %@:%@;", key, charPr[key]];
+            }
+
+            NSString *existingStyle = [innerDiv attributes][@"style"];
+            NSString *newStyle = [existingStyle stringByAppendingString:additionalStyle];
+            [innerDiv setAttributes:[@{@"style": newStyle} mutableCopy]];
+            
+            NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
             [innerDiv appendNodes:contents];
-            [result addObject:wrapper];
         } else {
 
         }
+        [result addObject:wrapper];
     }
     return result;
 }

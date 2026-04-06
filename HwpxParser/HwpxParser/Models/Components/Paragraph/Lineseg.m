@@ -38,6 +38,7 @@
     relativeStyle = [self buildCssString:relativeStyle withKey:@"width"    withValue:[self convertUnsignedIntToPt:self.horzsize]];
     relativeStyle = [self buildCssString:relativeStyle withKey:@"height"   withValue:[self convertUnsignedIntToPt:self.vertsize]];
     relativeStyle = [self buildCssString:relativeStyle withKey:@"position" withValue:@"relative"];
+    
 
     HTMLElement *outerDiv = [[HTMLElement alloc] initWithTagName:@"div"];
     [outerDiv setAttributes:[@{@"style": absoluteStyle} mutableCopy]];

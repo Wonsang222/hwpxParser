@@ -10,6 +10,7 @@
 #import "Paragraph.h"
 #import "../../../main.h"
 #import "../../WrapperP.h"
+#import "../../MarginSender.h"
 @import HTMLKit;
 
 @implementation SubList
@@ -36,8 +37,6 @@
 - (NSMutableArray<HTMLElement *> *)convertToHtml
 {
     NSMutableArray* result = [[NSMutableArray alloc] init];
-    NSDictionary *lineWrapCSS = [self getLineWrap];
-    NSString *lineWrapCSSString = [self convertDic:lineWrapCSS];
         
     for (int i = 0 ; i < [self.paragraph count] ; i++) {
         Paragraph *p = self.paragraph[i];
@@ -57,14 +56,12 @@
     return result;
 }
 
-- (NSMutableArray<HTMLElement *> *)convertToHtml:(NSString *)margin
+- (NSMutableArray<HTMLElement *> *)convertToHtml:(MarginSender *)margin
 {
-    NSString *updatedMargin = [self getStyleString:margin];
-    
     NSMutableArray* result = [[NSMutableArray alloc] init];
     for (int i = 0 ; i < [self.paragraph count] ; i++) {
         Paragraph *p = self.paragraph[i];
-        NSArray *contents = [p convertParagraphWithHeadFromSubList:updatedMargin];
+        NSArray *contents = [p convertParagraphWithHeadFromSubList:margin align:self.vertAlign];
         for (WrapperP *element in contents) {
             [result addObject:element];
         }
@@ -73,60 +70,5 @@
     return result;
 }
 
--(NSString*)getStyleString:(NSString*)margin
-{
-    // top: 50%;  transform: translateY(-50%);
-    NSString *styleString = margin;
-    if ([self.vertAlign isEqualToString:@"CENTER"]) {
-        NSRegularExpression *topRegex = [NSRegularExpression regularExpressionWithPattern:@"top:[0-9.]+pt;"
-                                                                             options:0
-                                                                               error:NULL];
-        NSString *updatedTop = [topRegex stringByReplacingMatchesInString:styleString
-                                                                  options:0
-                                                                    range:NSMakeRange(0, styleString.length)
-                                                             withTemplate:@"top: 50%; transform: translateY(-50%); "];
-        NSRegularExpression *rightRegex = [NSRegularExpression regularExpressionWithPattern:@" right:[0-9.]+pt;"
-                                                                             options:0
-                                                                               error:NULL];
-        NSString *finalStyleString = [rightRegex stringByReplacingMatchesInString:updatedTop
-                                                                          options:0
-                                                                            range:NSMakeRange(0, updatedTop.length)
-                                                                     withTemplate:@""];
-        
-        NSRegularExpression *bottomRegex = [NSRegularExpression regularExpressionWithPattern:@"bottom:[0-9.]+pt;"
-                                                                             options:0
-                                                                               error:NULL];
-        
-        NSString *finStyleString = [bottomRegex stringByReplacingMatchesInString:finalStyleString options:0 range:NSMakeRange(0, finalStyleString.length) withTemplate:@""];
-        return finStyleString;
-    }
-    return styleString;
-}
-
--(NSDictionary*)getLineWrap
-{
-    NSMutableDictionary *res = [@{}mutableCopy];
-    
-    NSString *key = @"white-space";
-    NSString *val;
-    
-    if ([self.lineWrap isEqualToString:@"BREAK"]) {
-        val = @"normal";
-    } else if ([self.lineWrap isEqualToString:@"NONE"]) {
-        val = @"nowrap";
-    } else {
-        key = @"hyphens";
-        val = @"auto";
-    }
-    res[key] = val;
-    
-    if ([self.textDirection isEqualToString:@"VERTICAL"]) {
-        NSString *key2 = @"writing-mode";
-        NSString *val2 = @"vertical-rl";
-        res[key2] = val2;
-    }
-    
-    return res;
-}
 
 @end
