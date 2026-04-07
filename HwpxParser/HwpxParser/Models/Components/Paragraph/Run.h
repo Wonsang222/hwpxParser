@@ -35,7 +35,7 @@
 
 -(NSMutableDictionary*_Nonnull)getPaper;
 -(BOOL)hasSecPr;
--(WrapperP*_Nonnull)getContent;
+-(WrapperP*_Nullable)getContent;
 -(NSArray*_Nonnull)getContentWith:(NSString* _Nullable)margin lineseg:(HTMLElement* _Nonnull)line align:(NSString* _Nullable)alignString;
 @end
 

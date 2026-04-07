@@ -46,6 +46,11 @@
 // Sec에서 호출되는 메서드
 - (WrapperP *)getContent
 {
+    WrapperP *wrapper = [WrapperP new];
+    if ([self.contents count] == 0) {
+        return NULL;
+    }
+    
     id mainContent = [self.contents firstObject];
 
     if (![mainContent respondsToSelector:@selector(convertToHtml)]) {
@@ -58,8 +63,7 @@
     if ([result isKindOfClass:[WrapperP class]]) {
         return result;
     }
-
-    WrapperP *wrapper = [WrapperP new];
+    
     wrapper.outer = result;
     wrapper.inner = result;
     return wrapper;
@@ -70,6 +74,10 @@
 -(NSArray*_Nonnull)getContentWith:(NSString*_Nullable)margin lineseg:(HTMLElement* _Nonnull)line align:(NSString*_Nullable)alignString
 {
     NSMutableArray *contents = [@[] mutableCopy];
+    
+    if([self.contents count] == 0) {
+        return contents;
+    }
 
     if ([self.contents count] == 1) {
         id targetContent = [self.contents firstObject];

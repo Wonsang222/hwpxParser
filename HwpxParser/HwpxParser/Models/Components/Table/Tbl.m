@@ -62,10 +62,9 @@ extern HH_Head *head;
 -(NSDictionary*)getOwn
 {
     NSMutableDictionary* res = [@{}mutableCopy];
-    // inline으로 강제
-    res[@"display"] = @"inline-table";
+
+    res[@"display"] = @"table";
     res[@"border-collapse"] = @"collapse";
-    res[@"table-layout"] = @"fixed";
     // borderFill 반영
     NSDictionary *borderFill = [head getBorderFill:self.borderFillIDRef];
     [res addEntriesFromDictionary:borderFill];

@@ -78,13 +78,17 @@ extern HH_Head *head;
         HTMLElement *innerDiv = wrapper.inner;
         // Contents
         WrapperP *content = [targetRun getContent];
+        
         // innerDiv에 Content 배치
-        [innerDiv appendNode:content.outer];
+        if (content) {
+            [innerDiv appendNode:content.outer];
+        } 
         // result에 append
         [result addObject:wrapper];
         
     } else {
-        
+        NSLog(@"outer Paragraph logic must be modified!!");
+        __builtin_trap();
     }
     return result;
 }
@@ -101,15 +105,12 @@ extern HH_Head *head;
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
         WrapperP *wrapper = [lineSeg getOuterP];
         
-        
         if ([self.run count] == 1) {
             Run *targetRun = [self.run firstObject];
             HTMLElement *innerDiv = wrapper.inner;
             NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
             NSDictionary *paraPr = [head getParaPr:self.paraPrIDRef];
 
-            NSLog(@"testing : %@", charPr);
-            NSLog(@"testing2 : %@", paraPr);
             // charPr, paraPr CSS를 innerDiv style에 추가
             NSMutableString *additionalStyle = [NSMutableString string];
             for (NSString *key in paraPr) {
@@ -124,11 +125,17 @@ extern HH_Head *head;
             [innerDiv setAttributes:[@{@"style": newStyle} mutableCopy]];
             
             NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
-            [innerDiv appendNodes:contents];
+            if ([contents count] != 0) {
+                [innerDiv appendNodes:contents];
+            }
         } else {
-
+            NSLog(@"2 run ");
+            __builtin_trap();
         }
         [result addObject:wrapper];
+    } else {
+        NSLog(@"2 lineseg");
+        __builtin_trap();
     }
     return result;
 }

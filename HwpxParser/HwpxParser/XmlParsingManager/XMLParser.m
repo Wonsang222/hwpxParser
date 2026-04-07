@@ -249,7 +249,9 @@
         NSString* clsName = NSStringFromClass([current class]);
         
         if ([clsName isEqualToString:@"Text"]) {
-            [current setValue:string forKey:@"content"];
+            NSString *existing = [current valueForKey:@"content"];
+            NSString *merged = existing ? [existing stringByAppendingString:string] : string;
+            [current setValue:merged forKey:@"content"];
         }
     }
 }

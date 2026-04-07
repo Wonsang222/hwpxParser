@@ -17,8 +17,6 @@ extern HH_Head *head;
 {
     HTMLElement* span = [[HTMLElement alloc] initWithTagName:@"span"];
     
-    
-    
     [span setInnerHTML:self.content];
     return span;
 }
