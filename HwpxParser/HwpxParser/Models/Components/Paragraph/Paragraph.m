@@ -100,37 +100,57 @@ extern HH_Head *head;
 
     // lineSeg에 AddMargin
     [self.linesegarray addMarginWith:margin];
-    
+
     if ([linesegarray.lineseg count] == 1)  {
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
         WrapperP *wrapper = [lineSeg getOuterP];
-        
+        HTMLElement *innerDiv = wrapper.inner;
+        NSDictionary *paraPr = [head getParaPr:self.paraPrIDRef];
+
+        // paraPr CSS를 innerDiv style에 추가
+        NSMutableString *paraStyle = [NSMutableString string];
+        for (NSString *key in paraPr) {
+            [paraStyle appendFormat:@" %@:%@;", key, paraPr[key]];
+        }
+        NSString *existingStyle = [innerDiv attributes][@"style"];
+        [innerDiv setAttributes:[@{@"style": [existingStyle stringByAppendingString:paraStyle]} mutableCopy]];
+
         if ([self.run count] == 1) {
             Run *targetRun = [self.run firstObject];
-            HTMLElement *innerDiv = wrapper.inner;
             NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
-            NSDictionary *paraPr = [head getParaPr:self.paraPrIDRef];
 
-            // charPr, paraPr CSS를 innerDiv style에 추가
-            NSMutableString *additionalStyle = [NSMutableString string];
-            for (NSString *key in paraPr) {
-                [additionalStyle appendFormat:@" %@:%@;", key, paraPr[key]];
-            }
+            // charPr CSS를 innerDiv style에 추가
+            NSMutableString *charStyle = [NSMutableString string];
             for (NSString *key in charPr) {
-                [additionalStyle appendFormat:@" %@:%@;", key, charPr[key]];
+                [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
             }
+            NSString *currentStyle = [innerDiv attributes][@"style"];
+            [innerDiv setAttributes:[@{@"style": [currentStyle stringByAppendingString:charStyle]} mutableCopy]];
 
-            NSString *existingStyle = [innerDiv attributes][@"style"];
-            NSString *newStyle = [existingStyle stringByAppendingString:additionalStyle];
-            [innerDiv setAttributes:[@{@"style": newStyle} mutableCopy]];
-            
             NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
             if ([contents count] != 0) {
                 [innerDiv appendNodes:contents];
             }
         } else {
-            NSLog(@"2 run ");
-            __builtin_trap();
+            // 1 lineseg + 다중 run: 각 run을 span으로 감싸 charPr 서식을 개별 적용 (한 줄 렌더링)
+            for (Run *targetRun in self.run) {
+                NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
+                if ([contents count] == 0) continue;
+
+                NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
+                if ([charPr count] > 0) {
+                    NSMutableString *charStyle = [NSMutableString string];
+                    for (NSString *key in charPr) {
+                        [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
+                    }
+                    HTMLElement *span = [[HTMLElement alloc] initWithTagName:@"span"];
+                    [span setAttributes:[@{@"style": [charStyle copy]} mutableCopy]];
+                    [span appendNodes:contents];
+                    [innerDiv appendNode:span];
+                } else {
+                    [innerDiv appendNodes:contents];
+                }
+            }
         }
         [result addObject:wrapper];
     } else {
