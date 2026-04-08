@@ -13,6 +13,7 @@
 -(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin;
 -(HTMLElement*_Nonnull)getContentHtml;
 - (BOOL)isTreatAsChar;
+-(NSArray *_Nonnull)splitTextAt:(int)index;
 @end
 
 

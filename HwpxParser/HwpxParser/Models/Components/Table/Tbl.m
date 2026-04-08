@@ -65,6 +65,7 @@ extern HH_Head *head;
 
     res[@"display"] = @"table";
     res[@"border-collapse"] = @"collapse";
+    res[@"table-layout"] = @"fixed";
     // borderFill 반영
     NSDictionary *borderFill = [head getBorderFill:self.borderFillIDRef];
     [res addEntriesFromDictionary:borderFill];

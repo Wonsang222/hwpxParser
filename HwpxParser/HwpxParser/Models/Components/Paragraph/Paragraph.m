@@ -7,6 +7,7 @@
 
 #import "Paragraph.h"
 #import "Run.h"
+#import "Lineseg.h"
 #import "Linesegarray.h"
 #import "../Pic/Pic.h"
 #import "../../Design/HH_Head.h"
@@ -60,7 +61,7 @@ extern HH_Head *head;
     }
     return NO;
 }
-    
+
 - (BOOL)isNewPage
 {
     return [linesegarray isNewPage];
@@ -82,13 +83,31 @@ extern HH_Head *head;
         // innerDiv에 Content 배치
         if (content) {
             [innerDiv appendNode:content.outer];
-        } 
+        }
         // result에 append
         [result addObject:wrapper];
         
     } else {
-        NSLog(@"outer Paragraph logic must be modified!!");
-        __builtin_trap();
+        
+        if ([self.run count] > 1 && [linesegarray.lineseg count] > 1) {
+            // 텍스트인 경우 배치
+            if ([self areAllTexts]) {
+                // 문단을 나눌 컷 포인트
+                NSMutableArray *cutPoint = [NSMutableArray new];
+                for (Lineseg *line in linesegarray.lineseg) {
+                    if (![line.textpos isEqualToString:@"0"]) {
+                        [cutPoint addObject:line.textpos];
+                    }
+                }
+                
+                
+            }
+            
+            
+        } else {
+            NSLog(@"outer Paragraph logic must be modified!!");
+            __builtin_trap();
+        }
     }
     return result;
 }
@@ -97,16 +116,16 @@ extern HH_Head *head;
 - (NSMutableArray<WrapperP *> *)convertParagraphWithHeadFromSubList:(MarginSender *)margin align:(NSString *)alignString
 {
     NSMutableArray<WrapperP*>* result = [[NSMutableArray alloc]init];
-
+    
     // lineSeg에 AddMargin
     [self.linesegarray addMarginWith:margin];
-
+    
     if ([linesegarray.lineseg count] == 1)  {
         Lineseg *lineSeg = [linesegarray.lineseg firstObject];
         WrapperP *wrapper = [lineSeg getOuterP];
         HTMLElement *innerDiv = wrapper.inner;
         NSDictionary *paraPr = [head getParaPr:self.paraPrIDRef];
-
+        
         // paraPr CSS를 innerDiv style에 추가
         NSMutableString *paraStyle = [NSMutableString string];
         for (NSString *key in paraPr) {
@@ -114,11 +133,11 @@ extern HH_Head *head;
         }
         NSString *existingStyle = [innerDiv attributes][@"style"];
         [innerDiv setAttributes:[@{@"style": [existingStyle stringByAppendingString:paraStyle]} mutableCopy]];
-
+        
         if ([self.run count] == 1) {
             Run *targetRun = [self.run firstObject];
             NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
-
+            
             // charPr CSS를 innerDiv style에 추가
             NSMutableString *charStyle = [NSMutableString string];
             for (NSString *key in charPr) {
@@ -126,7 +145,7 @@ extern HH_Head *head;
             }
             NSString *currentStyle = [innerDiv attributes][@"style"];
             [innerDiv setAttributes:[@{@"style": [currentStyle stringByAppendingString:charStyle]} mutableCopy]];
-
+            
             NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
             if ([contents count] != 0) {
                 [innerDiv appendNodes:contents];
@@ -136,7 +155,7 @@ extern HH_Head *head;
             for (Run *targetRun in self.run) {
                 NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
                 if ([contents count] == 0) continue;
-
+                
                 NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
                 if ([charPr count] > 0) {
                     NSMutableString *charStyle = [NSMutableString string];
@@ -160,6 +179,27 @@ extern HH_Head *head;
     return result;
 }
 
+-(BOOL)areAllTexts
+{
+    for (Run *r in self.run) {
+        // Ctrl 같은 Run이 존재
+        if ([r.contents count] == 0) {
+            continue;
+        }
+        if (![r areTexts]) {
+            return NO;
+        }
+        
+    }
+    return YES;
+}
+    
+-(NSString*)getAllTexts
+    {
+        NSMutableString *
+        
+        return @"";
+    }
 
 @end
 

@@ -14,6 +14,7 @@
 #import "SecPr/Note/EndNotePr.h"
 #import "../Table/Tbl.h"
 #import "../../../Models/WrapperP.h"
+#import "../../../Models/Components/Paragraph/Text/Text.h"
 @import HTMLKit;
 
 @implementation Run
@@ -90,9 +91,7 @@
         }
         return contents;
     }
-
     // Run에서 Contents 개수가 1개 이상이면, 즉 lineseg한개에 2개 이상의 컨텐츠가 들어갈때, -> 대다수는 inline일듯?
-    
     for (id content in self.contents) {
         if ([content respondsToSelector:@selector(getContentHtml)] && [content respondsToSelector:@selector(isTreatAsChar)]) {
             HTMLElement* target = [content getContentHtml];
@@ -156,5 +155,28 @@
           NSLog(@"옵저버 제거 중 예외 발생: %@", exception);
       }
 }
+
+- (BOOL)areTexts
+{
+    for (id content in self.contents) {
+        if (![content isKindOfClass:[Text class]]) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
+- (BOOL)isAvailable
+{
+    for (id content in self.contents) {
+        if (!([content isKindOfClass:[Text class]]
+              || [content isKindOfClass:[Pic class]])
+            || [content isKindOfClass: [Tbl class]]) {
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
 
 @end

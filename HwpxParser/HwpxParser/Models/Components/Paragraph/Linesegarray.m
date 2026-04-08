@@ -40,7 +40,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addMarginWith:(MarginSender *)margin
 {
     for (Lineseg *line in self.lineseg) {
-        line.textpos = [NSString stringWithFormat:@"%d", [line.textpos intValue] + [margin.left intValue]];
+        line.horzpos = [NSString stringWithFormat:@"%d", [line.horzpos intValue] + [margin.left intValue]];
         line.vertpos = [NSString stringWithFormat:@"%d", [line.vertpos intValue] + [margin.top intValue]];
     }
 }

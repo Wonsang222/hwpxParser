@@ -523,4 +523,48 @@
             <hp:lineseg textpos="0" vertpos="18871" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
         </hp:linesegarray>
     </hp:p>
+     <hp:p id="2147483648" paraPrIDRef="52" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="45">
+            <hp:ctrl>
+                <hp:fieldBegin id="1856774889" type="CLICK_HERE" name="본문" editable="1" dirty="1" zorder="-1" fieldid="627272811">
+                    <hp:parameters cnt="2" name="">
+                        <hp:integerParam name="Prop">9</hp:integerParam>
+                        <hp:stringParam name="Command" xml:space="preserve">Clickhere:set:77:Direction:wstring:26:이곳을 마우스로 누르고 본문 내용을 입력하세요. HelpState:wstring:8:본문 내용 입력  </hp:stringParam>
+                    </hp:parameters>
+                    <hp:metaTag>{"name":"#본문"}</hp:metaTag>
+                </hp:fieldBegin>
+            </hp:ctrl>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>□ 행정안전부</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="50">
+            <hp:t>(장관 이상민)</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>는 </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t>정부에서 생산한 행정문서</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>의 </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t>데이터 활용을 강화</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>하는 방안을</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t> 모든 중앙부처로 확대</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>한다고 밝혔다.</hp:t>
+        </hp:run>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="21111" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+            <hp:lineseg textpos="48" vertpos="23351" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
+        </hp:linesegarray>
+    </hp:p>
 </hs:sec>

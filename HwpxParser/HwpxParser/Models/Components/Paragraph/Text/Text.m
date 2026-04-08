@@ -32,4 +32,11 @@ extern HH_Head *head;
     return span;
 }
 
+-(NSArray *_Nonnull)splitTextAt:(int)index
+{
+    NSArray *result = [[NSArray alloc] init];
+    
+    return result;
+}
+
 @end

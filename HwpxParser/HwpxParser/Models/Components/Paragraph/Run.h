@@ -37,6 +37,8 @@
 -(BOOL)hasSecPr;
 -(WrapperP*_Nullable)getContent;
 -(NSArray*_Nonnull)getContentWith:(NSString* _Nullable)margin lineseg:(HTMLElement* _Nonnull)line align:(NSString* _Nullable)alignString;
+-(BOOL)isAvailable;
+-(BOOL)areTexts;
 @end
 
     
