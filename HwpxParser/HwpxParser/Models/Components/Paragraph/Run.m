@@ -72,7 +72,7 @@
 
 
 // Paragraph 안에서 호출되는 메서드
--(NSArray*_Nonnull)getContentWith:(NSString*_Nullable)margin lineseg:(HTMLElement* _Nonnull)line align:(NSString*_Nullable)alignString
+-(NSArray*_Nonnull)getContentWith
 {
     NSMutableArray *contents = [@[] mutableCopy];
     

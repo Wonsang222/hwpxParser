@@ -88,22 +88,73 @@ extern HH_Head *head;
         [result addObject:wrapper];
         
     } else {
-        
         if ([self.run count] > 1 && [linesegarray.lineseg count] > 1) {
             // 텍스트인 경우 배치
             if ([self areAllTexts]) {
                 // 문단을 나눌 컷 포인트
-                NSMutableArray *cutPoint = [NSMutableArray new];
+                NSMutableArray *cutPoints = [NSMutableArray new];
+                [cutPoints addObject:@"0"];
                 for (Lineseg *line in linesegarray.lineseg) {
                     if (![line.textpos isEqualToString:@"0"]) {
-                        [cutPoint addObject:line.textpos];
+                        [cutPoints addObject:line.textpos];
                     }
                 }
                 
-                
+                NSInteger next = 0;
+                NSUInteger charStack = 0;
+                int startIdx = 0;
+                for (int i = 0; i < [cutPoints count];i++) {
+                    
+                    if (i == [cutPoints count] - 1) {
+                        // 마지막
+                        next = NSIntegerMax;
+                    } else {
+                        next = [cutPoints[i+1] integerValue];
+                    }
+                    
+                    Lineseg *lineSeg = linesegarray.lineseg[i];
+                    // wraapper innerDiv
+                    WrapperP *wrapper = [lineSeg getOuterP];
+                    HTMLElement *innerDiv = wrapper.inner;
+                    
+                    HTMLElement *line = [[HTMLElement alloc] initWithTagName:@"span" attributes:[@{
+                        @"style" : @"display:flex"
+                    }mutableCopy]];
+                    
+                    // Contentsw
+                    for (;startIdx < [self.run count]; startIdx++) {
+                        Run *targetRun = self.run[startIdx];
+                        Text *targetText = targetRun.text;
+                        if ([targetRun.contents count] == 0) {
+                            continue;
+                        }
+                        charStack += [targetRun.text.content length];
+                        if (charStack < next) {
+                            HTMLElement *content = [targetRun getContent].outer;
+                            NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
+                            NSMutableString *charStyle = [NSMutableString string];
+                            for (NSString *key in charPr) {
+                                [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
+                            }
+                            [content setAttributes:[@{
+                                @"style" : charStyle
+                            }mutableCopy]];
+                            [line appendNode:content];
+                        } else {
+                            NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
+                            NSMutableString *charStyle = [NSMutableString string];
+                            for (NSString *key in charPr) {
+                                [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
+                            }
+                            NSUInteger gap = charStack - next;
+                            NSMutableArray *splitTexts = [targetText splitTextAt:gap css:charStyle];
+                        }
+                    }
+                    [innerDiv appendNode:line];
+                    // result에 append
+                    [result addObject:wrapper];
+                }
             }
-            
-            
         } else {
             NSLog(@"outer Paragraph logic must be modified!!");
             __builtin_trap();
@@ -146,14 +197,14 @@ extern HH_Head *head;
             NSString *currentStyle = [innerDiv attributes][@"style"];
             [innerDiv setAttributes:[@{@"style": [currentStyle stringByAppendingString:charStyle]} mutableCopy]];
             
-            NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
+            NSArray<HTMLElement*> *contents = [targetRun getContentWith];
             if ([contents count] != 0) {
                 [innerDiv appendNodes:contents];
             }
         } else {
             // 1 lineseg + 다중 run: 각 run을 span으로 감싸 charPr 서식을 개별 적용 (한 줄 렌더링)
             for (Run *targetRun in self.run) {
-                NSArray<HTMLElement*> *contents = [targetRun getContentWith:margin lineseg:innerDiv align:alignString];
+                NSArray<HTMLElement*> *contents = [targetRun getContentWith	];
                 if ([contents count] == 0) continue;
                 
                 NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
@@ -193,13 +244,6 @@ extern HH_Head *head;
     }
     return YES;
 }
-    
--(NSString*)getAllTexts
-    {
-        NSMutableString *
-        
-        return @"";
-    }
 
 @end
 

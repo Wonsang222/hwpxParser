@@ -12,8 +12,9 @@
 @property (nullable, strong) NSString* content;
 -(HTMLElement*_Nonnull)convertToHtmlWith:(NSString* _Nonnull)margin;
 -(HTMLElement*_Nonnull)getContentHtml;
+-(HTMLElement*_Nonnull)convertToHtml;
 - (BOOL)isTreatAsChar;
--(NSArray *_Nonnull)splitTextAt:(int)index;
+-(NSMutableArray *_Nonnull)splitTextAt:(NSUInteger)index css:(NSString*_Nonnull)cssString;
 @end
 
 

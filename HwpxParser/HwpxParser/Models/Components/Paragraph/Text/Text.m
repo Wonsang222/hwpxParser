@@ -32,11 +32,34 @@ extern HH_Head *head;
     return span;
 }
 
--(NSArray *_Nonnull)splitTextAt:(int)index
+- (NSMutableArray *)splitTextAt:(NSUInteger)index css:(NSString *)cssString
 {
-    NSArray *result = [[NSArray alloc] init];
-    
+    NSMutableArray *result = [NSMutableArray new];
+    HTMLElement* div1 = [[HTMLElement alloc] initWithTagName:@"div"];
+    HTMLElement* div2 = [[HTMLElement alloc] initWithTagName:@"div"];
+    [div1 setAttributes:[@{
+        @"style" : cssString
+    }mutableCopy]];
+    [div2 setAttributes:[@{
+        @"style" : cssString
+    }mutableCopy]];
+
+    NSUInteger splitPos = self.content.length - index;
+    NSString *firstPart = [self.content substringToIndex:splitPos];
+    NSString *secondPart = [self.content substringFromIndex:splitPos];
+    [div1 setInnerHTML:firstPart];
+    [div2 setInnerHTML:secondPart];
+
+    [result addObject:div1];
+    [result addObject:div2];
     return result;
+}
+
+- (HTMLElement *)convertToHtml
+{
+    HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
+    [div setTextContent:self.content];
+    return div;
 }
 
 @end
