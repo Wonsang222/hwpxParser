@@ -42,14 +42,27 @@ int main(int argc, const char * argv[]) {
         NSString *resPath = [ppp stringByAppendingPathComponent:@"result"];
         NSString *finPath = [resPath stringByAppendingString: resultPath];
         
-        XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
+        __block NSMutableArray *heads = nil;
+        __block NSArray *secs = nil;
 
-        NSMutableArray *heads = [parser parseXMLFile:path];
+        dispatch_group_t group = dispatch_group_create();
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+
+        dispatch_group_async(group, queue, ^{
+            XMLParser *parser = [[XMLParser alloc] initWithPart:@"header"];
+            heads = [parser parseXMLFile:path];
+        });
+
+        dispatch_group_async(group, queue, ^{
+            XMLParser *parser2 = [[XMLParser alloc] init];
+            secs = [parser2 parseXMLFile:path2];
+        });
+
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+
         HH_Head *innerHead = [heads firstObject];
         head = innerHead;
-        
-        XMLParser *parser2 = [[XMLParser alloc] init];
-        NSArray *secs = [parser2 parseXMLFile:path2];
+
         Sec *sec = [secs firstObject];
         
         HTMLDocument* doc = [RenderingManager buildHTMLDocument];

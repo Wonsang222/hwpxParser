@@ -42,7 +42,8 @@
         @"t" : @"text",
         @"default" : @"defaults",
         @"case" : @"cases",
-        @"switch" : @"switches"
+        @"switch" : @"switches",
+        @"rect" : @"divrect"
     };
     
     self.prefix = @[

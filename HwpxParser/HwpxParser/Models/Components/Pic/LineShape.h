@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic, strong) NSString *headStyle;
 @property(nonnull,nonatomic, strong) NSString *tailStyle;
 @property(nonnull,nonatomic, strong) NSString *headfill;
+@property(nonnull,nonatomic, strong) NSString *tailfill;
 @property(nonnull,nonatomic, strong) NSString *headSz;
 @property(nonnull,nonatomic, strong) NSString *tailSz;
 @property(nonnull,nonatomic, strong) NSString *outlineStyle;
