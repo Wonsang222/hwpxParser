@@ -567,4 +567,264 @@
             <hp:lineseg textpos="48" vertpos="23351" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
         </hp:linesegarray>
     </hp:p>
+    <hp:p id="0" paraPrIDRef="53" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="40">
+            <hp:t> ○ 온나라 문서시스템을 통해 생산되는 정부의 결재문서에 대해 </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t>개방형 서식(</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="62">
+            <hp:t>포맷)을 적용하고, 설명데이터(메타데이터) 입력을 의무화하는 등의 방안을 모든 부처에</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t> 적용</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>할 예정이다.</hp:t>
+        </hp:run>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="25591" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+            <hp:lineseg textpos="39" vertpos="27831" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
+            <hp:lineseg textpos="79" vertpos="30071" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
+        </hp:linesegarray>
+    </hp:p>
+    <hp:p id="0" paraPrIDRef="54" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="40"/>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="32311" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+        </hp:linesegarray>
+    </hp:p>
+    <hp:p id="0" paraPrIDRef="54" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="40">
+            <hp:t>□ 우선, </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t>문서를 개방형 서식(포맷)으로 생산</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>하도록 하여 다양한 소프트웨어를 통해 문서 내부 데이터의 검색 및 추출 등이 가능해진다.</hp:t>
+        </hp:run>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="34551" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+            <hp:lineseg textpos="40" vertpos="36791" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
+        </hp:linesegarray>
+    </hp:p>
+    <hp:p id="0" paraPrIDRef="56" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="40">
+            <hp:t> ○ 그동안 행정문서는</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t> 비개방형 서식(포맷)인 경우가 많아, 문서 내부의 구조 확인이 어렵고, 데이터 추출에 한계</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>가 있었다.</hp:t>
+        </hp:run>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="39031" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+            <hp:lineseg textpos="41" vertpos="41271" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
+        </hp:linesegarray>
+    </hp:p>
+    <hp:p id="0" paraPrIDRef="71" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="40">
+            <hp:t> ○ </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="53">
+            <hp:t>이와 달리 </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="56">
+            <hp:t>개방형 서식</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="60">
+            <hp:t>(포맷 hwpx, docx, pptx, xlsx 등)</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="53">
+            <hp:t>은 </hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="56">
+            <hp:t>기술 표준이 외부에</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="51">
+            <hp:t> 공개되어 있어 내부 구조를 쉽게 확인</hp:t>
+        </hp:run>
+        <hp:run charPrIDRef="40">
+            <hp:t>할 수 있다.</hp:t>
+        </hp:run>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="43511" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+            <hp:lineseg textpos="53" vertpos="45751" vertsize="1400" textheight="1400" baseline="1190" spacing="840" horzpos="0" horzsize="48188" flags="1441792"/>
+        </hp:linesegarray>
+    </hp:p>
+    <hp:p id="0" paraPrIDRef="57" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+        <hp:run charPrIDRef="40">
+            <hp:tbl id="2061387066" zOrder="13" numberingType="TABLE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None" pageBreak="CELL" repeatHeader="1" rowCnt="2" colCnt="2" cellSpacing="0" borderFillIDRef="2" noAdjust="0">
+                <hp:sz width="47624" widthRelTo="ABSOLUTE" height="19698" heightRelTo="ABSOLUTE" protect="0"/>
+                <hp:pos treatAsChar="1" affectLSpacing="0" flowWithText="1" allowOverlap="0" holdAnchorAndSO="0" vertRelTo="PARA" horzRelTo="PARA" vertAlign="TOP" horzAlign="LEFT" vertOffset="0" horzOffset="0"/>
+                <hp:outMargin left="283" right="283" top="283" bottom="283"/>
+                <hp:inMargin left="510" right="510" top="141" bottom="141"/>
+                <hp:tr>
+                    <hp:tc name="" header="0" hasMargin="0" protect="0" editable="0" dirty="0" borderFillIDRef="2">
+                        <hp:subList id="" textDirection="HORIZONTAL" lineWrap="BREAK" vertAlign="CENTER" linkListIDRef="0" linkListNextIDRef="0" textWidth="0" textHeight="0" hasTextRef="0" hasNumRef="0">
+                            <hp:p id="2147483648" paraPrIDRef="14" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+                                <hp:run charPrIDRef="17">
+                                    <hp:container id="2061387071" zOrder="14" numberingType="PICTURE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None" href="" groupLevel="0" instid="987645248">
+                                        <hp:offset x="0" y="0"/>
+                                        <hp:orgSz width="46248" height="35078"/>
+                                        <hp:curSz width="22940" height="15846"/>
+                                        <hp:flip horizontal="0" vertical="0"/>
+                                        <hp:rotationInfo angle="0" centerX="11470" centerY="7923" rotateimage="1"/>
+                                        <hp:renderingInfo>
+                                            <hc:transMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                            <hc:scaMatrix e1="0.496021" e2="0" e3="0" e4="0" e5="0.451736" e6="0"/>
+                                            <hc:rotMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                        </hp:renderingInfo>
+                                        <hp:pic id="0" zOrder="0" numberingType="NONE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None" href="" groupLevel="1" instid="987645249" reverse="0">
+                                            <hp:offset x="4294966940" y="0"/>
+                                            <hp:orgSz width="63540" height="48180"/>
+                                            <hp:curSz width="31517" height="21764"/>
+                                            <hp:flip horizontal="0" vertical="0"/>
+                                            <hp:rotationInfo angle="0" centerX="11470" centerY="7923" rotateimage="1"/>
+                                            <hp:renderingInfo>
+                                                <hc:transMatrix e1="1" e2="0" e3="-356" e4="0" e5="1" e6="0"/>
+                                                <hc:scaMatrix e1="0.496021" e2="0" e3="179.416367" e4="0" e5="0.451736" e6="0"/>
+                                                <hc:rotMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                                <hc:scaMatrix e1="0.727856" e2="0" e3="356" e4="0" e5="0.728061" e6="0"/>
+                                                <hc:rotMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                            </hp:renderingInfo>
+                                            <hp:imgRect>
+                                                <hc:pt0 x="0" y="0"/>
+                                                <hc:pt1 x="63540" y="0"/>
+                                                <hc:pt2 x="63540" y="48180"/>
+                                                <hc:pt3 x="0" y="48180"/>
+                                            </hp:imgRect>
+                                            <hp:imgClip left="0" right="63540" top="0" bottom="48180"/>
+                                            <hp:inMargin left="0" right="0" top="0" bottom="0"/>
+                                            <hp:imgDim dimwidth="63540" dimheight="48180"/>
+                                            <hc:img binaryItemIDRef="image4" bright="0" contrast="0" effect="REAL_PIC" alpha="0"/>
+                                            <hp:effects/>
+                                        </hp:pic>
+                                        <hp:rect id="0" zOrder="0" numberingType="NONE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None" href="" groupLevel="1" instid="987645250" ratio="0">
+                                            <hp:offset x="4294965568" y="30213"/>
+                                            <hp:orgSz width="46769" height="4821"/>
+                                            <hp:curSz width="23198" height="2177"/>
+                                            <hp:flip horizontal="0" vertical="0"/>
+                                            <hp:rotationInfo angle="0" centerX="6273" centerY="742" rotateimage="1"/>
+                                            <hp:renderingInfo>
+                                                <hc:transMatrix e1="1" e2="0" e3="-1728" e4="0" e5="1" e6="30213"/>
+                                                <hc:scaMatrix e1="0.496021" e2="0" e3="870.874939" e4="0" e5="0.451736" e6="-16564.695313"/>
+                                                <hc:rotMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                                <hc:scaMatrix e1="0.540828" e2="0" e3="2629" e4="0" e5="0.681809" e6="1534"/>
+                                                <hc:rotMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                            </hp:renderingInfo>
+                                            <hp:lineShape color="#FF0000" width="198" style="SOLID" endCap="FLAT" headStyle="NORMAL" tailStyle="NORMAL" headfill="1" tailfill="1" headSz="SMALL_SMALL" tailSz="SMALL_SMALL" outlineStyle="NORMAL" alpha="0"/>
+                                            <hp:shadow type="NONE" color="#B2B2B2" offsetX="0" offsetY="0" alpha="0"/>
+                                            <hc:pt0 x="0" y="0"/>
+                                            <hc:pt1 x="46769" y="0"/>
+                                            <hc:pt2 x="46769" y="4821"/>
+                                            <hc:pt3 x="0" y="4821"/>
+                                        </hp:rect>
+                                        <hp:sz width="22940" widthRelTo="ABSOLUTE" height="15846" heightRelTo="ABSOLUTE" protect="0"/>
+                                        <hp:pos treatAsChar="1" affectLSpacing="0" flowWithText="1" allowOverlap="0" holdAnchorAndSO="0" vertRelTo="PARA" horzRelTo="PARA" vertAlign="TOP" horzAlign="LEFT" vertOffset="0" horzOffset="0"/>
+                                        <hp:outMargin left="0" right="0" top="0" bottom="0"/>
+                                        <hp:shapeComment>묶음 개체입니다.</hp:shapeComment>
+                                    </hp:container>
+                                    <hp:t/>
+                                </hp:run>
+                                <hp:linesegarray>
+                                    <hp:lineseg textpos="0" vertpos="0" vertsize="15846" textheight="15846" baseline="13469" spacing="600" horzpos="0" horzsize="22792" flags="393216"/>
+                                </hp:linesegarray>
+                            </hp:p>
+                        </hp:subList>
+                        <hp:cellAddr colAddr="0" rowAddr="0"/>
+                        <hp:cellSpan colSpan="1" rowSpan="1"/>
+                        <hp:cellSz width="23812" height="14977"/>
+                        <hp:cellMargin left="510" right="510" top="141" bottom="141"/>
+                    </hp:tc>
+                    <hp:tc name="" header="0" hasMargin="0" protect="0" editable="0" dirty="0" borderFillIDRef="2">
+                        <hp:subList id="" textDirection="HORIZONTAL" lineWrap="BREAK" vertAlign="CENTER" linkListIDRef="0" linkListNextIDRef="0" textWidth="0" textHeight="0" hasTextRef="0" hasNumRef="0">
+                            <hp:p id="2147483648" paraPrIDRef="14" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+                                <hp:run charPrIDRef="17">
+                                    <hp:pic id="2061387083" zOrder="15" numberingType="PICTURE" textWrap="TOP_AND_BOTTOM" textFlow="BOTH_SIDES" lock="0" dropcapstyle="None" href="" groupLevel="0" instid="987645260" reverse="0">
+                                        <hp:offset x="0" y="0"/>
+                                        <hp:orgSz width="54360" height="56340"/>
+                                        <hp:curSz width="22792" height="17468"/>
+                                        <hp:flip horizontal="0" vertical="0"/>
+                                        <hp:rotationInfo angle="0" centerX="11396" centerY="8734" rotateimage="1"/>
+                                        <hp:renderingInfo>
+                                            <hc:transMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                            <hc:scaMatrix e1="0.419279" e2="0" e3="0" e4="0" e5="0.310046" e6="0"/>
+                                            <hc:rotMatrix e1="1" e2="0" e3="0" e4="0" e5="1" e6="0"/>
+                                        </hp:renderingInfo>
+                                        <hp:imgRect>
+                                            <hc:pt0 x="0" y="0"/>
+                                            <hc:pt1 x="54360" y="0"/>
+                                            <hc:pt2 x="54360" y="56340"/>
+                                            <hc:pt3 x="0" y="56340"/>
+                                        </hp:imgRect>
+                                        <hp:imgClip left="0" right="54360" top="0" bottom="56340"/>
+                                        <hp:inMargin left="0" right="0" top="0" bottom="0"/>
+                                        <hp:imgDim dimwidth="54360" dimheight="56340"/>
+                                        <hc:img binaryItemIDRef="image5" bright="0" contrast="0" effect="REAL_PIC" alpha="0"/>
+                                        <hp:effects/>
+                                        <hp:sz width="22792" widthRelTo="ABSOLUTE" height="17468" heightRelTo="ABSOLUTE" protect="0"/>
+                                        <hp:pos treatAsChar="1" affectLSpacing="0" flowWithText="1" allowOverlap="0" holdAnchorAndSO="0" vertRelTo="PARA" horzRelTo="COLUMN" vertAlign="TOP" horzAlign="LEFT" vertOffset="0" horzOffset="0"/>
+                                        <hp:outMargin left="0" right="0" top="0" bottom="0"/>
+                                        <hp:shapeComment>그림입니다.
+원본 그림의 이름: 개방형포맷 예시2.jpg
+원본 그림의 크기: 가로 725pixel, 세로 751pixel</hp:shapeComment>
+                                    </hp:pic>
+                                    <hp:t/>
+                                </hp:run>
+                                <hp:linesegarray>
+                                    <hp:lineseg textpos="0" vertpos="0" vertsize="17468" textheight="17468" baseline="14848" spacing="600" horzpos="0" horzsize="22792" flags="393216"/>
+                                </hp:linesegarray>
+                            </hp:p>
+                        </hp:subList>
+                        <hp:cellAddr colAddr="1" rowAddr="0"/>
+                        <hp:cellSpan colSpan="1" rowSpan="1"/>
+                        <hp:cellSz width="23812" height="14977"/>
+                        <hp:cellMargin left="510" right="510" top="141" bottom="141"/>
+                    </hp:tc>
+                </hp:tr>
+                <hp:tr>
+                    <hp:tc name="" header="0" hasMargin="0" protect="0" editable="0" dirty="0" borderFillIDRef="2">
+                        <hp:subList id="" textDirection="HORIZONTAL" lineWrap="BREAK" vertAlign="CENTER" linkListIDRef="0" linkListNextIDRef="0" textWidth="0" textHeight="0" hasTextRef="0" hasNumRef="0">
+                            <hp:p id="2147483648" paraPrIDRef="18" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+                                <hp:run charPrIDRef="46">
+                                    <hp:t>&lt;개방형포맷 예시1&gt;</hp:t>
+                                </hp:run>
+                                <hp:linesegarray>
+                                    <hp:lineseg textpos="0" vertpos="0" vertsize="1100" textheight="1100" baseline="935" spacing="660" horzpos="0" horzsize="22792" flags="393216"/>
+                                </hp:linesegarray>
+                            </hp:p>
+                        </hp:subList>
+                        <hp:cellAddr colAddr="0" rowAddr="1"/>
+                        <hp:cellSpan colSpan="1" rowSpan="1"/>
+                        <hp:cellSz width="23812" height="1948"/>
+                        <hp:cellMargin left="510" right="510" top="141" bottom="141"/>
+                    </hp:tc>
+                    <hp:tc name="" header="0" hasMargin="0" protect="0" editable="0" dirty="0" borderFillIDRef="2">
+                        <hp:subList id="" textDirection="HORIZONTAL" lineWrap="BREAK" vertAlign="CENTER" linkListIDRef="0" linkListNextIDRef="0" textWidth="0" textHeight="0" hasTextRef="0" hasNumRef="0">
+                            <hp:p id="2147483648" paraPrIDRef="18" styleIDRef="0" pageBreak="0" columnBreak="0" merged="0">
+                                <hp:run charPrIDRef="46">
+                                    <hp:t>&lt;개방형포맷 예시2&gt;</hp:t>
+                                </hp:run>
+                                <hp:linesegarray>
+                                    <hp:lineseg textpos="0" vertpos="0" vertsize="1100" textheight="1100" baseline="935" spacing="660" horzpos="0" horzsize="22792" flags="393216"/>
+                                </hp:linesegarray>
+                            </hp:p>
+                        </hp:subList>
+                        <hp:cellAddr colAddr="1" rowAddr="1"/>
+                        <hp:cellSpan colSpan="1" rowSpan="1"/>
+                        <hp:cellSz width="23812" height="1948"/>
+                        <hp:cellMargin left="510" right="510" top="141" bottom="141"/>
+                    </hp:tc>
+                </hp:tr>
+            </hp:tbl>
+            <hp:t/>
+        </hp:run>
+        <hp:linesegarray>
+            <hp:lineseg textpos="0" vertpos="47991" vertsize="20264" textheight="20264" baseline="17224" spacing="840" horzpos="0" horzsize="48188" flags="393216"/>
+        </hp:linesegarray>
+    </hp:p>
 </hs:sec>
