@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) NSString *color;
 @property(strong) NSString *offsetX;
 @property(strong) NSString *offsetY;
+@property(nullable, strong) NSString *alpha;
 
 @end
 

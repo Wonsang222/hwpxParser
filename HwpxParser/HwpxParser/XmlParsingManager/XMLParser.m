@@ -109,6 +109,8 @@
         NSString *header = @"HH_";
         NSString* headerClsName = [header stringByAppendingString:clsName];
         clsName = headerClsName;
+    } else {
+        
     }
  
     Class elemCls = NSClassFromString(clsName);
