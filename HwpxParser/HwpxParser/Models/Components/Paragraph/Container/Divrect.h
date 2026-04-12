@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@class AbstractDrawingObjectType
+#import "../../../Base/AbstractShapeDrawingObjectType/AbstractDrawingObjectType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Divrect : NSObject
+@interface Divrect : AbstractDrawingObjectType
 
 @end
 

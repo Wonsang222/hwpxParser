@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSArray *bannedList;
 @property (nonatomic, strong) NSDictionary *standFor;
 @property (nonatomic, strong) NSArray *prefix;
+@property (nonatomic, strong) NSArray *commonUsageModel;
 
 @end
 
@@ -50,6 +51,11 @@
         @"hh:",
         @"hp:",
         @"hc:"
+    ];
+    
+    self.commonUsageModel = @[
+        @"fillBrush",
+        @"shadow"
     ];
 
     NSData *xmlData = [NSData dataWithContentsOfFile:filePath];
@@ -101,18 +107,26 @@
     if ([self.standFor objectForKey:openTag]) {
         openTag = [self.standFor objectForKey:openTag];
     }
+    
+
         
     NSString *clsName = [openTag stringByReplacingCharactersInRange:NSMakeRange(0, 1)
                                                         withString:[[openTag substringToIndex:1] uppercaseString]];
+    
+    if (self.part == nil) {
+        if ([self.commonUsageModel containsObject:openTag]) {
+            NSString *header = @"HH_";
+            NSString* headerClsName = [header stringByAppendingString:clsName];
+            clsName = headerClsName;
+        }
+    }
+    
     if (self.part != nil) {
         // part를 붙임 "Header"
         NSString *header = @"HH_";
         NSString* headerClsName = [header stringByAppendingString:clsName];
         clsName = headerClsName;
-    } else {
-        
     }
- 
     Class elemCls = NSClassFromString(clsName);
     
     if (elemCls) {
