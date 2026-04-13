@@ -35,8 +35,11 @@
     NSMutableDictionary *res = [@{}mutableCopy];
     res[@"font-size"] = [self convertUnsignedIntToPt:self.height];
     res[@"color"] = self.textColor;
-    
     res[@"font-family"] = @"sans-serif";
+    
+    if (self.bold) {
+        res[@"font-weight"] = @"bold";
+    }
     
     return res;
 }

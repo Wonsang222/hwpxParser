@@ -9,10 +9,15 @@
 #import "../../../../Models/Base/AbstractShapeComponent/AbstractShapeComponentType.h"
 @class Pic;
 @class Divrect;
+@class HTMLElement;
 
 @interface Container : AbstractShapeComponentType
 @property(strong) NSMutableArray * _Nonnull contents;
 @property(strong, nullable) Pic *pic;
 @property(strong, nullable) Divrect *rect;
+
+-(HTMLElement* _Nonnull)getContentHtml;
+- (BOOL)isTreatAsChar;
+
 @end
 

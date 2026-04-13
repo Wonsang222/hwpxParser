@@ -17,6 +17,7 @@
 @class HH_Strikeout;
 @class HH_Outline;
 @class HH_Shadow;
+@class HH_Bold;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -41,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nullable) HH_Strikeout *strikeout;
 @property(strong, nullable) HH_Outline *outline;
 @property(strong, nullable) HH_Shadow *shadow;
+@property(strong, nullable) HH_Bold *bold;
 
 -(NSDictionary*)getCSS;
 

@@ -9,6 +9,7 @@
 #import "../../../../Extensions/NSObject+ParsingHelper.h"
 #import "../../../../Models/Components/Pic/Pic.h"
 #import "Divrect.h"
+#import "../../../../Models/Base/AbstractShape/Pos.h"
 
 @implementation Container
 
@@ -53,5 +54,12 @@
         }
     }
     return;
+}
+
+
+
+- (BOOL)isTreatAsChar
+{
+    return [self.pos.treatAsChar isEqualToString:@"1"] ? YES : NO;
 }
 @end

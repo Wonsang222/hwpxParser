@@ -6,6 +6,7 @@
 //
 
 #import "LineShape.h"
+#import "../../../Extensions/NSObject+ParsingHelper.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -22,6 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize tailSz;
 @synthesize outlineStyle;
 @synthesize alpha;
+
+- (NSString *)convertToHtmlWith:(NSString *)margin
+{
+    NSString *border = @"border-%@ : %@; ";
+    NSString *color = [NSString stringWithFormat:border, @"color",self.color];
+    NSString *style = [NSString stringWithFormat:border, @"style",self.style];
+    NSString *width = [NSString stringWithFormat:border, @"width",[self convertUnsignedIntToPt:self.width]];
+    NSString *result = [@[color, style, width] componentsJoinedByString:@"" ];
+    
+    return result;
+}
 
 @end
 
