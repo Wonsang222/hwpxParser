@@ -10,10 +10,11 @@
 @class HH_FillBrush;
 @class HH_Shadow;
 @class DrawText;
+#import "../AbstractShapeComponent/AbstractShapeComponentType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AbstractDrawingObjectType : NSObject
+@interface AbstractDrawingObjectType : AbstractShapeComponentType
 @property(strong, nullable) LineShape *lineShape;
 @property(strong, nullable) HH_FillBrush *fillBrush;
 @property(strong, nullable) HH_Shadow *shadow;

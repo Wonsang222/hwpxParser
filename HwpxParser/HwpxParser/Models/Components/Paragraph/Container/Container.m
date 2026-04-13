@@ -8,6 +8,7 @@
 #import "Container.h"
 #import "../../../../Extensions/NSObject+ParsingHelper.h"
 #import "../../../../Models/Components/Pic/Pic.h"
+#import "Divrect.h"
 
 @implementation Container
 
@@ -45,10 +46,10 @@
                 [self.contents addObject:t];
             }
         } else if ([keyPath isEqualToString:@"divrect"]) {
-//            Pic* t = change[NSKeyValueChangeNewKey];
-//            if (t && ![t isEqual:[NSNull null]]) {
-//                [self.contents addObject:t];
-//            }
+            Divrect* t = change[NSKeyValueChangeNewKey];
+            if (t && ![t isEqual:[NSNull null]]) {
+                [self.contents addObject:t];
+            }
         }
     }
     return;
