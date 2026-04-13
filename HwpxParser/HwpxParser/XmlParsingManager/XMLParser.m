@@ -193,6 +193,15 @@
         NSString* headerClsName = [header stringByAppendingString:clsName];
         clsName = headerClsName;
     }
+    
+    if (self.part == nil) {
+        if ([self.commonUsageModel containsObject:closeTag]) {
+            NSString *header = @"HH_";
+            NSString* headerClsName = [header stringByAppendingString:clsName];
+            clsName = headerClsName;
+        }
+    }
+
 
     // 클래스가 존재하는지 확인 - 존재하지 않으면 객체가 생성되지 않았으므로 close도 하지 않음
     Class elemCls = NSClassFromString(clsName);

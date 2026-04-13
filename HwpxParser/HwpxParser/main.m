@@ -19,10 +19,6 @@
 NSString *base;
 HH_Head *head;
 
-// Sublist 에서 문제가 생김 -> WrapperP 처리관련.. lineseg가 있는지 없는지 부터 확인해야함.
-// Pic 객체부터 제대로 처리해야 테스트 결과 볼 수 있음 -> 제대로 안되어 있음
-
-
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
 
