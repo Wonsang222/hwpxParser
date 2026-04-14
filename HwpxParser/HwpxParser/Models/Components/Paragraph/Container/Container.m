@@ -29,6 +29,7 @@
 {
     HTMLElement *div = [[HTMLElement alloc] initWithTagName:@"div"];
     NSMutableDictionary *size = [self getAtt];
+    NSString *sizeString = [self convertDic:size];
     NSString *position;
     
     if ([self isTreatAsChar]) {
@@ -38,6 +39,12 @@
     } else {
         position = @"position:absolute; ";
     }
+    
+    NSString *final = [position stringByAppendingString:sizeString];
+    
+    [div setAttributes:[@{
+        @"style" : final
+    }mutableCopy]];
     
     for (id content in self.contents) {
         if ([content respondsToSelector:@selector(getContentHtml)]) {
@@ -68,6 +75,7 @@
         
         if ([keyPath isEqualToString:@"pic"]) {
             Pic* t = change[NSKeyValueChangeNewKey];
+            
             if (t && ![t isEqual:[NSNull null]]) {
                 [self.contents addObject:t];
             }
