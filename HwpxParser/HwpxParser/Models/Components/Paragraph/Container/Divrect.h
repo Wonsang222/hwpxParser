@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "../../../Base/AbstractShapeDrawingObjectType/AbstractDrawingObjectType.h"
+@class HTMLElement;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic, strong) NSString *pt1;
 @property(nonnull,nonatomic, strong) NSString *pt2;
 @property(nonnull,nonatomic, strong) NSString *pt3;
+-(HTMLElement*_Nonnull)getContentHtml;
 @end
 
 NS_ASSUME_NONNULL_END

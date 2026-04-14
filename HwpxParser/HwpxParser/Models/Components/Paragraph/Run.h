@@ -18,6 +18,7 @@
 @class PageBorderFill;
 @class HTMLElement;
 @class WrapperP;
+@class Container;
 
 @interface Run : NSObject
 
@@ -28,6 +29,7 @@
 @property(nonnull, strong) Text* text;
 @property(nullable, strong) Pic* pic;
 @property(nullable, strong) Tbl* tbl;
+@property(nullable, strong) Container *container;
 @property(nullable, strong) FootNotePr* footNotePr;
 @property(nullable, strong) EndNotePr* endNotePr;
 

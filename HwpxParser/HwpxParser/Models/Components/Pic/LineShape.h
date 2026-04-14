@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,nonatomic, strong) NSString *outlineStyle;
 @property(nonnull,nonatomic, strong) NSString *alpha;
 
-- (NSString *)convertToHtmlWith:(NSString *)margin;
+- (NSString *)convertToHtmlWith;
 
 @end
 

@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @synthesize outlineStyle;
 @synthesize alpha;
 
-- (NSString *)convertToHtmlWith:(NSString *)margin
+- (NSString *)convertToHtmlWith
 {
     NSString *border = @"border-%@ : %@; ";
     NSString *color = [NSString stringWithFormat:border, @"color",self.color];

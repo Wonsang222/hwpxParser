@@ -10,6 +10,7 @@
 #import "../../../../Models/Components/Pic/Pic.h"
 #import "Divrect.h"
 #import "../../../../Models/Base/AbstractShape/Pos.h"
+@import HTMLKit;
 
 @implementation Container
 
@@ -22,6 +23,30 @@
         [self addObserver:self forKeyPath:@"divrect" options:(NSKeyValueObservingOptionNew) context:NULL];
     }
     return self;
+}
+
+- (HTMLElement *)getContentHtml
+{
+    HTMLElement *div = [[HTMLElement alloc] initWithTagName:@"div"];
+    NSMutableDictionary *size = [self getAtt];
+    NSString *position;
+    
+    if ([self isTreatAsChar]) {
+        NSString *display = @"display:inline-block; ";
+        position = @"position:relative; ";
+        position = [position stringByAppendingString:display];
+    } else {
+        position = @"position:absolute; ";
+    }
+    
+    for (id content in self.contents) {
+        if ([content respondsToSelector:@selector(getContentHtml)]) {
+            HTMLElement *contentHtml = [content getContentHtml];
+            [div appendNode:contentHtml];
+        }
+    }
+    
+    return div;
 }
 
 - (void)dealloc

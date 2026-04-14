@@ -15,6 +15,7 @@
 #import "../Table/Tbl.h"
 #import "../../../Models/WrapperP.h"
 #import "../../../Models/Components/Paragraph/Text/Text.h"
+#import "../../Components/Paragraph/Container/Container.h"
 @import HTMLKit;
 
 @implementation Run
@@ -29,18 +30,19 @@
     self = [super init];
     [self initializeWithMutableArray];
     // 옵저버 설정
-    [self addObserver:self
-           forKeyPath:@"text"
-              options:(NSKeyValueObservingOptionNew) context:NULL];
     
-    [self addObserver:self
-           forKeyPath:@"pic"
-              options:(NSKeyValueObservingOptionNew) context:NULL];
+    NSArray *contentsString = @[
+        @"text",
+        @"pic",
+        @"tbl",
+        @"container",
+    ];
     
-    [self addObserver:self
-           forKeyPath:@"tbl"
-              options:(NSKeyValueObservingOptionNew) context:NULL];
-    
+    for (NSString *contentString in contentsString) {
+        [self addObserver:self
+               forKeyPath:contentString
+                  options:(NSKeyValueObservingOptionNew) context:NULL];
+    }
     return self;
 }
 
@@ -137,6 +139,11 @@
             }
         } else if ([keyPath isEqualToString:@"tbl"]) {
             Tbl* t = change[NSKeyValueChangeNewKey];
+            if (t && ![t isEqual:[NSNull null]]) {
+                [self.contents addObject:t];
+            }
+        }  else if ([keyPath isEqualToString:@"container"]) {
+            Container* t = change[NSKeyValueChangeNewKey];
             if (t && ![t isEqual:[NSNull null]]) {
                 [self.contents addObject:t];
             }
