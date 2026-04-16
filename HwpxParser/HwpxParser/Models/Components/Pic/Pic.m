@@ -15,6 +15,8 @@
 #import "ImgDim.h"
 #import "Img.h"
 #import "../../Base/AbstractShapeComponent/CurSz.h"
+#import "../../Base/AbstractShapeComponent/RenderingInfo.h"
+#import "../../Base/AbstractShapeComponent/MatrixType/ScaMatrix.h"
 #import "../../Base/AbstractShapeComponent/Offset.h"
 #import "../../Base/AbstractShape/Pos.h"
 #import "../../../Utils/FsManager.h"
@@ -22,6 +24,10 @@
 
 
 NS_ASSUME_NONNULL_BEGIN
+
+@interface Pic ()
+- (NSMutableDictionary *)scaledSizeWithCurSz;
+@end
 
 @implementation Pic
 
@@ -166,17 +172,31 @@ NS_ASSUME_NONNULL_BEGIN
     return wrapper;
 }
 
+- (NSMutableDictionary *)scaledSizeWithCurSz
+{
+    NSString *widthPt  = [self convertUnsignedIntToPt:self.curSz.width];
+    NSString *heightPt = [self convertUnsignedIntToPt:self.curSz.height];
+
+    CGFloat widthValue  = [[widthPt  stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+    CGFloat heightValue = [[heightPt stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+
+    CGFloat scaE1 = [self.renderingInfo.scaMatrix.e1 floatValue];
+    CGFloat scaE5 = [self.renderingInfo.scaMatrix.e5 floatValue];
+
+    return [@{
+        @"width"  : [NSString stringWithFormat:@"%gpt", widthValue  * scaE1],
+        @"height" : [NSString stringWithFormat:@"%gpt", heightValue * scaE5]
+    } mutableCopy];
+}
+
 -(HTMLElement*)getContentHtml
 {
     HTMLElement *picture = [[HTMLElement alloc] initWithTagName:@"img"];
     NSMutableDictionary* att1 = [self getAtts]; // size
     if (!att1) {
-        att1 = [self.curSz getCurSize];
+        att1 = [self scaledSizeWithCurSz];
     }
     NSString *sizeString = [self convertDic:att1];
-    
- 
-    
     NSString *srcString = [self imgSrc];
     
     NSString *final;

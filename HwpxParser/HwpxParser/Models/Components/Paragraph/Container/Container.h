@@ -14,7 +14,7 @@
 @interface Container : AbstractShapeComponentType
 @property(strong) NSMutableArray * _Nonnull contents;
 @property(strong, nullable) Pic *pic;
-@property(strong, nullable) Divrect *rect;
+@property(strong, nullable) Divrect *divrect;
 
 -(HTMLElement* _Nonnull)getContentHtml;
 - (BOOL)isTreatAsChar;

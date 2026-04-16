@@ -47,6 +47,7 @@
     }mutableCopy]];
     
     for (id content in self.contents) {
+        
         if ([content respondsToSelector:@selector(getContentHtml)]) {
             HTMLElement *contentHtml = [content getContentHtml];
             [div appendNode:contentHtml];
