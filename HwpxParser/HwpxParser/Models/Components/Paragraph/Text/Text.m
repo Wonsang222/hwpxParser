@@ -43,13 +43,13 @@ extern HH_Head *head;
     [div2 setAttributes:[@{
         @"style" : cssString
     }mutableCopy]];
-
+    
     NSUInteger splitPos = self.content.length - index;
     NSString *firstPart = [self.content substringToIndex:splitPos];
     NSString *secondPart = [self.content substringFromIndex:splitPos];
     [div1 setInnerHTML:firstPart];
     [div2 setInnerHTML:secondPart];
-
+    
     [result addObject:div1];
     [result addObject:div2];
     return result;
@@ -60,6 +60,27 @@ extern HH_Head *head;
     HTMLElement* div = [[HTMLElement alloc] initWithTagName:@"div"];
     [div setTextContent:self.content];
     return div;
+}
+
+
+-(BOOL)hasSpacing
+{
+    if ([self.content hasSuffix:@" "]) {
+        return YES;
+    }
+    return NO;
+    
+}
+
+-(void)removeSpacing
+{
+    self.content = [self.content substringToIndex:[self.content length] - 1];
+}
+
+-(void)addSpacing
+{
+    NSString *spacing = @" ";
+    self.content = [spacing stringByAppendingString:self.content];
 }
 
 @end

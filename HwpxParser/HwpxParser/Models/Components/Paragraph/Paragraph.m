@@ -135,6 +135,12 @@ extern HH_Head *head;
                             continue;
                         }
                         charStack += [targetRun.text.content length];
+                        
+                        // 띄어쓰기 보내기
+                        //
+                        Run *nextRun = self.run[startIdx + 1];
+                        
+                        
                         if (charStack < next) {
                             HTMLElement *content = [targetRun getContent].outer;
                             NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];

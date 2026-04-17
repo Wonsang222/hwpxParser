@@ -15,7 +15,6 @@
 @property (nonatomic, strong) NSDictionary *standFor;
 @property (nonatomic, strong) NSArray *prefix;
 @property (nonatomic, strong) NSArray *commonUsageModel;
-
 @end
 
 @implementation XMLParser
@@ -273,7 +272,8 @@
     id current = [self.current lastObject];
     if (current) {
         NSString* clsName = NSStringFromClass([current class]);
-        
+        NSLog(@"foundCharacters called: [%@] length=%lu", string, (unsigned long)string.length);
+
         if ([clsName isEqualToString:@"Text"]) {
             NSString *existing = [current valueForKey:@"content"];
             NSString *merged = existing ? [existing stringByAppendingString:string] : string;

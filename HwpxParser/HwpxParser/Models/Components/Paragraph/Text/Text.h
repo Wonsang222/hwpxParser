@@ -15,6 +15,8 @@
 -(HTMLElement*_Nonnull)convertToHtml;
 - (BOOL)isTreatAsChar;
 -(NSMutableArray *_Nonnull)splitTextAt:(NSUInteger)index css:(NSString*_Nonnull)cssString;
+-(void)removeSpacing;
+-(void)addSpacing;
 @end
 
 
