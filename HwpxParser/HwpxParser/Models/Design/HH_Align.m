@@ -22,7 +22,7 @@
         if ([self.horizontal isEqualToString:@"LEFT"]) cssAlign = @"left";
         else if ([self.horizontal isEqualToString:@"RIGHT"]) cssAlign = @"right";
         else if ([self.horizontal isEqualToString:@"CENTER"]) cssAlign = @"center";
-        else if ([self.horizontal isEqualToString:@"JUSTIFY"]) cssAlign = @"justify";
+        else if ([self.horizontal isEqualToString:@"JUSTIFY"]) cssAlign = @"justify;";
         else if ([self.horizontal isEqualToString:@"DISTRIBUTE"]) cssAlign = @"justify";
         
         if (cssAlign) {

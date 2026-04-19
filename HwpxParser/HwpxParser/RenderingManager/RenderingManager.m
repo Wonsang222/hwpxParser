@@ -23,12 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
     HTMLElement *style = [[HTMLElement alloc] initWithTagName:@"style"];
     HTMLElement *charset = [[HTMLElement alloc] initWithTagName:@"meta" attributes:@{@"charset" : @"utf-8"}];
     HTMLElement *body = [[HTMLElement alloc] initWithTagName:@"body"];
-    
+    HTMLElement *script = [[HTMLElement alloc] initWithTagName:@"script" attributes:@{@"src" : @"../JS/justify.js", @"defer" : @""}];
+
     [head appendNode:title];
     [head appendNode:charset];
     [head appendNode:style];
     [html appendNode:head];
     [html appendNode:body];
+    [body appendNode:script];
     [doc appendNode:html];
     return doc;
 }
