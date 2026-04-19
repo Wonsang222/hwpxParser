@@ -14,6 +14,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C18046BA2F9489E3005C8E75 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1C3A0D72EBAD38F0048B53A /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -28,11 +37,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C18046BC2F9489E3005C8E75 /* libHwpxParser_ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHwpxParser_ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1C3A0D52EBAD1290048B53A /* TestFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestFiles; path = HwpxParser/TestFiles; sourceTree = "<group>"; };
 		C1F1CEBC2E4ABB5A000AAB17 /* HwpxParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HwpxParser; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		C18046BD2F9489E3005C8E75 /* HwpxParser_ios */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = HwpxParser_ios;
+			sourceTree = "<group>";
+		};
 		C1F1CEBE2E4ABB5A000AAB17 /* HwpxParser */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = HwpxParser;
@@ -41,6 +56,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C18046B92F9489E3005C8E75 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1F1CEB92E4ABB5A000AAB17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -53,11 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C18046A52F9488BE005C8E75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C1F1CEB32E4ABB5A000AAB17 = {
 			isa = PBXGroup;
 			children = (
 				C1C3A0D52EBAD1290048B53A /* TestFiles */,
 				C1F1CEBE2E4ABB5A000AAB17 /* HwpxParser */,
+				C18046BD2F9489E3005C8E75 /* HwpxParser_ios */,
+				C18046A52F9488BE005C8E75 /* Frameworks */,
 				C1F1CEBD2E4ABB5A000AAB17 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -66,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				C1F1CEBC2E4ABB5A000AAB17 /* HwpxParser */,
+				C18046BC2F9489E3005C8E75 /* libHwpxParser_ios.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -73,6 +105,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C18046BB2F9489E3005C8E75 /* HwpxParser_ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C18046C02F9489E3005C8E75 /* Build configuration list for PBXNativeTarget "HwpxParser_ios" */;
+			buildPhases = (
+				C18046B82F9489E3005C8E75 /* Sources */,
+				C18046B92F9489E3005C8E75 /* Frameworks */,
+				C18046BA2F9489E3005C8E75 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				C18046BD2F9489E3005C8E75 /* HwpxParser_ios */,
+			);
+			name = HwpxParser_ios;
+			packageProductDependencies = (
+			);
+			productName = HwpxParser_ios;
+			productReference = C18046BC2F9489E3005C8E75 /* libHwpxParser_ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		C1F1CEBB2E4ABB5A000AAB17 /* HwpxParser */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C1F1CEC32E4ABB5A000AAB17 /* Build configuration list for PBXNativeTarget "HwpxParser" */;
@@ -104,8 +158,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					C18046BB2F9489E3005C8E75 = {
+						CreatedOnToolsVersion = 26.4;
+					};
 					C1F1CEBB2E4ABB5A000AAB17 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -130,11 +188,19 @@
 			projectRoot = "";
 			targets = (
 				C1F1CEBB2E4ABB5A000AAB17 /* HwpxParser */,
+				C18046BB2F9489E3005C8E75 /* HwpxParser_ios */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C18046B82F9489E3005C8E75 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C1F1CEB82E4ABB5A000AAB17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,6 +212,52 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		C18046C12F9489E3005C8E75 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZD5K45Y4NW;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C18046C22F9489E3005C8E75 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZD5K45Y4NW;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		C1F1CEC12E4ABB5A000AAB17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -270,6 +382,8 @@
 				DEVELOPMENT_TEAM = ZD5K45Y4NW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 			};
 			name = Debug;
 		};
@@ -280,12 +394,23 @@
 				DEVELOPMENT_TEAM = ZD5K45Y4NW;
 				ENABLE_HARDENED_RUNTIME = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C18046C02F9489E3005C8E75 /* Build configuration list for PBXNativeTarget "HwpxParser_ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C18046C12F9489E3005C8E75 /* Debug */,
+				C18046C22F9489E3005C8E75 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C1F1CEB72E4ABB5A000AAB17 /* Build configuration list for PBXProject "HwpxParser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

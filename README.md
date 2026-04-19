@@ -1,6 +1,6 @@
 # HwpxParser
 
-HWPX(한글 XML) 문서를 HTML로 변환하는 macOS 콘솔 애플리케이션입니다.
+HWPX(한글 XML) 문서를 HTML로 변환하는 macOS, iOS 애플리케이션입니다.
 
 ---
 
@@ -8,6 +8,13 @@ HWPX(한글 XML) 문서를 HTML로 변환하는 macOS 콘솔 애플리케이션�
 
 HWPX는 한글과컴퓨터의 워드프로세서 HWP 문서를 XML 기반으로 표현한 포맷입니다.
 HwpxParser는 HWPX 파일을 파싱하여 웹 브라우저에서 볼 수 있는 HTML 파일로 변환합니다.
+
+<table>
+  <tr>
+    <td align="center"><img src="ReadMeImgs/PrvImage.png" width="300"/><br/>원본</td>
+    <td align="center"><img src="ReadMeImgs/Result.jpg" width="300"/><br/>결과물</td>
+  </tr>
+</table>
 
 ---
 
@@ -30,6 +37,7 @@ HTMLElement 트리
 ## 주요 컴포넌트
 
 ### XMLParser
+
 HWPX의 XML 구조를 Objective-C 객체로 자동 매핑합니다.
 XML 요소명을 클래스명으로 변환하고, `NSClassFromString`으로 인스턴스를 동적으로 생성합니다.
 
@@ -37,9 +45,11 @@ XML 요소명을 클래스명으로 변환하고, `NSClassFromString`으로 인�
 - `hh:` 네임스페이스 → 문서 설계 클래스 (`HH_` 접두사, HH_Style, HH_Font 등)
 
 ### RenderingManager
+
 기본 HTML 문서 구조(`<html>`, `<head>`, `<body>`)를 생성합니다.
 
 ### Models
+
 파싱된 데이터를 담는 계층적 모델 구조입니다.
 
 ---
@@ -84,14 +94,14 @@ Pic
 
 `HH_` 접두사를 가진 클래스들이 문서의 스타일 및 설계 정보를 담당합니다.
 
-| 클래스 | 역할 |
-|--------|------|
-| `HH_Head` | 문서 전체 설계 정보 |
-| `HH_Style` | 개별 스타일 정의 |
-| `HH_CharProperties` | 문자 속성 |
-| `HH_ParaProperties` | 단락 속성 |
-| `HH_BorderFill` | 테두리/채우기 |
-| `HH_Font` | 글꼴 정보 |
+| 클래스              | 역할                |
+| ------------------- | ------------------- |
+| `HH_Head`           | 문서 전체 설계 정보 |
+| `HH_Style`          | 개별 스타일 정의    |
+| `HH_CharProperties` | 문자 속성           |
+| `HH_ParaProperties` | 단락 속성           |
+| `HH_BorderFill`     | 테두리/채우기       |
+| `HH_Font`           | 글꼴 정보           |
 
 ---
 
@@ -149,12 +159,12 @@ top:%@; left:%@; right:%@; bottom:%@;
 
 모든 모델 클래스에서 공통으로 사용하는 헬퍼 메서드를 제공합니다.
 
-| 메서드 | 역할 |
-|--------|------|
-| `convertUnsignedIntToPt:` | HWP 단위 → pt 변환 |
-| `convertDic:` | 딕셔너리 → CSS 문자열 변환 |
+| 메서드                       | 역할                                |
+| ---------------------------- | ----------------------------------- |
+| `convertUnsignedIntToPt:`    | HWP 단위 → pt 변환                  |
+| `convertDic:`                | 딕셔너리 → CSS 문자열 변환          |
 | `initializeWithMutableArray` | NSMutableArray 프로퍼티 자동 초기화 |
-| `outMarginFormat` | outMargin CSS 포맷 문자열 반환 |
+| `outMarginFormat`            | outMargin CSS 포맷 문자열 반환      |
 
 ### 단위 변환
 
@@ -170,7 +180,7 @@ HWPX는 내부적으로 `hwpunit`이라는 단위를 사용합니다.
 ## 기술 스택
 
 - **언어**: Objective-C
-- **플랫폼**: macOS
+- **플랫폼**: macOS, iOS
 - **XML 파싱**: NSXMLParser
 - **HTML 생성**: HTMLKit
 - **ZIP 처리**: UnzipManager
