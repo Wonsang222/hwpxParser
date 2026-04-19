@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C18048922F94ECDE005C8E75 /* HTMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = C18048912F94ECDE005C8E75 /* HTMLKit */; };
+		C18048942F94ECDE005C8E75 /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = C18048932F94ECDE005C8E75 /* ZipArchive */; };
 		C1C3A0D62EBAD1290048B53A /* TestFiles in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
 		C1C3A2C12EBDDBDF0048B53A /* TestFiles in Copy Files */ = {isa = PBXBuildFile; fileRef = C1C3A0D52EBAD1290048B53A /* TestFiles */; };
 		C1F1D0522E4AC90B000AAB17 /* HTMLKit in Frameworks */ = {isa = PBXBuildFile; productRef = C1F1D0512E4AC90B000AAB17 /* HTMLKit */; };
@@ -60,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18048922F94ECDE005C8E75 /* HTMLKit in Frameworks */,
+				C18048942F94ECDE005C8E75 /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +126,8 @@
 			);
 			name = HwpxParser_ios;
 			packageProductDependencies = (
+				C18048912F94ECDE005C8E75 /* HTMLKit */,
+				C18048932F94ECDE005C8E75 /* ZipArchive */,
 			);
 			productName = HwpxParser_ios;
 			productReference = C18046BC2F9489E3005C8E75 /* libHwpxParser_ios.a */;
@@ -228,6 +234,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "HwpxParser_ios/HwpxParser_ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
@@ -251,6 +258,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "HwpxParser_ios/HwpxParser_ios-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -451,6 +459,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C18048912F94ECDE005C8E75 /* HTMLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1F1D0502E4AC90A000AAB17 /* XCRemoteSwiftPackageReference "HTMLKit" */;
+			productName = HTMLKit;
+		};
+		C18048932F94ECDE005C8E75 /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1F1D1B22E4AC926000AAB17 /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
+		};
 		C1F1D0512E4AC90B000AAB17 /* HTMLKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C1F1D0502E4AC90A000AAB17 /* XCRemoteSwiftPackageReference "HTMLKit" */;
