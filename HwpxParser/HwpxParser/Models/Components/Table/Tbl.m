@@ -6,6 +6,7 @@
 //
 
 #import "Tbl.h"
+#import "../../Base/AbstractShape/Sz.h"
 #import "../../../Extensions/NSObject+ParsingHelper.h"
 #import "../Pic/InMargin.h"
 #import "CellZone.h"
@@ -79,7 +80,9 @@ extern HH_Head *head;
     HTMLElement *wrapperDiv = [self getWrapperDiv];
     HTMLElement *table = [[HTMLElement alloc] initWithTagName:@"table"];
     NSString *position = @"position:relative; ";
-    NSString *css = [[[self convertDic:[self getOwn]] stringByAppendingString:position]stringByAppendingString:[self getSize]];
+    NSString *height = [self convertUnsignedIntToPt:self.sz.height];
+    NSString *sizeStr = [NSString stringWithFormat:@"width:100%%; height:%@; ", height];
+    NSString *css = [[[self convertDic:[self getOwn]] stringByAppendingString:position]stringByAppendingString:sizeStr];
     [table setAttributes:[@{
         @"style": css
     }mutableCopy]];

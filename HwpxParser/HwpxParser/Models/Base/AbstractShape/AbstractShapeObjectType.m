@@ -33,13 +33,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (HTMLElement *)getWrapperDiv
 {
     HTMLElement *div = [[HTMLElement alloc] initWithTagName:@"div"];
-    NSString *cssString = [NSString stringWithFormat:@"height:%@; width:%@; top:%@; left:%@; right:%@; bottom:%@; position:absolute;",
+    NSString *cssString = [NSString stringWithFormat:@"height:%@; width:%@; top:%@; left:%@; position:absolute;",
                            [self convertUnsignedIntToPt:self.sz.height],
                            [self convertUnsignedIntToPt:self.sz.width],
                            [self convertUnsignedIntToPt:self.outMargin.top],
-                           [self convertUnsignedIntToPt:self.outMargin.left],
-                           [self convertUnsignedIntToPt:self.outMargin.right],
-                           [self convertUnsignedIntToPt:self.outMargin.bottom]
+                           [self convertUnsignedIntToPt:self.outMargin.left]
     ];
     
     [div setAttributes:[@{

@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
     return [self.refList getParaPr:num];
 }
 
+- (CGFloat)getIntentPtForParaPr:(NSString *)num
+{
+    return [self.refList getIntentPtForParaPr:num];
+}
+
 - (NSDictionary *)getBorderFill:(NSString *)num
 {
     return [self.refList getBorderFill:num];

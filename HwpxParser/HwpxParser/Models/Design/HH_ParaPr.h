@@ -36,6 +36,7 @@
 @property(strong, nullable) HH_Switches *switches;
 
 -(NSDictionary*_Nonnull)getStyleData;
+-(CGFloat)intentPt;
 
 @end
 

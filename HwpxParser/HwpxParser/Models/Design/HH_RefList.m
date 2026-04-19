@@ -37,6 +37,11 @@
     return [self.charProperties getCharPr:num];
 }
 
+- (CGFloat)getIntentPtForParaPr:(NSString *)num
+{
+    return [self.paraProperties getIntentPtForParaPr:num];
+}
+
 - (NSString *)getFontWithNum:(NSString *)num
 {
     return [self.fontfaces getFontWithNum:num];

@@ -11,6 +11,7 @@
 #import "HH_LineSpacing.h"
 #import "HH_Margin.h"
 #import "./BorderFill/HH_Switches.h"
+#import "HH_Cases.h"
 
 @implementation HH_ParaPr
 
@@ -40,6 +41,11 @@
     [result addEntriesFromDictionary:swit];
     
     return result;
+}
+
+- (CGFloat)intentPt
+{
+    return [self.switches.cases getIntentPt];
 }
 
 @end

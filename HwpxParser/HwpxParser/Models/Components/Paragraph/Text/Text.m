@@ -63,7 +63,7 @@ extern HH_Head *head;
 }
 
 
--(BOOL)hasSpacing
+-(BOOL)hasSuffixSpacing
 {
     if ([self.content hasSuffix:@" "]) {
         return YES;

@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong) HH_LineSpacing* lineSpacing;
 
 -(NSDictionary*)getCSSData;
+-(nullable NSString*)getIntentCSS;
+-(CGFloat)getIntentPt;
 @end
 
 NS_ASSUME_NONNULL_END

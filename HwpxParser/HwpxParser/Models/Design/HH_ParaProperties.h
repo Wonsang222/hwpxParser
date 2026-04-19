@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(strong, nonnull) NSMutableArray<HH_ParaPr*> *contents;
 
 -(NSDictionary*)getParaPr:(NSString*)num;
+-(CGFloat)getIntentPtForParaPr:(NSString*)num;
 
 @end
 

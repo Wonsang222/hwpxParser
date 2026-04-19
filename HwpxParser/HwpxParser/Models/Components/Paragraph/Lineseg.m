@@ -62,5 +62,13 @@
     }
     return NO;
 }
+
+- (void)addHorzpos:(CGFloat)intent
+{
+    CGFloat horz = [self.horzpos floatValue];
+    horz = (horz + intent) / 2;
+    self.horzpos = [NSString stringWithFormat:@"%f", horz];
+}
+
 @end
 

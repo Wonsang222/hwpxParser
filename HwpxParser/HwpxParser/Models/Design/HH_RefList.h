@@ -29,6 +29,7 @@
 @property(strong, nullable) HH_MemoProperties *memoProperties;
 
 -(NSDictionary*_Nonnull)getParaPr:(NSString*_Nonnull)num;
+-(CGFloat)getIntentPtForParaPr:(NSString*_Nonnull)num;
 -(NSDictionary*_Nonnull)getBorderFill:(NSString*_Nonnull)num;
 -(NSDictionary*_Nonnull)getCharPr:(NSString*_Nonnull)num;
 - (NSString *_Nonnull)getFontWithNum:(NSString *_Nonnull)num;

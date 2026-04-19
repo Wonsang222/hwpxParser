@@ -91,12 +91,17 @@ extern HH_Head *head;
         if ([self.run count] > 1 && [linesegarray.lineseg count] > 1) {
             // 텍스트인 경우 배치
             if ([self areAllTexts]) {
+                CGFloat intentPt = [head getIntentPtForParaPr:self.paraPrIDRef];
                 // 문단을 나눌 컷 포인트
                 NSMutableArray *cutPoints = [NSMutableArray new];
                 [cutPoints addObject:@"0"];
+                
                 for (Lineseg *line in linesegarray.lineseg) {
                     if (![line.textpos isEqualToString:@"0"]) {
                         [cutPoints addObject:line.textpos];
+                    }
+                    if (![line isEqual:[self.linesegarray.lineseg firstObject]]) {
+                        [line addHorzpos:intentPt];
                     }
                 }
                 
@@ -135,46 +140,30 @@ extern HH_Head *head;
                             continue;
                         }
                         charStack += [targetRun.text.content length];
-                        
-                        // 띄어쓰기 보내기
-                        //
-                        Run *nextRun = self.run[startIdx + 1];
-                        
-                        
+
+                        NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
+                        NSMutableString *charStyle = [NSMutableString string];
+                        for (NSString *key in charPr) {
+                            [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
+                        }
+                        // flex item 내부의 leading/trailing 공백이 CSS에 의해 제거되지 않도록 pre-wrap 적용
+                        [charStyle appendString:@" white-space:pre-wrap;"];
+
                         if (charStack < next) {
                             HTMLElement *content = [targetRun getContent].outer;
-                            NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
-                            NSMutableString *charStyle = [NSMutableString string];
-                            for (NSString *key in charPr) {
-                                [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
-                            }
-                            [content setAttributes:[@{
-                                @"style" : charStyle
-                            }mutableCopy]];
+                            [content setAttributes:[@{@"style" : charStyle}mutableCopy]];
                             [line appendNode:content];
                         } else if (charStack == next) {
                             // 현재 run의 텍스트가 정확히 줄바꿈 지점에서 끝남
                             // -> 현재 line에 추가하고 다음 lineseg로 이동
                             HTMLElement *content = [targetRun getContent].outer;
-                            NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
-                            NSMutableString *charStyle = [NSMutableString string];
-                            for (NSString *key in charPr) {
-                                [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
-                            }
-                            [content setAttributes:[@{
-                                @"style" : charStyle
-                            }mutableCopy]];
+                            [content setAttributes:[@{@"style" : charStyle}mutableCopy]];
                             [line appendNode:content];
                             startIdx++;
                             break;
                         } else {
                             // charStack > next: 텍스트가 줄바꿈 지점을 넘어감
                             // -> 텍스트를 분할하여 앞부분은 현재 줄, 뒷부분은 다음 줄로
-                            NSDictionary *charPr = [head getCharPr:targetRun.charPrIDRef];
-                            NSMutableString *charStyle = [NSMutableString string];
-                            for (NSString *key in charPr) {
-                                [charStyle appendFormat:@" %@:%@;", key, charPr[key]];
-                            }
                             NSUInteger gap = charStack - next;
                             NSMutableArray *splitTexts = [targetRun.text splitTextAt:gap css:charStyle];
                             // 앞부분 → 현재 줄

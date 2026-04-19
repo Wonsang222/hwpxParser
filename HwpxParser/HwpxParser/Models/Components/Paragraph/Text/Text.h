@@ -17,6 +17,7 @@
 -(NSMutableArray *_Nonnull)splitTextAt:(NSUInteger)index css:(NSString*_Nonnull)cssString;
 -(void)removeSpacing;
 -(void)addSpacing;
+-(BOOL)hasSuffixSpacing;
 @end
 
 

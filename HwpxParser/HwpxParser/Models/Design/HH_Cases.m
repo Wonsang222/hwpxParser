@@ -8,6 +8,7 @@
 #import "HH_Cases.h"
 #import "HH_Margin.h"
 #import "HH_LineSpacing.h"
+#import "HH_Intent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,6 +25,20 @@ NS_ASSUME_NONNULL_BEGIN
     [result addEntriesFromDictionary:lineSpacing];
     
     return result;
+}
+
+- (nullable NSString *)getIntentCSS
+{
+    if (!self.margin.intent) return nil;
+    return [self.margin.intent getCSSData];
+}
+
+- (CGFloat)getIntentPt
+{
+    if (!self.margin.intent) return 0.0;
+    CGFloat val = [self.margin.intent.value floatValue];
+    if (val < 0) val *= -1;
+    return val;
 }
 
 @end

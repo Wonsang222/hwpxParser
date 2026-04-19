@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonnull,strong) NSString* flags;
 -(BOOL)isNewPage;
 -(WrapperP*)getOuterP;
+-(void)addHorzpos:(CGFloat)intent;
 @end
 
 NS_ASSUME_NONNULL_END

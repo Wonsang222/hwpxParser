@@ -34,7 +34,7 @@ extern HH_Head *head;
     NSString *borderString = [self convertDic:border];
 
     MarginSender *finalMargin;
-    NSString *relativeWithSize = [[relative stringByAppendingString:sizeString] stringByAppendingString:borderString];
+    NSString *relativeWithSize = [[[relative stringByAppendingString:@"box-sizing:border-box; "] stringByAppendingString:sizeString] stringByAppendingString:borderString];
     
     if ([self.hasMargin isEqualTo:@"0"]) {
         // 고유의 cell margin을 사용 안한다

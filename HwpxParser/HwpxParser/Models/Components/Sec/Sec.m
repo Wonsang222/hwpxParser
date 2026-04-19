@@ -86,6 +86,41 @@ NS_ASSUME_NONNULL_BEGIN
     return result;
 }
 
+- (WrapperP*)getPaperDiv:(NSMutableDictionary*)registeredPaperAtt
+{
+    HTMLElement *outerPaper = [[HTMLElement alloc] initWithTagName:@"div"];
+    HTMLElement *innerPaper = [[HTMLElement alloc] initWithTagName:@"div"];
+    // position이 relative이기 때문에 용지를 나타내는 div는 padding이 적용되지 않는다. -> 내부의 wrapper를 둬서 padding을 표현
+
+    NSMutableDictionary* att = [self createAttribute:registeredPaperAtt];
+    [outerPaper setAttributes:att];
+
+    // innerPaper: outerPaper의 width/height에서 padding을 뺀 크기
+    float paperWidth    = [[registeredPaperAtt[@"width"]          stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+    float paperHeight   = [[registeredPaperAtt[@"height"]         stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+    float paddingLeft   = [[registeredPaperAtt[@"padding-left"]   stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+    float paddingRight  = [[registeredPaperAtt[@"padding-right"]  stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+    float paddingTop    = [[registeredPaperAtt[@"padding-top"]    stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+    float paddingBottom = [[registeredPaperAtt[@"padding-bottom"] stringByReplacingOccurrencesOfString:@"pt" withString:@""] floatValue];
+
+    float innerWidth  = paperWidth  - paddingLeft - paddingRight;
+    float innerHeight = paperHeight - paddingTop  - paddingBottom;
+
+    NSMutableDictionary *innerPaperStyle = [@{
+        @"position" : @"relative",
+        @"width"    : [NSString stringWithFormat:@"%.2fpt", innerWidth],
+        @"height"   : [NSString stringWithFormat:@"%.2fpt", innerHeight]
+    } mutableCopy];
+    NSMutableDictionary *innerPaperAtt = [self createAttribute:innerPaperStyle];
+    [innerPaper setAttributes:innerPaperAtt];
+    [outerPaper appendNode:innerPaper];
+
+    WrapperP *wrapperP = [WrapperP new];
+    wrapperP.outer = outerPaper;
+    wrapperP.inner = innerPaper;
+    return wrapperP;
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

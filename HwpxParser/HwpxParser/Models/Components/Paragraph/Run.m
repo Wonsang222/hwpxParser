@@ -185,5 +185,17 @@
     return TRUE;
 }
 
+-(void)removeSpacing
+{
+    [self.text removeSpacing];
+}
+-(void)addSpacing
+{
+    [self.text addSpacing];
+}
+-(BOOL)hasSuffixSpacing{
+    return [self.text hasSuffixSpacing];
+}
+
 
 @end

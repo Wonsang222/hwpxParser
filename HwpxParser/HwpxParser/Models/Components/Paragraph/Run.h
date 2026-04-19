@@ -41,6 +41,9 @@
 -(NSArray*_Nonnull)getContentWith;
 -(BOOL)isAvailable;
 -(BOOL)areTexts;
+-(void)removeSpacing;
+-(void)addSpacing;
+-(BOOL)hasSuffixSpacing;
 @end
 
     

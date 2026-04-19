@@ -45,6 +45,16 @@
     return @{};
 }
 
+- (CGFloat)getIntentPtForParaPr:(NSString *)num
+{
+    for (HH_ParaPr *content in self.contents) {
+        if ([content.identification isEqualToString:num]) {
+            return [content intentPt];
+        }
+    }
+    return 0.0;
+}
+
 - (void)dealloc
 {
     [self removeKVO:self withMember:@"paraPr"];
