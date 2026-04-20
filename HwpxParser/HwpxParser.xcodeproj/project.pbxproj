@@ -123,6 +123,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				C18046BD2F9489E3005C8E75 /* HwpxParser_ios */,
+				C1F1CEBE2E4ABB5A000AAB17 /* HwpxParser */,
 			);
 			name = HwpxParser_ios;
 			packageProductDependencies = (
@@ -221,8 +222,11 @@
 		C18046C12F9489E3005C8E75 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZD5K45Y4NW;
+				EXCLUDED_SOURCE_FILE_NAMES = main.m;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/HwpxParser";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -245,8 +249,11 @@
 		C18046C22F9489E3005C8E75 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZD5K45Y4NW;
+				EXCLUDED_SOURCE_FILE_NAMES = main.m;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/HwpxParser";
 				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

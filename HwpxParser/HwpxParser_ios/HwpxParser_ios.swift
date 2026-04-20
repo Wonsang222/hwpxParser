@@ -9,6 +9,6 @@ import Foundation
 
 final class HwpxParser_ios {
     init() {
-        let r = RenderingManager()
+        let r = RenderingManager.buildHTMLDocument()
     }
 }

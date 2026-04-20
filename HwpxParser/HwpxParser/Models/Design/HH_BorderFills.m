@@ -30,7 +30,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     if (object == self) {
-        if ([keyPath isEqualTo:@"borderFill"]) {
+        if ([keyPath isEqualToString:@"borderFill"]) {
             HH_BorderFill *borderFill = change[NSKeyValueChangeNewKey];
             if (borderFill) {
                 [self.contents addObject:borderFill];

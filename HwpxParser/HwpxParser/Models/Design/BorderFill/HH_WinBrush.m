@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
     NSString *key = @"background-color";
     NSString *val = @"transparent";
     
-    if ([self.faceColor isNotEqualTo:@"none"]) {
+    if (![self.faceColor isEqualToString:@"none"]) {
         val = self.hatchColor;
     }
     

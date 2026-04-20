@@ -22,7 +22,7 @@
     NSMutableDictionary *result = [@{}mutableCopy];
     NSString *val = @"none";
     
-    if ([self.type isNotEqualTo:@"NONE"]) {
+    if (![self.type isEqualToString:@"NONE"]) {
         NSString *cssWidth = [self.width stringByReplacingOccurrencesOfString:@" " withString:@""];
         val = [NSString stringWithFormat:@"%@ %@ %@", cssWidth, self.type, self.color];
     }

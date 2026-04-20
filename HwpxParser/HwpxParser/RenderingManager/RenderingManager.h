@@ -6,12 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
-@class HTMLDocument;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RenderingManager : NSObject
-+(HTMLDocument*)buildHTMLDocument;
++(id)buildHTMLDocument;
 @end
 
 NS_ASSUME_NONNULL_END
