@@ -21,7 +21,6 @@ HH_Head *head;
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-
         base = [NSString stringWithUTF8String:__FILE__];
         NSString *base1 = [base stringByDeletingLastPathComponent];
         NSString *testPath = @"/TestFiles/Output/Contents/header.xml";

@@ -5,7 +5,10 @@
 //  Created by Wonsang Hwang on 4/19/26.
 //
 
-class HwpxParser_ios {
-    
+import Foundation
 
+final class HwpxParser_ios {
+    init() {
+        let r = RenderingManager()
+    }
 }
